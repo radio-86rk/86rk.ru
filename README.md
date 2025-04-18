@@ -14,4 +14,4 @@
 
 ## License
 
-[**MIT**](https://github.com/P3TERX/Actions-OpenWrt/blob/main/LICENSE) © [**Vital72**](https://86rk.ru/)
+[**MIT**](https://github.com/radio-86rk/86rk.ru/blob/main/LICENSE) © [**Vital72**](https://86rk.ru/)
