@@ -14,6 +14,6 @@
 
 Для работы сайт не требуется база данных.
 
-## License
+## Лицензия
 
 [**MIT**](https://github.com/radio-86rk/86rk.ru/blob/main/LICENSE) © [**Vital72**](https://86rk.ru/)
