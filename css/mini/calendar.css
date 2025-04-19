@@ -1,0 +1,39 @@
+@import "../calendar.css";
+
+modal-module.calendar {
+	--modal-bg: #050b2e;
+	--modal-padding: 0;
+	--header-fs: 110%;
+	--header-transform: capitalize;
+	--header-color: #fff;
+	--caption-padding: 0 10px;
+	--dow-color: #fc0;
+	--dow67-color: #f00;
+	--day-color: #92b9ff;
+	--day67-color: #f62;
+	--cur-day-color: #ffb;
+	--cur-day67-color: #f00;
+	--cur-day-decor-radius: 0;
+	--cur-day-decor-left: 3px;
+	--cur-day-decor-shadow: inset 0 0 2px 2px #ffb;
+	--cur-day67-decor-shadow: inset 0 0 2px 2px #f66;
+	--h1-color: #fff;
+	--h1-sw-color: #000;
+	--h1-sw-shadow: 0 0 15px #ffc, 0 0 10px #ffc;
+	--single-title-color: #626c8c;
+	--single-header-color: #fff;
+	--single-ctrl-padding: 0 30px 3px;
+	--single-ctrl-hover-color: #fff;
+	--single-cell-decor-color: #fc0;
+	--single-cur-cell-bg: #112c5d;
+	--single-cur-cell67-bg: #4b1c36;
+	--single-cell-decor-bg: #005aff1f;
+	--single-cell-decor2-color: #fff6;
+
+	--crtl-right: 0;
+	--crtl-top: 0;
+	--ctrl-radius: 0;
+	--view-font: 12px verdana;
+	--view-bg: #050b2e;
+	--view-padding: 5px 0 10px;
+}

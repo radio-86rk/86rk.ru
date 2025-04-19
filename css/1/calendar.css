@@ -1,0 +1,104 @@
+@import "../calendar.css";
+
+modal-module.calendar {
+	color: #ff9;
+	--modal-bg: #15274a;
+	--modal-padding: 0;
+	--calendar-margin: 30px 0 0;
+	--caption-year-fs: 110%;
+	--caption-year-color: #ffc;
+	--header-display: block;
+	--header-fs: 150%;
+	--header-transform: uppercase;
+	--header-color: #fff;
+	--header-shadow: 0 0 3px #000, 0 0 1px #fff;
+	--header-hover-color: #ffc;
+	--month-padding: 15px 30px 55px;
+	--month-margin: -10px;
+	--row-display: flex;
+	--cell-display: block;
+	--dow-color: #fc0;
+	--dow67-color: #f00;
+	--day-color: #a9c8ff;
+	--day67-color: #f33;
+	--day-shadow: 0 0 1px #000, 0 0 1px #000;
+	--cur-day-color: #1a3e83;
+/*
+	--cur-day67-color: #132546;
+*/
+	--cur-day-decor-bg: #ffb;
+	--cur-day-decor-shadow: inset 0 0 2px 2px #0006;
+	--cur-day67-decor-bg: #f33;
+	--h1-color: #ffc;
+	--h1-sw-color: #000;
+	--h1-sw-shadow: 0 0 15px #ffc, 0 0 10px #ffc;
+	--ctrl-color: #666;
+	--ctrl-hover-color: #ccc;
+	--single-margin: 0 0 -15px;
+	--single-header-justify: center;
+	--single-header-color: #fff;
+	--single-ctrl-padding: 0 30px 4px;
+	--single-ctrl-hover-color: #ffc;
+	--single-cell-decor-color: #fc0;
+	--single-cur-cell-bg: #112c5d;
+	--single-cur-cell67-bg: #4b1c36;
+	--single-cell-decor-bg: #005aff1f;
+	--single-cell-decor2-color: #fff6;
+	--nick-color: #cce;
+
+	--crtl-right: 15px;
+	--crtl-top: 2px;
+	--view2-padding: 10px 30px 30px;
+}
+modal-module.calendar calendar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: flex-start;
+}
+cal-month {
+	display: block;
+	border-radius: 50%;
+}
+cal-month:nth-of-type(1) {
+	background: #b9daea55;
+}
+cal-month:nth-of-type(2) {
+	background: #e3b18355;
+}
+cal-month:nth-of-type(3) {
+	background: #da9cae55;
+}
+cal-month:nth-of-type(4) {
+	background: #f3e99d55;
+}
+cal-month:nth-of-type(5) {
+	background: #96c3a255;
+}
+cal-month:nth-of-type(6) {
+	background: #45a3d255;
+}
+cal-month:nth-of-type(7) {
+	background: #bd505755;
+}
+cal-month:nth-of-type(8) {
+	background: #9283b655;
+}
+cal-month:nth-of-type(9) {
+	background: #d8924655;
+}
+cal-month:nth-of-type(10) {
+	background: #d899bb55;
+}
+cal-month:nth-of-type(11) {
+	background: #c47e4f55;
+}
+cal-month:nth-of-type(12) {
+	background: #c1d59655;
+}
+cal-single-month>div>div.cur {
+	z-index: 1;
+	left: -1px;
+	border: 2px solid #fc0;
+	margin: -2px -2px -1px -1px;
+}

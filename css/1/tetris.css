@@ -1,0 +1,129 @@
+@import "../tetris.css";
+@font-face {
+	font-family: tetris-font;
+	font-weight: normal;
+	font-style: normal;
+	src: url("../../fonts/62DRAGZ.woff2") format("woff2");
+}
+
+modal-module.tetris {
+	--window-bg: none;
+	--window-shadow-bg: #0006;
+	--title-fs: 17vmin;
+	--title-shadow: 0 0 4vmin #000;
+	--info-fs: 3.5vmin;
+	--info-color: #5ed8fc;
+	--info-bg: #0a75dc99;
+	--info-shadow: none;
+	--info-data-color: #fff;
+	--level-color: #00f;
+	--level-shadow: 0 0 1.5vmin #fff;
+	--game-over-color: #f09;
+	--game-over-shadow: 0 0 3vmin #000;
+	--high-score-fs: 3.5vmin;
+	--high-score-bg: #0009;
+	--high-score-hl-color: #f099;
+	--button-fs: 3vmin;
+	--button-line-height: 5vmin;
+	--button-padding: 1vmin 12vmin .5vmin;
+	--button-decor-top: -6vmin;
+	--pause-fs: 7vmin;
+	--pause-color: #f09;
+	--pause-text-shadow: 0 0 10px #00fc;
+	--tetris-next-bg: #0a75dc;
+	--tetris-next-border: 1vmin solid #0a75dc;
+	--tetris-padding: 3px;
+	--tetris-border: 2px solid #fff;
+	--tetris-bg: linear-gradient(#588ea3, #829584);
+	--tetris-pause-bg: var(--tetris-bg);
+	--tetris-shadow: none;
+	--tetris-cell-bg: none;
+	--tetris-cell-outline: 1px solid #00284e1f;
+	--tetris-mino-outline: var(--tetris-cell-outline);
+	--tetris-mino-shadow: inset 0 0 0 1px #0003, 0 .6vmin .6vmin #0366;
+	--tetris-mino1: linear-gradient(-25deg, #1481aa 0, #2abad5 51%, #46cbe0 53%, #beeaf2 90%);
+	--tetris-mino2: linear-gradient(-25deg, #ea9f1f 0, #eead26 51%, #f6bf6c 53%, #ffffff 90%);
+	--tetris-mino3: linear-gradient(-25deg, #813ad8 0, #8d44dd 51%, #a561de 53%, #dea5f5 90%);
+	--tetris-mino4: linear-gradient(-25deg, #288613 0, #399a1d 51%, #70cc4a 53%, #beff8d 90%);
+	--tetris-mino5: linear-gradient(-25deg, #a01e1f 0, #b6281c 51%, #da4835 53%, #fe8f6f 90%);
+	--tetris-mino6: linear-gradient(-25deg, #1847bb 0, #2c71da 51%, #418ce3 53%, #72bff2 90%);
+	--tetris-mino7: linear-gradient(-25deg, #e54d00 0, #ea5b01 51%, #f0862a 53%, #fad495 90%);
+}
+modal-module.tetris tetris>div>div[class^="mino"] {
+	border-radius: var(--mino-decor-margin);
+}
+modal-module.tetris tetris>div>div[class^="mino"]::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-radius: 2px;
+	margin: var(--mino-decor-margin);
+}
+modal-module.tetris tetris>div>div.mino1::after {
+	background: linear-gradient(-25deg, #2bc3de 51%, #58dfee 53%);
+}
+modal-module.tetris tetris>div>div.mino2::after {
+	background: linear-gradient(-25deg, #ffda24 51%, #fff474 53%);
+}
+modal-module.tetris tetris>div>div.mino3::after {
+	background: linear-gradient(-25deg, #9858f8 51%, #ad69f9 53%);
+}
+modal-module.tetris tetris>div>div.mino4::after {
+	background: linear-gradient(-25deg, #55bf28 51%, #6ed234 53%);
+}
+modal-module.tetris tetris>div>div.mino5::after {
+	background: linear-gradient(-25deg, #e53417 51%, #f24e23 53%);
+}
+modal-module.tetris tetris>div>div.mino6::after {
+	background: linear-gradient(-25deg, #1e70e4 51%, #258aea 53%);
+}
+modal-module.tetris tetris>div>div.mino7::after {
+	background: linear-gradient(-25deg, #ff8415 51%, #ffa01b 53%);
+}
+modal-module.tetris tetris>div>div[class^="mino"].fix {
+	animation: tetris-fix .1s;
+}
+modal-module.tetris tetris>div>div[class^="mino"].fix::after {
+	animation: tetris-fix2 .1s;
+}
+@keyframes tetris-fix {
+	0%, 100% {
+		background: linear-gradient(-25deg, #eee 51%, #fff 53%);
+		box-shadow: 0 0 15px #fff;
+		z-index: 1;
+	}
+}
+@keyframes tetris-fix2 {
+	0%, 100% {
+		visibility: hidden;
+	}
+}
+@media (max-height: 400px) {
+	modal-module.tetris {
+		--tetris-mino-shadow: 0 .6vmin .6vmin #0366;
+		--mino-decor-margin: 1px;
+	}
+}
+@media (min-height: 400px) {
+	modal-module.tetris {
+		--mino-decor-margin: 2px;
+	}
+}
+@media (min-height: 600px) {
+	modal-module.tetris {
+		--mino-decor-margin: 3px;
+	}
+}
+@media (min-height: 900px) {
+	modal-module.tetris {
+		--mino-decor-margin: 4px;
+	}
+}
+@media (min-height: 1100px) {
+	modal-module.tetris {
+		--mino-decor-margin: 5px;
+	}
+}

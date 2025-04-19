@@ -1,0 +1,137 @@
+@import "../notebook.css?1";
+@import "../scrollbar.css";
+
+body.app-chat {
+	--font: 400 12px verdana, var(--inp-font2-family, verdana);
+	--color: #000;
+	--bg: #b1bdc9;
+	--cursor: url(../images/1/cursor.cur);
+	--header-font: 600 15px/26px verdana;
+	--header-color: #f5ffff;
+	--header-bg: url(data:image/png;base64,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) no-repeat left, linear-gradient(#dde3eb, #d8dfe7 25%, #c7cfd9 50%, #b4c0cb 75%, #b1bdc9 80%) repeat-x;
+	--panel-padding: 0 3px;
+	--list-th-lh: 18px;
+	--list-th-bg: linear-gradient(#91a2b4, #7e8d9d);
+	--list-th-bt: 1px solid #dae3ed;
+	--list-th-bb: 1px solid #6e7c8b;
+	--list-font: normal 400 13px/18px sans-serif, var(--inp-font2-family, sans-serif);
+	--list-row-hover-color: #fff;
+	--list-row-hover-bg: linear-gradient(#a4b8cc, #91a2b4);
+	--list-row-hover-text-shadow: 0 0 1px #0008;
+	--btn-active-padding: 1px 0 0 1px;
+	--btn-light-bg: #0fc6;
+	--inp-color: #669;
+	--inp-bg: #fff;
+	--inp-focus-color: #00f;
+	--panel-width: 150px;
+	--emoji-mess-fs: 1.4rem;
+}
+body.app-chat chat-emoji {
+	--color: #2e2f32;
+	--bg: #fff;
+	--tit-font: 600 .8rem/1.6 verdana;
+	--tit-bg: #fffffff2;
+	--tit-padding: 3px 5px 0;
+	--nav-bg: #b1bdc9;
+	--nav-btn-color: #6f7e90;
+	--nav-btn-hover-color: #49535f;
+	--nav-btn-sel-color: #fff;
+	--nav-btn-sel-bc: currentColor;
+	--nav-bb: 0;
+	--footer-bt: 1px solid;
+	--footer-height: 80px;
+	--preview-annot-fs: .8rem;
+	--preview-code-fs: .8rem;
+	--preview-padding: 0 8px;
+	--preview-code-color: #747474;
+	--sec-padding: 0 2px;
+	--em-fs: 1.1rem;
+	--em-hover-bg: #ddd;
+	--search-bg: #fff;
+	--search-focus-bg: #fff;
+	--search-border: 1px solid #b1bdc9;
+	--search-br: 0;
+	--search-ph-color: #b1bdc9;
+	--search-cb-filter: contrast(0.1) brightness(1.8);
+	--search-cb-hover-filter: contrast(0.2) brightness(1.5);
+	--no-found-font: .8rem verdana;
+	--no-found-color: #95a0ad;
+	--sb-thumb-bg: #0003;
+}
+scrollbar {
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAeCAMAAABHRo19AAAAw1BMVEUAAAD8/Pzw8PDo6Ojj4+Ourq7e3t6kpKS6urr39/fHx8fS0tLX19e1tbXDw8Pl5eXb29vMzMy+vr6cnJz09PTPz8+Hh4exsbGoqKhGXHOLi4tNZn9NZ4CYmJiRkZFmg6FLY3xfe5g7T2JFW3JriKZigKBgfJdlg6JbeJZUb4uQprygs8Z/mLJmhKOXrMBAVGl5k66cr8OGnrZigaCUqb+lt8mru8xqh6WKobiCmrRKYXpbeJZVcIxriKZefJtSbIdvi6i0U/dKAAAAKnRSTlMAs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Oz/rP7y7OzSEAN+ubV1CL86elxaPh9AAAB5ElEQVQ4y53V7XKiMBQGYJsPgkiIBhXQqrXbdncRWBCRL7W9/6vagDN1xlA6aX6fZ5Jwcl4GlDqYUptgqlvGzCRYN0YaBMOHZqHB3foX+P4+jP1kt4vSwUCHDCFtYkxGpobgWBUPh1MAzDFCEACkhjl4EFgzhWYQMEUMhTUNY9Jopqkee2pi2yZCzRAyVTFfzedr216tHGs8kvH26dezt/yz2XZgiudzG4s2WTohfCLht8elV73X6e/XNxnj+YJQS9xY00bU5fd4+1i9n06XuCzjl62E7XVrEYQAaly/x0/LOg8veRllUbCRd76WMwCmomPSnauw3Mdp7GfHo/8hYRdTLja+loP7Vonqw6HIg0jg3VnCBFNrNkZg2hQPZbyPouJcJkeB8y8wE7itlnB52znswLrVVvfiwy7Lku8wk3Bb3eIo/ObYTGFn6YOx3jv3t2rKulrVHFvgJOx/JPJUVem+CNK4SLKsyPufp8E7nuc5v4SBn/hxx/Nc3AZDx5Y0Ve1g1Oc4+HjpGEnncyRdYskjKbTnVae6fu0KA8RXi8XaFosaXWEwEGHw7P3ddCcJMDEhxMVcPYZEAIIfByAHQ6HH1+iFTD23hRZfuwl95eiF8Pa7UbwzpRg7jk1ch3JrMlLC/wEBOIg3XevtIwAAAABJRU5ErkJggg==);
+}
+td.header,
+td.panel,
+td.info,
+td.buttons,
+chat-emoji,
+nb-btn:hover {
+	border: 1px solid;
+	border-color: #dae3ed #95a0ad #95a0ad #dae3ed;
+}
+body,
+td.panel>select[name=folder],
+td.info>div.view,
+input.inp,
+select.inp,
+textarea.inp,
+chat-emoji>emoji-body,
+chat-emoji>div#preview,
+nb-div,
+nb-btn:active {
+	border: 1px solid;
+	border-color: #95a0ad #dae3ed #dae3ed #95a0ad;
+}
+td.buttons {
+	padding: 1px 0;
+}
+tr.admin>td {
+	background: #cc280077;
+}
+tr.august>td {
+	background: #ff32d677;
+}
+tr.notice>td {
+	background: #e5b80077;
+}
+td.admin {
+	padding: 2px 5px;
+	color: #fc0;
+	background: #cc2800;
+}
+td.august {
+	padding: 2px 5px;
+	color: #b1bdc9;
+	background: #8a1c74;
+}
+td.notice {
+	padding: 2px 5px;
+	color: #00657f;
+	background: #e5b800;
+}
+table.notebook.write td#friends_list {
+	padding-left: 3px;
+}
+::-webkit-scrollbar {
+	width: 13px;
+	border: 1px solid;
+	border-color: #d2d2d2 #e2e2e2 #d2d2d2 #d2d2d2;
+	background: linear-gradient(to right, #fff 0, #fff 5px, #e2e2e2 6px, #f2f2f2 10px);
+}
+::-webkit-scrollbar-track {
+	box-shadow: inset 4px 0 6px #0005;
+	border-radius: 8px;
+	background: #fff;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	border: 1px solid;
+	border-color: #6281a0 #6281a0 #6281a0 #405469;
+	background: linear-gradient(to right,
+		#7f98b2 0, #90a6bc 1px, #90a6bc 2px, #869eb6 3px, #6684a3 4px, #7993ae 5px, #a1b3c6 9px, #97abc0 10px
+	);
+}
+::-webkit-scrollbar-button {
+	height: 4px;
+}

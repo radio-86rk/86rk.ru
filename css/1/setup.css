@@ -1,0 +1,27 @@
+@import "../setup.css?1";
+
+.app-chat chat-setup {
+	--win2-bg: #142977 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABAAgMAAADXB5lNAAAACVBMVEUWLHoVKnQVKW8F6Tu4AAABYElEQVQ4y43TO46DMBAG4N8IN1RJtFyCU4yiVFt5JU8K+m1yCl8iPVtYwpxyZxwQr0gBIR6ffjyMMagGVMEDhgmAtxOUpp4gyN6jMW0wzB5LOCu8SyQ91zJob8m0h8C42jgAdV89YQ8AUHRNMQQWs49e4bKF6xpyTVgqIid92c8wdsYklY0Os4ZyDecxwW04SYsOxTB4vAAz7BOWpbkeunmgiDOQwkXgZ5m4RkSS9lHJ0w0zsTsA2hB5y9AWOS2AMuwTuhYseejE5+ICN0u3F5BCTnwtEvo9wz2SVB4iZ8C3wE3hl98lOrBrPEpdDkBqR6DTBPsE5K6WyolZjsAWaAMGiJTbIpn71A7+BecZygx2mWCfmFiViw55fSi4ktZwKjFBJOT5E/bAvfsMeungUecfjj1GMDPsEm0Q6+0DaKQs7AFwGLr63tVFpOSavhrh7zzBPsEPQACmffoqAFso/wH9t+oKCVtIBAAAAABJRU5ErkJggg==);
+	--tit-ls: .1em;
+	--tit-color: #142977;
+	--tit-text-shadow: 1px 0 #fc0, -1px 0 #fc0, 0 1px #fc0, 0 -1px #fc0;
+	--th-color: #fc0;
+	--td-color: #cdf;
+	--td-border: 2px groove #a87e00;
+	--inp-color: #f80;
+	--slider-bg: #fff2;
+	--slider-shadow: inset 0 0 3px #000c;
+	--slider-handle-bg-color: #ffdb4d;
+	--slider-handle-bg-bm: multiply;
+	--slider-scale-bm: luminosity;
+	--optgroup-color: #fc0;
+	--optgroup-bg: #000;
+	--option-color: #fff;
+	--option-bg: #465ca9;
+	--nl-ch-shadow: inset 0 0 0 10px #465ca9;
+	--btn-ok-bg: linear-gradient(#1b3698, #102570, #1b3698);
+	--sb-thumb-bg: linear-gradient(to right, #283780 0, #76a1d6 1px, #3879d1 4px, #77b8ef 9px, #4472bf 9px);
+}
+form.setup input.btn[name="ok"]:hover {
+	--btn-hover-shadow: inset 0 0 10px 2px #405bbf;
+}

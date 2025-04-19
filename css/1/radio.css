@@ -1,0 +1,20 @@
+@import "../radio.css";
+
+radio radio-play,
+radio radio-next {
+	background-image: url(../../images/radio-buttons2.png);
+}
+radio radio-volume {
+	background-image: url(../../images/radio-volume-knob2.png);
+}
+radio radio-play,
+radio radio-next,
+radio radio-volume:not(.active) {
+	opacity: .8;
+	transition: opacity 0.3s ease;
+}
+radio radio-play:hover,
+radio radio-next:hover,
+radio radio-volume:hover {
+	opacity: 1;
+}

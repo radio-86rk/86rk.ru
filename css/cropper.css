@@ -1,0 +1,82 @@
+cropper crop-holder,
+cropper crop-preview {
+	position: relative;
+	border: 1px solid #009;
+	background: url(data:image/gif;base64,R0lGODlhEAAQAIAAAJmZmWZmZiH5BAAAAAAALAAAAAAQABAAAAIfhG+hq4jM3IFLJhoswNly/XkcBpIiVaInlLJr9FZWAQA7);
+	overflow: hidden;
+}
+cropper crop-holder {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 0;
+}
+cropper crop-holder>img {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+}
+cropper crop-holder>img.shadow {
+	opacity: .5;
+}
+cropper crop-holder>shadow {
+	display: block;
+	position: absolute;
+	background: #000;
+	z-index: -1;
+}
+cropper crop-holder>crop {
+	display: none;
+	position: absolute;
+}
+cropper crop-holder>crop>img {
+	position: absolute;
+	pointer-events: none;
+}
+cropper crop-holder>crop::before,
+cropper crop-holder>crop::after {
+	content: "";
+	display: block;
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+cropper crop-holder>crop::before {
+	background: url(data:image/gif;base64,R0lGODlhCAAIAIAAAP///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQICgAAACwAAAAACAAIAAACDYwDCadrzVRMB9FZ5SwAIfkECAoAAAAsAAAAAAgACAAAAg9EHqCYaudeW9ChyOyltQAAIfkECAoAAAAsAAAAAAgACAAAAg8EgmGXm+rQYtC0WGl9oAAAIfkECAoAAAAsAAAAAAgACAAAAg+Eg2GQernaYmjCWLF7qAAAIfkECAoAAAAsAAAAAAgACAAAAg2EERmna81UTAfRWeUsACH5BAgKAAAALAAAAAAIAAgAAAIPDA6hmGrnXlvQocjspbUAACH5BAgKAAAALAAAAAAIAAgAAAIPTIBgl5vq0GLQtFhpfaEAACH5BAQKAAAALAAAAAAIAAgAAAIPjIFgkXq52mJowlixe6gAADs=);
+	opacity: .6;
+}
+cropper crop-holder>crop.move::after {
+	z-index: 3;
+	margin: -3px;
+	border-style: solid;
+	border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlcAAAJXBAMAAABMFWy3AAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAAYUExURf///////////////////wAAAAoKCkdHR4LBgeEAAAAFdFJOUwBguPX46K0xzAAAAUtJREFUeNrt1bEJhTAYhVHdwMIBFAtbKzeJLiLO/yALmHT3wTkTfFx+kmHc1iFNbNP8PlNaWGzTXu4lLSy26SzXkRYW2+SyOpq8WR1NfsP/bQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMg2bqsRWnea32cyxbe6017uxRTf6k5nuQ5TfKs7uayOy/Jmtak7+Q3b2AkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKDXuK2aWpvm95nSwmKb9nIvaWGxTWe5jrSw2CaX1dHkzepo8hu2N/0A9KAs6YRJSxUAAAAASUVORK5CYII=) 8/2.72 repeat;
+	opacity: .4;
+}
+cropper crop-holder>crop.move {
+	cursor: move;
+}
+cropper crop-holder>crop.n-resize {
+	cursor: n-resize;
+}
+cropper crop-holder>crop.e-resize {
+	cursor: e-resize;
+}
+cropper crop-holder>crop.s-resize {
+	cursor: s-resize;
+}
+cropper crop-holder>crop.w-resize {
+	cursor: w-resize;
+}
+cropper crop-holder>crop.ne-resize {
+	cursor: ne-resize;
+}
+cropper crop-holder>crop.se-resize {
+	cursor: se-resize;
+}
+cropper crop-holder>crop.sw-resize {
+	cursor: sw-resize;
+}
+cropper crop-holder>crop.nw-resize {
+	cursor: nw-resize;
+}

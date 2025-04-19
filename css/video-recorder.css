@@ -1,0 +1,342 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+chat-recorder {
+	display: block;
+	position: absolute;
+	z-index: 10;
+	inset: 0;
+}
+video-recorder {
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: var(--bg);
+}
+video-recorder video-video {
+	display: block;
+	height: calc(100% - 32px);
+	position: relative;
+}
+video-recorder video-video>div {
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+video-recorder video-video>div::after {
+	position: absolute;
+	z-index: 2;
+	right: -31px;
+	top: -8px;
+	display: block;
+	width: 30px;
+	height: 30px;
+	transform: rotate(45deg);
+	background: #f00;
+	pointer-events: none;
+}
+video-recorder.ready.webcam video-video>div::after {
+	content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'><path fill='%23fff' d='M293.8,79c-2.4-21.5-17.7-37.9-39.4-39.4c-93.4-6.1-115.5-6.1-208.9,0C23.9,41.1,8.6,57.5,6.2,79c-7.3,65.5-7.3,76.5,0,142c2.4,21.5,17.7,37.9,39.4,39.4c93.5,6.1,115.5,6.1,208.9,0c21.6-1.4,37-17.8,39.4-39.4C301.1,155.5,301.1,144.5,293.8,79zM193.8,155.7L113,204.4c-2.1,1.3-5,1.3-7.1,0.1c-2.1-1.2-3.8-3.3-3.8-5.7v-97.4c0-2.4,1.7-4.5,3.8-5.8c2.1-1.2,4.8-1.2,6.9,0.1l81,48.7c2,1.2,3.3,3.3,3.3,5.7S195.9,154.4,193.8,155.7z'/></svg>");
+	padding: 16px 32px 2px;
+}
+video-recorder.ready:not(.webcam) video-video>div::after {
+	content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 297 297'><path fill='%23fff' d='M113.6,112c2.7,0.9,5.5,1.4,8.5,1.4c14.6,0,26.4-11.9,26.4-26.6c0-3-0.5-5.9-1.5-8.7C128.9,78.9,114.3,93.7,113.6,112z'/><path fill='%23fff' d='M120.6,3.5c7.8,6.1,17.6,9.6,27.9,9.6c10.3,0,20-3.5,27.9-9.6C167.4,1.2,158.1,0,148.5,0C138.9,0,129.5,1.2,120.6,3.5z'/><path fill='%23fff' d='M261.4,113.3c0-46-27.4-85.7-66.7-103.4c-11.7,12.7-28.4,20.4-46.2,20.4S114,22.6,102.3,9.9C63,27.7,35.6,67.3,35.6,113.3c0,62.5,50.7,113.3,112.9,113.3S261.4,175.8,261.4,113.3z M96.3,113.4c0-28.9,23.4-52.4,52.1-52.4c28.8,0,52.1,23.5,52.1,52.4c0,28.9-23.4,52.4-52.1,52.4C119.7,165.8,96.3,142.3,96.3,113.4z'/><path fill='%23fff' d='M280.9,278.3c-19.4-19.4-39.5-39.6-57.9-58c-21.1,14.9-46.8,23.6-74.6,23.6c-27.7,0-53.4-8.7-74.6-23.6c-19,19.1-39.6,39.7-58.3,58.4c-3.1,3.1-4,7.7-2.3,11.7s5.6,6.6,9.9,6.6h250.5c0,0,0,0,0,0c5.9,0,10.8-4.8,10.8-10.8C284.5,283.1,283.1,280.2,280.9,278.3z'/></svg>");
+	padding: 13px 33px 7px;
+}
+video-recorder video {
+	display: block;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+	max-height: 100%;
+	object-fit: cover;
+	position: relative;
+	z-index: 1;
+}
+video-recorder.webcam video#webcam,
+video-recorder:not(.webcam) video#video {
+	clip-path: polygon(0% 0%, calc(100% - 65px) 0, 100% 65px, 100% 100%, 0% 100%);
+}
+video-recorder.play video,
+video-recorder.record video {
+	clip-path: none !important;
+}
+video-recorder video#video {
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+video-recorder:not(.webcam):not(.record) video#video,
+video-recorder.play video#video,
+video-recorder.webcam video#webcam,
+video-recorder.record video#webcam {
+	z-index: 3 !important;
+}
+video-recorder.play video#webcam {
+	visibility: hidden;
+}
+video-recorder>video-ctrl {
+	display: flex;
+	height: 32px;
+	background-color: var(--ctrl-bg-color);
+	background-image: var(--ctrl-bg, linear-gradient(#ffffff26 50%, #0000001a 50%));
+	font-size: 0;
+}
+video-recorder>video-ctrl * {
+	height: 100%;
+	box-sizing: border-box;
+}
+video-recorder>video-ctrl>video-bttn {
+	flex: 0 1 auto;
+	display: flex;
+	padding: 0 10px;
+	border-right: 1px solid #0003;
+	align-items: center;
+}
+video-recorder>video-ctrl>video-bttn.power::after {
+	content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><path fill='%23060' d='M50,25c0,14-11,25-25,25S0,39,0,25S11,0,25,0C38.5,0,50,11,50,25z'/><path fill='%23eee' d='M19.5,8.1c-7.1,2.3-12.3,9-12.3,16.9c0,9.8,8,17.8,17.8,17.8s17.8-8,17.8-17.8c0-7.9-5.2-14.6-12.3-16.9v6.4c3.8,2,6.5,5.9,6.5,10.5c0,6.6-5.4,12-12,12s-12-5.4-12-12c0-4.6,2.6-8.5,6.4-10.5L19.5,8.1L19.5,8.1z'/><path fill='%23eee' d='M22,3.9v21.2h6V3.9H22z'/></svg>");
+	width: 22px;
+	height: 22px;
+}
+video-recorder>video-ctrl>video-bttn#play::after {
+	display: block;
+	width: 14px;
+	content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAQCAMAAAD6fQULAAAAQlBMVEUAAAD////8/Pz7+/v8/Pzr6+vi4uLs7Oz6+vr5+fn29vb29vbz8/Pt7e3y8vLx8fHu7u7u7u7t7e319fXt7e3///9NtjVmAAAAFXRSTlMA3f34vjUUBuzbz8Gnn5N/e2dRSR+mQ4lEAAAATklEQVQI12WPRw4AIQwDIUvZTv//V0GgEIpvI1uxw4QImnXxxE0cKMHjdaei85dExb6datR0vHIggMsqTFb7Qw9pTwJdoQZqX5btq+ePMmzyB7O0vnjPAAAAAElFTkSuQmCC);
+	filter: drop-shadow(-1px -1px 0 #0003);
+}
+video-recorder.play>video-ctrl>video-bttn#play::after {
+	content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQAgMAAABb+qapAAAACVBMVEUAAAD//f3///+jsT6IAAAAAnRSTlMAgJsrThgAAAAWSURBVAjXY8hykJrAsKpBawHFBNgoALNsHgFMZuflAAAAAElFTkSuQmCC);
+}
+video-recorder>video-ctrl>video-bttn#record::after {
+	display: block;
+	content: "";
+	width: 14px;
+	height: 14px;
+	background: #d00;
+	border-radius: 50%;
+	box-shadow: 0 1px 0 0 #fff, 0 -1px 0 0 #0006;
+}
+video-recorder.record>video-ctrl>video-bttn#record::after {
+	background: #dd0;
+	border-radius: 0;
+}
+video-recorder>video-ctrl>video-bttn#record:hover::after {
+	background: #e00;
+}
+video-recorder.record>video-ctrl>video-bttn#record:hover::after {
+	background: #ee0;
+}
+video-recorder>video-ctrl>video-bttn:active::after {
+	transform: translate(1px, 1px);
+}
+video-recorder>video-ctrl>video-res:hover,
+video-recorder>video-ctrl>video-bttn:hover {
+	background-color: #0000001a;
+}
+video-recorder>video-ctrl>video-res:active,
+video-recorder>video-ctrl>video-bttn:active {
+	background-color: #00000040;
+}
+video-recorder.play>video-ctrl>video-res>select,
+video-recorder.record>video-ctrl>video-res>select,
+video-recorder.play>video-ctrl>video-bttn#record,
+video-recorder.record>video-ctrl>video-bttn#play {
+	pointer-events: none;
+}
+video-recorder.play>video-ctrl>video-res>select,
+video-recorder.record>video-ctrl>video-res>select,
+video-recorder.play>video-ctrl>video-bttn#record::after,
+video-recorder.record>video-ctrl>video-bttn#play::after {
+	opacity: .3;
+}
+video-recorder>video-ctrl>video-time {
+	padding: 0 10px;
+	border-left: 1px solid #0003;
+	font: 400 25px/30px "Open Sans Condensed", arial;
+	font-stretch: ultra-condensed;
+	color: #fffc;
+	text-shadow: -1px -1px 0 #0001;
+	pointer-events: none;
+	overflow: hidden;
+}
+
+video-recorder video-slider.track {
+	position: absolute;
+	z-index: 3;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 22px;
+	visibility: hidden;
+}
+video-recorder.ready:not(.webcam) video-slider.track,
+video-recorder.ready.play video-slider.track {
+	visibility: visible;
+}
+video-recorder video-slider.track::before {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 3px;
+	background: #fff6;
+	transition: height .2s;
+	content: "";
+}
+video-recorder video-slider.track>div.track {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	background: #f00;
+	transition: height .2s;
+	pointer-events: none;
+}
+video-recorder video-slider.track>sl-handle {
+	display: block;
+	position: absolute;
+	z-index: 3;
+	bottom: 0;
+	width: 0;
+	height: 0;
+	margin: 0;
+	background: #f00;
+	border-radius: 50%;
+	transition: all .2s, left 0s;
+}
+video-recorder video-slider.track.active>div.track,
+video-recorder video-slider.track:hover>div.track {
+	height: 8px;
+	box-shadow: inset 0 0 2px #900;
+}
+video-recorder video-slider.track.active::before,
+video-recorder video-slider.track:hover::before {
+	height: 8px;
+}
+video-recorder video-slider.track.active>sl-handle,
+video-recorder video-slider.track:hover>sl-handle {
+	width: 16px;
+	height: 16px;
+	bottom: -4px;
+	margin: 0 -8px;
+	box-shadow: 0 0 2px #9009;
+}
+video-recorder video-slider.track>video-timeline {
+	font: 700 10px/17px arial;
+	position: absolute;
+	z-index: 1;
+	top: -10px;
+	width: 50px;
+	margin-left: -25px;
+	color: #fff;
+	background: #000;
+	border-radius: 3px;
+	text-align: center;
+	visibility: hidden;
+	pointer-events: none;
+}
+video-recorder video-slider.track:hover>video-timeline {
+	visibility: visible;
+}
+video-recorder video-slider.track>video-timeline::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 5px solid transparent;
+	border-top-color: #000;
+	border-bottom: 0;
+	margin: 0 0 -5px -5px;
+}
+video-recorder video-volume {
+	flex: 0 1 73px;
+	display: flex;
+	padding: 0 10px;
+	border-left: 1px solid #0003;
+	overflow: hidden;
+}
+video-recorder video-volume>input {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	align-self: center;
+	width: 100%;
+	height: 28px;
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAADgBAMAAABROzPfAAAAGFBMVEUAAAD//////////////f3//f3//f3///96lHkcAAAAB3RSTlMAMzEYhXuO/1OmbAAAAU9JREFUWMPt0z1qQlEYhOH8kjZ3B+FkAyErSJc2nW2WkCL4bd974MKLjKNO4QXlnOYrHtBBZ+7We4/t3dpDa9bup+kwfLYPa629WZum18U0IKYBMQ2IaUBMA2IaECOgMwJiGhAjoBgB1QgoRkA1Alrr3ydn+cyeU8+1v7GHm9/Dc/1be6k6ZnYPT7Udexh7WGUPm/qyVvUXGHvApPOnzO7hu37HHsYe9mypm7FeqcDYA6adD4w9YNr502b3MJ+xhyvfw1w3NSqVGXVznQ+MgGqEiIyAaoQ4x9we+hl7WGEP1E2NSmVG3WznY6NupvOBEVCMEIkRUG0JEZjsgTP2YHq9qR9MK5UZ/6brfG7UzXQ+MK2bdD4wAqoRIjICqhEiMN0D5xb20H8snlQqM/5N2/nACIhJiMi0bhoiNa2bhAiMgGKECI2AavPJjT3oucjbAT+fmBgtog5oAAAAAElFTkSuQmCC) no-repeat;
+}
+video-recorder video-volume>input::-moz-range-track {
+	-moz-appearance: none;
+	background: transparent;
+	border: none;
+}
+video-recorder video-volume>input::-moz-range-thumb {
+	-moz-appearance: none;
+	background: transparent;
+	border: none;
+	width: 5px;
+}
+video-recorder video-volume>input::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+	background: transparent;
+	border: none;
+}
+video-recorder video-volume>input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: transparent;
+	border: none;
+	width: 5px;
+}
+video-recorder>video-ctrl>video-res {
+	flex: 0 1 auto;
+	margin-right: auto;
+	border-right: 1px solid #0003;
+}
+video-recorder>video-ctrl>video-res>select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	font: 400 25px/30px "Open Sans Condensed", arial;
+	color: var(--select-color);
+	background: transparent;
+	width: 100%;
+	padding: 0 10px;
+	outline: none;
+	border: 0;
+	text-shadow: -1px -1px 0 #0001;
+}
+video-recorder>video-ctrl>video-res>select>option {
+	font-size: var(--option-fs);
+	color: var(--option-color);
+	background: var(--option-bg);
+}
+
+video-recorder:not(.ready)>video-ctrl,
+video-recorder:not(.play) video-volume>* {
+	opacity: .5;
+	pointer-events: none;
+}
+
+video-recorder.record video-video>div::before {
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 4;
+	width: 20px;
+	height: 20px;
+	margin: 10px;
+	background: #f00;
+	border: 1px solid #0002;
+	border-radius: 50%;
+	box-shadow: 0 0 1px #f00;
+	animation: blink-rec 1s linear infinite;
+}
+@keyframes blink-rec {
+	60%,100% {
+		visibility: hidden;
+	}
+}

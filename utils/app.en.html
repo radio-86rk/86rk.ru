@@ -1,0 +1,70 @@
+<app-title></app-title>
+<app-utils class="app show_all">
+<div class=util>
+<app-util></app-util>
+<app-util></app-util>
+<app-util></app-util>
+<app-util></app-util>
+</div>
+<ul>
+<li data-util=0>Конвертер картинок
+<li data-util=1>Конвертер текста
+<li data-util=2>util 3
+<li data-util=3>util 4
+</ul>
+</app-utils>
+
+<app-menu>
+<span>&copy; Поединок Виталий, 2024</span>
+<span class=email><a href="mailto:vital72@86rk.ru?subject=utils" target="_blank" tabindex=-1>написать мне</a></span>
+<span></span>
+<span><span>F1</span><a name=help>помощь</a></span>
+<span class=conf>
+<a name=conf>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0,1h16v2H0V1z M0,7h16v2H0V7z M0,13h16v2H0V13z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.7,15.8L8,9.5l6.3,6.3l1.5-1.5L9.5,8l6.3-6.3l-1.5-1.5L8,6.5L1.7,0.2L0.2,1.7L6.5,8l-6.3,6.3L1.7,15.8z"/></svg>
+</a>
+</span>
+</app-menu>
+
+<app-conf>
+<h3>Стиль</h3>
+<ul>
+<li><a name=design design=blue>Синий</a>
+<li><a name=design design=violet>Фиолетовый</a>
+<li><a name=design design=green>Зелёный</a>
+<li><a name=design design=orange>Оранжевый</a>
+</ul>
+<hr>
+<h3>Цветовой фильтр</h3>
+<div class="slider0 toggle"><div id=mix_toggle on="ВКЛЮЧЕН" off="ВЫКЛЮЧЕН"></div></div>
+<div id=mix_color_filter>
+<input type=color id=mix_color tabindex=-1>
+<span>непрозрачность:</span><b id=mix_opacity_val></b>
+<div class="slider0 slider"><div id=mix_opacity></div></div>
+<span>режим смешивания:</span><b id=mix_mode_val></b>
+<div class="slider0 slider"><div id=mix_mode></div></div>
+<input type=checkbox id=mix_css_filter_on tabindex=-1>
+<label for=mix_css_filter_on> css filter:</label>
+<input type=text id=mix_css_filter tabindex=-1>
+</div>
+</app-conf>
+
+<app-status></app-status>
+
+<script id=app_cfg type="text/template">
+%CFG({
+	APP_TITLE:		"Утилиты для компьютера Радио-86РК",
+	ERROR: {
+		NO_SUPPORT:	"Ваш браузер не поддерживает эту функцию",
+		UPLOAD_ERROR:	"Невозможно загрузить файл `**%NAME%**`",
+		LOAD_ERROR:	"Не удалось загрузить файл `**%NAME%**`%?: %STATUS%?%"
+	},
+	NOTICE: {
+		LOADED:		"Файл `**%NAME%**` загружен"
+	},
+	MODAL_TITLE: {
+		HELP:		"Помощь"
+	}
+})%
+</script>

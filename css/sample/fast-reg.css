@@ -1,0 +1,68 @@
+fast-reg {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px 20px;
+}
+fast-reg>h3 {
+	flex: 0 1 100%;
+
+	font: 700 12pt verdana;
+	letter-spacing: .3em;
+	color: #e80;
+	background: #eef;
+	margin: 0 5px 10px;
+	padding: 3px;
+	text-align: center;
+	border-bottom: groove 2px #ffb84c;
+}
+fast-reg>div {
+	flex: 0 1 50%;
+	padding: 0 5px;
+	box-sizing: border-box;
+	white-space: nowrap;
+	overflow: hidden;
+}
+fast-reg>div>div:nth-child(2n) {
+	/*
+	 *  параметры названия графы
+	 */
+	color: #33c;
+	padding: 0 0 5px 20px;
+}
+fast-reg>div>div:nth-child(2n+1) {
+	/*
+	 *  параметры контейнера с элементами формы (поля ввода, переключатели и т.д.)
+	 */
+	background: #fec;
+	padding: 3px 7px;
+	border-bottom: 1px solid #960;
+}
+fast-reg>div>div:nth-child(2n+1) span {
+	/*
+	 *  параметры поясняющего текста
+	 */
+	color: #999;
+	font-weight: normal;
+	font-size: 11px;
+}
+fast-reg img#__captcha {
+	/*
+	 *  размеры картинки с изображением капчи
+	 */
+	width: 180px;
+	height: 30px;
+	float: right;
+}
+fast-reg div.captcha>input.inp {
+	width: 100px;
+}
+fast-reg input.inp {
+	margin: 3px 0 0;
+}
+fast-reg input.btn[name="done"] {
+	flex: 0 1 100%;
+	font-size: 100%;
+	line-height: 1.5;
+	padding: 0;
+	margin-top: 1em;
+}

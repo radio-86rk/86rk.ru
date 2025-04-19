@@ -1,0 +1,30 @@
+@import "../people.css";
+@import "../scrollbar.css";
+
+scrollbar {
+	--width: 10px;
+	--bg: none;
+	opacity: .7;
+}
+scrollbar>slider>div,
+scrollbar>slider>div::before,
+scrollbar>slider>div::after {
+	background-image: linear-gradient(to right, #f60, #fca, #f60);
+	background-repeat: repeat;
+}
+input[type="checkbox"] + label::before {
+	background-image: url(../../images/1/checkbox.png);
+}
+input[type="radio"] + label::before {
+	background-image: url(../../images/1/radio.png);
+}
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+}
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(to right, #f608, #fca8, #f608);
+}
+::-webkit-scrollbar-button {
+}

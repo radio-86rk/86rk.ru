@@ -1,0 +1,32 @@
+{
+	"name": "ZEditor",
+	"short_name": "ZEditor",
+	"description": "Редактор знакогенератора для компьютера Радио-86РК. Редактор растровых шрифтов.",
+	"lang": "ru",
+	"start_url": "./",
+	"id": "/zeditor",
+	"display": "fullscreen",
+	"display_override": [
+		"window-controls-overlay"
+	],
+	"orientation":"landscape",
+	"background_color": "#FFDCB5",
+	"theme_color": "#1E003D",
+	"icons": [
+		{
+			"src": "images/logo-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "images/logo-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "images/logo-32.png",
+			"sizes": "32x32",
+			"type": "image/png"
+		}
+	]
+}

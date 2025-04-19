@@ -1,0 +1,26 @@
+{
+	"name": "Emul-86RK",
+	"short_name": "Emulator",
+	"description": "8-bit computers emulator on 580ВМ80/i8080/i8085/Z80",
+	"start_url": "./",
+	"id": "/emulator",
+	"display": "fullscreen",
+	"display_override": [
+		"window-controls-overlay"
+	],
+	"orientation":"landscape",
+	"background_color": "#FFDCB5",
+	"theme_color": "#1E003D",
+	"icons": [
+		{
+			"src": "images/logo-512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		},
+		{
+			"src": "images/logo-192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	]
+}

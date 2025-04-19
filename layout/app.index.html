@@ -1,0 +1,14 @@
+<!doctype html>
+<html class=app>
+<head>
+<title><?= $CFG ['TITLE'][$LANG] ?></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="keywords" content="<?= htmlentities ($CFG ['KEYWORDS'][$LANG]) ?>">
+<meta name="description" content="<?= htmlentities ($CFG ['DESCRIPTION'][$LANG]) ?>">
+<script defer src="../js/august.app-loader.js?<?= VERSION  ?>#<?= $APP ?>:<?= $APP_VERSION ?>:<?= $LANG ?>"></script>
+<script src="../js/august.js?<?= VERSION  ?>"></script>
+<link rel="manifest" href="manifest.json">
+</head>
+<body id=app></body>
+</html>

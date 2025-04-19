@@ -1,0 +1,223 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+chat-dictaphone {
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 32px;
+	overflow: hidden;
+	transition: .3s;
+	transition-property: left, right, bottom, height;
+}
+chat-dictaphone>au-dictaphone {
+	display: flex;
+	height: 100%;
+	background-image: linear-gradient(#ffffff26 50%, #0000001a 50%);
+	font-size: 0;
+	cursor: default;
+}
+chat-dictaphone>au-dictaphone * {
+	height: 100%;
+	box-sizing: border-box;
+}
+chat-dictaphone au-bttn {
+	flex: 0 1;
+	display: flex;
+	padding: 0 10px;
+	border-right: 1px solid #0003;
+	align-items: center;
+}
+chat-dictaphone>au-dictaphone>au-bttn#play::after {
+	display: block;
+	width: 14px;
+	content: var(--btn-play, url("data:image/svg+xml,<svg fill='%23fff' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 16'><path d='M1.5,0.9l10.1,6.2c0.6,0.4,0.6,1.3,0,1.7L1.5,15.1C0.9,15.5,0,15,0,14.2V1.8C0,1,0.9,0.5,1.5,0.9z'/></svg>"));
+	filter: drop-shadow(-1px -1px 0 #0003);
+}
+chat-dictaphone>au-dictaphone.play>au-bttn#play::after {
+	content: var(--btn-pause, url("data:image/svg+xml,<svg fill='%23fff' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16'><path d='M3.5,16h-2C0.7,16,0,15.3,0,14.5v-13C0,0.7,0.7,0,1.5,0h2C4.3,0,5,0.7,5,1.5v13C5,15.3,4.3,16,3.5,16z'/><path d='M12.5,16h-2C9.7,16,9,15.3,9,14.5v-13C9,0.7,9.7,0,10.5,0h2C13.3,0,14,0.7,14,1.5v13C14,15.3,13.3,16,12.5,16z'/></svg>"));
+}
+chat-dictaphone>au-dictaphone>au-bttn#record::after {
+	display: block;
+	content: "";
+	width: 14px;
+	height: 14px;
+	background: #d00;
+	border-radius: 50%;
+	box-shadow: 0 1px 0 0 #fff, 0 -1px 0 0 #0006;
+}
+chat-dictaphone>au-dictaphone.record>au-bttn#record::after {
+	background: #dd0;
+	border-radius: 0;
+}
+chat-dictaphone>au-dictaphone>au-bttn#record:hover::after {
+	background: #e00;
+}
+chat-dictaphone>au-dictaphone.record>au-bttn#record:hover::after {
+	background: #ee0;
+}
+chat-dictaphone>au-dictaphone.ready>au-bttn:active::after {
+	transform: translate(1px, 1px);
+}
+chat-dictaphone>au-dictaphone.ready>au-bttn:hover {
+	background-color: #0002;
+}
+chat-dictaphone>au-dictaphone.ready>au-bttn:active {
+	background-color: #0004;
+}
+chat-dictaphone>au-dictaphone.play>au-bttn#record,
+chat-dictaphone>au-dictaphone.record>au-bttn#play {
+	pointer-events: none;
+}
+chat-dictaphone>au-dictaphone.play>au-bttn#record::after,
+chat-dictaphone>au-dictaphone.record>au-bttn#play::after {
+	opacity: .3;
+}
+chat-dictaphone>au-dictaphone>au-wave {
+	flex: 1;
+	position: relative;
+	display: block;
+	overflow: hidden;
+	border: 1px solid #0002;
+	border-width: 1px 0;
+	background: #000;
+	background-clip: padding-box;
+	pointer-events: none;
+	--width: 0;
+}
+chat-dictaphone>au-dictaphone>au-wave::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: calc(var(--width) * 1px);
+	height: inherit;
+	border-right: 1px solid #f00;
+	visibility: hidden;
+}
+chat-dictaphone>au-dictaphone.play>au-wave::after {
+	visibility: visible;
+}
+chat-dictaphone au-volume {
+	flex: 0 1 73px;
+	display: flex;
+	position: relative;
+	padding: 0 10px;
+	border-left: 1px solid #0003;
+	overflow: hidden;
+	--peak: 0;
+	--level: 0;
+}
+chat-dictaphone au-time {
+	padding: 0 10px;
+	border-left: 1px solid #0003;
+	font: 400 25px/30px "Open Sans Condensed", arial;
+	font-stretch: ultra-condensed;
+	color: #fffc;
+	text-shadow: -1px -1px 0 #00000018;
+	pointer-events: none;
+	overflow: hidden;
+}
+chat-dictaphone au-volume>input {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+	align-self: center;
+	width: 100%;
+	height: 28px;
+	padding: 0;
+	margin: 0;
+	border: none;
+	outline: none;
+	background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADUAAADgBAMAAABROzPfAAAAIVBMVEUAAAD//////////////////f3//f3//f3//f3//f3///9EZcv4AAAACnRSTlMAM9kxGHF5aXuFWEWmDAAAAWhJREFUWMPt1EtKQ0EUhGGfKI68O5AGHQvtAgQ3IK7ANbgCxxm5BKf2KrXhwo9UKkkNciGhe3LI+SCpwamcLPcu6pO181qtnU7Tenipz9ZqfbQ2TbezaUBMA2IaENOAmAbENCBGQDUCWmOJEVCMgM5YMgioRkBr/fdkzN/Zc+o49Df6cPR9uCr31s5K2WS2D5flYfRh9GGRPnyUV2ul3AVGHzC5+W1m+/BW3kcfRh/+GX+/YvNJBUYfML351HpAa3253Wwf/sbow4H3YdW+rLX2rca5uT5gevOB0Qc1QkRGQDVC7GKuD32MPizXh+v2Y+2mtcDoA6Z9cMbfqPbBWl8GRh/ECBEbAdVY7mDaB8bog7nrVfvE9NwCow+Y3Hxg9AHTENY4DemDtb5MjT6osQyMgGr9U2TaB8Yx9KGfG09OKjPOzd58YATEJERkBMQ0hJqem+kDxs2nRh/UWAZGQLU+YqMPOvbyfgE00hUovOPESwAAAABJRU5ErkJggg==) no-repeat;
+	background-position-y: calc(var(--volume) * -28px);
+	--volume: 0;
+}
+chat-dictaphone au-volume>input::-moz-range-track {
+	-moz-appearance: none;
+	background: transparent;
+	border: none;
+}
+chat-dictaphone au-volume>input::-moz-range-thumb {
+	-moz-appearance: none;
+	background: transparent;
+	border: none;
+	width: 5px;
+}
+chat-dictaphone au-volume>input::-webkit-slider-runnable-track {
+	-webkit-appearance: none;
+	background: transparent;
+	border: none;
+}
+chat-dictaphone au-volume>input::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	background: transparent;
+	border: none;
+	width: 5px;
+}
+chat-dictaphone>au-dictaphone.ready>au-volume:hover {
+	background-color: #0002;
+}
+chat-dictaphone>au-dictaphone.ready>au-volume:active {
+	background-color: #0004;
+}
+chat-dictaphone>au-dictaphone:not(.ready)>au-bttn::after,
+chat-dictaphone>au-dictaphone:not(.ready)>au-time,
+chat-dictaphone>au-dictaphone:not(.ready)>au-volume>* {
+	opacity: .3;
+}
+chat-dictaphone>au-dictaphone>au-wave>canvas {
+	position: absolute;
+	left: 0;
+	pointer-events: none;
+}
+chat-dictaphone>au-dictaphone>au-wave>canvas.spectrum {
+	z-index: 1;
+	width: 100%;
+	opacity: .5;
+}
+chat-dictaphone>au-dictaphone>au-wave>canvas.rec-wave {
+	z-index: 1;
+	width: 100%;
+}
+chat-dictaphone>au-dictaphone>au-wave>canvas.play-wave {
+	left: calc(var(--left) * 1px);
+	opacity: .4;
+}
+chat-dictaphone>au-dictaphone>au-wave>canvas.playing-wave {
+	left: calc(var(--left) * 1px);
+	clip: rect(0, calc((var(--width) - var(--left)) * 1px), auto, 0);
+}
+chat-dictaphone>au-dictaphone>au-volume>input {
+	position: relative;
+	z-index: 1;
+}
+chat-dictaphone>au-dictaphone>au-volume::before,
+chat-dictaphone>au-dictaphone>au-volume::after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+	height: 100%;
+	pointer-events: none;
+}
+chat-dictaphone>au-dictaphone>au-volume::before {
+	left: calc(var(--level) * 100%);
+	width: 100%;
+	margin-left: -100%;
+	background: var(--level-color, linear-gradient(to right, #0f02, #0f08));
+}
+chat-dictaphone>au-dictaphone>au-volume::after {
+	width: calc(var(--peak) * 100%);
+	margin-left: -2px;
+	border-right: 2px solid var(--peak-color, #f00);
+}
+chat-dictaphone>au-dictaphone.play>au-volume>au-peak,
+chat-dictaphone>au-dictaphone.play>au-volume>au-level,
+chat-dictaphone>au-dictaphone.play>au-wave>canvas.spectrum,
+chat-dictaphone>au-dictaphone.play>au-wave>canvas.rec-wave,
+chat-dictaphone>au-dictaphone.record>au-wave>canvas.play-wave,
+chat-dictaphone>au-dictaphone:not(.play)>au-wave>canvas.playing-wave {
+	visibility: hidden;
+}

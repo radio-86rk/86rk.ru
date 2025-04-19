@@ -1,0 +1,212 @@
+@import "../main.css?3";
+@import "../scrollbar.css";
+
+.app-chat {
+	color: #36f;
+	background: #fff;
+	--cursor: url(../images/0/cursor.cur);
+	--top-height: 40px;
+	--menu-height: 40px;
+	--border: solid #80bfff;
+	--bw: 1px 0;
+	--in-shadow: inset 0 0 10px #39f8;
+	--form-bg: linear-gradient(#39f5, #fff);
+	--send-padding: 0 10px;
+	--send-abtn-color: #36f;
+	--inp-font-family: sans-serif;
+	--inp-font2-family: sans-serif;
+	--inp-font: normal 600 14pt var(--inp-font-family), var(--inp-font2-family);
+	--inp-color: #f60;
+	--inp-bg: #fff;
+	--inp-border: 1px solid;
+	--inp-bc: #ccf;
+	--inp-padding: 2px 5px 0;
+	--inp-focus-shadow: inset 1px 1px 8px #0002;
+	--btn-font: normal 600 13px/1.5 sans-serif;
+	--btn-color: #666;
+	--btn-bg: transparent;
+	--btn-border: none;
+	--btn-padding: 0 5px;
+	--btn-hover-shadow: inset 0 0 10px #36f4;
+	--btn-active-opacity: .3;
+	--btn-svg-padding: 3px 4px;
+	--btn-svg-filter: none;
+	--btn-send-dis-color: #fff;
+	--btn-send-dis-bg: #f00;
+	--btn-mic-path1: #6e777e;
+	--btn-mic-path2: #9eaaae;
+	--icon-speech-right: 2px;
+	--nav-width: 0;
+	--nav-height: calc((var(--nav-item-size) + 4px) * 2);
+	--nav-right: calc(var(--nav-item-size) + 4px);
+	--nav-margin: 7px;
+	--nav-item-margin: 2px;
+	--nav-item-shadow: 1px 1px 3px #0006;
+	--checkbox-sprite: url(../images/sample/checkbox.png);
+	--radio-sprite: url(../images/sample/radio.png);
+}
+.app-chat.mobile {
+	--send-padding: 0;
+}
+.app-chat.private {
+	--send-padding: 0;
+	--form-mysmiles-margin: 0 5px;
+}
+.app-chat ::-webkit-scrollbar {
+	width: 10px;
+}
+.app-chat ::-webkit-scrollbar-thumb {
+	background: linear-gradient(to right, #f608, #fca8,#f608);
+}
+scrollbar {
+	--width: 10px;
+	--bg: none;
+	opacity: .7;
+}
+scrollbar>slider>div,
+scrollbar>slider>div::before,
+scrollbar>slider>div::after {
+	background-image: linear-gradient(to right, #f60, #fca, #f60);
+	background-repeat: repeat;
+}
+chat-top {
+	background: linear-gradient(#39f5, #fff);
+}
+chat-top>top-menu {
+	top: 0;
+	right: 340px;
+	left: 340px;
+	max-width: 400px;
+	margin: 0 auto;
+	white-space: normal;
+	--btn-width: 80px;
+	--btn-height: 20px;
+	--btn-padding: 1px;
+	--btn-shadow: inset 0 0 10px #66f3;
+	--btn-hover-color: #66f;
+	--btn-hover-shadow: inset 0 0 13px #88a6ff;
+	--btn-active-color: #000;
+	--btn-active-opacity: 1;
+	--btn-active-shadow: inset 0 6px 5px #659dd866, inset 0 0 25px 3px #659dd866;
+}
+chat-top>top-menu>div>input.btn {
+	transition: .1s;
+}
+chat-top>top-menu>div>input.btn:active {
+	padding: 1px 0 1px 2px;
+	transition: 0s;
+}
+chat-top>img.logo {
+	padding: 6px 50px;
+}
+chat-top>avatar {
+	left: 0;
+	margin: 5px 30px;
+	background: #fff;
+	box-shadow: 0 0 0 2px #fff, 0 0 10px 2px #000;
+}
+chat-top>avatar.hide {
+	top: -50px;
+}
+chat-top>avatar>img {
+	width: 80px;
+	height: 80px;
+	border: 1px solid #000;
+}
+chat-form {
+	--inp-height: 30px;
+	--btn-height: 30px;
+}
+chat-form table.send td.greeting+td.mess {
+	padding-left: 5px;
+}
+chat-form table.send a.speech::before {
+	filter: grayscale(1) contrast(0);
+}
+chat-timer {
+	opacity: .4;
+	margin: 0 0 0 10px;
+}
+chat-nav>nav-menu {
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	right: calc((var(--nav-item-size) + 4px) * -7 - var(--nav-margin));
+	width: calc((var(--nav-item-size) + 4px) * 6);
+}
+.app-chat.show-nav-menu chat-nav>nav-menu {
+	right: 0;
+}
+chat-nav>nav-menu>a[name="smiles"] {
+	order: 1;
+}
+chat-nav>nav-menu>a[name="mysmiles"] {
+	order: 2;
+}
+chat-nav>nav-menu>a[name="ignore"] {
+	order: 3;
+}
+chat-nav>nav-menu>a[name="timer-alarm"] {
+	order: 4;
+}
+chat-nav>nav-menu>a[name="webcam"] {
+	order: 5;
+}
+chat-nav>nav-menu>a[name="setup"] {
+	order: 6;
+}
+chat-nav>nav-menu>a[name="history"] {
+	order: 7;
+}
+chat-nav>nav-menu>a[name="myphrases"] {
+	order: 8;
+}
+chat-nav>nav-menu>a[name="myhistory"] {
+	order: 9;
+}
+chat-nav>nav-menu>a[name="games"] {
+	order: 10;
+}
+chat-nav>nav-menu>a[name="notebook"] {
+	order: 11;
+}
+chat-nav>nav-menu>a[name="exit"] {
+	order: 12;
+}
+.app-chat.loader::before {
+	content: none;
+}
+.app-chat.loader chat-form::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 30px;
+	background: repeating-linear-gradient(-45deg, #fff8, #fff8 15px, #fff0 0px, #fff0 30px);
+	background-size: 42px 100%;
+	animation: busy 4s linear infinite;
+	pointer-events: none;
+}
+
+@media (max-width: 1080px) {
+	chat-top img.logo {
+		padding: 6px 50px;
+	}
+	chat-top top-menu {
+		max-width: 300px;
+	}
+	chat-top top-menu>div>input.btn {
+		width: 60px;
+	}
+}
+@media (max-width: 750px) {
+	chat-top img.logo {
+		padding: 6px 10px;
+	}
+	chat-top top-menu>div>input.btn {
+		width: 60px;
+	}
+	chat-form table.send {
+		font-size: 0;
+	}
+}

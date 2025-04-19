@@ -1,0 +1,315 @@
+body>chat-panel {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	user-select: none;
+}
+body>chat-panel>chat-panel.userlist table.whowas td.nick {
+	max-width: 180px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+chat-panel.userlist {
+	--avatar-size: 50px;
+	--avatar-border: none;
+	--status-decor-font-style: normal;
+	--status-decor-color: #fff;
+	--vote-decor-fs: 200%;
+	--vote-decor-font-style: normal;
+	--vote-decor-color: #f00;
+	--user-padding-800: 7px 0 10px;
+}
+chat-panel.userlist div.title {
+	text-align: center;
+	font-size: var(--title-fs, 100%);
+	padding: var(--title-padding, 10px 0 0);
+	background: var(--title-bg, none);
+	text-shadow: var(--title-shadow);
+}
+chat-panel.userlist #who {
+	margin: var(--who-margin, 0 10px 10px);
+}
+chat-panel.userlist>#who>center {
+	white-space: normal;
+	margin-top: 40px;
+}
+chat-panel.userlist div#who div.cap {
+	font: var(--cap-font, italic 400 100% var(--ff));
+	margin: var(--cap-margin, 15px 0 5px);
+	padding: var(--cap-padding, 0 10px 0 0);
+	border-bottom: var(--cap-border, 2px groove #6f9aff88);
+	background: var(--cap-bg, none);
+	box-shadow: var(--cap-shadow);
+	text-shadow: var(--cap-text-shadow, 1px 1px #000);
+	text-align: var(--cap-align, right);
+}
+chat-panel.userlist div.guys {
+	color: var(--cap-guys-color, #a5c0ff);
+}
+chat-panel.userlist div.girls {
+	color: var(--cap-girls-color, #ffb2b2);
+}
+chat-panel.userlist div.none {
+	color: var(--cap-none-color, #b9ffb2);
+}
+chat-panel.userlist div.cap.total {
+	margin: var(--cap-total-margin, 20px 0 0) !important;
+	border-bottom: var(--cap-total-border, none) !important;
+	border-top: var(--cap-total-border-top, 2px groove #fc08);
+	text-align: var(--cap-total-align, right) !important;;
+}
+chat-panel.userlist div#who a {
+	display: block;
+	cursor: pointer;
+}
+chat-panel.userlist div#who a>img {
+	pointer-events: none;
+}
+chat-panel.userlist div#who div.row {
+	display: flex;
+	background: var(--row-bg);
+	padding: var(--row-padding, 5px 0 5px 2px);
+	margin: var(--row-margin, 0);
+}
+chat-panel.userlist div#who div.row+div.row {
+	border-top: var(--row-border);
+}
+chat-panel.userlist div#who div.row>div.avatar {
+	position: relative;
+	flex: 0 0 var(--avatar-size);
+	height: var(--avatar-size);
+	border: var(--avatar-border);
+}
+chat-panel.userlist div#who div.row>div.avatar>img.avatar {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	height: auto;
+}
+chat-panel.userlist div#who div.row>div.avatar>img.avatar.info {
+	cursor: pointer;
+}
+chat-panel.userlist div#who div.row>div.avatar>div {
+	font-size: 0;
+	background: var(--avatar-bg, #fff8);
+	padding: var(--avatar-padding, 6px);
+}
+chat-panel.userlist div#who div.row>div.avatar>div::before {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+chat-panel.userlist div#who div.row.sex0>div.avatar>div::before {
+	content: url(../images/avatar-alien.svgz);
+}
+chat-panel.userlist div#who div.row.sex1>div.avatar>div::before {
+	content: url(../images/avatar-male.svgz);
+}
+chat-panel.userlist div#who div.row.sex2>div.avatar>div::before {
+	content: url(../images/avatar-female.svgz);
+}
+chat-panel.userlist div#who div.row.bot>div.avatar>div::before {
+	content: url(../images/avatar-bot.svgz);
+}
+chat-panel.userlist div#who div.row>div.avatar>img.flag,
+chat-panel.userlist div#who div.row>div.avatar>img.stat {
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	top: 50%;
+}
+chat-panel.userlist div#who div.row>div.avatar>img.flag {
+	transform: translate(var(--flag-trans, -50%, -50%));
+	margin: var(--flag-offs, 50%);
+}
+chat-panel.userlist div#who div.row>div.avatar>img.stat {
+	transform: translate(var(--stat-trans, -50%, -50%));
+	margin: var(--stat-offs, -50%);
+}
+chat-panel.userlist div#who div.row div.icon {
+	display: flex;
+	font-size: 0;
+	flex: 0 0 var(--icon-width, 30px);
+	height: var(--icon-height, 50px);
+	padding: var(--icon-padding, 0 5px);
+}
+chat-panel.userlist div#who div.row div.icon>* {
+	margin: auto;
+}
+chat-panel.userlist div#who div.row div.icon img.icon {
+	height: auto;
+	max-width: var(--icon-width, 30px);
+}
+chat-panel.userlist div#who div.row>div.user {
+	flex: 1 1 auto;
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	overflow: hidden;
+	padding: var(--user-padding, 0);
+}
+chat-panel.userlist div#who div.row>div.user>div {
+	display: flex;
+	align-items: center;
+}
+chat-panel.userlist div#who div.row>div.user>div>img {
+	padding: var(--icon-img-padding, 1px 0 1px 5px);
+}
+chat-panel.userlist div#who div.row>div.user .nick {
+	padding-right: 5px;
+	margin-right: auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: var(--nick-fs);
+	color: var(--nick-color, #cce);
+	text-shadow: var(--nick-shadow, 0 0 1px #000);
+}
+chat-panel.userlist div#who div.row>div.user>span.s {
+	font: var(--status-font, italic 400 80% var(--ff));
+	color: var(--status-color, #fc0);
+}
+chat-panel.userlist div#who div.user>span.s::before {
+	content: var(--status-decor-left, "✧ ");
+	font-style: var(--status-decor-font-style);
+	color: var(--status-decor-color);
+}
+chat-panel.userlist div#who div.user>span.s::after {
+	content: var(--status-decor-right, " ✧");
+	font-style: var(--status-decor-font-style);
+	color: var(--status-decor-color);
+}
+chat-panel.userlist div#who img.stat {
+	filter: var(--stat-filter, drop-shadow(0 0 1px #000));
+}
+chat-panel.userlist div#who img.flag {
+	filter: var(--flag-filter, drop-shadow(0 0 1px #000));
+}
+chat-panel.userlist div#who img.icon {
+	filter: var(--icon-filter, drop-shadow(1px 1px 3px #0009));
+}
+chat-panel.userlist div#who img.mobile {
+	filter: var(--mobile-filter, drop-shadow(0 0 1px #fff));
+}
+
+chat-panel.userlist div#who div.vote {
+	display: flex;
+	align-items: center;
+	font: var(--vote-font, 300 normal 80% var(--ff));
+	color: var(--vote-color, #fff);
+	background: var(--vote-bg, #f006);
+	padding: var(--vote-padding, 0 10px);
+}
+chat-panel.userlist div#who div.vote::before {
+	content: var(--vote-decor-left, "\21bf");
+	font-size: var(--vote-decor-fs);
+	font-style: var(--vote-decor-font-style);
+	color: var(--vote-decor-color);
+}
+chat-panel.userlist div#who div.vote::after {
+	content: var(--vote-decor-left, "\21be");
+	font-size: var(--vote-decor-fs);
+	font-style: var(--vote-decor-font-style);
+	color: var(--vote-decor-color);
+}
+chat-panel.userlist div#who div.vote>div {
+	flex: auto;
+	text-align: center;
+}
+chat-panel.userlist div#who div.vote a.ctrl[name="ctrl"] {
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+}
+chat-panel.userlist div#who div.vote a.ctrl[name="ctrl"]::before {
+	content: "[";
+	visibility: hidden;
+}
+chat-panel.userlist div#who div.vote a.ctrl[name="ctrl"]::after {
+	content: "]";
+	visibility: hidden;
+}
+chat-panel.userlist div#who div.vote a.ctrl[name="ctrl"]:hover {
+	text-decoration: underline;
+}
+chat-panel.userlist div#who div.vote a.ctrl[name="ctrl"]:hover::before,
+chat-panel.userlist div#who div.vote a.ctrl[name="ctrl"]:hover::after {
+	visibility: visible;
+}
+chat-panel.userlist div#who div.vote a[data-cmd="0"] {
+	color: var(--vote-color-cmd0, #daf);
+}
+chat-panel.userlist div#who div.vote a[data-cmd="1"] {
+	color: var(--vote-color-cmd1, #6c0);
+}
+chat-panel.userlist div#who div.vote a[data-cmd="2"] {
+	color: var(--vote-color-cmd2, #f88);
+}
+chat-panel.userlist div#who div.vote a[data-cmd="4"] {
+	color: var(--vote-color-cmd4, #fc0);
+}
+
+chat-panel.userlist table.whowas {
+	width: 100%;
+	white-space: nowrap;
+	padding: var(--whowas-padding);
+}
+chat-panel.userlist table.whowas tr.capt {
+	background: var(--whowas-capt-bg, none);
+}
+chat-panel.userlist table.whowas tr.capt td {
+	font: var(--whowas-capt-font);
+	color: var(--whowas-capt-color, #a5c0ff);
+	padding: var(--whowas-capt-padding, 4px 10px);
+	text-shadow: var(--whowas-capt-shadow, 0 0 1px #0004);
+}
+chat-panel.userlist table.whowas tr.row td:first-child {
+	text-align: center;
+	padding: var(--whowas-first-padding, 0 0 0 5px);
+}
+chat-panel.userlist table.whowas tr.row td.img>img {
+	vertical-align: middle;
+	padding: var(--whowas-img-padding, 0 5px);
+}
+chat-panel.userlist table.whowas tr.row td:nth-child(n+4) {
+	text-align: left;
+	font: var(--whowas-td-font, italic 400 100% "times new roman");
+	padding: var(--whowas-td-padding, 6px 10px);
+	text-shadow: var(--whowas-td-shadow, 1px 1px #000c);
+}
+chat-panel.userlist table.whowas tr.sel {
+	background: var(--sel-bg, #e100e14d);
+	box-shadow: var(--sel-shadow, inset 0 -10px 10px #ff03, inset 0 1px 1px 0 #ff93, inset 0 -1px 0 #ff92);
+}
+chat-panel.userlist table.whowas tr.dgt>td:nth-child(n+8),
+chat-panel.userlist table.whowas tr.dgt>td:nth-child(n+4)>span {
+	font-weight: var(--dgt-font-weight, 700);
+	color: var(--dgt-color, #ffd96c);
+}
+chat-panel.userlist table.whowas tr.dgt>td:nth-child(n+4) {
+	color: var(--dgt4-color);
+}
+
+chat-panel.userlist div.select-room {
+	display: flex;
+	height: var(--select-room-height, 21px);
+	padding: var(--select-room-padding, 10px);
+}
+chat-panel.userlist div.select-room>select.inp {
+	font-size: var(--select-room-select-fs, 80%);
+}
+chat-panel.userlist div.select-room>input.btn {
+	font: var(--select-room-btn-font, 700 20px/0 sans-serif);
+	padding: var(--select-room-btn-padding, 0 10px 4px);
+}
+@media (max-width: 800px) {
+	chat-panel.userlist div#who div.row {
+		flex-wrap: wrap;
+	}
+	chat-panel.userlist div#who div.row>div.user {
+		flex-basis: 100%;
+		--user-padding: var(--user-padding-800);
+	}
+}

@@ -1,0 +1,26 @@
+@import "../userlist.css?1";
+
+chat-panel.userlist {
+	--who-margin: 0;
+	--row-padding: 0 5px;
+	--user-padding-800: 5px 0;
+	--cap-align: left;
+	--cap-padding: 0 10px;
+	--cap-margin: 5px 0px 2px;
+	--cap-total-align: right;
+	--user-padding: 5px 0 5px 5px;
+	--nick-shadow: 0 0 2px #000, 0 0 2px #000;
+	--status-color: #6f3;
+	--status-decor-color: #fc0;
+	--status-decor-left: "✱ ";
+	--status-decor-right: " ✱";
+	--icon-height: auto;
+	--icon-padding: 0 0 0 5px;
+	--vote-padding: 0;
+	--select-room-padding: 0;
+	--select-room-select-fs: 100%;
+	--whowas-img-padding: 0 2px;
+}
+chat-panel.userlist div.select-room>input.btn {
+	border: 0;
+}

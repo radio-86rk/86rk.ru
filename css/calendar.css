@@ -1,0 +1,253 @@
+modal-module.calendar>modal-view {
+	text-align: center;
+}
+modal-module.calendar cal-caption {
+	display: block;
+	padding: var(--caption-padding);
+}
+modal-module.calendar cal-caption>span-year {
+	font-size: var(--caption-year-fs);
+	color: var(--caption-year-color);
+}
+modal-module.calendar cal-caption>span-animal {
+	font-size: var(--caption-animal-fs);
+	color: var(--caption-animal-color);
+}
+modal-module.calendar cal-caption>span-color {
+	font-size: var(--caption-color-fs);
+	color: var(--caption-color-color);
+}
+modal-module.calendar cal-caption>div.ctrl {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+}
+modal-module.calendar cal-caption>div.ctrl>h1 {
+	order: 2;
+	color: var(--h1-color);
+	margin: var(--h1-margin, 0 30px);
+	transition: var(--h1-transition, all 1s);
+}
+modal-module.calendar.sw div.ctrl>h1 {
+	color: var(--h1-sw-color);
+	text-shadow: var(--h1-sw-shadow);
+}
+modal-module.calendar div.ctrl>a.ctrl[name="prev-year"] {
+	order: 1;
+}
+modal-module.calendar div.ctrl>a.ctrl[name="next-year"] {
+	order: 3;
+}
+modal-module.calendar a.ctrl {
+	color: var(--ctrl-color);
+	text-decoration: none;
+	cursor: pointer;
+}
+modal-module.calendar a.ctrl:hover {
+	color: var(--ctrl-hover-color);
+	text-decoration: underline;
+}
+modal-module.calendar calendar {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: flex-start;
+	margin: var(--calendar-margin, 10px 0 0);
+}
+cal-month {
+	display: inline-table;
+	font-weight: var(--month-font-weight, 700);
+	background: var(--month-bg);
+	padding: var(--month-padding);
+	margin: var(--month-margin);
+}
+cal-month>header {
+	display: var(--header-display, table-caption);
+	padding: var(--header-padding, 7px);
+	background: var(--header-bg);
+}
+cal-month>header>a {
+	display: inline-block;
+	font: var(--header-font);
+	font-size: var(--header-fs);
+	font-weight: var(--header-font-weight, 700);
+	color: var(--header-color);
+	text-shadow: var(--header-shadow);
+	text-transform: var(--header-transform);
+}
+cal-month>header>a:hover {
+	color: var(--header-hover-color);
+	background: var(--header-hover-bg);
+}
+cal-month>div {
+	display: var(--row-display, table-row);
+}
+cal-month>div>div {
+	display: var(--cell-display, table-cell);
+	padding: var(--cell-padding, 3px 4px);
+	min-width: var(--cell-width, 3ex);
+	text-shadow: var(--day-shadow);
+	text-align: var(--day-text-align);
+	transition: opacity .5s;
+}
+cal-month>div>div:empty::before {
+	content: "\a0"
+}
+modal-module.calendar.sw cal-month>div>div:nth-of-type(n+2) {
+	opacity: 0;
+}
+cal-month>div>div:first-child {
+	font-weight: var(--dow-font-weight, 700);
+	color: var(--dow-color);
+}
+cal-month>div:nth-of-type(6)>div:first-child,
+cal-month>div:nth-of-type(7)>div:first-child {
+	--dow-color: var(--dow67-color);
+}
+cal-month>div>div:not(:first-child) {
+	color: var(--day-color);
+}
+cal-month>div:nth-of-type(6)>div:not(:first-child),
+cal-month>div:nth-of-type(7)>div:not(:first-child) {
+	--day-color: var(--day67-color);
+}
+cal-month>div>div.cur {
+	position: relative;
+	z-index: 0;
+	--day-color: var(--cur-day-color);
+	--day-shadow: var(--cur-day-shadow, none);
+}
+cal-month>div:nth-of-type(6)>div.cur,
+cal-month>div:nth-of-type(7)>div.cur {
+	--day67-color: var(--cur-day67-color);
+}
+cal-month>div>div.cur::after {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: var(--cur-day-decor-left, 2px);
+	top: var(--cur-day-decor-top, -2px);
+	width: calc(100% - var(--cur-day-decor-red, 4px));
+	padding: var(--cur-day-decor-padding, 0);
+	padding-bottom: calc(100% - var(--cur-day-decor-red, 4px));
+	border-radius: var(--cur-day-decor-radius, 50%);
+	background: var(--cur-day-decor-bg);
+	box-shadow: var(--cur-day-decor-shadow);
+}
+cal-month>div:nth-of-type(6)>div.cur::after,
+cal-month>div:nth-of-type(7)>div.cur::after {
+	background: var(--cur-day67-decor-bg);
+	box-shadow: var(--cur-day67-decor-shadow, var(--cur-day-decor-shadow));
+}
+
+cal-single-month {
+	display: block;
+	margin: var(--single-margin);
+}
+cal-single-month>month-title {
+	display: block;
+	font-size: var(--single-title-fs, 150%);
+	color: var(--single-title-color);
+	text-transform: uppercase;
+}
+cal-single-month>header {
+	display: flex;
+	justify-content: var(--single-header-justify, space-between);
+	align-items: center;
+	text-transform: uppercase;
+	font-size: var(--single-header-fs, 150%);
+	padding: var(--single-header-padding, 0 0 10px);
+	color: var(--single-header-color);
+}
+cal-single-month>header>a {
+	font-size: var(--single-ctrl-fs);
+	color: var(--single-ctrl-color);
+	padding: var(--single-ctrl-padding);
+	line-height: 0;
+}
+cal-single-month>header>a:hover {
+	color: var(--single-ctrl-hover-color);
+}
+cal-single-month>footer {
+	display: block;
+	padding: var(--single-footer-padding, 10px 0 0);
+}
+cal-single-month>div {
+	display: flex;
+	flex: 1 100%;
+}
+cal-single-month>div>div {
+	flex: 1;
+	position: relative;
+	color: var(--single-cell-color);
+	border: var(--single-cell-border, 1px solid #666);
+	margin: var(--single-cell-margin, -1px 0 0 -1px);
+	padding: var(--single-cell-padding, 3px 3px 3px 36px);
+	min-height: var(--single-cell-height, 80px);
+	text-align: left;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+cal-single-month>div:nth-of-type(6),
+cal-single-month>div:nth-of-type(7) {
+	color: var(--single-cell67-color);
+	background: var(--single-cell67-bg, #f002);
+}
+cal-single-month>div>div::before {
+	content: attr(day);
+	position:  absolute;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	width: var(--single-cell-decor-width, 25px);
+	padding: var(--single-cell-decor-padding, 3px);
+	color: var(--single-cell-decor-color);
+	background: var(--single-cell-decor-bg);
+}
+cal-single-month>div:nth-of-type(6)>div::before,
+cal-single-month>div:nth-of-type(7)>div::before {
+	--single-cell-decor-color: var(--single-cell67-decor-color);
+	--single-cell-decor-bg: var(--single-cell67-decor-bg, #f002);
+}
+cal-single-month>div>div::after {
+	content: attr(dow);
+	position:  absolute;
+	left: 0;
+	bottom: 0;
+	padding: var(--single-cell-decor-padding, 3px);
+	color: var(--single-cell-decor2-color);
+}
+cal-single-month>div:nth-of-type(6)>div::after,
+cal-single-month>div:nth-of-type(7)>div::after {
+	color: var(--single-cell67-decor2-color, #f009);
+	background: var(--single-cell67-decor2-bg);
+}
+cal-single-month>div>div.cur {
+	background: var(--single-cur-cell-bg);
+}
+cal-single-month>div:nth-of-type(6)>div.cur,
+cal-single-month>div:nth-of-type(7)>div.cur {
+	background: var(--single-cur-cell67-bg);
+}
+cal-single-month>div>div>a.nick {
+	color: var(--nick-color);
+	white-space: nowrap;
+	cursor: pointer;
+}
+cal-single-month>div>div>a.nick:hover {
+	text-decoration: underline;
+}
+modal-module.calendar::before {
+	display: none;
+	position: absolute;
+	z-index: 999999;
+	inset: 0;	
+	background: #0006 url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 128 128'><g fill='%23fff'><path id='a' d='M61.58 90.1c-13.95 1.35-28.35-3.7-38.48-14.93C13.23 63.75 9.7 48.9 12.5 35.18c-15.13 13.6-16.35 36.9-2.73 52.03 13.38 15.29 36.68 16.52 51.81 2.89z'/><use xlink:href='%23a' transform='rotate(72 64 64)'/><use xlink:href='%23a' transform='rotate(144 64 64)'/><use xlink:href='%23a' transform='rotate(216 64 64)'/><use xlink:href='%23a' transform='rotate(288 64 64)'/><animateTransform attributeName='transform' type='rotate' from='72 64 64' to='0 64 64' dur='360ms' repeatCount='indefinite'/></g></svg>") no-repeat center center/75px 75px;
+	content: "";
+}
+modal-module.calendar.wait::before {
+	display: block;
+}
+modal-module.calendar.wait {
+	pointer-events: none;
+}

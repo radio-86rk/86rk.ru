@@ -1,0 +1,200 @@
+chat-body table.timer-alarm {
+	font: 400 100% verdana;
+	color: #c6c;
+	background: #203;
+	padding: 5px;
+	width: 100%;
+	border-spacing: 0 1px;
+}
+chat-body table.timer-alarm .inp {
+	line-height: unset;
+}
+chat-body table.timer-alarm .inp::placeholder {
+	color: #ccc;
+}
+chat-body table.timer-alarm button.btn[name="ok"] {
+	font-size: 120%;
+	height: 100%;
+	padding: 0 4px;
+}
+chat-body table.timer-alarm button[name="listen"] {
+	display: block;
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	width: 40px;
+	height: 30px;
+	padding: 0;
+	top: -2px;
+}
+chat-body table.timer-alarm button.btn[name="listen"]::before {
+	content: url(../../images/speaker.svgz);
+	transform: scale(1.2);
+}
+chat-body table.timer-alarm label {
+	display: block;
+	white-space: nowrap;
+}
+chat-body table.timer-alarm.new {
+	height: 100%;
+}
+chat-body table.timer-alarm.new th {
+	color: #e80;
+	background: #203;
+	border-bottom: 2px groove #ffb84c;
+}
+chat-body table.timer-alarm.new td {
+	padding: 2px;
+	vertical-align: top;
+}
+chat-body table.timer-alarm.new td.spacer {
+	padding: 0;
+	height: 100%;
+}
+chat-body table.timer-alarm.new tr.cap {
+	font-weight: 700;
+	color: #99f;
+}
+chat-body table.timer-alarm.new div.wdays>label {
+	background: #2c0042;
+	padding-right: 11px;
+	margin: 0 2px 2px 0;
+}
+chat-body table.timer-alarm.new div.wdays {
+	display: flex;
+	flex-wrap: wrap;
+}
+chat-body table.timer-alarm.new div.time {
+	display: flex;
+}
+chat-body table.timer-alarm.list-ta tr:nth-child(2n+1) {
+	background: #000;
+}
+chat-body table.timer-alarm.list-ta .time {
+	font-weight: 400;
+	color: #3c0;
+}
+chat-body table.timer-alarm.list-ta .timer {
+	font-weight: 400;
+	color: #c60;
+}
+chat-body table.timer-alarm.list-ta .name {
+	font-weight: 700;
+	color: #999;
+}
+chat-body table.timer-alarm.list-ta tr.blink {
+	animation: timer-alarm-blink 1.2s linear infinite;
+}
+chat-body table.timer-alarm a.ctrl {
+	display: none;
+	text-decoration: none;
+	outline: none;
+	font: 700 100% arial;
+	text-align: center;
+	border-radius: 0 0 3px 3px;
+	border-bottom: 2px solid #ff0;
+	margin: 0 0 0 3px;
+	padding: 1px 0;
+	width: 70px;
+	box-shadow: 0 0 5px #0008;
+}
+chat-body table.timer-alarm a.ctrl:hover {
+	text-decoration: none;
+}
+chat-body table.timer-alarm a.ctrl:active {
+	transform: translate(1px, 1px);
+	box-shadow: 0 0 2px #0008 !important;
+}
+chat-body table.timer-alarm a.ctrl[name="start"] {
+	color: #ff0;
+	background: linear-gradient(#00d02d, #008624, #00ce45);
+}
+chat-body table.timer-alarm a.ctrl[name="start"]:hover {
+	color: #fff;
+	border-bottom: 2px solid #fff;
+	background: linear-gradient(#2bff59, #00c033, #27ff6f);
+}
+chat-body table.timer-alarm a.ctrl[name="stop"] {
+	color: #ff0;
+	background: linear-gradient(#0057de, #002b8a, #003bdc);
+}
+chat-body table.timer-alarm a.ctrl[name="stop"]:hover {
+	color: #fff;
+	border-bottom: 2px solid #fff;
+	background: linear-gradient(#2b87ff, #004ac0, #276bff);
+}
+chat-body table.timer-alarm a.ctrl[name="del"] {
+	color: #ff0;
+	background: linear-gradient(#d00, #800, #d00);
+}
+chat-body table.timer-alarm a.ctrl[name="del"]:hover {
+	color: #fff;
+	background: #f00;
+	border-bottom: 2px solid #fff;
+	background: linear-gradient(#ff2b39, #c00003, #ff3227);
+}
+chat-body>popup-sub-menu>item>span.timer {
+	color: #336;
+	font-weight: 400;
+	font-family: arial;
+	padding: 2px;
+	margin: -2px;
+}
+chat-body>popup-sub-menu>item>span.timer::before {
+	content: "[";
+	color: #e58a00;
+	font-weight: 700;
+	font-size: 100%;
+	vertical-align: 1px;
+}
+chat-body>popup-sub-menu>item>span.timer::after {
+	content: "]";
+	color: #e58a00;
+	font-weight: 700;
+	font-size: 100%;
+	vertical-align: 1px;
+}
+chat-body>popup-sub-menu>item>span.timer>span {
+	color: #009;
+	font-weight: 700;
+}
+chat-body>popup-sub-menu>item>span.stopped {
+	color: #aab;
+	text-shadow: 1px 1px 0 #fff9;
+	background: #ccf;
+}
+chat-body>popup-sub-menu>item>span.stopped>span {
+	color: inherit;
+	text-shadow: inherit;
+	background: inherit;
+}
+chat-body table.timer-alarm input.error {
+	animation: timer-alarm-error .2s linear 5;
+}
+chat-body .disable table.timer-alarm {
+	opacity: .5;
+}
+chat-body .timer table.timer-alarm div.wdays,
+chat-body .alarm table.timer-alarm input[name="timer_alarm_day"],
+chat-body .alarm table.timer-alarm input[name="timer_alarm_sec"] {
+	opacity: .3;
+	pointer-events: none;
+}
+@keyframes timer-alarm-blink {
+	10%, 50% {
+		background: #f003;
+	}
+	60%, 100%, 0% {
+		background: #0f03;
+	}
+}
+@keyframes timer-alarm-error {
+	0% {
+		background: #f00;
+		border-color: #fcc;
+	}
+	100% {
+		background: #fcc;
+		border-color: #f00;
+	}
+}

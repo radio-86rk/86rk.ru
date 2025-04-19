@@ -1,0 +1,425 @@
+@font-face {
+	font-family: 'PT Mono';
+	font-weight: 400;
+	font-style: normal;
+	src: url('../../fonts/PT-Mono-Regular.woff2') format('woff2');
+}
+html {
+	scroll-snap-type: y mandatory;
+}
+#app {
+	--sb-bg: #fff;
+	--sb-br: 6px;
+	--sb-box-shadow: inset 0 0 5px #0003;
+	--sb-thumb-bg: #828aa0;
+	--sb-thumb-border: 2px solid #fff;
+	--sb-thumb-br: 6px;
+	--margin: 0;
+	--util: -1;
+	font: var(--font, 400 16px/16px Verdana);
+	scroll-snap-type: y mandatory;
+	scroll-snap-align: start;
+}
+#app>app-title {
+	position: relative;
+	z-index: 1;
+	scroll-snap-align: start;
+}
+#app>app-utils {
+	height: calc(100% - 50px);
+}
+#app>app-utils::before {
+	content: url(../../images/vital-logo.svgz);
+	position: absolute;
+	inset: 0;
+	width: 256px;
+	height: 256px;
+	margin: auto;
+	mix-blend-mode: overlay;
+}
+#app>app-utils>div.util {
+	flex: 0 0 100%;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	transform: translateY(calc(var(--util) * -100%));
+	transition: transform .3s;
+}
+#app>app-utils>div.util>app-util {
+	flex: 0 0 100%;
+	display: block;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+#app>app-utils>ul {
+	contain: layout;
+	position: absolute;
+	z-index: 1;
+	right: 0;
+	padding: 0;
+	margin: 2.5em 0;
+	list-style-type: none;
+	pointer-events: none;
+}
+#app>app-utils>ul>li {
+	--pos: 25px;
+	width: 200px;
+	border: 2px solid #999;
+	margin: 5px -2px 5px;
+	padding: 15px 40px;
+	cursor: pointer;
+	transform: translateX(calc(100% - var(--pos)));
+	transition: transform .3s;
+	transition-delay: 1s;
+	white-space: nowrap;
+	pointer-events: auto;
+}
+#app>app-utils.show_all>ul>li,
+#app>app-utils>ul>li:hover {
+	--pos: 100%;
+	transition-delay: 0s;
+}
+#app>app-utils>ul>li.select {
+	--pos: 0px;
+	border-left: 0;
+	pointer-events: none;
+	transition-delay: 0s;
+}
+#app>app-utils>div.util>app-util:nth-child(1) {
+	background: #f9d2d266;
+}
+#app>app-utils>ul>li:nth-child(1) {
+	background: #f5cccc;
+}
+#app>app-utils>div.util>app-util:nth-child(2) {
+	background: #d2f9d266;
+}
+#app>app-utils>ul>li:nth-child(2) {
+	background: #ccf5cc;
+}
+#app>app-utils>div.util>app-util:nth-child(3) {
+	background: #f9f9d266;
+}
+#app>app-utils>ul>li:nth-child(3) {
+	background: #f5f5cc;
+}
+#app>app-utils>div.util>app-util:nth-child(4) {
+	background: #d2d2f966;	
+}
+#app>app-utils>ul>li:nth-child(4) {
+	background: #ccccf5;
+}
+#app>app-utils>div.util>app-util>h4 {
+	font-size: 91%;
+	background: #0006;
+	color: #ffd;
+	margin: 0;
+	padding: 0;
+	word-spacing: 1ch;
+	letter-spacing: .1em;
+	line-height: 2em;
+	text-align: center;
+	text-shadow: -1px -1px 0 #0003;
+}
+#app>app-utils app-util>.page {
+	display: flex;
+	height: calc(100% - 2em);
+}
+
+#app>app-utils cropper {
+	flex-direction: row;
+}
+#app>app-utils cropper>div.ctrl {
+	flex-direction: column;
+	margin: 10px;
+}
+#app>app-utils cropper>div.ctrl.preview {
+	flex: 0;
+	display: flex;
+}
+#app>app-utils cropper>div.ctrl.preview>div.sliders {
+	background: #0002;
+}
+#app>app-utils cropper>div.ctrl.operation {
+	flex: 1;
+	overflow: hidden;
+}
+#app>app-utils cropper>div.ctrl.operation>div {
+	height: 100%;
+	transform: translateY(calc(var(--util0) * -100%));
+	transition: transform .3s;
+}
+#app>app-utils cropper>div.ctrl.operation>div.screen,
+#app>app-utils cropper>div.ctrl.operation>div.holder {
+	display: flex;
+	flex-direction: column;
+}
+#app>app-utils cropper>div.ctrl.operation>div.screen>div.sliders:nth-of-type(2n) {
+	background: #0002;
+}
+#app>app-utils cropper>div.ctrl.operation>div.screen>div.sliders:nth-of-type(2n+1) {
+	background: #0001;
+}
+#app>app-utils cropper>div.ctrl div.fcu {
+	display: flex;
+	align-items: center;
+}
+#app>app-utils cropper>div.ctrl fieldset {
+	display: flex;
+	border: 0;
+	padding: 5px;
+	margin: 7px 0 0;
+	white-space: nowrap;
+	font-size: 90%;
+}
+#app>app-utils cropper>div.ctrl fieldset>legend {
+	padding: 0 5px;
+}
+#app>app-utils cropper>div.ctrl fieldset.center-bottom {
+	margin: auto auto 0;
+	padding-bottom: 0;
+}
+#app>app-utils cropper>div.ctrl a.svg {
+	display: flex;
+	border: 1px solid #06c;
+	padding: 5px;
+	cursor: pointer;
+}
+#app>app-utils cropper>div.ctrl a.svg:active {
+	background: #ccf;
+}
+#app>app-utils cropper>div.ctrl a.svg>svg {
+	fill: #06c;
+	height: 27px;
+	pointer-events: none;
+}
+#app>app-utils cropper>div.ctrl a.svg:has(span) {
+	padding: 0px;
+	color: #3966a5;
+	background: #06c;
+	font-weight: 600;
+}
+#app>app-utils cropper>div.ctrl a.svg:first-child:has(span) {
+	clip-path: polygon(10% 0%, 100% 0%, 100% 100%, 10% 100%, 0% 50%);
+}
+#app>app-utils cropper>div.ctrl a.svg:last-child:has(span) {
+	clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
+}
+#app>app-utils cropper>div.ctrl a.svg>span {
+	clip-path: inherit;
+	display: flex;
+	align-items: center;
+	height: 37px;
+	background: #f5cccc;
+	pointer-events: none;
+}
+#app>app-utils cropper>div.ctrl a.svg:first-child>span {
+	padding: 0 3ch 0 4ch;
+}
+#app>app-utils cropper>div.ctrl a.svg:last-child>span {
+	padding: 0 3ch 0 2ch;
+}
+#app>app-utils cropper>div.ctrl div.sliders div.slider {
+	position: relative;
+	display: inline-block;
+	width: 360px;
+	height: 9px;
+	margin: 8px 15px;
+	border: 1px solid #09f;
+	border-radius: 6px;
+}
+#app>app-utils cropper>div.ctrl div.sliders div.slider>sl-handle {
+	position: absolute;
+	display: block;
+	width: 27px;
+	height: 27px;
+	margin: -10px -14px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 0 0 1px #09f;
+	filter: drop-shadow(0 0 1px #0006);
+}
+#app>app-utils cropper>div.ctrl div.sliders div.slider:not(.active)>sl-handle:not(:active) {
+	transition: left .2s;
+}
+#app>app-utils cropper>div.ctrl div.sliders div#cropper_slider_bri>sl-handle::after {
+	content: url("data:image/svg+xml,<svg fill='%2309f' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='32'/><circle cx='8' cy='50' r='8'/><circle cx='92' cy='50' r='8'/><circle cx='50' cy='92' r='8'/><circle cx='50' cy='8' r='8'/><circle cx='20.3' cy='79.7' r='8'/><circle cx='79.7' cy='20.3' r='8'/><circle cx='79.7' cy='79.7' r='8'/><circle cx='20.3' cy='20.3' r='8'/></svg>");
+}
+#app>app-utils cropper>div.ctrl div.sliders div#cropper_slider_con>sl-handle::after {
+	content: url("data:image/svg+xml,<svg fill='%2309f' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 90c-22.1 0-40-17.9-40-40s17.9-40 40-40m0-10C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0z'/></svg>");
+}
+#app>app-utils cropper>div.ctrl div.sliders div#cropper_slider_sat>sl-handle::after {
+	content: url("data:image/svg+xml,<svg fill='%2309f' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path d='M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 50c-24 12-40 0-40 0 0-22.1 17.9-40 40-40s40 17.9 40 40c0 0-16-12-40 0z'/></svg>");
+}
+#app>app-utils cropper>div.ctrl div.sliders div.slider::before {
+	content: "";
+	position: absolute;
+	display: block;
+	width: calc(var(--value) * 1%);
+	height: 100%;
+	background: #09f;
+	border-radius: 6px;
+}
+#app>app-utils cropper>div.ctrl div.sliders div.slider:not(.active)::before {
+	transition: width .2s;
+}
+#app>app-utils cropper>div.ctrl div.sliders div.slider:active::before,
+#app>app-utils cropper>div.ctrl div.sliders div.slider:hover::before {
+	background: #06c;
+}
+#app>app-utils cropper:not(.ready)>div.ctrl div.ready>fieldset,
+#app>app-utils cropper.busy>div.ctrl fieldset {
+	filter: grayscale(1) opacity(.5);
+	pointer-events: none;
+}
+#app>app-utils cropper crop-preview {
+	flex: 0 0 auto;
+	width: 400px;
+	height: 300px;
+}
+#app>app-utils cropper rk-screen {
+	flex: 1;
+	background: #000;
+}
+#app>app-utils cropper rk-screen>canvas {
+	display: block;
+	margin: auto;
+	height: 100%;
+	aspect-ratio: 4/3;
+	image-rendering: pixelated;
+}
+#app>app-utils cropper>div.ctrl div.fcu>fieldset+span:has(+fieldset) {
+	height: 100%;
+	border-left: 1px solid #0002;
+	border-right: 1px solid #fff2;
+}
+#app>app-utils cropper>div.ctrl div.fcu>fieldset.right {
+	margin-left: auto;
+}
+#app>app-utils cropper>div.ctrl div.fcu>fieldset.col {
+	flex-direction: column;
+}
+#app>app-utils cropper>div.ctrl div.fcu>fieldset.counter>div {
+	font-size: 130%;
+	width: 7ch;
+	text-align: center;
+}
+#app>app-utils cropper>div.ctrl div.fcu.sliders div.slider {
+	width: 150px;
+}
+#app>app-utils:not(.cropper) cropper>div.ctrl a[name=screen].svg:has(span),
+#app>app-utils.cropper cropper>div.ctrl a[name=cropper].svg:has(span) {
+	background: #3966a5;
+	border-color: transparent;
+	pointer-events: none;
+}
+#app>app-utils:not(.cropper) cropper>div.ctrl a[name=screen].svg>span,
+#app>app-utils.cropper cropper>div.ctrl a[name=cropper].svg>span {
+	background: transparent;
+	color: #fff;
+}
+#app>app-utils:not(.cropper) {
+	--util0: 0;
+}
+#app>app-utils.cropper {
+	--util0: 1;
+}
+
+#app>app-utils cnv-text.page {
+	flex-wrap: wrap;
+	height: calc(100% - 6em);
+}
+#app>app-utils cnv-text>div {
+	flex: 1;
+	position: relative;
+	font: 500 18px 'PT Mono', Consolas, monospace;
+	background: #fffc;
+	color: #000;
+	height: calc(100% - 6px);
+	border: 1px solid #000;
+	margin: 2px 5px;
+	outline: 0;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+#app>app-utils cnv-text>div::before {
+	content: "";
+	position: absolute;
+	inset: 0 auto 0 64ch;
+	margin-left: calc(var(--scroll-left) * -1px);
+	width: 2px;
+	border-right: 1px solid #f003;
+}
+#app>app-utils cnv-text>div>span {
+	position: absolute;
+	inset: auto 0 0;
+	padding: .5em;
+	background: #eee;
+	color: #999;
+}
+#app>app-utils cnv-text>div>div {
+	position: absolute;
+	inset: 0 0 2em;
+	padding: 2px;
+	outline: 0;
+	overflow: auto;
+	white-space: pre;
+}
+#app>app-utils cnv-text>div>div:empty {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#app>app-utils cnv-text>div>div:empty::after {
+	content: attr(empty-text);
+	color: #ccc;
+}
+#app>app-utils cnv-text>div>div[contenteditable] {
+	user-select: auto;
+}
+#app>app-utils cnv-text>div:has(>div[contenteditable]:focus) {
+	outline: 2px solid #f00;
+}
+#app>app-utils cnv-text-ctrl {
+	display: grid;
+	grid: 1fr auto / 1fr 1fr;
+	width: 100%;
+	height: 4em;
+}
+#app>app-utils cnv-text-ctrl>div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1px 0;
+}
+#app>app-utils cnv-text-ctrl>div.pad {
+	padding: 8px 10px 2px;
+}
+#app>app-utils cnv-text-ctrl>div>a {
+	display: flex;
+	margin: 0 5px;
+	height: 100%;
+}
+#app>app-utils cnv-text-ctrl>div>a.btn {
+	align-items: center;
+	padding: 0 10px;
+	background: #0303;
+}
+#app>app-utils cnv-text-ctrl>div>a.btn,
+#app>app-utils cnv-text-ctrl>div>a.svg {
+	border: 1px solid #0303;
+}
+#app>app-utils cnv-text-ctrl>div>a.svg {
+	padding: 0 1px;
+	aspect-ratio: 1;
+}
+#app>app-utils cnv-text-ctrl>div>a.svg>svg {
+	pointer-events: none;
+}
+
+#app>app-utils a.btn:active,
+#app>app-utils a.svg:active {
+	transform: translate(1px, 1px);
+}
+

@@ -1,0 +1,10 @@
+@import "../dictaphone.css";
+
+chat-dictaphone {
+	position: relative;
+	height: 38px;
+	background-color: #630063;
+}
+chat-dictaphone au-time {
+	line-height: 36px;
+}

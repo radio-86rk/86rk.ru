@@ -1,0 +1,25 @@
+#app {
+	--main-bg: #fff;
+	--main-color: #08c;
+	--title-bg: linear-gradient(#47a2f7 0%, #4791e5 10%, #407cd0 25%, #3a7ada 37%, #357be3 50%, #256dd1 51%, #40a3ea 83%, #49d0f9 100%);
+	--title-color: #fff6cc;
+	--editor-border: 2px solid #06a;
+	--fn-bg: #b3e5ff;
+	--fn-color: var(--main-color);
+	--matrix-bg: #b3e5ff;
+	--table-sel-bg: #b3e5ff;
+	--table-code-bg: #e5f6ff;
+	--table-cell-bc: #f66;
+	--menu-bg: #2161b5;
+	--menu-color: #fff6cc;
+	--menu-sa-color: #fff6cc;
+	--menu-email-color: #9cf;
+	--menu-vers-color: #49d0f9;
+	--menu-conf-color: #9ff;
+	--menu-div-color: #8ca4c5;
+	--menu-counter-color: #8ca4c5;
+	--conf-bg: #557aaa;
+	--conf-color: #fff;
+	--conf-border: 5px solid #fff;
+	--conf-a-color: #b3e5ff;
+}

@@ -1,0 +1,89 @@
+@import "../tetris.css";
+@font-face {
+	font-family: tetris-font;
+	font-weight: normal;
+	font-style: normal;
+	src: url("../../fonts/rollerball1975.woff2") format("woff2");
+}
+
+modal-module.tetris {
+	letter-spacing: .2em;
+	--window-bg: url(../images/$games/bg01.webp) top/cover;
+	--window-shadow-bg: #fc03;
+	--title-fs: 30vh;
+	--title-shadow: 0 0 3vh #000;
+	--info-color: #00f;
+	--info-bg: none;
+	--info-shadow: none;
+	--info-data-color: #000;
+	--level-color: #00f;
+	--level-shadow: 0 0 1.5vh #fff;
+	--game-over-fs: 12vh;
+	--game-over-color: #f09;
+	--game-over-shadow: 0 0 3vh #000;
+	--high-score-fs: 4vh;
+	--high-score-bg: #0009;
+	--high-score-hl-color: #f099;
+	--button-padding: 1vh 12vh 0;
+	--button-decor-top: -7vh;
+	--button-shadow: 0 0 2vh #0006;
+	--pause-color: #f09;
+	--pause-text-shadow: 0 0 10px #00fc;
+	--tetris-next-width: 20vh;
+	--tetris-next-padding: 1vh 0;
+	--tetris-next-border: 0;
+	--tetris-next-margin: 0;
+	--tetris-border: 3px solid #00f;
+	--tetris-bg: #fff;
+	--tetris-cell-bg: #fff;
+	--tetris-cell-outline: 1px solid #0003;
+	--tetris-mino-shadow: 0 0 0 1px #0001;
+	--tetris-mino1: linear-gradient(-45deg, var(--mino1-color1), var(--mino1-color2));
+	--tetris-mino2: linear-gradient(-45deg, var(--mino2-color1), var(--mino2-color2));
+	--tetris-mino3: linear-gradient(-45deg, var(--mino3-color1), var(--mino3-color2));
+	--tetris-mino4: linear-gradient(-45deg, var(--mino4-color1), var(--mino4-color2));
+	--tetris-mino5: linear-gradient(-45deg, var(--mino5-color1), var(--mino5-color2));
+	--tetris-mino6: linear-gradient(-45deg, var(--mino6-color1), var(--mino6-color2));
+	--tetris-mino7: linear-gradient(-45deg, var(--mino7-color1), var(--mino7-color2));
+	--mino1-color1: #48c2c5;
+	--mino1-color2: #3ea8ab;
+	--mino2-color1: #ece71b;
+	--mino2-color2: #d4ce18;
+	--mino3-color1: #bc1ae9;
+	--mino3-color2: #a013c3;
+	--mino4-color1: #01eb34;
+	--mino4-color2: #01cd2a;
+	--mino5-color1: #ec062a;
+	--mino5-color2: #d70624;
+	--mino6-color1: #0660f5;
+	--mino6-color2: #044ed4;
+	--mino7-color1: #ec730b;
+	--mino7-color2: #db6607;
+}
+modal-module.tetris tetris>div>div[class^="mino"]::after {
+	content: "";
+	position: absolute;
+	inset: 0;	
+	border: .3vh solid;
+}
+modal-module.tetris tetris>div>div.mino1::after {
+	border-color: var(--mino1-color1) var(--mino1-color2) var(--mino1-color2) var(--mino1-color1);
+}
+modal-module.tetris tetris>div>div.mino2::after {
+	border-color: var(--mino2-color1) var(--mino2-color2) var(--mino2-color2) var(--mino2-color1);
+}
+modal-module.tetris tetris>div>div.mino3::after {
+	border-color: var(--mino3-color1) var(--mino3-color2) var(--mino3-color2) var(--mino3-color1);
+}
+modal-module.tetris tetris>div>div.mino4::after {
+	border-color: var(--mino4-color1) var(--mino4-color2) var(--mino4-color2) var(--mino4-color1);
+}
+modal-module.tetris tetris>div>div.mino5::after {
+	border-color: var(--mino5-color1) var(--mino5-color2) var(--mino5-color2) var(--mino5-color1);
+}
+modal-module.tetris tetris>div>div.mino6::after {
+	border-color: var(--mino6-color1) var(--mino6-color2) var(--mino6-color2) var(--mino6-color1);
+}
+modal-module.tetris tetris>div>div.mino7::after {
+	border-color: var(--mino7-color1) var(--mino7-color2) var(--mino7-color2) var(--mino7-color1);
+}

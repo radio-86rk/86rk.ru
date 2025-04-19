@@ -1,0 +1,63 @@
+/***
+ ***  Файл содержит стили окна списка посетителей
+ ***/
+
+/*
+ *  импортируются базовые стили
+ */
+@import "../userlist.css?1";
+
+chat-panel.userlist {
+	/* параметры заголовка списка */
+	--title-shadow: 1px 1px 2px #0004;
+	--row-padding: 5px 0 5px 5px;
+	/* параметры заголовков групп */
+	--cap-border: 2px solid #ccf;
+	--cap-padding: 0 20px 0 0;
+	--cap-text-shadow: 1px 1px 1px #0003;
+	--cap-guys-color: #7590cc;
+	--cap-girls-color: #cc8282;
+	--cap-none-color: #79bb72;
+	--cap-total-border-top: 2px solid #ccf;
+	/* параметры ников */
+	--nick-color: #39f;
+	--nick-shadow: 1px 1px #0003;
+	/* параметры статуса пользователя */
+	--status-color: #c90;
+	--status-decor-color: #00f;
+	/**/
+	--icon-img-padding: 0 0 0 5px;
+	--avatar-border: 1px solid #99f;
+	--stat-filter: drop-shadow(1px 1px 1px #0004);
+	--flag-filter: drop-shadow(1px 1px 1px #0004);
+	--icon-filter: drop-shadow(1px 1px 1px #0004);
+	/* параметры кнопки перехода в комнату */
+	--select-room-btn-padding: 0;
+	--select-room-btn-font: normal 600 18px/21px monospace;
+	/*
+	 *  параметры сообщений при голосовании
+	 */
+	--vote-color: #f00;
+	--vote-color-cmd0: #daf;
+	--vote-color-cmd1: #6c0;
+	--vote-color-cmd2: #f88;
+	--vote-color-cmd4: #00f;
+	/*
+	 *  параметры таблицы списка "кто был"
+	 */
+	--whowas-padding: 0 15px 0 0;
+	/* заголовки */
+	--whowas-capt-font: 600 13px verdana;
+	--whowas-capt-bg: #ff04;
+	--whowas-capt-color: #6c6;
+	--whowas-capt-shadow: 1px 1px #fff;
+	/* информационные ячейки */
+	--whowas-td-padding: 6px 15px;
+	--whowas-td-shadow: none;
+	/* выделенная строка */
+	--sel-bg: linear-gradient(#b767ff19, #ff8f2f19);
+	--sel-shadow: none;
+	/**/
+	--dgt4-color: #86c1ff;
+	--dgt-color: #003eff;
+}

@@ -1,0 +1,17 @@
+@import "../people-info.css";
+
+body.mobile {
+	overflow-y: auto;
+}
+div.content.info div.title>span {
+	padding-right: 60px;
+}
+div.content.info div[name="collapse"] {
+	margin: 1px 0 0;
+}
+div.content.info>section>div {
+	padding-left: 10px !important;
+}
+div.content.info albums>album>h2 {
+	font-weight: 500;
+}

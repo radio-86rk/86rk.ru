@@ -1,0 +1,15 @@
+@import "../poll-list.css";
+
+modal-module.poll-list {
+	--view-sb-right: -15px;
+	--view2-color: #fff;
+	--view2-bg: #004;
+	--crtl-right: calc(6% - 30px);
+	--crtl-top: 0;
+	--ctrl-radius: 0;
+	--pl-poll-padding: 1px;
+	--pl-poll-border: 1px solid #fff6;
+	--pl-poll-odd-bg: #00458026;
+	--pl-poll-even-bg: #cfffcc3d;
+	--pl-poll-decor-color: #f33;
+}

@@ -1,0 +1,66 @@
+popup-nav {
+	contain: paint;
+	position: absolute;
+	z-index: 11;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	white-space: nowrap;
+	overflow: hidden;
+}
+popup-nav>nav-title {
+	display: block;
+	font: 500 18px/26px arial;
+	color: #102070;
+	background: linear-gradient(#bbc, #eee);
+	text-align: center;
+	box-shadow: inset 0 1px 10px #1279;
+}
+popup-nav>nav-body {
+	display: block;
+	height: 0;
+	font: normal 14px/18px arial;
+	color: #009;
+	background: linear-gradient(#ffa315, #ff6445);
+	transition: height 250ms cubic-bezier(0,0,0,1.2) 400ms;
+}
+popup-nav>nav-body>div {
+	padding: 5px;
+	overflow: hidden;
+}
+popup-nav>nav-body>div+div {
+	padding-top: 0;
+}
+popup-nav>nav-body>div+div::before {
+	content: "";
+	display: block;
+	border-top: 1px solid #cf3415;
+	border-bottom: 1px solid #ffa485;
+	margin: 0 10px 4px;
+}
+popup-nav>nav-body>div>item {
+	display: block;
+	margin: 0 -5px;
+	padding: 0 15px;
+}
+popup-nav>nav-body.menu1>div.menu,
+popup-nav>nav-body.menu2>div.status,
+popup-nav>nav-body.menu1>div.status::before {
+	display: none;
+}
+popup-nav>nav-body.menu1>div.status {
+	padding-top: 5px;
+}
+popup-nav>nav-body>div>item:not(.cur):hover {
+	color: #ffa315;
+	background: linear-gradient(to right, #009, #0090);
+}
+popup-nav>nav-body>div>item.cur {
+	color: #fff;
+	background: linear-gradient(to right, #cf3415, #0000);
+}
+chat-panel>chat-panel::after {
+	content: "";
+	display: block;
+	height: 30px;
+}

@@ -1,0 +1,126 @@
+/***
+ ***  Файл содержит стили окна смайликов
+ ***/
+
+html.smiles,
+body.smiles {
+	/*
+	 *  параметры документа для случая, когда смайлки открываются в отдельном окне
+	 */
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: #fafaff;
+	cursor: url(../../images/0/cursor.cur), auto;
+	overflow: hidden;
+}
+body.smiles scrollbar {
+	/*
+	 *  изображение кастомизированного скроллбара
+	 */
+	--width: 16px;
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgBAMAAABQs2O3AAAALVBMVEUAAAD/wmf/nDL/wmf/nDL/wmfr7e/N19v/nDL/wmevvcOZpqvJ1NjEztOrt7y/cbaPAAAABnRSTlMA9+/qW1CM/1qvAAAASUlEQVQ4y2NYBQS7gSANCMqBgAEKZgJBBxAQVnANInEOpwKoRA1MQTBEQgVdQTmMloRK4FQwc1TBqIJhpwCW7AlmHKKzHuW5GwALm+q80uPR6wAAAABJRU5ErkJggg==);
+}
+table.smiles {
+	font: 400 12pt verdana;
+	background: #ddf;
+}
+table.smiles th {
+	/*
+	 *  параметры заголовка окна
+	 */
+	color: #668;
+	padding: 2px 0;
+	text-shadow: 0 1px 1px #fff;
+}
+table.smiles th span#sm_group_name {
+	color: #c55100;
+}
+table.smiles tr.menu td {
+	/*
+	 *  параметры строки меню
+	 */
+	display: flex;
+	justify-content: space-around;
+	padding: 2px 0;
+}
+table.smiles tr.menu a {
+	/*
+	 *  параметры номеров страниц в меню
+	 */
+	color: #668;
+	text-decoration: none;
+	border: none;
+	padding: 0px 5px;
+	cursor: inherit;
+}
+table.smiles tr.menu a:hover:not(.c) {
+	/*
+	 *  параметры номеров страниц в меню под курсором мышки
+	 */
+	color: #000;
+	background: #fc8;
+}
+table.smiles tr.menu a.c {
+	/*
+	 *  параметры номера текущей страницы в меню
+	 */
+	color: #fff;
+	background: #f80;
+}
+table.smiles tr.menu select#sm_group {
+	/*
+	 *  параметры выпадающего меню группы смайликов
+	 */
+	font-size: 100%;
+	padding: 0 10px;
+}
+table.smiles td.smiles {
+	/*
+	 *  параметры внешнего контейнера смайликов
+	 */
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	border: solid #bbf;
+	border-width: 1px 0;
+	background: #fafaff;
+	font-size: 0;
+}
+table.smiles div#smiles {
+	/*
+	 *  параметры внутреннего контейнера смайликов
+	 */
+	position: absolute;
+	inset: 0;	
+	overflow: auto;
+}
+table.smiles div#smiles img {
+	/*
+	 *  параметры картинки со смайликом
+	 */
+	display: inline-block;
+	border: 5px solid transparent;
+	cursor: pointer;
+	transition: .5s;
+}
+table.smiles div#smiles img:hover {
+	/*
+	 *  параметры картинки со смайликом под курсором мышки
+	 */
+	background: #eef;
+}
+table.smiles select#sm_group {
+	font-weight: 400;
+	color: #c36800;
+	width: initial;
+}
+table.smiles select#sm_group:focus {
+	box-shadow: inset 1px 1px 5px 0px #0003;
+}
+table.smiles td.smiles>scrollbar {
+	/*
+	 *  положение кастомного скроллбара
+	 */
+	right: 0;
+}

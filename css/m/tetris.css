@@ -1,0 +1,124 @@
+@import "../tetris.css";
+@font-face {
+	font-family: tetris-font;
+	font-weight: normal;
+	font-style: normal;
+	src: url("../../fonts/62DRAGZ.woff2") format("woff2");
+}
+
+modal-module.tetris {
+	--window-bg: #0006;
+	--title-fs: 13vmin;
+	--title-shadow: 0 0 4vmin #000;
+	--info-fs: 3vh;
+	--info-line-height: 5vh;
+	--info-color: #00f;
+	--info-bg: #fffc;
+	--info-shadow: none;
+	--info-data-color: #000;
+	--level-color: #00f;
+	--level-shadow: 0 0 1.5vmin #fff;
+	--game-over-color: #ff0;
+	--game-over-shadow: 0 0 3vmin #000;
+	--high-score-fs: 3vmin;
+	--high-score-bg: #0009;
+	--high-score-hl-color: #ff09;
+	--bottom-padding: 0;
+	--button-fs: 5vmin;
+	--button-line-height: 11vmin;
+	--button-padding: 1vmin 0 0;
+	--button-decor-top: -12vmin;
+	--pause-color: #ff0;
+	--pause-text-shadow: 0 0 10px #00fc;
+	--tetris-next-border: 1vmin solid #fff;
+	--tetris-border-color: #00f;
+	--tetris-cell-bg: #fff;
+	--tetris-cell-outline: 1px solid #0003;
+	--tetris-mino-shadow: 0 0 0 1px #0003;
+	--tetris-mino1: linear-gradient(45deg, #189287 49%, #12a19b 51%);
+	--tetris-mino2: linear-gradient(45deg, #edb61b 49%, #ffca24 51%);
+	--tetris-mino3: linear-gradient(45deg, #a328e2 49%, #ae33ed 51%);
+	--tetris-mino4: linear-gradient(45deg, #5d9f31 49%, #64ac2f 51%);
+	--tetris-mino5: linear-gradient(45deg, #d94032 49%, #ea5841 51%);
+	--tetris-mino6: linear-gradient(45deg, #1e75ab 49%, #2d7dbc 51%);
+	--tetris-mino7: linear-gradient(45deg, #e88520 49%, #f4942d 51%);
+}
+modal-module.tetris div.bottom {
+	margin: 0 2px;
+	text-align: center;
+}
+modal-module.tetris div.bottom>a {
+	display: block;
+}
+modal-module.tetris tetris-game-over>tetris-high-score {
+	margin: 0 auto auto;
+}
+modal-module.tetris tetris-ctrl {
+	display: flex;
+	height: 10vmin;
+	background: #ccc;
+	box-shadow: inset 0 -1vmin 1vmin .2vmin #0003, inset 0 1vmin 1vmin .2vmin #fff;
+	pointer-events: auto;
+	font-size: 0;
+}
+modal-module.tetris tetris-ctrl>div {
+	flex: 0 0 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1px;
+	padding: 2vmin;
+	border: 1px solid #f60;
+}
+modal-module.tetris tetris-ctrl>div:nth-child(3) {
+	flex: 2 0;
+}
+modal-module.tetris tetris-ctrl>div>svg {
+	fill: none;
+	stroke: #f60;
+	stroke-width: 2px;
+	height: 100%;
+	pointer-events: none;
+}
+@media (orientation: portrait) {
+	modal-module.tetris {
+		--info-bg: 0000;
+		--info-margin: 1vh 0 0;
+		--info-padding: 0;
+		--high-score-inline-padding: 3vh;
+	}
+	modal-module.tetris tetris-game {
+		position: relative;
+		flex-direction: column;
+	}
+	modal-module.tetris tetris-game>tetris {
+		flex: 1 0 auto;
+		align-self: center;
+		pointer-events: auto;
+	}
+	modal-module.tetris tetris-game>tetris-info {
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		display: flex;
+		flex-direction: column;
+		padding-right: 40%;
+		opacity: .2;
+	}
+	modal-module.tetris tetris-game>tetris-info>* {
+		margin-left: auto;
+	}
+	modal-module.tetris tetris-game>tetris-info>*[value]::after {
+		display: inline-block;
+		width: 0;
+		padding-left: 2vh;
+	}
+	modal-module.tetris tetris-game>tetris-info>*.landscape {
+		display: none;
+	}
+	modal-module.tetris tetris.game-over+tetris-info {
+		background: #fff;
+		opacity: 1;
+	}
+}

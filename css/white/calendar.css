@@ -1,0 +1,59 @@
+@import "../calendar.css";
+
+modal-module.calendar {
+	color: #666;
+	--modal-bg: #fff;
+	--modal-padding: 0;
+	--caption-year-fs: 110%;
+	--month-bg: #cee6ff57;
+	--month-padding: 10px;
+	--month-margin: 1px;
+	--header-transform: uppercase;
+	--header-color: #6173a5;
+	--header-hover-color: #b9c5dd;
+	--header-display: block;
+	--row-display: block;
+	--cell-display: block;
+	--day-text-align: right;
+	--dow-color: #888;
+	--day-color: #59f;
+	--day67-color: #f55;
+	--cur-day-decor-red: 6px;
+	--cur-day-decor-left: 5px;
+	--cur-day-decor-bg: #ccc9;
+	--cur-day-decor-shadow: inset 0 0 3px 1px #0003;
+	--cur-day67-decor-shadow: inset 0 0 5px #f009;
+	--cur-day-shadow: .2px 0 0;
+	--h1-sw-color: #fff;
+	--h1-sw-shadow: 0 0 10px #333;
+	--ctrl-color: #ccc;
+	--ctrl-hover-color: #666;
+	--single-title-color: #626c8c;
+	--single-header-color: #55539f;
+	--single-ctrl-padding: 0 30px 4px;
+	--single-ctrl-hover-color: #c3c1dd;
+	--single-cur-cell-bg: #112c5d1a;
+	--single-cur-cell67-bg: #4b1c361a;
+	--single-cell-border: 1px solid #ccc;
+	--single-cell-decor-bg: #005aff22;
+	--single-cell-decor2-color: #37f;
+	--single-cell67-decor2-color: #f55;
+	--single-cell67-bg: #f001;
+	--nick-color: #666;
+
+	--crtl-right: 20px;
+	--crtl-top: 4px;
+	--view2-padding: 10px 30px 30px;
+}
+cal-month {
+	display: flex;
+	flex-flow: row wrap;
+}
+cal-month>header {
+	flex: 1 100%;
+	font-size: 150%;
+	width: 0;
+}
+cal-month>div {
+	flex: 0 0 auto;
+}

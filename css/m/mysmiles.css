@@ -1,0 +1,84 @@
+.app-chat.mysmiles chat-form {
+	flex-basis: 94px;
+}
+chat-mysmiles {
+	display: block;
+	background: #102070;
+	height: 60px;
+	overflow: hidden;
+	transition: height .5s;
+	box-shadow: inset 0 30px 30px #0008;
+	font-size: 0;
+}
+chat-mysmiles>table {
+	table-layout: fixed;
+}
+chat-mysmiles>table td:first-of-type,
+chat-mysmiles>table td:last-of-type {
+	width: 40px;
+}
+chat-mysmiles td>div.scroll {
+	height: 60px;
+	overflow: hidden;
+}
+chat-mysmiles td>div.scroll>div {
+	height: 100%;
+	white-space: nowrap;
+	transform: translateX(calc(var(--left) * -1px));
+}
+chat-mysmiles td>div.scroll>div:not(.scroll) {
+	transition: transform 1s cubic-bezier(0,0,.2,1.2);
+}
+chat-mysmiles div.buttons-control {
+	height: 60px;
+	overflow: hidden;
+}
+chat-mysmiles button {
+	width: 40px;
+	height: 30px;
+	color: #fff;
+	font: 700 29px/0 arial;
+	border: none;
+	padding: 0;
+	text-shadow: -1px -1px 0 #0006;
+	box-shadow: inset 0 0 1px #000;
+	background: linear-gradient(#8638ad, #983493 50%, #820077 50%, #8421b5);
+}
+chat-mysmiles div.buttons-scroll>button {
+	font-size: 18px;
+}
+chat-mysmiles button:hover {
+	box-shadow: inset 0 0 20px #d175ff;
+}
+chat-mysmiles button:active {
+	transform: translate(1px, 1px);
+}
+chat-mysmiles img[name="smile"] {
+	margin: 0 10px;
+	max-height: 100%;
+	width: auto;
+	vertical-align: middle;
+	cursor: pointer;
+}
+chat-mysmiles div.private.wait * {
+	visibility: hidden;
+}
+chat-mysmiles div.private.wait {
+	box-shadow: inset 0 0 10px 10px #fffb;
+	border-radius: 10px;
+	background-color: #39f !important;
+	background-image: linear-gradient(45deg,
+		#fff3 25%, transparent 25%, transparent 50%,
+		#fff3 50%, #fff3 75%, transparent 75%, transparent
+	) !important;
+	background-size: 50px 50px !important;
+	animation: anim-wait 3s linear infinite;
+}
+@keyframes anim-wait {
+	0% {
+		background-position: 500px 100%;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}

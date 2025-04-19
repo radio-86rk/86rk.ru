@@ -1,0 +1,5 @@
+@import "../fast-reg.css";
+
+fast-reg img#__captcha {
+	background: #fff;
+}

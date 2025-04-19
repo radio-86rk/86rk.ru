@@ -1,0 +1,12 @@
+@import "../radio.css";
+radio radio-play,
+radio radio-next,
+radio radio-volume {
+	opacity: .8;
+	transition: opacity 0.3s ease;
+}
+radio radio-play:hover,
+radio radio-next:hover,
+radio radio-volume:hover {
+	opacity: 1;
+}

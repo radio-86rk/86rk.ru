@@ -1,0 +1,49 @@
+@import "../tetris.css";
+@font-face {
+	font-family: tetris-font;
+	font-weight: normal;
+	font-style: normal;
+	src: url("../../fonts/62DRAGZ.woff2") format("woff2");
+}
+
+modal-module.tetris {
+	--window-bg: #fff9;
+	--window-shadow-bg: #bcdeff33;
+	--title-fs: 17vh;
+	--title-shadow: 0 0 4vh #000;
+	--info-fs: 3.5vh;
+	--info-color: #00f;
+	--info-bg: #fffc;
+	--info-shadow: none;
+	--info-data-color: #000;
+	--level-color: #00f;
+	--level-shadow: 0 0 1.5vh #fff;
+	--game-over-color: #f09;
+	--game-over-shadow: 0 0 3vh #000;
+	--high-score-fs: 4vh;
+	--high-score-bg: #0009;
+	--high-score-hl-color: #f099;
+	--button-fs: 3vh;
+	--button-line-height: 5vh;
+	--button-padding: 1vh 12vh .5vh;
+	--button-decor-top: -6vh;
+	--pause-fs: 7vh;
+	--pause-color: #f09;
+	--pause-text-shadow: 0 0 10px #00fc;
+	--tetris-next-width: 20vh;
+	--tetris-next-padding: 1vh 0;
+	--tetris-next-border: 0;
+	--tetris-next-margin: 0;
+	--tetris-border: 3px solid #00f;
+	--tetris-bg: #fff;
+	--tetris-cell-bg: #fff;
+	--tetris-cell-outline: 1px solid #0003;
+	--tetris-mino-shadow: 0 0 0 1px #0003;
+	--tetris-mino1: linear-gradient(45deg, #189287 49%, #12a19b 51%);
+	--tetris-mino2: linear-gradient(45deg, #edb61b 49%, #ffca24 51%);
+	--tetris-mino3: linear-gradient(45deg, #a328e2 49%, #ae33ed 51%);
+	--tetris-mino4: linear-gradient(45deg, #5d9f31 49%, #64ac2f 51%);
+	--tetris-mino5: linear-gradient(45deg, #d94032 49%, #ea5841 51%);
+	--tetris-mino6: linear-gradient(45deg, #1e75ab 49%, #2d7dbc 51%);
+	--tetris-mino7: linear-gradient(45deg, #e88520 49%, #f4942d 51%);
+}

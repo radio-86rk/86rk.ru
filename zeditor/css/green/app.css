@@ -1,0 +1,22 @@
+#app {
+	--main-bg: #fff;
+	--main-color: #188f5d;
+	--bg: linear-gradient(#efe, #ded);
+	--title-bg: linear-gradient(#09d16a 0%, #19b56c 10%, #249666 25%, #1ea06c 37%, #17a96f 50%, #198f5e 51%, #14b858 83%, #07d737 100%);
+	--title-color: #fff6cc;
+	--editor-border: 2px solid #2a7e3f;
+	--fn-bg: #c6eccf;
+	--fn-color: var(--main-color);
+	--matrix-bg: #c6eccf;
+	--table-sel-bg: #c6eccf;
+	--menu-bg: #2a7e3f;
+	--menu-color: #fff6cc;
+	--menu-sa-color: #99ffd5;
+	--menu-vers-color: #fa9;
+	--menu-conf-color: #99ffd5;
+	--conf-color: #fff;
+	--conf-a-hover-color: #fff;
+	--conf-bg: #5c8a77;
+	--conf-border: 5px solid #fff;
+	--conf-a-color: #99ffd5;
+}

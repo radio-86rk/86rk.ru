@@ -1,0 +1,62 @@
+@import "../radio.css";
+
+radio {
+	margin: 0;
+}
+radio radio-genre, radio radio-station {
+	background: #fff;
+}
+radio radio-genre, radio radio-station {
+	width: 200px;
+	box-shadow: inset 1px 2px 6px #0000001a;
+}
+radio radio-station, radio radio-genre>div>span {
+	color: #f95;
+	text-shadow: 1px 1px 2px #00000026;
+}
+radio radio-genre>div>span:hover {
+	background: linear-gradient(#fca 0%, #fca 90%, #da8 100%);
+	color: #ff8000;
+}
+radio radio-genre.expand>div>span.cur {
+	background: #999;
+}
+radio.connect radio-station {
+	background-color: #8503 !important;
+}
+radio radio-play,
+radio radio-next,
+radio radio-volume:not(.active) {
+	opacity: .5;
+	transition: opacity .3s;
+}
+radio radio-play:hover,
+radio radio-next:hover,
+radio radio-volume:hover {
+	opacity: 1;
+}
+radio radio-time {
+	position: absolute;
+	top: 20px;
+	right: 0;
+	padding: 0 10px;
+	transition: top .3s;
+}
+radio radio-time,
+radio radio-time>span {
+	font-size: 20px;
+	line-height: 18px;
+	color: #00f;
+	opacity: 1;
+	text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 6px #fff, 0 0 7px #fff;
+}
+radio radio-time>span {
+	font-weight: 700;
+}
+radio:hover radio-time {
+	top: 100%;
+}
+radio radio-volume::before {
+	filter: invert(.6) drop-shadow(0 0 1px #0006);
+}
+

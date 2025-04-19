@@ -1,0 +1,9 @@
+@import "../video-recorder.css";
+
+video-recorder {
+	--bg: #000;
+	--ctrl-bg-color: #c50;
+	--select-color: #fff;
+	--option-fs: 75%;
+	--option-bg: #c50;
+}

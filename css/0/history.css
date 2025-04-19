@@ -1,0 +1,96 @@
+.history chat-chat>div.wait {
+	font: bold 20px verdana;
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 50%;
+	text-align: center;
+}
+.history chat-chat>div.sel {
+	background: linear-gradient(#433 90%, #322 90%);
+}
+.history chat-chat>div.hidden {
+	background: linear-gradient(#622 90%, #511 90%);
+}
+.history form.menu {
+	display: grid;
+	grid: 1fr 1fr/1fr 1fr;
+	height: auto;
+	font: normal 10pt verdana;
+	background: linear-gradient(#1a74d4, #003aa6) top/100% 2px;
+	padding: 5px;
+	margin: 0 10px 10px;
+	text-shadow: -1px -1px 0 #0008;
+	box-shadow: 3px 3px 10px #33f9, inset 0 0 3px 1px #006c;
+	user-select: none;
+}
+.history form.menu>div {
+	line-height: 2;
+	padding: 0 10px;
+	overflow: hidden;
+}
+.history form.menu>div>div {
+	display: inline-block;
+}
+.history form.menu>div:nth-child(1) {
+	order: 1;
+	border-right: 1px solid #2a5196;
+	border-bottom: 1px solid #213f73;
+}
+.history form.menu>div:nth-child(2) {
+	order: 3;
+	border-right: 1px solid #2a5196;
+	border-top: 1px solid #4b81d1;
+}
+.history form.menu>div:nth-child(3) {
+	order: 2;
+	border-left: 1px solid #4b81d1;
+	border-bottom: 1px solid #213f73;
+	display: flex;
+	align-items: center;
+}
+.history form.menu>div:nth-child(4) {
+	order: 4;
+	border-left: 1px solid #4b81d1;
+	border-top: 1px solid #4b81d1;
+	display: flex;
+	justify-content: space-between;
+}
+.history form.menu div.day {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 0;
+}
+.history form.menu select.inp {
+	flex: 1;
+	font: normal 100 14px sans-serif;
+	height: 23px;
+	width: initial;
+}
+.history form.menu .btn[name="show"] {
+	font-size: 140%;
+	line-height: 0;
+	height: 23px;
+	padding: 0 10px;
+}
+.history form.menu .btn[name="hide"] {
+	visibility: hidden;
+}
+.history form.menu.hide .btn[name="hide"] {
+	visibility: visible;
+}
+.history.moder chat-chat>div.ph {
+	margin-left: 24px;
+}
+.history.moder chat-chat>div.ph>div.check {
+	display: inline-block;
+	margin-left: -24px;
+}
+.history.moder chat-chat>div.ph>div.check+div[class^="s"] {
+	display: inline-block;
+}
+@media (max-width: 800px) {
+	.history form.menu {
+		margin: 0;
+	}
+}

@@ -1,0 +1,517 @@
+/***
+ ***  Файл содержит стили окна сообщений
+ ***/
+
+/*
+ *  импортируются базовые стили
+ */
+@import "../chat.css";
+
+.app-chat {
+	--chat-me3: #f702;
+}
+chat-view {
+	/*
+	 *  параметры базового контейнера для отображения потока сообщений
+	 */
+	margin: 5px;
+}
+chat-body>scrollbar+chat-view {
+	margin-left: 15px;
+}
+chat-title {
+	/*
+	 *  параметры заголовка окна сообщений
+	 */
+	color: #39f;
+}
+chat-chat {
+	/*
+	 *  параметры контейнера, в который складываются все фразы
+	 */
+	padding: 5px;
+}
+chat-chat>div.ph {
+	/*
+	 *  параметры фраз
+	 */
+	text-shadow: 1px 1px #0002;
+	opacity: 1;
+	transition: opacity .5s .2s;
+}
+chat-chat>div.ph.invisible {
+	opacity: 0;
+}
+chat-main span.nick {
+	/*
+	 *  параметры ника по умолчанию
+	 */
+	color: #39f;
+	font-style: normal;
+	font-weight: 700;
+	text-shadow: 1px 1px 1px #0003;
+}
+chat-main a.nick:active {
+	/*
+	 *  параметры ника при клике
+	 */
+	text-shadow: 1px 1px 1px #80f8;
+}
+chat-chat>div.ph>span.mess::before {
+	/*
+	 *  разделитель ника и сообщения во фразе
+	 */
+	color: #f60;
+}
+chat-chat>div.ph>span[class^="s"]>img.flag {
+	/*
+	 *  параметры картинки флага
+	 */
+	filter: drop-shadow(0 0 1px #0003);
+}
+chat-chat>div.ph.me2,
+chat-chat>div.ph.me3 {
+	margin: 0px -5px;
+	padding: 0px 5px;
+}
+
+/*
+ *  следующие 9 стилей определяют параметры системных сообщений чата
+ *  номер стиля сообщению присваивается в админке чата
+ */
+chat-chat .s1 {
+	color: #c90;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80%;
+	line-height: 2;
+}
+chat-chat .s2 {
+	color: #c90;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80%;
+}
+chat-chat .s3 {
+	color: #06c;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80%;
+}
+chat-chat .s4 {
+	color: #c90;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 80%;
+}
+chat-chat .s4>span.nick {
+	font-size: 125%;
+}
+chat-chat .s5 {
+	color: #c00;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80%;
+}
+chat-chat .s6 {
+	color: #c90;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80%;
+}
+chat-chat .s7 {
+	color: #c90;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80%;
+}
+chat-chat .s8 {
+	color: #66c;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 80%;
+}
+chat-chat .s9 {
+	font-style: normal;
+	font-weight: 400;
+	border: 1px outset #c00;
+	margin: 5px;
+	padding: 5px;
+}
+chat-chat div.topic {
+	/*
+	 *  параметры таблицы с выводом топиков
+	 */
+	color: #f96;
+	font: normal 400 14px arial;
+	margin: 5px;
+	padding: 10px;
+	box-shadow: inset 0 0 20px #f903;
+	text-shadow: 1px 1px 0 #0001;
+	overflow: auto hidden;
+}
+
+/*
+ *  следующие стии определяют параметры отображения времени сообщения
+ */
+chat-chat>div.ph span.time {
+	/* параметры табло времени */
+	color: #6682b5;
+	font-weight: 700;
+	font-size: .7rem;
+	padding-right: .5em;
+}
+chat-chat>div.ph span.time::before {
+	/* параметры оформления табло времени слева */
+	color: #e3c97f;
+}
+chat-chat>div.ph span.time::after {
+	/* параметры оформления табло времени справа */
+	color: #e3c97f;
+}
+
+/*
+ *  следующие стили определяет параметры ссылок в окне сообщений
+ */
+chat-chat a:not(.nick) {
+	/* обычная ссылка */
+	color: #551a8b;
+}
+chat-chat a:hover:not(.nick) {
+	/* ссылка под указателем мышки */
+	color: #9c30ff;
+}
+
+/*
+ *  следующие стили определяют параметры дополнительного окна, всплывающее
+ *  внутри окна сообщений при вызове некоторых функций чата (настройки, игноры и т.д.)
+ */
+chat-body>chat-win2 {
+	/* параметры оформления */
+	background: #fff;
+	border: 1px solid #bbf;
+}
+chat-body>chat-win2>tab-view {
+	/* параметры контейнера */
+	color: #8989ab;
+	box-shadow: 0 0 10px #99f inset;
+}
+chat-body>chat-win2>.phrases {
+	/* параметры контейнера для вывода фраз пользователей */
+	padding: 5px 5px 5px 25px;
+}
+chat-body>chat-win2>span {
+	/* параметры контейнера ряда кнопок */
+	right: 20px;
+}
+.app-chat.to-top chat-body>chat-win2>span {
+	top: 100%;
+	margin-top: -11px;
+}
+.app-chat.to-bottom chat-body>chat-win2>span {
+	bottom: 100%;
+	margin-bottom: -7px;
+}
+chat-body>chat-win2>span>span {
+	/* параметры кнопок для переключения вкладок */
+	font: 700 11px arial;
+	color: #fff;
+	background: linear-gradient(to right, #6e95ea, #415db1);
+	border-left: 3px solid #fff;
+	margin: 0 2px;
+	padding: 3px 12px;
+	box-shadow: 1px 1px 3px 1px #0008;
+	text-shadow: -1px -1px #0008;
+}
+chat-body>chat-win2>span>span:hover:not(.cur) {
+	/* внешний вид кнопки при наведении мышки */
+	color: #ff0;
+	background: linear-gradient(to right, #9cb6f0, #788ece);
+	border-color: #ff0;
+	box-shadow: 1px 1px 3px #0008;
+}
+chat-body>chat-win2>span>span:active:not(.cur) {
+	/* внешний вид кнопки при нажатии на нее мышкой */
+	border-color: #e5e5e5;
+	transform: translate(1px, 1px);
+}
+chat-body>chat-win2>span>span.cur {
+	/* внешний вид кнопки текущей вкладки */
+	color: #fc0;
+	border-color: #e80;
+	background: linear-gradient(to right, #6e95ea, #415db1);
+}
+chat-body>chat-win2>a.close-btn {
+	/* параметры кнопки, закрывающей вкладки */
+	margin: 5px;
+}
+chat-body>chat-win2 ul.history {
+	margin: 0 .5em .5em -.5em;
+}
+chat-body>chat-win2 ul.history>li {
+	padding: 2px 5px;
+}
+chat-body>chat-win2 ul.history>li:nth-of-type(odd) {
+	background: #f8f8ff;
+}
+chat-body>chat-win2 .history a {
+	/* параметры ссылок на сообщения в окнах "ваши отправленные фразы" и "ваши стертые фразы" */
+	color: #5bd;
+	font-style: normal;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+}
+chat-body>chat-win2 a.ctrl {
+	/*
+	 *  параметры ссылок, которые являются кнопками управления
+	 *  в некоторых функциях, открывающихся в доп. окне (игноры, игры)
+	 */
+	color: #a98700;
+	text-decoration: none;
+}
+chat-body>chat-win2 a.ctrl:hover {
+	/* они же при наведении мышки */
+	text-decoration: underline;
+}
+chat-body>chat-win2>div.vote {
+	/* параметры контейнера с функцией голосования */
+	padding: 10px 15px !important;
+}
+chat-body>chat-win2>div.vote span[class^="s"] {
+	/* параметры системного сообщения в окне голосования */
+	display: block;
+	margin: 10px;
+}
+
+/*
+ *  следующие стили предназначены для определенных таблиц, выводимые в доп. окне
+ *  (таблицы с классом `t`, см. шаблоны)
+ */
+chat-body>chat-win2 table.t td,
+chat-body>chat-win2 table.t th {
+	/* параметры ячейки */
+	border: groove 2px #ccf;
+}
+chat-body>chat-win2 table.t th {
+	/* параметры заголовков */
+	color: #fff;
+	background: #ccf;
+	text-align: right;
+	padding: 1px 10px;
+}
+chat-body>chat-win2 table.hot>tbody>tr>td:last-child {
+	padding: 3px 3px 0;
+}
+chat-body>chat-win2 table.hot input.btn.ok {
+	width: 100%;
+	padding: 0;
+	line-height: 1.65;
+}
+chat-body>chat-win2 td.hot-table .inp {
+	font-size: 95%;
+	font-weight: 400;
+	height: 23px;
+}
+chat-body>chat-win2 td.hot-table .inp.key {
+	width: 100px;
+}
+chat-body>chat-win2 td.hot-table .btn.del {
+	display: block;
+	font: 700 normal 30px/0 arial;
+	height: 23px;
+	padding: 0 5px 3px;
+}
+chat-body>chat-win2 table.hot>tbody>tr:last-of-type>td {
+	padding-right: 54px;
+}
+chat-body>chat-win2 td.hot-table td:last-of-type {
+	vertical-align: bottom;
+}
+chat-body>chat-win2 td.hot-table>scrollbar {
+	right: 0;
+}
+chat-body>chat-win2 td.hot-table>scrollbar+div {
+	margin-right: 20px;
+}
+
+chat-body>chat-win2>tab-view>table.games {
+}
+chat-body>chat-win2>tab-view>table.games td {
+	padding: 3px 10px;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar caption {
+	border-bottom: 1px solid #ccf;
+}
+
+chat-chat table.info,
+chat-chat table.list {
+	color: #666;
+	background: #f5faff;
+	border-top: 1px solid #e0e7f3;
+	border-bottom: 1px solid #e0e7f3;
+}
+chat-chat table.list tr.capt {
+	font-weight: 700;
+	color: #7bd;
+	background: #355;
+	border-bottom: 1px solid #000;
+}
+chat-body>chat-win2>tab-view>table.list td.num {
+	text-align: right;
+	width: 20px;
+}
+chat-body>chat-win2>tab-view>table.list td.empty {
+	text-align: center;
+	padding: 1.2em 0;
+}
+chat-body>chat-win2>tab-view>table.list a.ctrl[name="ctrl"] {
+	font-size: 90%;
+}
+chat-chat table.list td.lo {
+	text-transform: lowercase;
+}
+chat-chat table.info tr:nth-child(even),
+chat-chat table.list tr:nth-child(even) {
+	background: #f5faff;
+}
+view-img>img {
+	background: #fff;
+	border-color: #000;
+}
+
+/*
+ *  следующие стили являются пользовательскими и опрелеляют параметры элементов
+ *  кастомизированных функций
+ */
+chat-chat table.weather {
+	/* таблица с информациоей о погоде */
+	font: 400 14px verdana;
+	color: #606080;
+	background: #eee;
+	margin: 5px 5px 5px 20px;
+	padding: 5px;
+	text-shadow: none;
+}
+chat-chat table.weather th,
+chat-chat table.weather td {
+	/* ячейка этой таблицы */
+	border: 1px solid #99c;
+	padding: 2px 8px;
+}
+chat-chat table.weather th {
+	/* заголовок этой таблицы */
+	color: #7f2596;
+}
+chat-chat table.weather td.tod {
+	/* время суток в таблице с погодой */
+	color: #99c;
+}
+/*
+ *  параметры ботов
+ */
+chat-chat div.bot-music>div {
+	width: 425px;
+}
+chat-chat div.bot-music>audio {
+	border: 1px solid #ccf;
+	background: #f0f0f0;
+}
+chat-chat audio::-webkit-media-controls-panel {
+	filter: contrast(.2) sepia(1) hue-rotate(200deg) contrast(4);
+}
+chat-chat iframe.bot-video {
+	box-shadow: 1px 1px 3px 1px #0007;
+}
+chat-chat div.anekdot {
+	/* параметры текта анекдота, выводимого внешним ботом */
+	background: #efefff;
+	font: 12px arial;
+	border: groove 2px #bbf;
+	margin: 2px 0px;
+	padding: 5px;
+}
+
+/*
+ *  приват
+ */
+.app-chat.private chat-view>chat-chat {
+	/*
+	 *  параметры контейнера, в который складываются все фразы
+	 */
+	padding: 0 13px;
+}
+.app-chat.private chat-view>chat-chat::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.app-chat.private:not(.room) div.ph {
+	position: relative;
+	background-image: linear-gradient(to top, #fff 15%, #e4e9ef);
+	padding: 4px 10px 1px;
+	margin: 3px 0;
+	max-width: 80%;
+	box-shadow: inset 0 8px 5px #ffffffa6, 0 0 0 1px #00000007;
+	filter: drop-shadow(0 1px 2px #0003);
+	clear: both;
+}
+.app-chat.private:not(.room) div.ph.self {
+	float: left;
+}
+.app-chat.private:not(.room) div.ph.buddy {
+	float: right;
+	text-align: right;
+}
+.app-chat.private:not(.room) div.ph>span.nick,
+.app-chat.private:not(.room) div.ph>img.nick {
+	display: none;
+}
+.app-chat.private:not(.room) span.mess {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 2px 5px;
+}
+.app-chat.private:not(.room) span.mess>span {
+	display: inline-block;
+}
+.app-chat.private:not(.room) div.ph>span.mess::before {
+	content: "" !important;
+}
+.app-chat.private:not(.room) div.ph::before,
+.app-chat.private:not(.room) div.ph::after {
+	content: "";
+	display: block;
+	position: absolute;
+	border: solid transparent;
+}
+.app-chat.private:not(.room) div.ph::before {
+	border-width: 6px;
+	border-bottom-color: #0001;
+	bottom: 1px;
+}
+.app-chat.private:not(.room) div.ph::after {
+	border-width: 5px;
+	border-bottom-color: #fff;
+	bottom: 2px;
+}
+.app-chat.private:not(.room) div.ph.self::before {
+	border-right-color: #00000008;
+	left: -12px;
+}
+.app-chat.private:not(.room) div.ph.self::after {
+	border-right-color: #fff;
+	left: -10px;
+}
+.app-chat.private:not(.room) div.ph.buddy::before {
+	border-left-color: #00000008;
+	right: -12px;
+}
+.app-chat.private:not(.room) div.ph.buddy::after {
+	border-left-color: #fff;
+	right: -10px;
+}
+.app-chat.private scrollbar {
+	opacity: .5;
+}

@@ -1,0 +1,63 @@
+fast-reg {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px 20px;
+	color: #ccf;
+}
+fast-reg>h3 {
+	flex: 0 1 100%;
+	font-size: 100%;
+	letter-spacing: .3em;
+	margin: 0 5px 10px;
+	text-align: center;
+	border-bottom: 2px solid #960;
+}
+fast-reg>div {
+	flex: 0 1 50%;
+	padding: 0 5px;
+	box-sizing: border-box;
+	white-space: nowrap;
+	overflow: hidden;
+}
+fast-reg>div>div:nth-child(2n) {
+	padding: 0 0 5px 20px;
+}
+fast-reg>div>div:nth-child(2n+1) {
+	padding: 3px 7px;
+	border-bottom: 1px solid #960;
+}
+fast-reg>div>div:nth-child(2n+1) span {
+	color: #999;
+	font-weight: normal;
+	font-size: 75%;
+}
+fast-reg img#__captcha {
+	display: block;
+	height: 30px;
+	margin-top: 5px;
+}
+fast-reg div.captcha>input.inp {
+	width: 100px;
+}
+fast-reg div.sex label {
+	display: block;
+}
+fast-reg div.argee {
+	flex: 0 1 100%;
+	font-weight: 400;
+	padding: .5em 1em;
+	margin-top: 1em;
+	background: #f006;
+}
+fast-reg div.argee>label {
+	vertical-align: 2px;
+}
+fast-reg input.inp {
+	margin: 3px 0 0;
+}
+fast-reg input.btn[name="done"] {
+	flex: 0 1 100%;
+	margin-top: 1em;
+	padding: 0;
+	line-height: 1.65;
+}

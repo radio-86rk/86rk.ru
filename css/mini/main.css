@@ -1,0 +1,131 @@
+@import "../main.css?3";
+@import "../scrollbar.css";
+
+.app-chat {
+	color: #ccf;
+	background: #000;
+	--cursor: url(../images/0/cursor.cur);
+	--font: 600 14px verdana;
+	--bg: #11498e;
+	--shadow: inset 0 0 10px #0008;
+	--in-margin: 5px;
+	--in-shadow: 0 0 10px #39f;
+	--body-right: 155px;
+	--panel-width: 150px;
+	--body-right-800: 155px;
+	--panel-width-800: 150px;
+	--panel-color: #fc0;
+	--panel-bg: #142977 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAABaCAIAAAD2PqvqAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGVJREFUeNpsjsENwDAIAw2bdJOu16XjhuDQIuVhHQYExnU/DqBEMmtx+Sky6/Ij6iGyEa2nndMeD/W6v3Pk3yCojETLu2VBC1rSrFTe1XP/vMvXrPdgfY7F30y3sX8BRSjT5CvAABUcYZ9DgtBSAAAAAElFTkSuQmCC);
+	--panel-shadow: inset 0 0 5px #000;
+	--form-height: 26px;
+	--form-bg: linear-gradient(#447ad2 0%, #1353a1 50%, #4c82d2 100%);
+	--form-inp-placeholder-color: #6682b5;
+	--form-inp-focus-placeholder-color: #e04300;
+	--send-padding: 0 5px;
+	--send-mess-padding: 1px 1px 1px 0;
+	--inp-font-family: sans-serif;
+	--inp-font2-family: sans-serif;
+	--inp-font: normal 600 16px var(--inp-font-family), var(--inp-font2-family);
+	--inp-color: #a5a5a5;
+	--inp-bg: #102070;
+	--inp-border: 1px solid;
+	--inp-bc: #193062 #374397 #374397 #193062;
+	--inp-padding: 1px 2px;
+	--inp-focus-color: #fff;
+	--inp-focus-bg: #a30;
+	--inp-focus-shadow: inset 1px 2px 7px #0006;
+	--btn-font: normal 600 13px arial;
+	--btn-color: #99f;
+	--btn-bg: transparent;
+	--btn-border: 1px solid;
+	--btn-bc: currentColor;
+	--btn-padding: 0 5px;
+	--btn-text-shadow: -1px -1px #0003;
+	--btn-hover-color: #f80;
+	--btn-hover-shadow: inset 0 0 30px 20px #437bb64d;
+	--btn-active-bg: #000;
+	--btn-active-opacity: .5;
+	--btn-svg-width: 20px;
+	--btn-svg-height: 20px;
+	--btn-svg-padding: 2px 3px;
+	--btn-svg-filter: drop-shadow(-1px -1px 0px #0003);
+	--btn-send-dis-bg: #f009;
+	--btn-send-dis-opacity: .5;
+	--btn-mic-path1: #9eaaae;
+	--btn-mic-path2: #fff;
+	--icon-speech-padding: 2px;
+	--icon-speech-left: 2px;
+	--icon-speech-right: auto;
+	--icon-speech-size: 18px;
+	--nav-margin: 2px;
+	--nav-item-icons: url(../images/mini/nav-buttons.png);
+	--nav-item-size: 26px;
+	--nav-item-margin: 1px;
+	--nav-item-br: 2px;
+	--nav-item-hover-shift: 1px;
+	--error-padding: 7px;
+	--loader-size: 16px;
+	--form-mysmiles-margin: 0 5px 0 0;
+	--inp-sprite-width: 18px;
+	--inp-sprite-height: 17px;
+	--checkbox-sprite: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAzCAMAAACt4Kj2AAABC1BMVEUAAAD/iAD/iQKARAD/iAD/iAD6iwyBRQLyvoLUn2CFTQ3/iQKqj3Llr3Pfqm2BRQK6n4KbgGD9jhA4giW3lFmkiGkSVhwZcCTCdgcQSxgRUBr/////iAD6+vrv8O+ARADg4ODXvZ7z2Lvf3t3Xybu7rp709PQlrzcjpTTY2NjPzszo6Ojo5uT49vS8y77y1LLRt5jXuZe2p5fNr41GlU8nuDsimDLb0cbt07SvvLDmyKY2jUIgkzD06t/W3NbFz8fRzMazxLXRw7TSw7LGvLDGt6aRuJd7qIIpvj0vjjsejS3h5+Lq5d+7trDfy6ytno2tnYx1m3pwrHdoonBokllEfUwkhDEbfiiidQtqXleeAAAAG3RSTlMABojo5urrh/Ly647z8vKN8vLr/PPw09CXUz+d+EvUAAABPUlEQVQoz7XQZ3OCMADGcQER9+huVUBREhcqAopQZ53du9//k7QkUILXF732fF7+73JJfqGfRnGM4I3hKCdx8dyDWkVTj+Ock5jcbb0mic6kSZJxknBflxo8XnMhoKTWGnIRT57hVJX4Yh6vWHGTuNek+jfKc5SY5KQpu8+6yTL4j8nFrII2z8YzSCJDSGSo0K9H0eGCtzCNDtKRWK9TQuumI7ST2NjVN2E/xTqp0CMIhwWUOgThAKcSQVh2k7jX1PVvbLVRYtN9j7B1GWXxH1PDQRmtHT2gkUSCkEj8lfDs9P0kSHh0CLfnAUJzA+2LAKGyAcaHSzg2R18PHVkAvniEr1tLycsaANqd9+1HAxjLJ6jbii+xggAAHa4IHF4D6zXQeNJrbOu6MQ0SLiF43iG8tt6UHUJ5avL/JfwE+BxVUuX0m0cAAAAASUVORK5CYII=);
+	--radio-sprite: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAzCAMAAACt4Kj2AAAA9lBMVEUAAAD8jA3/iAD/iAD/iAD/iAD/iAD/iAD/iADyvYHcqGuFTQ35pEP0nz3vmjnplDSARAD/iACARACARACARACARACARACVajqec0HLuKLvzKLVsIiARACkiWuPZDSARACunIi7oYK3nX/+/v308vHr6+v29vb07+rnXADe3dvl5OTa1dDTzsjp6Ofn4dvPw7b79vD6YwDs5+H26tzt4dPV09D028rOy8jc0ML1277izrjmzK/cwqXMspXoo3TjnnDgiU/0YQDg29Xx7+33483u1cTPycLZzL7mzbzCvLXLvq/As6WxpJXklWDi2M22rKHmlmHikl1ShFX4AAAAI3RSTlMA59ywp2NDFfvq6uff39/f3Mmwp2NDFeDf/vz8++rfyfzq6lYL3R8AAAFtSURBVCjPxZDHdoJQFEWjoNgoAgI2bI+mCGIBu6ixa8r//0wCD4FJBpkkd7jXuW2//FAcy1A1imG5kJTovFhv1vk8XXqShni/OJPJ8cY3IONo8d3RupLU10ye9nvZ/N3RJCDLMuhe86yHGPGiSXLHK7ATGA9RdacLOrCkNuWhWnMiyQHal2swFSGl5acY/th/IkNg4MabFswCJ7iRo3kTzgdvAs0F1/PXnbRXjJPQKEU/Cu1yS4h+jJv4ZWEpNJlJoiksJGkkQeaqOSKBpJ+kSK5MvdebLokiZBhClnVfoTHHEb83lVjpgcLhIpHyEEqaocIxjnoomdNDhUo26aFMtRf6ApUMTEEUS6HENFQ4KqBw49IIZg1mcCOGEPMh8MlrAcGC6/HFWAHKaFYopqMf8WwlWwh/jJv4V4W788bdHJS4wvOnqqoPO65wo26trbqOK3RVy7JUN64wTEUKD4/vWR92XKFir921PfgThV9KrEccZFEBDQAAAABJRU5ErkJggg==);
+}
+scrollbar {
+	--width: 10px;
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAMAAADImI+JAAAAY1BMVEUAAAD8/Py0gkJ2Yh78/Pz9/f2XVg2aUwWoYBfBl2iNdESsdjyPZSStj2h+cUaKd0fThj/hron1rYfooWOvi1vxq33fn2rZnGf2s5DZoG/ZkFe+hk/NdDGSbjSzZh/CYxi/kF8miElJAAAAEHRSTlMAuTBTrYcK7ezRz766YVoxLeedjAAAAHdJREFUKM+100cOgCAQBVDF3kcQpFnuf0oXrJDFYILsyH8JYUrmn7L078W27sA4FeQF8zwNrKoQ1nUAXezDZWzageBwPs4L9D2hsDdgNeUdBl0spSI4VMCoFDh0cTxM/DR1n8HLw3kXVXALZvrUQnwo/p7H6FV4AEzSFBFJpUJTAAAAAElFTkSuQmCC);
+	--decor-repeat: repeat-y;
+}
+chat-form>form.login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+chat-form>form.login>* {
+	margin: 0 2px;
+}
+chat-form {
+	--inp-height: 24px;
+	--btn-height: 26px;
+	--btn-margin: 0 0 0 1px;
+}
+chat-form button.btn[name="ok"],
+chat-form button.btn[name="send"] {
+	--btn-svg-width: 21px;
+	--btn-svg-height: 21px;
+	--btn-svg-padding: 1.5px 3px;
+}
+chat-form table.send td>input[name="imess"]::-webkit-search-cancel-button {
+	padding: 2px;
+	margin: 0 1px 1px 4px;
+	filter: hue-rotate(24deg) brightness(1.8);
+}
+chat-form table.send a.speech::before {
+	transform: scaleX(-1);
+}
+chat-form table.send input.speech+a.speech::before {
+	filter: contrast(2);
+}
+chat-form table.send input.speech+a.speech::after {
+	animation: speech-ani .3s ease infinite alternate;
+}
+chat-form table.send td.speech>input[name="imess"] {
+	padding: 0 2px 0 26px;
+}
+chat-nav>nav-menu {
+	position: absolute;
+	right: -60px;
+	width: calc((var(--nav-item-size) + 2px) * 2);
+	height: calc((var(--nav-item-size) + 2px) * 7);
+	opacity: 0;
+}
+.app-chat.show-nav-menu chat-nav>nav-menu {
+	right: 0;
+	opacity: 1;
+}
+.app-chat.to-top chat-nav>nav-menu {
+	bottom: calc(var(--nav-item-size) + 2px);
+}
+.app-chat.to-bottom chat-nav>nav-menu {
+	top: calc(var(--nav-item-size) + 2px);
+}

@@ -1,0 +1,5 @@
+@import "../radio.css";
+
+radio.connect radio-station {
+	background-color: #8c55004d !important;
+}

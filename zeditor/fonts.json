@@ -1,0 +1,478 @@
+[
+{
+	"file_name":	"radio-86rk.bin",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"6x8",
+	"table_size":	128
+},
+{
+	"file_name":	"mikrosha.bin",
+	"file_size":	2048,
+	"font_count":	2,
+	"font_size":	"6x8",
+	"table_size":	128
+},
+{
+	"file_name":	"apogey.bin",
+	"file_size":	2048,
+	"font_count":	2,
+	"font_size":	"6x8",
+	"table_size":	128
+},
+{
+	"file_name":	"partner-6x8.bin",
+	"file_size":	8192,
+	"font_count":	8,
+	"font_size":	"6x8",
+	"table_size":	128
+},
+{
+	"file_name":	"mega-font-6x8.bin",
+	"file_size":	4096,
+	"font_count":	4,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"mega-font-8x8.bin",
+	"file_size":	4096,
+	"font_count":	4,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"hercules.f08",
+	"file_size":	2048,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	256
+},
+{
+	"file_name":	"hercules-italic.f08",
+	"file_size":	2048,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	256
+},
+{
+	"file_name":	"computer.f08",
+	"file_size":	2048,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	256
+},
+{
+	"file_name":	"Byte.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Cobra.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"G'N'G.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Gothic.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"HexFont.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Jinx.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Parallax.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Pinocchio.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Roman.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"MasterCopier.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion01.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion02.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion03.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion04.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion05.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion06.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion07.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion08.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion09.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion10.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion11.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"Metallion12.f08",
+	"file_size":	1024,
+	"font_count":	1,
+	"font_size":	"8x8",
+	"table_size":	128
+},
+{
+	"file_name":	"antique.f14",
+	"file_size":	3584,
+	"font_count":	1,
+	"font_size":	"8x14",
+	"table_size":	256
+},
+{
+	"file_name":	"broadway.f14",
+	"file_size":	3584,
+	"font_count":	1,
+	"font_size":	"8x14",
+	"table_size":	256
+},
+{
+	"file_name":	"cntdown.f14",
+	"file_size":	3584,
+	"font_count":	1,
+	"font_size":	"8x14",
+	"table_size":	256
+},
+{
+	"file_name":	"computer.f14",
+	"file_size":	3584,
+	"font_count":	1,
+	"font_size":	"8x14",
+	"table_size":	256
+},
+{
+	"file_name":	"ivan.f14",
+	"file_size":	3584,
+	"font_count":	1,
+	"font_size":	"8x14",
+	"table_size":	256
+},
+{
+	"file_name":	"thindemo.f14",
+	"file_size":	3584,
+	"font_count":	1,
+	"font_size":	"8x14",
+	"table_size":	256
+},
+{
+	"file_name":	"antique.f16",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"broadway1.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"broadway2.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"broadway3.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"cntdown.f16",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"computer.f16",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"computer2.f16",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"lbitalic.f16",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"old-engl.f16",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"police.f16",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"goth-new.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"gothic.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"gothic1.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"gothic2.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"brush.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"julie.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"legend.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"modern.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"courier.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"roman.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"sans-serif.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"thin-serif.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"ambassad.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"apls.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"thin.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"thin-italic.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"simpagar.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"simple.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"parkave.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"romany.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+},
+{
+	"file_name":	"bloody.fnt",
+	"file_size":	4096,
+	"font_count":	1,
+	"font_size":	"8x16",
+	"table_size":	256
+}
+]

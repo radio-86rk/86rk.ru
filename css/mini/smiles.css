@@ -1,0 +1,78 @@
+html.smiles,
+body.smiles {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: #000;
+	cursor: url(../../images/0/cursor.cur), auto;
+	overflow: hidden;
+}
+body.smiles scrollbar {
+	--width: 10px;
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAABBAMAAABec/GgAAAAHlBMVEUAAAD/l0PxdhLJyf//vYb/rmv/uoH/tHf/pFv/lT3z+8FdAAAAA3RSTlMA/v4qTNf2AAAAFUlEQVQI12NgYDBmgBCqFVNTHMEEABo3BBUsfuL4AAAAAElFTkSuQmCC);
+	--decor-repeat: repeat-y;
+}
+table.smiles {
+	font: 400 12pt verdana;
+}
+table.smiles th {
+	color: #fdc;
+	padding: 2px 0;
+	background: #313;
+}
+table.smiles td.smiles {
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	border: solid #93c;
+	border-width: 1px 0;
+	font-size: 0;
+}
+table.smiles tr.menu td {
+	display: flex;
+	justify-content: space-around;
+	background: #313;
+	padding: 2px 0;
+}
+table.smiles tr.menu a {
+	color: #fff;
+	text-decoration: none;
+	border: none;
+	padding: 0px 5px;
+	cursor: inherit;
+}
+table.smiles tr.menu a:hover {
+	color: #000;
+	background: #ccc;
+	border: none;
+}
+table.smiles tr.menu a.c {
+	color: #000;
+	background: #88a;
+	border: none;
+}
+table.smiles tr.menu select#sm_group {
+	font-size: 100%;
+	padding: 0 10px;
+	width: initial;
+}
+table.smiles div#smiles {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: auto;
+}
+table.smiles div#smiles img {
+	display: inline-block;
+	border: 5px solid transparent;
+	cursor: pointer;
+	transition: .5s;
+}
+table.smiles div#smiles img:hover {
+	background: #808;
+}
+table.smiles td.smiles>scrollbar {
+	right: 0;
+}

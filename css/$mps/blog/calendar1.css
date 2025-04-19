@@ -1,0 +1,89 @@
+mps-calendar {
+	display: inline-table;
+	font-size: 125%;
+	background: #f5f7f9;
+	border-spacing: 1px;
+	user-select: none;
+	touch-action: none;
+}
+mps-calendar a[disabled] {
+	color: #ccc;
+	pointer-events: none;
+	cursor: default !important;
+}
+mps-calendar a:hover {
+	cursor: pointer;
+}
+mps-calendar>header {
+	display: table-caption;
+	font-weight: 700;
+	padding: 7px;
+	background: #f5f7f9;
+	border-bottom: 1px solid #2d3a50;
+	text-transform: capitalize;
+	text-align: center;
+}
+mps-calendar>header>div {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 10px;
+}
+mps-calendar>header>div>a {
+	font-weight: 400;
+	color: #960;
+	padding: 0 10px;
+}
+mps-calendar>header>div>a:hover {
+	background: #ece8e0;
+}
+mps-calendar>div {
+	display: table-row;
+}
+mps-calendar>div>div {
+	display: table-cell;
+	line-height: 2;
+	color: #ccc;
+	background: #fff;
+	border: 0;
+	width: 6ex;
+	text-align: center;
+	overflow: hidden;
+}
+mps-calendar>div>div>a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+mps-calendar>div>div:not(:first-child):not(:empty) {
+}
+mps-calendar>div>div:first-child {
+	font-weight: 700;
+	color: #39f;
+}
+mps-calendar>div>div:not(:first-child)>a {
+	color: #00f;
+}
+mps-calendar>div:nth-of-type(6)>div,
+mps-calendar>div:nth-of-type(7)>div {
+	background: #fffafa;
+}
+mps-calendar>div:nth-of-type(6)>div:first-child,
+mps-calendar>div:nth-of-type(7)>div:first-child {
+	color: #f66;
+}
+mps-calendar>div:nth-of-type(6)>div:not(:first-child)>a,
+mps-calendar>div:nth-of-type(7)>div:not(:first-child)>a {
+	color: #f00;
+}
+mps-calendar>div>div.cur {
+	font-weight: 700;
+	background: #f0f0ff;
+}
+mps-calendar>div:nth-of-type(6)>div.cur,
+mps-calendar>div:nth-of-type(7)>div.cur {
+	background: #ffe8e8;
+}
+mps-calendar>div>div.cur>a {
+	pointer-events: none;
+	cursor: default !important;
+}

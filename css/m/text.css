@@ -1,0 +1,78 @@
+modal-module.text {
+	--view-fw: 400;
+	--view-color: #650;
+	--view-bg: #d8c8af;
+	--view-border: 5px solid #9e7e4b99;
+	--view-padding: 10px;
+	--view-text-shadow: 0 1px 0 #fff4;
+}
+modal-module.text>modal-view h2 {
+	font-size: 1.2em;
+	color: #c09853;
+	margin: 0;
+	text-shadow: 0 1px 0 #fff4, 0 -1px 0 #0004;
+}
+modal-module.text>modal-view h3 {
+	font-size: 110%;
+	color: #6e6e9c;
+	margin: 0;
+}
+modal-module.text>modal-view li bi {
+	font-weight: 500;
+	font-style: italic;
+}
+modal-module.text>modal-view ul {
+	padding-left: 25px;
+}
+modal-module.text>modal-view li>u {
+	color: #900;
+}
+modal-module.text>modal-view span-btn {
+	display: inline-block;
+	background: #6e6e9c;
+	padding: 2px 5px;
+	color: #fff;
+}
+modal-module.text>modal-view li b {
+	color: #e50000;
+}
+modal-module.text.chat-help div.translit {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 30px;
+	color: #000;
+}
+modal-module.text.chat-help div.translit>h4 {
+	text-align: center;
+	flex: 1 0 100%;
+	margin: 0 0 10px;
+}
+modal-module.text.chat-help div.translit>div {
+	display: flex;
+	flex: 0 1 auto;
+	flex-direction: column;
+	padding: 5px 0;
+}
+modal-module.text.chat-help div.translit>div>div {
+	display: flex;
+	width: auto;
+}
+modal-module.text.chat-help div.translit>div>div>b,
+modal-module.text.chat-help div.translit>div>div>u {
+	flex: 0 0 50%;
+	padding: 3px 6px;
+	background: #d8c8af;
+	box-shadow: 0 0 0 1px #666;
+	text-decoration: none;
+}
+modal-module.text.chat-help div.translit>div>div>u:nth-child(odd) {
+	color: #346;
+}
+modal-module.text.chat-help div.translit>div>div>u:nth-child(even) {
+	color: #944;
+}
+modal-module.text.chat-help div.translit>div>div>b {
+	font-weight: 600;
+	color: #866C03;
+}

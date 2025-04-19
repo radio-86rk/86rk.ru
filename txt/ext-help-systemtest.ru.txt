@@ -1,0 +1,9 @@
+%ACTION% %CMD%:
+проверка систем чата<br>использование:
+<blockquote class=help>
+<ul>
+<li><b>/systemtest blacklist a.b.c.d</b> &mdash; тест на блокировку IP-адреса <span>a.b.c.d</span> чёрным списком
+<li><b>/systemtest tor a.b.c.d</b> &mdash; тест на принадлежность IP-адреса <span>a.b.c.d</span> сети TOR
+<li><b>/systemtest cloud a.b.c.d</b> &mdash; тест на принадлежность IP-адреса <span>a.b.c.d</span> сети облачных операторов
+</ul>
+</blockquote>

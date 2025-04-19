@@ -1,0 +1,11 @@
+@import "../tetris.css";
+@font-face {
+	font-family: tetris-font;
+	font-weight: normal;
+	font-style: normal;
+	src: url("../../fonts/computo-monospace.woff2") format("woff2");
+}
+
+modal-module.tetris tetris>div>div[class^="mino"] {
+	z-index: 1;
+}

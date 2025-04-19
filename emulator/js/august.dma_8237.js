@@ -1,0 +1,119 @@
+//  Copyright (c) 2024 by Vital72
+//  License: MIT
+//  www:  http://www.86rk.ru/
+//  file: august.dma_8237.js
+
+
+"use strict"
+
+class august_dma_8237 extends august_device {
+	constructor () {
+		super (8, Uint16Array)
+		this.reset ()
+		this.TotalRequsts = 0
+	}
+	reset () {
+		this.r.fill (0)
+		this.Mode = 0
+		this.Status = 0
+		this.LowByte = 0
+	}
+	request ( ch, v ) {
+		if (!(this.Mode & (1 << ch)))
+			return false
+		let r = ch << 1
+		let addr = this.r [r]
+		let cnt = this.r [r + 1]
+		let rw = this.r [r + 1] & 0xC000
+		let auto = ch == 2 && (this.Mode & 0x80)
+		if (!cnt) {
+			this.Status |= 1 << ch
+			if (!auto && (this.Mode & 0x40))
+				this.Mode &= ~(1 << ch)
+		} else if (auto) {
+			addr = this.r [4] = this.r [6]
+			cnt = this.r [5] = this.r [7]
+		}
+		this.r [r + 1] = cnt - 1
+		this.r [r]++
+		this.TotalRequsts++
+		if (rw == 0x8000)
+			return this.Memory.get (addr)
+		if (rw == 0x4000)
+			this.Memory.set (addr, v)
+		return true
+	}
+	get length () {
+		return 16
+	}
+	set memory ( mem ) {
+		this.Memory = mem
+	}
+	get status () {
+		let s = this.Status
+		this.Status &= 0xF0
+		return s
+	}
+	set mode ( v ) {
+		this.Mode = v
+		this.LowByte = 0
+	}
+	get total () {
+		let t = this.TotalRequsts
+		this.TotalRequsts = 0
+		return t
+	}
+	get ( r ) {
+		return r > 8
+			? 0xFF
+			: r == 8
+			? this.status
+			: (this.LowByte ^= 1)
+			? this.r [r].b0
+			: this.r [r].b1
+	}
+	set ( r, v ) {
+		if (r == 8)
+			return this.mode = v
+		if (r > 8)
+			return
+		this.r [r] = (this.LowByte ^= 1)
+			? (this.r [r] & 0xFF00) | v
+			: (this.r [r] & 0xFF) | v.shl8
+	}
+
+	#channel = class {
+		constructor ( dma ) {
+			this.DMA = dma
+		}
+		reset () {
+
+		}
+		get CAR () {
+
+		}
+		set CAR ( v ) {
+			
+		}
+		get CWR () {
+
+		}
+		set CWR ( v ) {
+			
+		}
+		get BAR () {
+
+		}
+		set BAR ( v ) {
+			
+		}
+		get WCR () {
+
+		}
+		set WCR ( v ) {
+			
+		}
+
+	}
+}
+

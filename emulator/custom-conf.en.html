@@ -1,0 +1,106 @@
+<div id=conf_list></div>
+
+<form id=new_conf>
+<table>
+<caption>Название</caption>
+<tr><td>%input("name",,, 48, "placeholder='новая конфигурация'")%</span></tr>
+</table>
+<table class="inp16 pad">
+<caption>Распределение адресов</caption>
+<tr><td><td>Начальный адрес<td>Конечный адрес<td>Размер</tr>
+<tr data-addr=ram><td>ОЗУ:<td>%input(, "0000",, 8, "data-num=hex placeholder='hex'")%<td>%input(, "7FFF",, 8, "data-num=hex placeholder='hex'")%<td id=size></tr>
+<tr data-addr=rom><td>ПЗУ:<td>%input(, "E000",, 8, "data-num=hex placeholder='hex'")%<td>%input(, "FFFF",, 8, "data-num=hex placeholder='hex'")%<td id=size></tr>
+<tr data-addr=ppi_kbd><td>Порт клавиатуры:<td>%input(, "8000",, 8, "data-num=hex placeholder='hex'")%<td>%input(, "9FFF",, 8, "data-num=hex placeholder='hex'")%<td id=size></tr>
+<tr data-addr=ppi><td>Порт интерфейса:<td>%input(, "A000",, 8, "data-num=hex placeholder='hex'")%<td>%input(, "BFFF",, 8, "data-num=hex placeholder='hex'")%<td id=size></tr>
+<tr data-addr=crt><td>Контроллер ЭЛТ:<td>%input(, "C000",, 8, "data-num=hex placeholder='hex'")%<td>%input(, "DFFF",, 8, "data-num=hex placeholder='hex'")%<td id=size></tr>
+<tr data-addr=dma><td>Контроллер ПДП:<td>%input(, "E000",, 8, "data-num=hex placeholder='hex'")%<td>%input(, "FFFF",, 8, "data-num=hex placeholder='hex'")%<td id=size></tr>
+<tr data-addr=pit><td>Таймер для звука:<td>%input(,,, 8, "data-num=hex placeholder='hex'")%<td>%input(,,, 8, "data-num=hex placeholder='hex'")%<td id=size></tr>
+<tr data-addr=rtc><td>RTC:<td>%input(,,, 8, "data-num=hex placeholder='hex'")%<td>%input(,,, 8, "data-num=hex placeholder='hex'")%<td id=size></tr>
+<tr data-addr=font_ram><td>FONT RAM (wo):<td>%input(,,, 8, "data-num=hex placeholder='hex'")%<td>%input(,,, 8, "data-num=hex placeholder='hex'")%<td id=size></tr>
+</table>
+<table class="inp16 pad">
+<caption>Параметры</caption>
+<tr data-addr=restart><td>Адрес рестарта:<td>%input("reset_addr", "F800",, 8, "data-num=hex placeholder='hex'")%</tr>
+<tr data-param=1><td>Частота микропроцессора:<td>%input("cpu_clock", 1_777_777,,, "data-num=dec")% Гц (1&ndash;10 МГц)</tr>
+<tr data-param=1><td>Частота таймера:<td>%input("pit_clock", 1_777_777,,, "data-num=dec")% Гц (1&ndash;10 МГц)</tr>
+<tr data-param=1><td>Параметры клавиатуры:<td>%input("kbd_param1", 22, 0, 4, "data-num=dec")%%input("kbd_param2", 1, 0, 4, "data-num=dec")%</tr>
+<tr><td class=va>Клавиатура:<td>%select("kbd", "86rk", { "86rk": "Радио-86РК", "ms7007-kr02": "МС7007 (КР02/КР03)" })%</tr>
+<tr><td class=va>Pixel Clock:<td>%select("pixel_clock", 8, { 8: "8 МГц", 10: "10 МГц" })%</tr>
+<tr><td class=va>Ширина символов:<td>%select("font_width", 6, { 6: "6 pix", 8: "8 pix" })%</tr>
+<tr><td class=va>Высота символов:<td>%select("font_height", 8, { 8: "8 pix" })%</tr>
+<tr><td class=va>Переключаемый знакогенератор:<td>%select("font_select", 0, ["нет", "4 знакогенератора (МЕГА-86РК)"])%</tr>
+<tr><td class=va>Контроллер ПДП:<td>%select("dma_wo", 1, ["доступен на чтение и на запись", "доступен только на запись"])%</tr>
+<tr><td class=va>Цикл записи ПДП:<td>%select("dma_wr", 0, ["читает из памяти (шиворот-навыворот)", "записывает в память"])%</tr>
+<tr><td class=va>Звук через INTE:<td>%select("inte_sound", 1, ["нет", "да"])%</tr>
+</table>
+<table class=pad>
+<caption>Прошивки</caption>
+<col><col width=100%><col>
+<tr data-rom=monitor>
+<td>МОНИТОР:<td id=fn><td>[<a name=load_rom>загрузить</a>]
+</tr>
+<tr data-rom=font>
+<td>ЗНАКОГЕНЕРАТОР:<td id=fn><td>[<a name=load_rom>загрузить</a>]
+</tr>
+</table>
+<input type=button name=conf_load value="Загрузить конфигурацию из файла">
+<br>
+<input type=submit name=ok value="Создать новую конфигурацию">
+</form>
+
+<script id=tpl_conf_list type="text/template">
+{{{
+<table>
+<caption>%NAME%
+<menu>
+<li><a name=conf_save data-idx=%IDX%>сохранить</a></tr>
+<li><a name=conf_copy data-idx=%IDX%>сделать копию</a></tr>
+<li><a name=conf_delete data-idx=%IDX%>удалить</a>
+</menu>
+</caption>
+
+<tbody class=addr>
+<tr><td colspan=9 class=hr></tr>
+<tr>
+<th>ОЗУ<th>ПЗУ<th>Клав.<th>Порт<th>К. ЭЛТ<th>К. ПДП<th>Таймер<th>RTC<th>FONT RAM
+</tr>
+<tr class=light>
+<td>%RAM_ADDR1%&ndash;%RAM_ADDR2%
+<td>%ROM_ADDR1%&ndash;%ROM_ADDR2%
+<td>%PPI_KBD_ADDR1%&ndash;%PPI_KBD_ADDR2%
+<td>%PPI_ADDR1%&ndash;%PPI_ADDR2%
+<td>%CRT_ADDR1%&ndash;%CRT_ADDR2%
+<td>%DMA_ADDR1%&ndash;%DMA_ADDR2%
+<td>%PIT_ADDR1%&ndash;%PIT_ADDR2%
+<td>%RTC_ADDR1%&ndash;%RTC_ADDR2%
+<td>%FONT_RAM_ADDR1%&ndash;%FONT_RAM_ADDR2%
+</tr>
+<tr><td colspan=9 class=hr></tr>
+</tbody>
+<tbody class=params>
+<tr><td colspan=3>Адрес рестарта:<td colspan=6>%RESET_ADDR%</tr>
+<tr><td colspan=3>Частота микропроцессора:<td colspan=6>%CPU_CLOCK% МГц</tr>
+<tr><td colspan=3>Частота таймера:<td colspan=6>%PIT_CLOCK% МГц</tr>
+<tr><td colspan=3>Pixel Clock:<td colspan=6>%PIXEL_CLOCK% МГц</tr>
+<tr><td colspan=3>Матрица символов:<td colspan=6>%FONT_WIDTH%&#x2A2F;%FONT_HEIGHT%</tr>
+<tr><td colspan=3>Переключаемый знакогенератор:<td colspan=6>%?%TRUE(%FONT_SELECT%)%4 знакогенератора%:%нет?%</tr>
+<tr><td colspan=3>Клавиатура:<td colspan=6>%?%EQ("%KEYBOARD%", "86rk")%Радио-86РК?%%?%EQ("%KEYBOARD%", "ms7007-kr02")%МС7007 (КР02/КР03)?%</tr>
+<tr><td colspan=3>Параметры клавиатуры:<td colspan=6>%KBD_PARAM1% / %KBD_PARAM2%</tr>
+<tr><td colspan=3>Контроллер ПДП:<td colspan=6>%?%TRUE(%DMA_WO%)%только на запись%:%на чтение и на запись?%</tr>
+<tr><td colspan=3>Цикл записи ПДП:<td colspan=6>%?%TRUE(%DMA_WR%)%записывает в память%:%читает из памяти?%</tr>
+<tr><td colspan=3>Звук через INTE:<td colspan=6>%?%TRUE(%INTE_SOUND%)%да%:%нет?%</tr>
+<tr><td colspan=3>МОНИТОР:<td colspan=6>%MONITOR%</tr>
+<tr><td colspan=3>ЗНАКОГЕНЕРАТОР:<td colspan=6>%FONT%</tr>
+</tbody>
+</table>
+}}}
+</script>
+
+<script id=app_cfg type="text/template">
+%CFG({
+	ERROR: {
+		WRONG_PROJECT:	"Неверный проект `**%SIGN%**`",
+		CORR_PROJECT:	"Файл повреждён"
+	}
+})%
+</script>

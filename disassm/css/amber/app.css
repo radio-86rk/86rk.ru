@@ -1,0 +1,55 @@
+#app {
+	--border: solid #ddd;
+	--sb-thumb-bg: #569bb1;
+	--sb-thumb-hover-bg: #77bbd2;
+	--title-color: #fff6cc;
+	--title-bg: linear-gradient(#6a99c5 0%, #618bbc 10%, #5379ae 25%, #5276ad 37%, #5276ad 50%, #42689d 51%, #6499bf 83%, #79bfd4 100%);
+	--fn-color: #fff;
+	--fn-bg: #76bad1;
+	--dump-head-bg: #fffae5;
+	--dump-head-dot-color: #f00;
+	--dump-head-bb: 3px solid #ece4c6;
+	--dump-br: 5px solid #ddd;
+	--dump-bg: #fffae5;
+	--dump-code-hl-bg: #cf07;
+	--dump-code-hl-outline: none;
+	--dump-offs-hl-bb: 3px solid #76bad1;
+	--dump-addr-list-active-bg: #5276ad;
+	--assm-bg: #fffe;
+	--sidebar-bg: #f2e9d9;
+	--sidebar-color: #8c631d;
+	--sidebar-padding: 5px;
+	--sidebar-margin2: 0 0 5px;
+	--sidebar-padding2: 0;
+	--sidebar-border2: 0;
+	--sidebar-fieldset-border: 1px solid #d4b47d;
+	--sidebar-fl-color: #409fbf;
+	--sidebar-input-color: #2161b5;
+	--sidebar-label-sw0-bg: linear-gradient(to left, #c00 10px, #f00);
+	--sidebar-go-btn-bg: #76bad1;
+	--sidebar-go-btn-color: #fffae5;
+	--sidebar-go-btn-border: 1px outset #76bad1;
+	--sidebar-go-btn-active-bg: #bfa640;
+	--sidebar-go-btn-active-border: 1px inset #bfa640;
+	--ref-color: #000;
+	--ref-bg: #e4e6e7;
+	--ref-border: 0;
+	--ref-list-color: #00c;
+	--ref-list-marker-color: #384770;
+	--ref-shadow: 1px 1px 3px #0006;
+	--menu-color: #fff6cc;
+	--menu-bg: #365d91;
+	--menu-a-color: #9cf;
+	--menu-vers-color: #fa9;
+	--menu-conf-color: #9ff;
+	--conf-color: #fff;
+	--conf-bg: #557aaa;
+	--conf-border: 5px solid #fff;
+	--conf-a-color: #b3e5ff;
+	--status-font: 600 16px verdana;
+	--status-padding: 3px 20px;
+}
+#app form#sidebar input[type="radio"]+label::before,
+#app form#sidebar input[type="checkbox"]+label::before {
+	filter: hue-rotate(166deg) saturate(.5);
+}

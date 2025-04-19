@@ -1,0 +1,13 @@
+@import "../userlist.css?1";
+
+chat-panel.userlist {
+	--who-margin: 0;
+	--row-margin: 0 10px;
+	--cap-padding: 2px 20px 2px 0;
+	--cap-bg: #0003;
+	--cap-border: 0;
+	--cap-text-shadow: -1px -1px #0008;
+	--cap-total-border-top: 0;
+	--cap-shadow: inset 0 0 3px #0006;
+	--whowas-capt-bg: #fff2;
+}

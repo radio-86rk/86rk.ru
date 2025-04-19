@@ -1,0 +1,19 @@
+%ACTION% %CMD%:
+пользовательские настройки<br>использование:
+<blockquote class=help>
+<li><b>/setup nickcolor</b> <span>color</span> &ndash; устанавливает цвет ника в <span>color</span>
+<li><b>/setup nickfont</b> <span>font</span> &ndash; устанавливает шрифт ника
+<li><b>/setup nickstyle</b> [<b>normal</b>|<b>italic</b>][<b>thin</b>|<b>thick</b>] – устанавливает стиль шрифта ника
+<li><b>/setup messcolor</b> <span>color</span> &ndash; устанавливает цвет сообщений в <span>color</span>
+<li><b>/setup messfont</b> <span>font</span> &ndash; устанавливает шрифт сообщений
+<li><b>/setup messstyle</b> [<b>normal</b>|<b>italic</b>][<b>slim</b>|<b>bold</b>] – устанавливает стиль шрифта сообщений
+<li><b>/setup mono</b> &ndash; включает и выключает монохромый цвет сообщений
+<li><b>/setup smiles</b> &ndash; включает и выключает отображение смайликов
+<li><b>/setup graph</b> &ndash; включает и выключает отображение графических ников
+<li><b>/setup images</b> &ndash; включает и выключает отображение изображений, вставленных пользователями
+<li><b>/setup media</b> &ndash; включает и выключает воспроизведение медиафайлов, вставленных пользователями
+<li><b>/setup volume 1–100</b> &ndash; устанавливает громкость звуковых оповещений от 1% до 100%
+<li><b>/setup delay 0–120</b> &ndash; устанавливает время задержки между смежными звуковыми оповещениями от 1 до 120 секунд
+<li><b>/setup design</b> <span>design</span> &ndash; устанавливает дизайн чата, где <span>design</span> &ndash; код дизайна, без параметра будет выведен список доступных дизайнов
+</ul>
+</blockquote>

@@ -1,0 +1,30 @@
+@import "../people.css";
+@import "../scrollbar.css";
+
+scrollbar {
+	--width: 10px;
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAUCAMAAADImI+JAAAAh1BMVEUAAAD/gRv/gx7xagD/gRf2bgD/mUP9dgj/dQX/hiL6dQbkYwD/l0L/lTr/iyr/lDz/eQj/jzPJyf//tHb/vofxdhH/sG7/l0P/pFr/uoH/rGj/vIT/lT3/xJL/qGD/wY7/t3v/nEv/xpb/m0j/kjn/jS3+dQT/n1D/eAr/kDP/iSb/yp7/fRGmcXqVAAAAEnRSTlMAhg789fPv79Rw/Pze2Y9xZRZshatoAAAAoklEQVQoz83SyxKCIBgF4LyU2T35RcQLIKBovf/zldOCVfOz9CwYZvhWh7NbUxTr6W8+JSWs5TU01R8Y7ZNTGqEwPo7je9bV5YnAh1usnWTD7gjMFJ9aLl5wQGBJ6r4i3dBNKJQ/qDBIZd9SEKAR6J+3DCUzHAB0SD1UdEIFFS7wHjNFmOmboca+MHd2tvpr8oCZucWYaxww3HOS3tDh+nj4AZlqKFcGUNFcAAAAAElFTkSuQmCC);
+}
+input[type="checkbox"] + label::before {
+	background-image: url(../../images/mini/checkbox.png);
+}
+input[type="radio"] + label::before {
+	background-image: url(../../images/mini/radio.png);
+}
+input[type="checkbox"]+label::before,
+input[type="radio"]+label::before {
+	height: 15px;
+	width: 15px;
+}
+input[type="checkbox"]+label:hover::before {
+	background-position-y: -15px;
+}
+input[type="checkbox"]:checked+label::before {
+	background-position-y: -30px;
+}
+input[type="radio"]+label:hover::before {
+	background-position-y: -15px;
+}
+input[type="radio"]:checked+label::before {
+	background-position-y: -30px;
+}

@@ -1,0 +1,23 @@
+@import "../dictaphone.css";
+
+chat-dictaphone {
+	background-color: #630063;
+	bottom: -37px;
+	margin: 5px;
+	--btn-play: url("data:image/svg+xml,<svg fill='%23fff' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 16'><path d='M0,0l13,8L0,16V0z'/></svg>");
+	--btn-pause: url("data:image/svg+xml,<svg fill='%23fff' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16'><path d='M5,16H0V0h5V16z M14,0H9v16h5V0z'/></svg>");
+}
+chat-main.show-panel>chat-dictaphone {
+	right: 286px !important;
+}
+chat-main.dictaphone>chat-dictaphone {
+	bottom: 0;
+}
+chat-main.dictaphone>chat-body {
+	margin-bottom: 42px;
+}
+@media (max-width: 800px) {
+	chat-main.show-panel>chat-dictaphone {
+		right: 186px !important;
+	}
+}

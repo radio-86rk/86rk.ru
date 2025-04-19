@@ -1,0 +1,579 @@
+@import "view-img.css";
+
+chat-body {
+	background: url(../images/august4u.png) no-repeat 97% 4%;
+}
+chat-view {
+	display: block;
+	position: absolute;
+	inset: 0;	
+	overflow: auto;
+}
+chat-title {
+	display: block;
+	color: #fff;
+	line-height: 1em;
+	padding: .5em 0;
+	text-align: center;
+}
+chat-chat {
+	display: block;
+}
+chat-chat>div.ph {
+	line-height: 1.8;
+}
+chat-chat>div.ph:not(.s1)>span.time {
+	font-size: 80%;
+}
+chat-chat>div.ph span.time>span {
+	color: #fc0;
+}
+chat-chat>div.ph span.time::before {
+	content: "~";
+	color: #c90;
+}
+chat-chat>div.ph span.time::after {
+	content: "~";
+	color: #c90;
+}
+chat-chat>div.ph>span.mess::before {
+	content: ":\a0";
+}
+chat-chat>div.ph>img.flag {
+	vertical-align: middle;
+	filter: drop-shadow(0 1px 2px #0003) drop-shadow(0 0 1px #fff6);
+}
+chat-chat>div.disabled {
+	opacity: .5 !important;
+	pointer-events: none;
+}
+chat-main .nick {
+	white-space: nowrap;
+	text-decoration: none;
+}
+chat-main a.nick.del {
+	text-decoration: line-through;
+}
+chat-main a.nick:hover {
+	user-select: none;
+	text-decoration: underline;
+	cursor: pointer;
+}
+chat-main a.nick * {
+	pointer-events: none;
+}
+chat-main span.st1 {
+	font-style: normal;
+	font-weight: 400;
+}
+chat-main span.st2 {
+	font-style: normal;
+	font-weight: 700;
+}
+chat-main span.st4 {
+	font-style: italic;
+}
+chat-main span.st5 {
+	font-style: italic;
+	font-weight: 400;
+}
+chat-main span.st6 {
+	font-style: italic;
+	font-weight: 700;
+}
+chat-chat>div.ph.me1 {
+	border-bottom: 1px solid var(--chat-me1, #9ce6);
+}
+chat-chat>div.ph.me2 {
+	border: dashed 1px var(--chat-me2, #9ce6);
+}
+chat-chat>div.ph.me3 {
+	background: var(--chat-me3, #2468);
+}
+chat-chat .s1 {
+	font-size: 80%;
+}
+chat-chat .s1 span.nick {
+	font-size: 125%;
+}
+chat-chat .vote {
+	display: block;
+	background: #440e12;
+	border: inset 1px #940507;
+	margin: 5px;
+	padding: 5px 10px;
+}
+chat-body span.allow {
+	color: #0f0;
+}
+chat-body span.deny {
+	color: #f00;
+}
+chat-body .green {
+	color: #090;
+}
+chat-body .red {
+	color: #f00;
+}
+chat-body span.on {
+	color: #0f0;
+}
+chat-body span.off {
+	color: #f00;
+}
+chat-chat a:not(.nick) {
+	color: #fc0;
+	text-decoration: none;
+}
+chat-chat a:hover:not(.nick) {
+	color: #ffea99;
+	text-decoration: underline overline;
+}
+chat-body a.ctrl {
+	font-weight: 400;
+	color: #fc0;
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+}
+chat-body a.ctrl:hover {
+	text-decoration: underline;
+}
+chat-body a.ctrl[data-a="game"]>img {
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: 1px 10px;
+	border: 0;
+	pointer-events: none;
+}
+chat-body .vote a[data-cmd="0"] {
+	color: #96c;
+}
+chat-body .vote a[data-cmd="1"] {
+	color: #6c0;
+}
+chat-body .vote a[data-cmd="2"] {
+	color: #c66;
+}
+chat-chat div.topic {
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+chat-body>chat-win2 {
+	position: absolute;
+	z-index: 9;
+	left: 0;
+	right: 0;
+	height: 0;
+	display: none;
+}
+chat-body>chat-win2>scrollbar {
+	right: 0;
+}
+chat-body>chat-win2>tab-view {
+	display: block;
+	position: absolute;
+	inset: 0;	
+	overflow: auto;
+}
+chat-body>chat-win2>tab-view.center {
+	display: flex;
+	align-items: center;
+	text-align: center;
+}
+chat-body>chat-win2>span {
+	position: absolute;
+	display: none;
+}
+chat-body>chat-win2>span>span {
+	display: inline-block;
+	cursor: inherit;
+	vertical-align: top;
+}
+chat-body>chat-win2>chat-chat {
+	padding: 10px 5px;
+}
+chat-body>chat-win2 .history a {
+	text-decoration: none;
+	cursor: pointer;
+}
+chat-body>chat-win2 .history a:hover {
+	text-decoration: underline;
+}
+chat-body>chat-win2>a.close-btn {
+	display: block;
+	position: absolute;
+	z-index: 11;
+	top: 0;
+	left: 0;
+	width: 14px;
+	height: 14px;
+	padding: 2px 4px;
+	opacity: .8;
+	border: 1px solid #f00;
+	background: #fff url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><path fill='%23f00' d='M23.1,0L14,9.1L4.9,0L0,4.9L9.1,14L0,23.1L4.9,28l9.1-9.1l9.1,9.1l4.9-4.9L18.9,14L28,4.9L23.1,0z'/></svg>") no-repeat;
+	background-origin: content-box;
+	transition: opacity .2s;
+}
+chat-body>chat-win2>a.close-btn:hover {
+	opacity: 1;
+}
+chat-body>chat-win2>a.close-btn:active {
+	transform: translate(1px, 1px);
+}
+chat-body>chat-win2 .right {
+	float: right;
+}
+chat-body>chat-win2 table.t {
+	width: 100%;
+	border-collapse: collapse;
+}
+chat-body>chat-win2 table.t th {
+	letter-spacing: .1em;
+}
+chat-body>chat-win2>tab-view>table.list {
+	margin: 8px 20px;
+	width: calc(100% - 40px);
+	border-collapse: collapse;
+}
+chat-body>chat-win2>tab-view>table.list tr.capt>td {
+	white-space: nowrap;
+}
+chat-body>chat-win2>tab-view>table.list td {
+	padding: 3px 10px;
+	vertical-align: text-top;
+}
+chat-body>chat-win2>tab-view>table.list td.num {
+	text-align: right;
+	width: 20px;
+}
+chat-body>chat-win2>tab-view>table.list td.empty {
+	text-align: center;
+	padding: 1.2em 0;
+}
+chat-body>chat-win2>tab-view>div.vote {
+	font-weight: 400;
+	padding: 20px;
+}
+chat-body>chat-win2>tab-view>div.vote>hr {
+	border: 0;
+	border-top: 2px groove #c00;
+}
+chat-body>chat-win2>tab-view>table.games {
+	font-weight: 500;
+	margin: 0;
+	width: 100%;
+}
+chat-body>chat-win2>tab-view>table.games.game-list {
+	margin-bottom: 8px;
+}
+chat-body>chat-win2>tab-view>table.games td {
+	padding: 3px 10px;
+}
+chat-body>chat-win2>tab-view>table.games.game-list tr:nth-child(n+1)>td:first-of-type {
+	padding-left: 50px;
+}
+chat-body>chat-win2>tab-view>table.games.game-list tr:nth-child(n+1)>td:last-of-type {
+	padding-right: 50px;
+}
+chat-body>chat-win2>tab-view>table.games.game-list tr:nth-child(n+1)>td {
+	padding-top: 12px;
+	border: 0;
+}
+chat-body>chat-win2>tab-view>table.games.game-list td a.ctrl {
+	font-weight: 500 !important;
+}
+chat-body>chat-win2>tab-view>table.games.game-list td a.ctrl>img {
+	margin: 0;
+}
+chat-body>chat-win2>tab-view>table.games.game-list td.space {
+	width: 100%;
+	background: url(data:image/gif;base64,R0lGODlhFAACAIABAKyZd////yH5BAEAAAEALAAAAAAUAAIAAAIIjH8AyJ3rQgEAOw==) repeat-x center 41px;
+}
+chat-body>chat-win2>tab-view>table.games td.pls {
+	font-weight: inherit;
+}
+chat-body>chat-win2>tab-view>table.games td.pls>span+span::before {
+	content: ", ";
+}
+chat-body>chat-win2>tab-view>table.games td.score>span+span::before {
+	content: " / ";
+}
+chat-body>chat-win2>tab-view>table.games table.calendar {
+	display: inline-table;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar caption {
+	font-weight: 700;
+	padding: 7px;
+	text-transform: capitalize;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar tr:nth-child(6) td:first-child,
+chat-body>chat-win2>tab-view>table.games table.calendar tr:nth-child(7) td:first-child {
+	color: #b25a00;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar td:first-child {
+	font-weight: 700;
+	color: #b28f00;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar td:not(:first-child) {
+	color: #6682b5;
+	text-align: right;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar td:not(:first-child)::after {
+	content: attr(count);
+	position: absolute;
+	margin-top: .8em;
+	color: #fff;
+	font-size: 75%;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar td {
+	border: 0;
+	padding: 3px 7px;
+	min-width: 2.5ex;
+}
+chat-body>chat-win2 table.hot {
+	border-collapse: initial;
+}
+chat-body>chat-win2 table.t.hot td {
+	border: 0;
+}
+chat-body>chat-win2 table.hot input.btn.ok {
+	width: 100%;
+	padding: 0;
+	line-height: 1.65;
+}
+chat-body>chat-win2 td.hot-table {
+	position: relative;
+}
+chat-body>chat-win2 td.hot-table .inp {
+	font-weight: 400;
+	font-size: 100%;
+}
+chat-body>chat-win2 td.hot-table .inp.key {
+	width: 100px;
+}
+chat-body>chat-win2 td.hot-table td:last-of-type {
+	vertical-align: bottom;
+}
+chat-body>chat-win2 td.hot-table>scrollbar {
+	right: 0;
+}
+chat-body>chat-win2 td.hot-table>scrollbar+div {
+	margin-right: 20px;
+}
+chat-chat blockquote.help {
+	font-weight: 400;
+}
+chat-chat blockquote.help span {
+	color: #090;
+}
+chat-chat blockquote.help b {
+	font-weight: 400;
+	color: #e50000;
+}
+chat-chat>div.ph>span.mess img.smile {
+	padding: 0 2px;
+}
+chat-chat>div.ph>span.mess img.attach,
+chat-chat>div.ph>span.mess img.bot-image,
+chat-chat>div.ph>span.mess img.chat-image {
+	width: auto;
+	max-height: 100px;
+}
+chat-chat>div.ph>span.mess img.bot-image.error {
+	outline: 10px solid #f008;
+	outline-offset: -10px;
+}
+chat-chat>div.ph>span.mess.hide>* {
+	display: none;
+}
+chat-chat>div.ph>span.mess.hide::after {
+	content: attr(hide);
+	font: 400 italic 90% verdana;
+}
+chat-chat>div.ph>div.game-help {
+	font-size: 85%;
+	font-weight: 300;
+	border: 1px solid #fc3;
+	padding: 10px 20px;
+	margin: 5px;
+	color: #c96;
+	background: #420;
+}
+chat-chat div.bot-music {
+	display: inline-block;
+}
+chat-chat div.bot-music>div {
+	font-size: 80%;
+	width: 300px;
+	max-height: 4.5em;
+	padding-bottom: 3px;
+	overflow: hidden;
+}
+chat-chat audio {
+	line-height: 0;
+	width: 300px;
+	height: 26px;
+	border: 1px solid #666;
+	background: #ccc;
+}
+chat-chat div.bot-music>audio.error {
+	border-color: #f66;
+}
+chat-chat audio::-webkit-media-controls-panel {
+	height: inherit;
+	padding: 0;
+	background: transparent;
+}
+chat-chat audio::-webkit-media-controls-enclosure {
+	height: inherit;
+	min-height: 0;
+	border-radius: 0;
+	background: transparent;
+}
+chat-chat audio::-webkit-media-controls-timeline {
+	padding: 0 5px 0 10px;
+}
+chat-chat audio.attach {
+	width: 190px;
+	height: 20px;
+}
+chat-chat audio.attach::-webkit-media-controls-mute-button {
+	display: none;
+}
+chat-chat video {
+	max-width: 100%;
+	width: auto;
+	height: 300px;
+	padding: 0 10px;
+	outline: none;
+	box-sizing: border-box;
+}
+.app-chat.private chat-chat video {
+	height: auto;
+}
+chat-chat iframe.bot-video {
+	max-width: 100%;
+}
+chat-chat table.weather td.tod {
+	color: #ffc;
+}
+chat-chat table.table-params {
+	width: 100%;
+	padding: 0 6vmin;
+	background: #333;
+}
+chat-chat table.table-params td:first-child {
+	padding-right: 3vmin;
+}
+chat-chat table.table-params td:last-child {
+	width: 100%;
+}
+chat-chat table.weather {
+	font: 400 85% verdana;
+	color: #ccf;
+	background: #111;
+	margin: 5px 5px 5px 20px;
+	width: calc(100% - 40px);
+}
+chat-chat table.weather th,
+chat-chat table.weather td {
+	border: 1px solid #222;
+	padding: 2px 8px;
+}
+chat-chat table.weather th {
+	color: #db4cff;
+}
+chat-chat div.mlist {
+	line-height: 1.4em;
+}
+chat-chat div.anekdot {
+	background: #203b;
+	border-radius: 4px;
+	border: 2px groove #ca03;
+	margin: 2px 0px;
+	padding: 5px;
+}
+chat-chat hidden-text {
+	display: block;
+}
+chat-chat hidden-text>hidden-text {
+	display: block;
+	overflow: hidden;
+	transition: height .5s;
+}
+chat-chat hidden-text:not(.expand)>hidden-text {
+	height: 0;
+}
+chat-chat hidden-text>div {
+	text-align: right;
+}
+chat-chat hidden-text>div>a::before {
+	content: attr(expand);
+}
+chat-chat hidden-text.expand>div>a::before {
+	content: attr(collapse);
+}
+chat-chat>chat-gag {
+	position: absolute;
+	inset: 0;	
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+chat-chat table.info,
+chat-chat table.list {
+	font-weight: 400;
+	width: calc(100% - 20px);
+	margin: 10px;
+}
+chat-chat table.info {
+	font-size: 80%;
+}
+chat-chat table.info td {
+	vertical-align: text-top;
+}
+chat-chat table.info td:first-child {
+	padding-left: 10px;
+}
+chat-chat table.info td:last-child {
+	padding-right: 10px;
+}
+chat-chat table.info img.flag {
+	vertical-align: middle;
+}
+chat-chat table.list td {
+	padding: 3px 7px;
+	vertical-align: text-top;
+}
+chat-chat table.list td.small {
+	font-size: 75%;
+	font-weight: 400;
+}
+chat-chat table.list td.lo {
+	text-transform: lowercase;
+}
+chat-chat table.list.online td>img {
+	vertical-align: middle;
+}
+chat-chat ul.list {
+	margin: 0;
+}
+.app-chat.to-top chat-body>chat-win2 {
+	top: 0;
+}
+.app-chat.to-bottom chat-body>chat-win2 {
+	bottom: 0;
+}
+.app-chat.to-top chat-body>chat-win2>span {
+	top: 100%;
+}
+.app-chat.to-bottom chat-body>chat-win2>span {
+	bottom: 100%;
+	margin-bottom: 3px;
+}
+.app-chat.mono chat-main .nick *,
+.app-chat.mono chat-main span.mess *:not(.nick) {
+	color: unset;
+}

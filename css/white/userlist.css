@@ -1,0 +1,26 @@
+@import "../userlist.css?1";
+
+chat-panel.userlist {
+	--nick-color: #39f;
+	--nick-shadow: 1px 1px 1px #0003;
+	--cap-padding: 0 20px 0 0;
+	--cap-border: 1px solid #f60;
+	--cap-text-shadow: none;
+	--cap-guys-color: #7590cc;
+	--cap-girls-color: #cc8282;
+	--cap-none-color: #79bb72;
+	--cap-total-border-top: 1px solid #f60;
+	--status-color: #c90;
+	--status-decor-color: #00f;
+	--stat-filter: drop-shadow(0 0 1px #0009);
+	--flag-filter: drop-shadow(0 0 1px #0009);
+	--icon-filter: drop-shadow(0 0 1px #0009);
+	--mobile-filter: none;
+	--avatar-border: 1px solid #f60;
+	--sel-bg: #ff93361a;
+	--sel-shadow: inset 0 8px 15px -1px #6200ff12;
+	--whowas-capt-color: #ff8;
+	--whowas-capt-bg: #b9dbff;
+	--whowas-td-shadow: none;
+	--select-room-btn-font: 700 21px/20px sans-serif;
+}

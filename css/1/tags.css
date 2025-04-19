@@ -1,0 +1,23 @@
+h2 {
+	line-height: 30px;
+	background: linear-gradient(#284d93 0%, #051165 65%, #274c92 100%);
+	text-align: center;
+	margin: 0;
+	text-shadow: -1px -1px 0 #000;
+}
+chat-main {
+	line-height: 1.5;
+}
+tag {
+	color: white;
+}
+body.click tag:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+ul {
+	padding-left: 30px;
+}
+li {
+	padding: 0.5em 0;
+}

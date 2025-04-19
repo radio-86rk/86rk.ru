@@ -1,0 +1,155 @@
+<script id=tpl_regs type="text/template">
+%REG_A<<<END
+<div>A</div><div>%A_HEX%</div><div>%A_BIN%</div><div>%A_UDEC%</div><div>%A_SDEC%</div>
+END%
+%REG_FLAG<<<END
+<div>FLAG</div><div>%FLAG_HEX%</div><div>%FLAG_BIN%</div><div>%FLAG_UDEC%</div><div>%FLAG_SDEC%</div>
+END%
+%REG_BC<<<END
+<div>BC</div><div>%BC_HEX%</div><div>%BC_BIN%</div><div>%BC_UDEC%</div><div>%BC_SDEC%</div>
+END%
+%REG_DE<<<END
+<div>DE</div><div>%DE_HEX%</div><div>%DE_BIN%</div><div>%DE_UDEC%</div><div>%DE_SDEC%</div>
+END%
+%REG_HL<<<END
+<div>HL</div><div>%HL_HEX%</div><div>%HL_BIN%</div><div>%HL_UDEC%</div><div>%HL_SDEC%</div>
+END%
+%REG_IX<<<END
+<div>IX</div><div>%IX_HEX%</div><div>%IX_BIN%</div><div>%IX_UDEC%</div><div>%IX_SDEC%</div>
+END%
+%REG_IY<<<END
+<div>IY</div><div>%IY_HEX%</div><div>%IY_BIN%</div><div>%IY_UDEC%</div><div>%IY_SDEC%</div>
+END%
+%REG_SP<<<END
+<div>SP</div><div>%SP_HEX%</div><div>%SP_BIN%</div><div>%SP_UDEC%</div><div>%SP_SDEC%</div>
+END%
+%REG_PC<<<END
+<div>PC</div><div>%PC_HEX%</div><div>%PC_BIN%</div><div>%PC_UDEC%</div><div>%PC_SDEC%</div>
+END%
+<div></div><div>hex</div><div>bin</div><div>udec</div><div>sdec</div>
+<tpl-row id=__reg_a>%REG_A%</tpl-row>
+<tpl-row id=__reg_flag>%REG_FLAG%</tpl-row>
+<tpl-row id=__reg_bc>%REG_BC%</tpl-row>
+<tpl-row id=__reg_de>%REG_DE%</tpl-row>
+<tpl-row id=__reg_hl>%REG_HL%</tpl-row>
+%?%EQ("%CPU%", "Z80")%
+<tpl-row id=__reg_ix>%REG_IX%</tpl-row>
+<tpl-row id=__reg_iy>%REG_IY%</tpl-row>
+?%
+<tpl-row id=__reg_sp>%REG_SP%</tpl-row>
+<tpl-row id=__reg_pc>%REG_PC%</tpl-row>
+<tpl-row>
+<div>[HL]</div>
+<div>%?%HLM_HEX%%:%xx?%</div>
+<div>%?%HLM_BIN%%:%xxxx xxxx?%</div>
+<div>%?%HLM_UDEC%%:%-?%</div>
+<div>%?%HLM_SDEC%%:%-?%</div>
+</tpl-row>
+<tpl-row>
+<div>[SP]</div>
+<div>%?%SPM_HEX%%:%xxxx?%</div>
+<div>%?%SPM_BIN%%:%xxxx xxxx xxxx xxxx?%</div>
+<div>%?%SPM_UDEC%%:%-?%</div>
+<div>%?%SPM_SDEC%%:%-?%</div>
+</tpl-row>
+</script>
+
+<script id=tpl_regs_input type="text/template">
+<div>%REG%</div><div><input name=value></div><div>%BIN%</div><div>%UDEC%</div><div>%SDEC%</div>
+</script>
+
+<script id=tpl_flags type="text/template">
+<div>FLAGS</div>
+<tpl-row data-data=7><div>D7</div><div>S</div><div id=__flag_d7>%D7%</div></tpl-row>
+<tpl-row data-data=6><div>D6</div><div>Z</div><div id=__flag_d6>%D6%</div></tpl-row>
+<tpl-row data-data=5><div>D5</div><div>%?%EQ("%CPU%", "Z80")%Y%:%%?%EQ("%CPU%", "8085")%K%:%-?%?%</div><div id=__flag_d5>%D5%</div></tpl-row>
+<tpl-row data-data=4><div>D4</div><div>%?%EQ("%CPU%", "Z80")%H%:%AC?%</div><div id=__flag_d4>%D4%</div></tpl-row>
+<tpl-row data-data=3><div>D3</div><div>%?%EQ("%CPU%", "Z80")%X%:%-?%</div><div id=__flag_d3>%D3%</div></tpl-row>
+<tpl-row data-data=2><div>D2</div><div>%?%EQ("%CPU%", "Z80")%P/V%:%P?%</div><div id=__flag_d2>%D2%</div></tpl-row>
+<tpl-row data-data=1><div>D1</div><div>%?%EQ("%CPU%", "Z80")%N%:%%?%EQ("%CPU%", "8085")%V%:%-?%?%</div><div id=__flag_d1>%D1%</div></tpl-row>
+<tpl-row data-data=0><div>D0</div><div>%?%EQ("%CPU%", "Z80")%C%:%CY?%</div><div id=__flag_d0>%D0%</div></tpl-row>
+<tpl-row><div>IFF</div><div>%IFF%</div></tpl-row>
+</script>
+
+<script id=tpl_dump_header type="text/template">
+<header><a name=dump_menu>DUMP</a> %REPEAT("<code></code>", 16)%%REPEAT("<samp></samp>", 16)%</header>
+</script>
+
+<script id=tpl_dump_line type="text/template">
+<div id=__dump_%ADDR%><addr>%ADDR%</addr><div>%CODE%</div><div>%TEXT%</div></div>
+</script>
+
+<script id=tpl_dump_menu type="text/template">
+<ol>
+{{{
+<li data-a=dump data-addr=%ADDR%>%ADDR%%? =%REG%%:%<span data-addr=%ADDR% data-a=menu_addr_del>&#x2716;</span>?%
+}}}
+<li><input type=text id=dump_addr maxlength=4>
+</ol>
+</script>
+
+<script id=tpl_disassm type="text/template">
+<div class="disassm%?%BP%bp?%" id=__dis_%ADDR% data-addr=%ADDR%><addr>%ADDR%</addr> <code>%CODE%</code>%REPEAT("\t", %INDENT%)%<assm>%ASSM%</assm></div>
+</script>
+
+<script id=tpl_status type="text/template">
+<div>CPU: <span class=tics>%TICS%</span> <a name=reset_tics>reset</a></div><span></span>
+<div>DMA: <span>%DMA_ADDR%</span>/<span>%DMA_COUNT%</span></div><span></span>
+<div>CRT: scr=<span>%CRT_COLS%</span>/<span>%CRT_ROWS%</span> row=<span>%CRT_LPR%</span>/<span>%CRT_UL%</span> offs=<span>%?%CRT_LO%1%:%0?%</span> trns=<span>%?%CRT_TA%1%:%0?%</span> brst=<span>%CRT_BS%</span>/<span>%CRT_BC%</span> fr=<span>%CRT_FR%</span></div>
+</script>
+
+<script id=tpl_bp_list type="text/template">
+<form>
+<table>
+<thead>
+<tr>
+<th>#
+<th>Вкл
+<th>Адрес
+<th>Диапазон
+<th>Маска
+<th>Действие
+<th>Срабатывание
+<th>&emsp;
+<th>&emsp;
+</tr>
+</thead>
+{{{
+<tr>
+<td class=counter>
+<td>%checkbox("bp_addr_on", %ON%, null, "", void 0, "data-addr=%ADDR%")%
+<td>%ADDR%
+<td>%ADDR_END%
+<td>%ADDR_MASK%
+<td>%?%EQ("%TYPE%", "exec")%выполнение%:%%?%EQ("%TYPE%", "rd")%чтение%:%%?%EQ("%TYPE%", "wr")%запись%:%?%?%?%
+<td>%?каждый %HITS%-й раз%:%всегда?%
+<td class=del><span data-addr=%ADDR% data-a=bp_addr_del>&#x2716;</span>
+<td class=copy><span data-addr=%ADDR% data-a=bp_addr_copy>&#x25bc;</span>
+</tr>
+}}}
+<tr>
+<td class=counter>
+<td>%checkbox("bp_on", 1, null, "")%
+<td>%input("bp_addr",,, 8, "class=w100")%
+<td>%input("bp_addr_end",,, 8, "class=w100")%
+<td>%input("bp_addr_mask",,, 8, "class=w100")%
+<td>%select("bp_type", null, { exec: "выполнение", rd: "чтение", wr: "запись" })%
+<td>%select("bp_trig", 0, ["всегда", "каждый i-тый раз"])%%input("bp_hits",,, 4, "data-num=dec class='w50 disabled'")%
+<td colspan=2>%submit("bp_add", "&#x2795;")%
+</tr>
+</table>
+</form>
+%button("bp_list_hide", "Закрыть")%
+</script>
+
+<script id=app_cfg type="text/template">
+%CFG({
+	DISASSM: {
+		ASM_TPL:	"%MNEMO%%?\t%OP%?%",
+		DB_TPL:		"DB\t%BYTES%"
+	},
+	MODAL_TITLE: {
+		BP_LIST:	"Точки останова"
+	}
+})%
+</script>

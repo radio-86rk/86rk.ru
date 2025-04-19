@@ -1,0 +1,63 @@
+<form>
+<div>
+<h3>Font list</h3>
+<div id=font_list></div>
+
+<div class=t2>
+<div>
+<h3>Align</h3>
+<select name=align>
+<option value=0>none
+<option value=512>512 byte boundary
+<option value=1024>1 kbyte boundary
+<option value=2048>2 kbyte boundary
+<option value=3072>3 kbyte boundary
+<option value=4096>4 kbyte boundary
+<option value=5120>5 kbyte boundary
+<option value=6144>6 kbyte boundary
+<option value=7168>7 kbyte boundary
+<option value=8192>8 kbyte boundary
+<option value=9216>9 kbyte boundary
+<option value=10240>10 kbyte boundary
+</select>
+
+<h3>Start Offset</h3>
+<input type=radio name=offset_type id=__fo_lbl0 value=0 checked><label for=__fo_lbl0> none</label><br>
+<input type=radio name=offset_type id=__fo_lbl1 value=1><label for=__fo_lbl1> 0x<input type=text name=offset size=5 maxlength=4></label>
+</div>
+<div>
+<h3>Filling</h3>
+Code: 0x<input type=text name=fill value=00 size=2 maxlength=2 placeholder=00>
+
+<h3>File format</h3>
+<input type=radio name=file_format id=__lbl2 value=0><label for=__lbl2> char by char</label><br>
+<input type=radio name=file_format id=__lbl3 value=1><label for=__lbl3> line by line</label>
+</div>
+</div>
+
+<h3>File name</h3>
+<input type=text name=filename>
+</div>
+
+<div>
+<h3>File view</h3>
+<div class=file id=file_view>
+<div class=offs text="offset = "></div>
+<div class=f1 text="font #"></div>
+<div class=f2 text="align = "></div>
+<div class=f1 text="font #"></div>
+<div class=f2 text="align = "></div>
+</div>
+</div>
+
+<input type=submit name=ok value=Save>
+
+</form>
+
+<script id=tpl_font_list type="text/template">
+<ol start=0>
+{{{
+<li>%checkbox("font", 0, %NUM%, "<span>%FILENAME%</span> [%WIDTH%x%HEIGHT%]")% / %SIZE% bytes
+}}}
+</ol>
+</script>

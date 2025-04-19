@@ -1,0 +1,25 @@
+@import "../emoji.css";
+
+.app-chat {
+	--emoji-mess-shadow: 1px 1px 1px #fff3;
+}
+.app-chat chat-emoji {
+	--bg: #000;
+	--color: #a98;
+	--tit-bg: #000000f2;
+	--em-padding: 4.5px;
+	--em-hover-bg: #343a46;
+	--nav-btn-color: #a98;
+	--nav-btn-hover-color: #765;
+	--nav-btn-sel-color: #fa0;
+	--nav-bb: 1px solid #62584e;
+	--footer-bt: 1px solid #62584e;
+	--preview-code-color: #999;
+	--search-br: 5px;
+	--search-ph-color: #9f9f9f;
+	--search-cb-filter: brightness(2) hue-rotate(195deg) saturate(5);
+	--search-cb-hover-filter: grayscale(1) brightness(5);
+	--no-found-font: icon;
+	--no-found-color: #cc8800;
+	--sb-thumb-bg: #fff6;
+}

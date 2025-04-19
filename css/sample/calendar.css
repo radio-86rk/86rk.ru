@@ -1,0 +1,112 @@
+@import "../calendar.css";
+
+modal-module.calendar {
+	color: #000;
+	--modal-bg: #fff;
+	--modal-padding: 0;
+	--calendar-margin: 30px 0 0;
+	--caption-year-fs: 110%;
+	--month-font-weight: 400;
+	--header-font: 700 5em/.9 Consolas;
+	--header-color: #55539f;
+	--header-hover-color: #fff;
+	--header-hover-bg: #55539f;
+	--header-transform: uppercase;
+	--cell-display: block;
+	--dow67-color: #f00;
+	--day67-color: #f00;
+	--cur-day-color: #ffb;
+	--cur-day-decor-bg: #0586;
+	--cur-day67-decor-bg: #df06;
+	--cur-day67-decor-shadow: inset 0 0 5px #f009;
+	--cur-day-shadow: .2px 0 0;
+	--h1-sw-color: #fff;
+	--h1-sw-shadow: 0 0 15px #000;
+	--ctrl-color: #666;
+	--ctrl-hover-color: #ccc;
+	--single-margin: 0 0 -15px;
+	--single-title-fs: 1.5em;
+	--single-title-color: #ccc;
+	--single-header-fs: 2em;
+	--single-header-color: #55539f;
+	--single-ctrl-fs: .8em;
+	--single-ctrl-padding: 0 30px 4px;
+	--single-cur-cell-bg: #112c5d1a;
+	--single-cur-cell67-bg: #4b1c361a;
+	--single-cell-border: 1px solid #ccc;
+	--single-cell-decor-color: #005aff;
+	--single-cell-decor-bg: #005aff22;
+	--single-cell-decor2-color: #0003;
+	--single-cell67-decor-color: #f00;
+	--single-cell67-decor2-color: #0003;
+	--single-cell67-bg: none;
+	--nick-color: #666;
+
+	--crtl-right: 20px;
+	--crtl-top: 4px;
+	--view2-padding: 10px 30px 30px;
+}
+cal-month {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 20px 40px 50px;
+	margin: -10px;
+	border-radius: 50%;
+}
+cal-month:nth-of-type(1) {
+	background: #badef055;
+}
+cal-month:nth-of-type(2) {
+	background: #e9b38155;
+}
+cal-month:nth-of-type(3) {
+	background: #e09bb055;
+}
+cal-month:nth-of-type(4) {
+	background: #f7ec9b55;
+}
+cal-month:nth-of-type(5) {
+	background: #98c9a555;
+}
+cal-month:nth-of-type(6) {
+	background: #00acec55;
+}
+cal-month:nth-of-type(7) {
+	background: #c71f4b55;
+}
+cal-month:nth-of-type(8) {
+	background: #9384bb55;
+}
+cal-month:nth-of-type(9) {
+	background: #e0922e55;
+}
+cal-month:nth-of-type(10) {
+	background: #de98bf55;
+}
+cal-month:nth-of-type(11) {
+	background: #c97e4c55;
+}
+cal-month:nth-of-type(12) {
+	background: #c5db9655;
+}
+cal-month>div {
+	display: block;
+	flex: 0 0 auto;
+}
+cal-month>div>div:not(:first-child) {
+	padding: 3px 7px 3px 0;
+	text-align: right;
+}
+cal-month>header {
+	display: block;
+	flex: 1 100%;
+	line-height: 1;
+	padding: 0;
+	width: 0;
+}
+cal-month>header>a {
+	font: 700 5em/.9 Consolas;
+	max-width: 1.65em;
+	overflow: hidden;
+	cursor: pointer;
+}

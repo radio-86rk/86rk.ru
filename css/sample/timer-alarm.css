@@ -1,0 +1,313 @@
+/***
+ ***  Файл содержит стили функции "таймер/будильник"
+ ***/
+
+chat-body table.timer-alarm {
+	/*
+	 *  параметры таблицы с настройками и со списком таймеров/будильников
+	 */
+	font: 400 12pt verdana;
+	color: #c6c;
+	padding: 5px;
+	width: 100%;
+	border-spacing: 0 1px;
+}
+chat-body table.timer-alarm .inp {
+	/*
+	 *  параметры полей ввода в таблице с настройками таймера/будильника
+	 */
+	font-size: 100%;
+	padding: 1px 4px;
+}
+/*
+ *  параметры плейсхолдера
+ */
+chat-body table.timer-alarm .inp::placeholder {
+	color: #ccc;
+}
+chat-body table.timer-alarm button.btn[name="ok"] {
+	/*
+	 *  параметры кнопки запуска таймера/будильника в таблице с настройками
+	 */
+	font-size: 160%;
+	height: 100%;
+	padding: 0 3px;
+}
+chat-body table.timer-alarm button.btn[name="listen"] {
+	/*
+	 *  параметры кнопки прослушивания текущего звука в таблице с настройками
+	 */
+	display: block;
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	width: 25px;
+	height: 25px;
+	padding: 0;
+	margin-top: -2px;
+}
+chat-body table.timer-alarm button.btn[name="listen"]::before {
+	content: url(../../images/speaker.svgz);
+}
+chat-body table.timer-alarm label {
+	/*
+	 *  параметры для флажков и переключателей
+	 */
+	display: block;
+	white-space: nowrap;
+}
+chat-body table.timer-alarm.new {
+	height: 100%;
+}
+chat-body table.timer-alarm.new th {
+	/*
+	 *  параметры заголовка таблицы с настройками таймера/будильника
+	 */
+	background: #eef;
+	color: #e80;
+	font: 700 12pt verdana;
+	border-bottom: 2px groove #ffb84c;
+}
+chat-body table.timer-alarm.new td {
+	vertical-align: top;
+}
+chat-body table.timer-alarm.new td.spacer {
+	padding: 0;
+	height: 100%;
+}
+chat-body table.timer-alarm.new tr.cap {
+	/*
+	 *  параметры второй строки таблицы с настройками таймера/будильника
+	 *  для дефолтного шаблона на второй строке располагаются названия настроек
+	 */
+	font-weight: 700;
+	color: #99f;
+}
+chat-body table.timer-alarm.new div.wdays {
+	/*
+	 *  параметры контейнера с флажками дней недели для будильника.
+	 *  используя технологию flexbox можно добиться произвольного
+	 *  расположения флажков в этом контейнере 
+	 */
+	display: flex;
+	flex-wrap: wrap;
+}
+chat-body table.timer-alarm.new div.wdays>label {
+	padding-right: 11px;
+	margin: 0 2px 2px 0;
+	border: 1px solid #eef;
+}
+chat-body table.timer-alarm.new div.time {
+	display: flex;
+}
+chat-body table.timer-alarm.list-ta tr:nth-child(2n+1) {
+	/*
+	 *  параметры нечетных строк таблицы со списком
+	 */
+	background: #eef;
+}
+chat-body table.timer-alarm.list-ta .time {
+	/*
+	 *  параметры табло времени срабатывания таймера/будильника в списке
+	 */
+	font-weight: 400;
+	color: #3c0;
+}
+chat-body table.timer-alarm.list-ta .timer {
+	/*
+	 *  параметры табло обратного счета в списке
+	 */
+	font-weight: 400;
+	color: #c60;
+}
+chat-body table.timer-alarm.list-ta .name {
+	/*
+	 *  параметры названия таймера/будильника в списке
+	 */
+	font-weight: 700;
+	color: #999;
+}
+chat-body table.timer-alarm td:first-child {
+	/*
+	 *  дополнитеные параметры таблицы
+	 */
+}
+chat-body table.timer-alarm td:last-child {
+	/*
+	 *  дополнитеные параметры таблицы
+	 */
+}
+chat-body table.timer-alarm a.ctrl {
+	/*
+	 *  параметры кнопок управления таймером/будильником в списке
+	 */
+	display: none;
+	text-decoration: none;
+	outline: none;
+	font: 700 10pt arial;
+	text-align: center;
+	border-bottom: 2px solid #ff0;
+	margin: 0px 0px 0px 3px;
+	padding: 1px 0;
+	width: 70px;
+	box-shadow: 0 0 5px #0008;
+	text-shadow: -1px -1px 1px #0004;
+}
+chat-body table.timer-alarm a.ctrl:hover {
+	/*
+	 *  параметры кнопок управления под указателем мышки
+	 */
+	text-decoration: none;
+}
+chat-body table.timer-alarm a.ctrl:active {
+	/*
+	 *  параметры кнопок управления при нажатии
+	 */
+	transform: translate(1px, 1px);
+	box-shadow: 0 0 2px #0008 !important;
+}
+chat-body table.timer-alarm a.ctrl[name="start"] {
+	/*
+	 *  параметры кнопки "старт" управления
+	 */
+	color: #ff0;
+	background: linear-gradient(#00d02d, #008624, #00ce45);
+}
+chat-body table.timer-alarm a.ctrl[name="start"]:hover {
+	/*
+	 *  параметры кнопки "старт" под указателем мышки
+	 */
+	color: #fff;
+	border-bottom: 2px solid #fff;
+	background: linear-gradient(#2bff59, #00c033, #27ff6f);
+}
+chat-body table.timer-alarm a.ctrl[name="stop"] {
+	/*
+	 *  параметры кнопки "стоп" управления
+	 */
+	color: #ff0;
+	background: linear-gradient(#0057de, #002b8a, #003bdc);
+}
+chat-body table.timer-alarm a.ctrl[name="stop"]:hover {
+	/*
+	 *  параметры кнопки "стоп" под указателем мышки
+	 */
+	color: #fff;
+	border-bottom: 2px solid #fff;
+	background: linear-gradient(#2b87ff, #004ac0, #276bff);
+}
+chat-body table.timer-alarm a.ctrl[name="del"] {
+	/*
+	 *  параметры кнопки "удалить" управления
+	 */
+	color: #ff0;
+	background: linear-gradient(#d00, #800, #d00);
+}
+chat-body table.timer-alarm a.ctrl[name="del"]:hover {
+	/*
+	 *  параметры кнопки "удалить" под указателем мышки
+	 */
+	color: #fff;
+	background: #f00;
+	border-bottom: 2px solid #fff;
+	background: linear-gradient(#ff2b39, #c00003, #ff3227);
+}
+
+/*
+ *  следующие стили определяют параметры для расширенного меню
+ *  расширенного меню используется для вызова настроек и отображения списка текущих таймеров/будильников
+ */
+chat-body>popup-sub-menu>item>span.timer {
+	/*
+	 *  параметры табло обратного счета
+	 */
+	color: #336;
+	font-weight: 400;
+	font-family: arial;
+	padding: 2px;
+	margin: -2px 1px -2px -2px;
+}
+chat-body>popup-sub-menu>item>span.timer::before {
+	/*
+	 *  параметры обрамления слева табло обратного счета
+	 */
+	content: "[";
+	color: #e58a00;
+	font-weight: 700;
+	font-size: 110%;
+	vertical-align: 1px;
+}
+chat-body>popup-sub-menu>item>span.timer::after {
+	/*
+	 *  параметры обрамления справа табло обратного счета
+	 */
+	content: "]";
+	color: #e58a00;
+	font-weight: 700;
+	font-size: 110%;
+	vertical-align: 1px;
+}
+chat-body>popup-sub-menu>item>span.timer>span {
+	/*
+	 *  параметры двоеточия в табло обратного счета
+	 */
+	color: #009;
+	font-weight: 700;
+}
+chat-body>popup-sub-menu>item.stopped {
+	opacity: .5;
+}
+chat-body>popup-sub-menu>item.stopped>span.timer {
+	/*
+	 *  параметры табло для остановленного таймера/будильника
+	 */
+	color: #aab;
+	text-shadow: 1px 1px 0 #fff9;
+}
+chat-body>popup-sub-menu>item.stopped:hover>span.timer {
+	background: transparent;
+}
+chat-body>popup-sub-menu>item.stopped>span.timer>span {
+	/*
+	 *  параметры двоеточия в табло для остановленного таймера/будильника
+	 */
+	color: inherit;
+	text-shadow: inherit;
+	background: inherit;
+}
+chat-body .disable table.timer-alarm {
+	opacity: .5;
+}
+chat-body .timer table.timer-alarm div.wdays,
+chat-body .alarm table.timer-alarm input[name="timer_alarm_day"],
+chat-body .alarm table.timer-alarm input[name="timer_alarm_sec"] {
+	opacity: .3;
+	pointer-events: none;
+}
+chat-body table.timer-alarm.list-ta tr.blink {
+	/*
+	 *  параметры мигания строки сработанного таймера/будильника в списке
+	 */
+	animation: timer-alarm-blink 1.2s linear infinite;
+}
+chat-body table.timer-alarm input.error {
+	animation: timer-alarm-error 200ms linear 5;
+}
+@keyframes timer-alarm-blink {
+	10%, 50% {
+		background: #f003;
+	}
+	60%, 100%, 0% {
+		background: #0f03;
+	}
+}
+@keyframes timer-alarm-error {
+	10%, 50% {
+		background: #f00;
+		border-color: #fcc;
+	}
+	60%, 100%, 0% {
+		background: #fcc;
+		border-color: #f00;
+	}
+}

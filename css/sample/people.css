@@ -1,0 +1,31 @@
+@import "../people.css";
+@import "../scrollbar.css";
+
+scrollbar {
+	--width: 16px;
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgBAMAAABQs2O3AAAALVBMVEUAAAD/wmf/nDL/wmf/nDL/wmfr7e/N19v/nDL/wmevvcOZpqvJ1NjEztOrt7y/cbaPAAAABnRSTlMA9+/qW1CM/1qvAAAASUlEQVQ4y2NYBQS7gSANCMqBgAEKZgJBBxAQVnANInEOpwKoRA1MQTBEQgVdQTmMloRK4FQwc1TBqIJhpwCW7AlmHKKzHuW5GwALm+q80uPR6wAAAABJRU5ErkJggg==);
+}
+input[type="checkbox"] + label::before {
+	background-image: url(../../images/sample/checkbox.png);
+}
+input[type="radio"] + label::before {
+	background-image: url(../../images/sample/radio.png);
+}
+@media (min-width: 680px) {
+	::-webkit-scrollbar {
+		width: 14px;
+	}
+	::-webkit-scrollbar-track {
+		border-left: 7px solid #ebedef;
+		border-right: 7px solid #cdd7db;
+	}
+	::-webkit-scrollbar-thumb {
+		border-left: 7px solid #ffc267;
+		border-right: 7px solid #ff9c32;
+	}
+	::-webkit-scrollbar-button {
+		height: 4px;
+		border-left: 7px solid #afbdc3;
+		border-right: 7px solid #99a6ab;
+	}
+}

@@ -1,0 +1,33 @@
+chat-cmenu {
+	display: block;
+	position: fixed;
+	z-index: 14;
+	top: -1000px;
+	left: -1000px;
+	max-width: 150px;
+	background: #eedcc8;
+	border: outset 1px #eedcc8;
+	white-space: nowrap;
+	box-shadow: 1px 1px 6px 2px #0008;
+}
+chat-cmenu>* {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+chat-cmenu>item {
+	color: #000;
+	font: normal 100 80% sans-serif;
+	padding: 2px 5px;
+}
+chat-cmenu>item:hover {
+	background: #fff;
+	box-shadow: 1px 1px 3px #0004, inset 0 10px 10px #9993;
+}
+chat-cmenu>menu-title {
+	color: #fff;
+	background: #d70;
+	text-align: right;
+	padding: 2px 8px;
+	text-shadow: -1px -1px 0 #0003;
+}

@@ -1,0 +1,125 @@
+@import "../notebook.css?1";
+@import "../scrollbar.css";
+
+body.app-chat {
+	--bg: linear-gradient(#1a74d4, #003aa6) top/100% 2px;
+	--color: #ccf;
+	--cursor: url(../images/0/cursor.cur);
+	--header-font: 500 16px/26px verdana;
+	--header-ls: .1em;
+	--header-padding: 0px 1em;
+	--header-text-shadow: 0 1px #000;
+	--panel-font: 600 14px verdana;
+	--panel-padding: 3px 5px;
+	--info-padding: 5px;
+	--folder-color: #1365c8;
+	--list-th-bg: linear-gradient(#0648b1, #1365c8);
+	--list-th-bt: 1px solid #1365c8;
+	--list-th-bb: 1px solid #0648b1;
+	--list-row-hover-color: #fff;
+	--list-row-hover-bg: linear-gradient(#f80, #c60);
+	--list-row-hover-text-shadow: 0 0 1px #0008;
+	--btn-active-padding: 1px 0 0 1px;
+	--btn-light-bg: #0f09;
+	--inp-color: #669;
+	--inp-bg: #fff;
+	--inp-focus-color: #00f;
+	--panel-width: 204px;
+	--emoji-mess-fs: 1.6rem;
+}
+body.app-chat chat-emoji {
+	--color: #2e2f32;
+	--bg: #fff;
+	--tit-font: 600 .8rem/1.6 verdana;
+	--tit-bg: #fffffff2;
+	--tit-padding: 3px 5px 0;
+	--em-fs: 1.4rem;
+	--em-hover-bg: #ddd;
+	--nav-btn-color: #858585;
+	--nav-btn-hover-color: #464646;
+	--nav-btn-sel-color: #3c8ee7;
+	--nav-btn-sel-bc: currentColor;
+	--nav-bb: 2px groove #3c8ee7;
+	--footer-bt: 2px groove #3c8ee7;
+	--preview-annot-fs: .8rem;
+	--preview-code-fs: .8rem;
+	--preview-padding: 0 8px;
+	--sec-padding: 0 2px;
+	--search-fs: inherit;
+	--search-bg: #fff;
+	--search-focus-bg: #fff;
+	--search-border: 1px solid #3c8ee7;
+	--search-br: 0;
+	--search-ph-color: #b1bdc9;
+	--search-cb-filter: saturate(5) opacity(.5);
+	--search-cb-hover-filter: saturate(5);
+	--no-found-font: .8rem verdana;
+	--no-found-color: #3c8ee7;
+	--sb-thumb-bg: #0003;
+}
+scrollbar {
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAABBAMAAABwNtAyAAAAKlBMVEUAAAD////vpXT5+fnWo3bao3Lpo23FmmzanGPsomHckEu/h0TRgziAaiguFJeWAAAAAnRSTlMAf7YpoZUAAAAiSURBVAjXYwACYQEGEGA0BBK8JRGnJillM1x37VmppLYBADYgBmE+xXKXAAAAAElFTkSuQmCC);
+	--decor-repeat: repeat-y;
+}
+nb-panel {
+	background: linear-gradient(#1a74d4, #003aa6) top/100% 2px;
+}
+.app-chat.show-panel nb-panel {
+	padding: 5px;
+}
+body,
+td.header,
+td.panel,
+td.info,
+td.buttons,
+nb-btn:hover {
+	border: 1px solid;
+	border-color: #3c8ee7 #002975 #002975 #3c8ee7;
+}
+table.notebook,
+td.info>div.view,
+td.panel>select[name=folder],
+input.inp,
+select.inp,
+textarea.inp,
+chat-emoji,
+nb-div,
+nb-btn:active {
+	border: 1px solid;
+	border-color: #002975 #3c8ee7 #3c8ee7 #002975;
+}
+tr.admin>td:nth-child(1), td.admin {
+	font-weight: 700;
+	color: #fc0;
+	background: #cc2800;
+}
+tr.august>td:nth-child(1), td.august {
+	font-weight: 700;
+	color: #ffcc7f;
+	background: #0cc;
+}
+tr.notice>td:nth-child(1), td.notice {
+	color: #143300;
+	background: #e5b800;
+}
+table.notebook.write td.panel td:nth-of-type(2) {
+	padding-left: 5px;
+}
+td.info.speech a.speech {
+	bottom: 7px;
+	right: 22px;
+	background: #ccc;
+}
+table.notebook.write td#friends_list {
+	padding-left: 5px;
+}
+::-webkit-scrollbar {
+	width: 15px;
+}
+::-webkit-scrollbar-track {
+	box-shadow: inset 4px 0 6px #0004;
+	background: #fff;
+}
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(to right, #806a28, #c59a6c, #d6a376, #daa372, #da9c63, #d18338, #dc904b, #eca261, #efa770, #efa476,#efa476, #e9a36d, #9c6e35) repeat-y;
+}

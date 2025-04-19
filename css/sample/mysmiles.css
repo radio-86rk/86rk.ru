@@ -1,0 +1,40 @@
+/***
+ ***  Файл содержит стили для любимых/личных смайликов
+ ***/
+
+/*
+ *  импортируются базовые стили
+ */
+@import "../mysmiles.css";
+
+.app-chat.mysmiles chat-form {
+	flex-basis: 75px;
+}
+chat-mysmiles {
+	/* параметры контейнера функции, контейнер не отображается */
+	margin-top: 5px;
+	transition: .5s;
+	--wait-color: #f809;
+}
+chat-mysmiles button {
+	/* параметры кнопок функции */
+	display: block;
+	width: 29px;
+	height: 20px;
+	padding: 0 4px;
+	opacity: .7;
+	color: #66c;
+	background: transparent;
+	font: normal 700 19px/20px sans-serif;
+	border: 1px solid transparent;
+	transition: opacity .3s;
+}
+chat-mysmiles div.buttons-scroll button {
+	font-size: 18px;
+	line-height: 18px;
+}
+chat-mysmiles button:hover {
+	/* параметры кнопок функции под курсором мышки */
+	opacity: 1;
+	border: 1px solid #9494db80;
+}

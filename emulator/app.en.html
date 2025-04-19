@@ -1,0 +1,226 @@
+<app-title></app-title>
+<app-emulator class=app>
+<div class=screen>
+<canvas></canvas>
+<div class=ctrl>
+<a name=reset class=btn>Сброс</a>
+<a name=mute class=btn></a>
+<app-indicator id=ind_status></app-indicator>
+<app-indicator id=ind_lang lang-lat="ЛАТ" lang-rus="РУС"></app-indicator>
+<app-indicator id=ind_tape tape-in="ЧТЕНИЕ" tape-out="ЗАПИСЬ" tape-tape="МАФОН"></app-indicator>
+<app-indicator id=ind_cpu cpu-8080="i8080" cpu-8085="i8085" cpu-Z80="Z80">CPU</app-indicator>
+<app-indicator id=ind_cpu_clock unit="&#xa0;МГц"></app-indicator>
+<app-indicator id=ind_layout layout-qwerty="QWERTY" layout-jcuken="JCUKEN"></app-indicator>
+<select id=file_list tabindex=-1></select>
+<select id=computers tabindex=-1>
+<option value=restart>[ перезапуск ]
+<optgroup label="пользовательские">
+<option value=new>[ создать ]
+</optgroup>
+</select>
+<a name=debuger class=btn>Отладчик</a>
+</div>
+</div>
+<div id=catalog></div>
+<app-debuger>
+<div id=dump_menu></div>
+<div id=disassm></div>
+<div id=regs></div>
+<div id=flags></div>
+<div id=dump></div>
+<div id=status></div>
+</app-debuger>
+</app-emulator>
+
+<app-menu>
+<span>&copy; <a href="mailto:vital72@86rk.ru?subject=emulator" target="_blank" tabindex=-1>Поединок Виталий</a>, 2025</span>
+<span></span>
+<span></span>
+<span class=normal><span>Alt+F1</span><a name=help>помощь</a></span>
+<span class=normal><span>Alt+F3</span><a name=upload>загрузить</a></span>
+<span class=normal><span>Alt+F5</span><a name=upload_n_run>запустить</a></span>
+<span class=normal><span>Alt+Enter</span><a name=fullscreen>во весь экран</a></span>
+<span class=debug><span>F5</span><a name=run>запустить</a></span>
+<span class=debug><span>F7</span><a name=step>шаг</a></span>
+<span class=debug><span>F8</span><a name=over>перешагнуть</a></span>
+<span class=debug><span>F9</span><a name=auto>авто</a></span>
+<span class=debug><span>F10</span><a name=bp_list>точки останова</a></span>
+<span class=debug><span>Pause</span><a name=debuger>выйти</a></span>
+<span class=conf>
+<a name=conf>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+<path d="M0,1h16v2H0V1z M0,7h16v2H0V7z M0,13h16v2H0V13z"/>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+<path d="M1.7,15.8L8,9.5l6.3,6.3l1.5-1.5L9.5,8l6.3-6.3l-1.5-1.5L8,6.5L1.7,0.2L0.2,1.7L6.5,8l-6.3,6.3L1.7,15.8z"/>
+</svg>
+</a>
+</span>
+</app-menu>
+
+<app-conf>
+<hr>
+<h3 class=h>Экран</h3>
+<h3 class=slider_val id=screen_scale_val>Масштабирование:</h3>
+<div class="slider0 slider"><div id=screen_scale></div></div>
+<hr>
+<h3 class=slider_val id=screen_smoothing_val>Сглаживание:</h3>
+<div class="slider0 slider"><div id=screen_smoothing data-val0=нет data-val1=да></div></div>
+<hr>
+<h3 class=slider_val id=screen_brightness_val>Яркость:</h3>
+<div class="slider0 slider"><div id=screen_brightness></div></div>
+<hr>
+<h3 class=slider_val id=screen_contrast_val>Контрастность:</h3>
+<div class="slider0 slider"><div id=screen_contrast></div></div>
+<hr>
+<h3 class=slider_val id=screen_aspect_ratio_val>Соотношение сторон:</h3>
+<div class="slider0 slider"><div id=screen_aspect_ratio></div></div>
+<div class=padding id=screen_aspect_ratio_fix>
+<input type=radio name=screen_aspect_ratio_fix id=__ar_lbl1 value=1.352>
+<label for=__ar_lbl1> 4/3</label>
+<input type=radio name=screen_aspect_ratio_fix id=__ar_lbl2 value=1.436>
+<label for=__ar_lbl2> 4.25/3</label>
+<input type=radio name=screen_aspect_ratio_fix id=__ar_lbl3 value=1.560>
+<label for=__ar_lbl3> 4.61/3</label>
+</div>
+<hr>
+<h3 class=h>Рендеринг</h3>
+<div class=padding id=rendering>
+<input type=radio name=rendering id=__rndr_lbl0 value=0>
+<label for=__rndr_lbl0> Синхронно с КР580ВГ75</label>
+<input type=radio name=rendering id=__rndr_lbl1 value=1>
+<label for=__rndr_lbl1> Синхронно с монитором (60Гц)</label>
+<input type=checkbox id=skip_frame><label for=skip_frame>Пропускать один кадр</label>
+<input type=checkbox id=crt_effect><label for=crt_effect>ЭЛТ-эффект</label>
+</div>
+<hr>
+<h3 class=h>Микропроцессор</h3>
+<div class=padding id=cpu>
+<input type=radio name=cpu id=__cpu_lbl0 value=8080>
+<label for=__cpu_lbl0> 8080 <span>требуется перезапуск</span></label>
+<input type=radio name=cpu id=__cpu_lbl1 value=8085>
+<label for=__cpu_lbl1> 8085 <span>требуется перезапуск</span></label>
+<input type=radio name=cpu id=__cpu_lbl2 value=Z80>
+<label for=__cpu_lbl2> Z80 <span>требуется перезапуск</span></label>
+<input type=checkbox id=adj_cpu_clock><label for=adj_cpu_clock>Регулируемая т. частота</label>
+</div>
+<hr>
+<h3 class=slider_val id=cpu_clock_val unit="МГц">Тактовая частота:</h3>
+<div class="slider0 slider"><div id=cpu_clock></div></div>
+<hr>
+<h3 class=h>Клавиатура</h3>
+<div class=padding id=kbd_layout>
+<input type=radio name=kbd_layout id=__kbd_lbl0 value=0>
+<label for=__kbd_lbl0> QWERTY</label>
+<input type=radio name=kbd_layout id=__kbd_lbl1 value=1>
+<label for=__kbd_lbl1> JCUKEN</label>
+</div>
+<hr>
+<h3 class=h>Звук</h3>
+<h3 class=slider_val id=sound_volume_val>Громкость:</h3>
+<div class="slider0 slider"><div id=sound_volume></div></div>
+<div class=padding id=sound_covox>
+<input type=radio name=sound_covox id=__covox_lbl0 value=0>
+<label for=__covox_lbl0> Порт отключен</label>
+<input type=radio name=sound_covox id=__covox_lbl1 value=1>
+<label for=__covox_lbl1> Звук с магнитофона (PC0)</label>
+<input type=radio name=sound_covox id=__covox_lbl2 value=3>
+<label for=__covox_lbl2> 2-битный covox (PC1..0)</label>
+<input type=radio name=sound_covox id=__covox_lbl3 value=7>
+<label for=__covox_lbl3> 3-битный covox (PC2..0)</label>
+<input type=radio name=sound_covox id=__covox_lbl4 value=15>
+<label for=__covox_lbl4> 4-битный covox (PC3..0)</label>
+</div>
+<hr>
+<h3 class=h>ROM-диск</h3>
+<div class=padding id=rom_disk>
+<input type=radio name=rom_disk id=__rom_disk_lbl0 value=0>
+<label for=__rom_disk_lbl0> Стандартный</label>
+<input type=radio name=rom_disk id=__rom_disk_lbl1 value=1>
+<label for=__rom_disk_lbl1> По схеме vinxru</label>
+</div>
+
+<!--
+<div class=padding>
+<input type=checkbox id=sound_mafon><label for=sound_mafon>Звук с магнитофона</label>
+<input type=checkbox id=sound_lpf><label for=sound_lpf>ФНЧ</label>
+</div>
+-->
+
+<!--
+<h3 class=slider_val id=sound_lpf_freq_val unit="кГц">Частота среза ФНЧ:</h3>
+<div class="slider0 slider"><div id=sound_lpf_freq></div></div>
+-->
+<hr>
+</app-conf>
+
+<app-status></app-status>
+
+<script id=tpl_catalog type="text/template">
+<table>
+<thead>
+<tr>
+<th>
+<a name=dir_up>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M17.9,0l17.9,21.4H0L17.9,0z
+	M30.1,50H50V37.8H30.1c-3.4,0-6.1-2.8-6.1-6.1V21.4H11.8v10.2C11.8,41.7,20,50,30.1,50z"/>
+</svg>
+</a>
+<th>Файл
+<th>Описание
+<th>Размер
+</tr>
+</thead>
+{{{:DIR_LIST
+<tr data-dir="%NAME%">
+<td>
+<td>%NAME%
+<td>
+<td>
+</tr>
+}}}
+{{{:FILE_LIST
+<tr data-file="%NAME%"%? data-auto="%AUTO%"?%>
+<td class=download>
+<a name=download_file data-file="%NAME%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+<path d="M49,50H1c-0.6,0-1-0.4-1-1V1c0-0.6,0.4-1,1-1h49v49C50,49.6,49.6,50,49,50z M50,3V0h-3 M14,14.6c0,0.8,0.5,1.4,1,1.4h20
+c0.6,0,1-0.6,1-1.4V0H14V14.6z M42,24H8v26h34V24z M27.5,15h5V3h-5V15z M39,30.8v-1.5H11v1.5H39L39,30.8z M39,35.8v-1.5H11v1.5H39
+L39,35.8z M39,40.8v-1.5H11v1.5H39L39,40.8z M39,45.8v-1.5H11v1.5H39L39,45.8z"/>
+</svg>
+</a>
+<td>%NAME%
+<td class=descr>%DESCR%
+<td class=size>%SIZE%
+</tr>
+}}}
+</table>
+</script>
+
+<script id=app_cfg type="text/template">
+%CFG({
+	APP_TITLE:		"Эмулятор 8-битных ретрокомпьютеров",
+	ERROR: {
+		NO_SUPPORT:	"Ваш браузер не поддерживает эту функцию",
+		CLIPBOARD:	"Не удалось получить данные из буфера обмена.%? %ERROR%?%",
+		UPLOAD_ERROR:	"Невозможно загрузить файл `**%NAME%**`%?: %MESS%?%",
+		LOAD_ERROR:	"Ошибка загрузки файла `**%NAME%**`%?: %STATUS%?%",
+		FILE_SIZE:	"Недопустимый размер файла `**%NAME%**`. Неверный формат?",
+		FORMAT_ERROR:	"Неправильный формат файла",
+		RAM_TOP:	"выход за пределы памяти",
+		FORMAT:		"этот формат не поддерживается",
+		SIZE:		"неверно указан размер",
+		CRC:		"не совпадает контрольная сумма%?: %CRC%?%"
+	},
+	NOTICE: {
+		LOADED:		"Файл `**%NAME%**` загружен по адресам: **%ADDR1%**-**%ADDR2%**",
+		TAPE_FILE:	"Файл `**%NAME%**` готов для загрузки с ленты",
+		ROM_DISK:	"ROM-диск `**%NAME%**` подключен"
+	},
+	MODAL_TITLE: {
+		HELP:		"Помощь",
+		CUSTOM_CONF:	"Настраиваемые конфигурации"
+	},
+	ROM_DISK_SIZE_LIMIT:	0x80_0000
+})%
+</script>

@@ -1,0 +1,163 @@
+mps-calendar {
+	display: flex;
+	flex-wrap: wrap;
+	font: 300 125% verdana;
+	background: #f5f7f9;
+	user-select: none;
+	touch-action: none;
+}
+mps-calendar a[disabled] {
+	color: #ccc;
+	pointer-events: none;
+	cursor: default !important;
+}
+mps-calendar a:hover {
+	cursor: pointer;
+}
+mps-calendar>header {
+	flex: 1 1 100%;
+	font-weight: 700;
+	padding-top: 5px;
+	color: #66f;
+	background: linear-gradient(#ffe3ad, #fff2d9);
+	border-bottom: 1px solid #99f;
+	text-transform: capitalize;
+	text-align: center;
+	line-height: .8;
+	overflow: hidden;
+}
+mps-calendar>header>div {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 10px;
+}
+mps-calendar>header>div>a {
+	font-weight: 400;
+	color: #960;
+	padding: 5px 10px;
+}
+mps-calendar>header>div>a:hover {
+	background: #fc6;
+}
+mps-calendar>div {
+	flex: 1;
+}
+mps-calendar>div>div {
+	position: relative;
+	line-height: 2;
+	color: #ccc;
+	background: #fff;
+	text-align: center;
+	border: 1px solid #ccf;
+	margin-top: -1px;
+}
+mps-calendar>div:first-of-type>div {
+	border-left: 0;
+}
+mps-calendar>div:not(:last-of-type)>div {
+	margin-right: -1px;
+}
+mps-calendar>div:last-of-type>div {
+	border-right: 0;
+}
+mps-calendar>div>div:last-child {
+	border-bottom: 0;
+}
+mps-calendar>div>div>a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+mps-calendar>div>div:first-child {
+	font-weight: 600;
+	color: #66f;
+	background: linear-gradient(#ddd, #eee);
+}
+mps-calendar>div>div:not(:first-child)>a {
+	color: #00c;
+	text-shadow: .5px 0 0;
+}
+mps-calendar>div:nth-of-type(6)>div,
+mps-calendar>div:nth-of-type(7)>div {
+}
+mps-calendar>div:nth-of-type(6)>div:first-child,
+mps-calendar>div:nth-of-type(7)>div:first-child {
+	color: #f33;
+}
+mps-calendar>div:nth-of-type(6)>div:not(:first-child)>a,
+mps-calendar>div:nth-of-type(7)>div:not(:first-child)>a {
+	color: #c00;
+	text-shadow: .5px 0 0;
+}
+mps-calendar>div>div.cur {
+	z-index: 1;
+	font-weight: 500;
+	outline: 2px solid #00f;
+	outline-offset: -2px;
+}
+mps-calendar>div:nth-of-type(6)>div.cur,
+mps-calendar>div:nth-of-type(7)>div.cur {
+	outline-color: #f00;
+}
+mps-calendar>div>div.cur>a {
+	pointer-events: none;
+	cursor: default !important;
+}
+mps-calendar>div>div:empty::before {
+	content: "\a0";
+}
+mps-calendar>div>div>div[day] {
+	position: absolute;
+	z-index: 2;
+	left: 2px;
+	bottom: 0;
+	font-weight: 400;
+	color: #ffc;
+	line-height: 1.5;
+	text-align: left;
+	min-width: 200px;
+	background: #069;
+	margin-bottom: 10px;
+	padding: 10px 20px;
+	border: 1px solid #ff0;
+	border-radius: 0;
+	filter: drop-shadow(0 1px 2px #0009);
+	opacity: 0;
+	white-space: nowrap;
+	visibility: hidden;
+	pointer-events: none;
+}
+mps-calendar>div>div>div[day]::before {
+	content: "";
+	position: absolute;
+	left: -1px;
+	bottom: -18px;
+	border: 9px solid;
+	border-color: #ffc transparent transparent #ff0;
+}
+mps-calendar>div>div>div[day]::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -15px;
+	border: 8px solid;
+	border-color: #069 transparent transparent #069;
+}
+mps-calendar>div>div:hover>div[day]:not(:empty) {
+	bottom: 100%;
+	opacity: 1;
+	visibility: visible;
+	transition: opacity .3s .3s, bottom .1s .31s;
+}
+mps-calendar>div>div>div[day]>div {
+	display: list-item;
+	margin-left: 20px;
+}
+mps-calendar>header>div>a:first-of-type {
+	clip-path: polygon(15% 0%, 100% 0, 100% 100%, 15% 100%, 0% 50%);
+	padding-left: 15px;
+}
+mps-calendar>header>div>a:last-of-type {
+	clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+	padding-right: 15px;
+}

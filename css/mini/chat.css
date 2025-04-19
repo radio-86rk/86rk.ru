@@ -1,0 +1,135 @@
+@import "../chat.css";
+
+chat-body {
+	background: #000 url(../../images/mini/august4u.png) no-repeat 99% 2%;
+}
+chat-body>scrollbar+chat-view {
+	margin-left: 8px;
+}
+chat-view>chat-chat {
+	padding: 0 5px;
+	color: #ffc;
+}
+chat-main span.nick {
+	color: #cce;
+}
+chat-chat>div.ph span.time {
+	color: #6682b5;
+	padding-right: .5em;
+}
+chat-chat div.topic {
+	color: #f96;
+	background: #f903;
+	border: 2px groove #a30;
+	margin: 5px;
+	padding: 5px;
+}
+chat-chat>div.ph.me2,
+chat-chat>div.ph.me3 {
+	margin: 0px -5px;
+	padding: 0px 5px;
+}
+chat-chat .s1 {
+	color: #fc0;
+}
+chat-chat .s2 {
+	color: #fc0;
+}
+chat-chat .s3 {
+	color: #ff0;
+}
+chat-chat .s4 {
+	color: #fc0;
+	font-weight: 400;
+}
+chat-chat .s5 {
+	color: #f00;
+}
+chat-chat .s6 {
+	color: #fc0;
+}
+chat-chat .s7 {
+	color: #fc0;
+}
+chat-chat .s8 {
+	color: #99f;
+}
+chat-body>chat-win2 {
+	background: #000519;
+	border: 2px solid #f80;
+}
+chat-body>chat-win2>tab-view {
+	color: #fc0;
+}
+chat-body>chat-win2>span>span {
+	font: 700 11px arial;
+	color: #f6f;
+	background: linear-gradient(to right, #6e95ea, #415db1);
+	border-left: 3px solid #606;
+	margin: 2px 1px;
+	padding: 2px 12px;
+	text-shadow: -1px -1px #0008;
+	box-shadow: 1px 1px 3px 1px #000;
+}
+chat-body>chat-win2>span>span:hover:not(.cur) {
+	color: #000;
+	border-left: 3px solid #f6f;
+	background: linear-gradient(to right, #9cb6f0, #788ece);
+	text-shadow: none;
+}
+chat-body>chat-win2>span>span:active:not(.cur) {
+	border-left: 3px solid #e5e5e5;
+	transform: translate(1px, 1px);
+}
+chat-body>chat-win2>span>span.cur {
+	color: #fff;
+	border-left: 3px solid #fff;
+	background: linear-gradient(to right, #6e95ea, #415db1);
+}
+chat-body>chat-win2 table.t th,
+chat-body>chat-win2 table.t th {
+	border: 2px groove #6682b5;
+}
+chat-body>chat-win2 table.t th {
+	color: #fff;
+	background: #000;
+	text-align: right;
+	padding: 1px 10px;
+}
+chat-body>chat-win2 .history a {
+	color: #5bd;
+}
+chat-body>chat-win2 td.hot-table>scrollbar+div {
+	margin-right: 10px;
+}
+chat-chat div.bot-music>audio {
+	width: 250px;
+	height: 24px;
+}
+chat-chat video {
+	display: block;
+	width: 100%;
+	height: auto;
+	box-sizing: border-box;
+}
+
+chat-chat table.info,
+chat-chat table.list {
+	color: #fff;
+	background: #050b2e;
+	border-top: 1px solid #6682b5;
+	border-bottom: 1px solid #6682b5;
+}
+chat-chat table.list tr.capt {
+	font-weight: 700;
+	color: #7bd;
+	background: #355;
+	border-bottom: 1px solid #000;
+}
+chat-chat table.info tr:nth-child(even),
+chat-chat table.list tr:nth-child(even) {
+	background: #060e3a;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar caption {
+	border-bottom: 1px solid #2d3a50;
+}

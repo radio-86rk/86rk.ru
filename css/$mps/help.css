@@ -1,0 +1,13 @@
+
+mps-help {
+	line-height: 1.6;
+	color: #66c;
+}
+mps-help h1 {
+	color: #c00;
+	margin: 0;
+}
+mps-help p {
+	font-size: 120%;
+	text-indent: 2em;	
+}

@@ -1,0 +1,189 @@
+/***
+ ***  Файл содержит стили записной книжки
+ ***/
+
+/*
+ *  импортируются стили скроллбара, если необходимо кастомизировать скроллбар.
+ *  обязательно первой строкой
+ */
+@import "../notebook.css?1";
+@import "../scrollbar.css";
+
+body.app-chat {
+	/*
+	 *  основные параметры окна
+	 */
+	--font: 400 .88rem verdana, var(--inp-font2-family, verdana);
+	--bg: #fff;
+	--padding: 3px;
+	--cursor: url(../images/sample/cursor.cur);
+	--list-font: normal 400 .9rem/1.3rem sans-serif, var(--inp-font2-family, sans-serif);
+	/* заголовок */
+	--header-font: 600 1rem/26px verdana;
+	--header-color: #bbf;
+	--header-padding: 0 22px;
+	--header-text-shadow: 0 1px #000a;
+	/* оформление панели */
+	--panel-color: #6f7e90;
+	--panel-padding: 3px 10px;
+	/* заголовок таблицы списка записок */
+	--list-th-lh: 19px;
+	--list-th-bg: linear-gradient(#99e, #bbf);
+	--list-th-bt: 1px solid #bbf;
+	--list-th-bb: 1px solid #99e;
+	--list-thx-font: 400 1.8rem/.9rem sans-serif;
+	--list-thx-pt: 3px;
+	/* выбор строки в списке сообщений */
+	--list-row-hover-bg: #dddfee;
+	/* текст записки */
+	--mess-padding: 3px 10px;
+	--mess-quote-fs: .84rem;
+	--emoji-mess-fs: 1.6rem;
+	/* кнопки управления */
+	--btn-filter: none;
+	/* нажатая кнопка */
+	--btn-active-padding: 1px 0 0 1px;
+	/* подсвеченная кнопка */
+	--btn-light-bg: #99f7;
+	/* заглушка кнопки */
+	--spacer-size: 28px;
+	/* разделительная вертикальная линия между кнопками */
+	--div-height: 26px;
+	--div-margin: 1px 2px;
+	/* параметры полей ввода */
+	--inp-color: #669;
+	--inp-bg: #fff;
+	--inp-border: 0;
+	--inp-text-padding: 3px;
+	--inp-focus-color: #00f;
+	/* стили чекбокса */
+	--inp-sprite-margin: 2px;
+	--checkbox-sprite: url(../images/sample/checkbox.png);
+	/**/
+	--speech-ani-bg1: radial-gradient(ellipse at center, #0f0 20%, transparent 75%);
+	--speech-ani-bg2: radial-gradient(ellipse at center, #0f06 20%, transparent 75%);
+	--scrollbar-width: 16px;
+}
+body.app-chat chat-emoji {
+	--color: #99f;
+	--tit-font: 600 .8rem/1.6 verdana;
+	--tit-padding: 3px 5px 0;
+	--preview-annot-fs: .8rem;
+	--preview-code-fs: .8rem;
+	--preview-padding: 0 8px;
+	--sec-padding: 0 2px;
+	--em-padding: 4px;
+	--em-fs: 1.4rem;
+	--search-fs: inherit;
+	--search-br: 0;
+	--no-found-font: .8rem verdana;
+}
+scrollbar {
+	/*
+	 *  изображение кастомизированного скроллбара
+	 */
+	--width: 16px;
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgBAMAAABQs2O3AAAALVBMVEUAAAD/wmf/nDL/wmf/nDL/wmfr7e/N19v/nDL/wmevvcOZpqvJ1NjEztOrt7y/cbaPAAAABnRSTlMA9+/qW1CM/1qvAAAASUlEQVQ4y2NYBQS7gSANCMqBgAEKZgJBBxAQVnANInEOpwKoRA1MQTBEQgVdQTmMloRK4FQwc1TBqIJhpwCW7AlmHKKzHuW5GwALm+q80uPR6wAAAABJRU5ErkJggg==);
+	opacity: .6;
+}
+table.notebook {
+	border-collapse: collapse;
+}
+body.show-panel nb-panel {
+	margin-left: 3px;
+}
+table.notebook,
+td.header,
+td.info,
+td.buttons,
+chat-emoji {
+	/* параметры рамки для некоторых элементов */
+	border: 1px solid #bbf;
+}
+tr.admin>td:nth-child(1),
+td.admin {
+	/* уведомление о сообщении от администратора чата */
+	padding: 2px;
+	color: #fc0;
+	background: #cc2800;
+}
+tr.august>td:nth-child(1),
+td.august {
+	/* уведомление о сообщении от администратора Сервиса */
+	padding: 2px;
+	color: #00a3cc;
+	background: #ff32d6;
+}
+tr.notice>td:nth-child(1),
+td.notice {
+	/* уведомление о системном сообщении */
+	padding: 2px;
+	color: #00657f;
+	background: #e5b800;
+}
+table.notebook.write td#error {
+	/* сообщение об ошибке */
+	background: #f00;
+	color: #ff0;
+	padding: 3px 15px;
+}
+td.info div.mess div[class^=quote]>span.emoji {
+	/* размер эмодзи в цитатах */
+	--emoji-mess-fs: 1.2rem;
+}
+nb-div {
+	border-right: 1px solid #ebebff;
+	border-left: 1px solid #d6d6ff;
+}
+nb-btn::after {
+	/* общие параметры для всех кнопок управления */
+	transition: filter .2s;
+}
+input.inp {
+	/* доп. параметры для полей ввода */
+	border-bottom: 1px solid #ebebff;
+}
+/*
+ *
+ */
+table.notebook.write td#friends_list {
+	padding-left: 3px;
+	border-width: 1px 0 0;
+}
+/*
+ *  стили аудиоплеера
+ */
+table.notebook.read audio-player.mini {
+	border: 1px solid #eef;
+}
+table.notebook.read audio-player.mini player-time {
+	color: #003a82;
+}
+table.notebook.read audio-player.mini>player-bttn::before {
+	color: #bb1818;
+}
+table.notebook.read audio-player.mini>player-slider.track {
+	filter: brightness(1.6);
+}
+table.notebook.read audio-player.mini>player-slider.track>div.track {
+	filter: brightness(.5) sepia(1) hue-rotate(175deg) saturate(5);
+}
+/*
+ *  кастомизированный скроллбар для многострочного поля ввода
+ */
+::-webkit-scrollbar {
+	width: 14px;
+}
+::-webkit-scrollbar-track {
+	border-left: 7px solid #ebedef;
+	border-right: 7px solid #cdd7db;
+}
+::-webkit-scrollbar-thumb {
+	border-left: 7px solid #ffc267;
+	border-right: 7px solid #ff9c32;
+}
+::-webkit-scrollbar-button {
+	height: 4px;
+	border-left: 7px solid #afbdc3;
+	border-right: 7px solid #99a6ab;
+}

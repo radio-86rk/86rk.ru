@@ -1,0 +1,29 @@
+@import "../dictaphone.css";
+
+chat-dictaphone {
+	background-color: #c50;
+	height: 0;
+	bottom: 0;
+	margin: 10px;
+	--peak-color: #03238b;
+}
+chat-main.show-panel>chat-dictaphone {
+	right: 300px !important;
+}
+chat-main.dictaphone>chat-dictaphone {
+	height: 32px;
+}
+chat-main.dictaphone>chat-body {
+	margin-bottom: 52px;
+}
+.private chat-dictaphone {
+	margin: 5px;
+}
+.private chat-main.dictaphone>chat-body {
+	margin-bottom: 42px;
+}
+@media (max-width: 800px) {
+	chat-main.show-panel>chat-dictaphone {
+		right: 186px !important;
+	}
+}

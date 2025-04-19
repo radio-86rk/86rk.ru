@@ -1,0 +1,83 @@
+@import "../people-form.css";
+
+:root {
+	--h3-fs: 1.15rem;
+	--rules-padding: 0 10px 10px 10px;
+	--thumb-del-size: 35px;
+	--avatar-img-margin: 0 10px;
+	--avatar-info-padding: 0 10px;
+	--avatar-info-fs: 90%;
+	--fi-lh: 1.5;
+	--fs-tip: 90%;
+}
+div.content album-list {
+	height: 36px;
+}
+div.content album-list>item {
+	font-size: 19px;
+	line-height: 36px;
+	padding-top: 2px;
+}
+div.content album-list::before {
+	line-height: 36px;
+}
+div.content album-list>item::after {
+	top: 9px !important;
+}
+div.content thumbs>thumb {
+	width: 150px;
+	height: 113px;
+}
+div.content thumbs>thumb>img {
+	width: 150px;
+	min-height: 100%;
+}
+div.content thumbs:empty,
+div.content thumbs.single {
+	height: 123px;
+}
+.rules div.content section>h3 {
+	font-weight: 500;
+}
+a.btn {
+	white-space: nowrap;
+}
+cropper>div.ctrl div.bcs>fieldset {
+	width: 100%;
+	padding: 5px;
+}
+cropper>div.ctrl div.fcu>fieldset {
+	margin: 10px 0 0;
+}
+cropper>div.ctrl div:not([class])>fieldset {
+	padding: 0 5px;
+}
+cropper>div.ctrl div.bcs svg {
+	height: 25px;
+	padding: 0;
+}
+cropper>div.ctrl a.svg>svg {
+	height: 35px;
+}
+
+
+cropper>div.ctrl div.bcs {
+	flex: 1;
+}
+cropper>div.ctrl div.fcu {
+	flex-basis: 100%;
+	display: block;
+}
+cropper>div.ctrl div.bcs div.slider>sl-handle {
+	width: 37px;
+	height: 37px;
+}
+cropper>div.ctrl div.bcs div.slider {
+	display: block;
+	width: initial;
+	height: 19px;
+	border-radius: 10px;
+}
+cropper>div.ctrl div.bcs div.slider::before {
+	border-radius: 10px;
+}

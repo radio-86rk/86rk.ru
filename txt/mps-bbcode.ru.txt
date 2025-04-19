@@ -1,0 +1,280 @@
+<table cellspacing=0 cellpadding=10>
+<tr><td>
+<h1>BBCode</h1>
+<p><em>BBCode</em> &mdash; Bulletin Board Code, язык разметки, используемый для форматирования сообщений.
+Для форматирования текста используются теги, подобные тегам HTML, но, в отличие от них, теги <em>BBCode</em>
+заключают в квадратные скобки («<em>[</em>» и «<em>]</em>»).</p>
+<p>Для форматирования сообщений удобным является способ при котором в уже набранном тексте в форме
+ввода выделяется участок текста и выбирается требуемый код форматирования. Все коды допускается
+комбинировать друг с другом, необходимо только следить за порядком вложенности кодов.</p>
+<p>Прежде чем использовать BBCode в сообщениях, вы должны убедиться что они разрешены
+администротором.</p>
+</td></tr>
+</table> 
+
+<table class=bb cellspacing=0 cellpadding=4>
+<tr><th width=60%>Пример использования</th><th width=40%>Результат</th></tr>
+
+<tr><td colspan=2>Полужирный, наклонный, подчеркнутый и зачеркнутый текст</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=b></mps-bb-btn> <mps-bb-btn data-bb=i></mps-bb-btn> <mps-bb-btn data-bb=u></mps-bb-btn> <mps-bb-btn data-bb=s></mps-bb-btn></td></tr>
+<tr>
+<td><em>[b]</em>полужирный текст<em>[/b]</em><br><em>[i]</em>наклонный текст<em>[/i]</em><br><em>[u]</em>подчеркнутый текст<em>[/u]</em><br><em>[s]</em>зачеркнутый текст<em>[/s]</em></td>
+<td><b>полужирный текст</b><br><i>наклонный текст</i><br><u>подчеркнутый текст</u><br><s>зачеркнутый текст</s></td>
+</tr>
+
+<tr><td colspan=2>Индекс</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=sub></mps-bb-btn> <mps-bb-btn data-bb=sup></mps-bb-btn></td></tr>
+<tr>
+<td>текст <em>[sub]</em>нижний индекс<em>[/sub]</em><br>текст <em>[sup]</em>верхний индекс<em>[/sup]</em><br></td>
+<td>текст <sub>нижний индекс</sub><br>текст <sup>верхний индекс</sup><br></td>
+</tr>
+
+<tr><td colspan=2>Шрифт</td></tr>
+<tr><td colspan=2><select><option>шрифт<option>Comic Sans MS<option>Impact<option>Arial<option>Arial Black<option>Courier New</select></td></tr>
+<tr>
+<td><em>[font=Comic Sans MS]</em>шрифт Comic Sans MS<em>[/font]</em><br><em>[font=Impact]</em>шрифт Impact<em>[/font]</em><br><em>[font=Arial]</em>шрифт Arial<em>[/font]</em><br><em>[font=Arial Black]</em>шрифт Arial Black<em>[/font]</em><br><em>[font=Courier New]</em>шрифт Courier New<em>[/font]</em></td>
+<td><font face="Comic Sans MS">шрифт Comic Sans MS</font><br><font face="Impact">шрифт Impact</font><br><font face="Arial">шрифт Arial</font><br><font face="Arial Black">шрифт Arial Black</font><br><font face="Courier New">шрифт Courier New</font></td>
+</tr>
+
+<tr><td colspan=2>Размер шрифта</td></tr>
+<tr><td colspan=2><select><option>размер шрифта<option>1<option>2<option>3<option>4<option>5<option>6<option>7<option>8</select></td></tr>
+<tr><td><em>[size=1]</em>мелкий текст<em>[/size]</em><br><em>[size=6]</em>крупный текст<em>[/size]</em><bb-note>Примечание: размер задается от 1 до 8</bb-note></td><td><font style='font-size: 7pt'>мелкий текст</font><br><font style='font-size: 16pt'>крупный текст</font></td></tr>
+
+<tr><td colspan=2>Цвет шрифта</td></tr>
+<tr><td colspan=2><select><option>цвет шрифта<option>Red<option>Green<option>Blue</select></td></tr>
+<tr><td><em>[color=red]</em>красный текст<em>[/color]</em><br>или<br><em>[color=#FF0000]</em>красный текст<em>[/color]</em><br><br><em>[color=blue]</em>синий текст<em>[/color]</em><br>или<br><em>[color=#0000FF]</em>синий текст<em>[/color]</em></td><td><font color=red>красный текст</font><br><br><br><br><font color=blue>синий текст</font></td></tr>
+
+<tr><td colspan=2>Градиентный цвет шрифта</td></tr>
+<tr><td colspan=2></td></tr>
+<tr><td><em>[color=#ff0000-#ffff00-#00ff00]</em><wbr>переливающийся текст<wbr><em>[/color]</em></td><td><font color=#ff0000>п</font><font color=#ff1900>е</font><font color=#ff3300>р</font><font color=#ff4c00>е</font><font color=#ff6600>л</font><font color=#ff7f00>и</font><font color=#ff9900>в</font><font color=#ffb200>а</font><font color=#ffcc00>ю</font><font color=#ffe500>щ</font><font color=#ffff00>и</font><font color=#e2ff00>й</font><font color=#c6ff00>с</font><font color=#aaff00>я</font><font color=#8dff00> </font><font color=#71ff00>т</font><font color=#55ff00>е</font><font color=#38ff00>к</font><font color=#1cff00>с</font><font color=#00ff00>т</font></td></tr>
+
+<tr><td colspan=2>Подсветка текста</td></tr>
+<tr><td colspan=2></td></tr>
+<tr><td><em>[hl=yellow]</em>подсвеченный текст<em>[/hl]</em><br>или<br><em>[hl=#ffff00]</em>подсвеченный текст<em>[/hl]</em></td><td><font style="background: #ffff00">подсвеченный текст</font></td></tr>
+
+<tr><td colspan=2>Выравнивание текста</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=left></mps-bb-btn> <mps-bb-btn data-bb=center></mps-bb-btn> <mps-bb-btn data-bb=right></mps-bb-btn></td></tr>
+<tr>
+<td><em>[left]</em>по левому краю<em>[/left]</em><br><em>[center]</em>по центру<em>[/center]</em><br><em>[right]</em>по правому краю<em>[/right]</em></td>
+<td><div align=left>по левому краю</div><div align=center>по центру</div><div align=right>по правому краю</div></td>
+</tr>
+
+<tr><td colspan=2>Отступ</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=indent></mps-bb-btn></td></tr>
+<tr><td>текст<br><em>[indent]</em><br>это текст с отступом от левого края<em><br>[/indent]</em><br>текст</td><td>текст<br><div class=indent>это текст с отступом от левого края</div>текст</td></tr>
+
+<tr><td colspan=2>Горизонтальная линия</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=hr></mps-bb-btn></td></tr>
+<tr><td><em>[hr][/hr]</em><bb-note>с цветом:</bb-note><em>[hr=red][/hr]</em><bb-note>изменение размера:</bb-note><em>[hr=blue]4[/hr]</em></td><td><hr noshade size=1><br><br><hr noshade size=1 color=red><br><br><hr noshade size=4 color=blue></td></tr>
+
+<tr><td colspan=2>Маркированный список</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=list></mps-bb-btn></td></tr>
+<tr><td><em>[list]</em>маркированный список, вариант 1<br><em>[*]</em>пункт 1<br><em>[*]</em>пункт 2<br><em>[*]</em>пункт 3<br><em>[/list]</em></td><td><ul>маркированный список, вариант 1<li>пункт 1<li>пункт 2<li>пункт 3</ul></td></tr>
+
+<tr><td colspan=2></td></tr>
+<tr><td colspan=2></td></tr>
+<tr class=none><td><em>[list=c]</em>маркированный список, вариант 2<br><em>[*]</em>пункт 1<br><em>[*]</em>пункт 2<br><em>[*]</em>пункт 3<br><em>[/list]</em></td><td><ul type=circle>маркированный список, вариант 2<li>пункт 1<li>пункт 2<li>пункт 3</ul></td></tr>
+
+<tr><td colspan=2></td></tr>
+<tr><td colspan=2></td></tr>
+<tr class=none><td><em>[list=s]</em>маркированный список, вариант 3<br><em>[*]</em>пункт 1<br><em>[*]</em>пункт 2<br><em>[*]</em>пункт 3<br><em>[/list]</em></td><td><ul type=square>маркированный список, вариант 3<li>пункт 1<li>пункт 2<li>пункт 3</ul></td></tr>
+
+<tr><td colspan=2>Нумерованный список</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=list data-a=1></mps-bb-btn></td></tr>
+<tr><td><em>[list=1]</em>нумерованный список, вариант 1<br><em>[*]</em>пункт 1<br><em>[*]</em>пункт 2<br><em>[*]</em>пункт 3<br><em>[/list]</em></td><td><ol>нумерованный список, вариант 1<li>пункт 1<li>пункт 2<li>пункт 3</ol></td></tr>
+
+<tr><td colspan=2></td></tr>
+<tr><td colspan=2></td></tr>
+<tr class=none><td><em>[list=I]</em>нумерованный список, вариант 2<br><em>[*]</em>пункт 1<br><em>[*]</em>пункт 2<br><em>[*]</em>пункт 3<br><em>[/list]</em></td><td><ol type=I>нумерованный список, вариант 2<li>пункт 1<li>пункт 2<li>пункт 3</ol></td></tr>
+
+<tr><td colspan=2></td></tr>
+<tr><td colspan=2></td></tr>
+<tr class=none><td><em>[list=i]</em>нумерованный список, вариант 3<br><em>[*]</em>пункт 1<br><em>[*]</em>пункт 2<br><em>[*]</em>пункт 3<br><em>[/list]</em></td><td><ol type=i>нумерованный список, вариант 3<li>пункт 1<li>пункт 2<li>пункт 3</ol></td></tr>
+
+<tr><td colspan=2>Алфавитный список</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=list data-a=1></mps-bb-btn></td></tr>
+<tr><td><em>[list=A]</em>алфавитный список, вариант 1<br><em>[*]</em>пункт 1<br><em>[*]</em>пункт 2<br><em>[*]</em>пункт 3<br><em>[/list]</em></td><td><ol type=A>алфавитный список, вариант 1<li>пункт 1<li>пункт 2<li>пункт 3</ol></td></tr>
+
+<tr><td colspan=2></td></tr>
+<tr><td colspan=2></td></tr>
+<tr class=none><td><em>[list=a]</em>алфавитный список, вариант 2<br><em>[*]</em>пункт 1<br><em>[*]</em>пункт 2<br><em>[*]</em>пункт 3<br><em>[/list]</em></td><td><ol type=a>алфавитный список, вариант 2<li>пункт 1<li>пункт 2<li>пункт 3</ol></td></tr>
+
+<tr><td colspan=2>Цитата
+<bb-text>Отображает текст, как процитированный из другого источника. Можно также указать имя этого источника.</bb-text>
+</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=quote></mps-bb-btn></td></tr>
+<tr><td><em>[quote]</em><br>цитируемый текст<em><br>[/quote]</em></td><td><b>цитата</b><div class=quote>цитируемый текст</div></td></tr>
+
+<tr><td colspan=2></td></tr>
+<tr><td colspan=2></td></tr>
+<tr class=none><td><em>[quote=Автор, дата]</em><br>цитируемый текст с указанием автора и даты<em><br>[/quote]</em></td><td><b>цитата</b> (Автор, дата)<div class=quote>цитируемый текст с указанием автора и даты</div></td></tr>
+
+<tr><td colspan=2>Спойлер
+<bb-text>Скрывает текст, который может содержать спойлеры (преждевременно раскрытая важная сюжетная информация). Чтобы увидеть текст, нужно нажать кнопку спойлера.</bb-text>
+</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=spoiler></mps-bb-btn></td></tr>
+<tr><td><em>[spoiler]</em><br>Обычный спойлер<br><em>[/spoiler]</em></td><td><mps-spoiler class="collapse"><mps-spoiler-header><mps-clps-btn data-a="collapse" data-b="mps-spoiler"></mps-clps-btn> <span>скрытый текст</span></mps-spoiler-header><mps-spoiler><div>Обычный спойлер</div></mps-spoiler></mps-spoiler></td></tr>
+
+<tr><td colspan=2></td></tr>
+<tr><td colspan=2></td></tr>
+<tr class=none><td><em>[spoiler=Заголовок спойлера]</em><br>Спойлер с заголовком<br><em>[/spoiler]</em></td><td><mps-spoiler class="collapse"><mps-spoiler-header><mps-clps-btn data-a="collapse" data-b="mps-spoiler"></mps-clps-btn> <span>Заголовок спойлера</span></mps-spoiler-header><mps-spoiler><div>Спойлер с заголовком</div></mps-spoiler></mps-spoiler></td></tr>
+
+<tr><td colspan=2>Код
+<bb-text>Применяется для публикации в сообщении примеров кодов из программ, тескта с разметкой и пр. Публикуемый текст будет отображаться как есть с сохранением форматирования без выполнения BB-кодов.</bb-text>
+</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=code></mps-bb-btn></td></tr>
+<tr><td><em>[code]</em><br>здесь [b]любой[/b] код отображается как [u]есть[/u]<em><br>[/code]</em></td><td><b>Код</b><div class=code>здесь [b]любой[/b] код отображается как [u]есть[/u]</div></td></tr>
+
+<tr><td colspan=2>Картинка
+<bb-text>Вставляет в сообщение картинку с других ресурсов, необходимо только указать полный адрес картинки.</bb-text>
+</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=img></mps-bb-btn></td></tr>
+<tr><td><em>[img]</em><wbr>https://august4u.net/banner/button3.png<wbr><em>[/img]</em></td><td><img src=//august4u.net/banner/button3.png width=88 height=31></td></tr>
+
+<tr><td colspan=2></td></tr>
+<tr><td colspan=2></td></tr>
+<tr class=none><td><em>[img=left]</em><wbr>https://august4u.ru/smiles/0000309.gif<wbr><em>[/img]</em><br><br>Для сокращения пустого пространства, оставляемого картинкой, удобнее применять такую конструкцию, что придает тексту более эстетический вид.</td><td><div style='margin: 0 10pt 3pt 0; float: left'><img src=//august4u.ru/smiles/0000309.gif width=26 height=64></div>Для сокращения пустого пространства, оставляемого картинкой, удобнее применять такую конструкцию, что придает тексту более эстетический вид.</td></tr>
+
+<tr><td colspan=2></td></tr>
+<tr><td colspan=2></td></tr>
+<tr class=none><td><em>[img=right]</em><wbr>https://august4u.ru/smiles/0000309.gif<wbr><em>[/img]</em><br><br>Для сокращения пустого пространства, оставляемого картинкой, удобнее применять такую конструкцию, что придает тексту более эстетический вид.</td><td><div style='margin: 0 0 3pt 10pt; float: right'><img src=//august4u.ru/smiles/0000309.gif width=26 height=64></div>Для сокращения пустого пространства, оставляемого картинкой, удобнее применять такую конструкцию, что придает тексту более эстетический вид.</td></tr>
+
+<tr><td colspan=2>Флэш-ролик</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=flash></mps-bb-btn></td></tr>
+<tr><td>
+<em>[flash]</em><wbr><nobr>https://адрес_флэш-ролика</nobr><wbr><em>[/flash]</em>
+<bb-note>или</bb-note>
+<em>[flash=400,300]<wbr><nobr></em>https://адрес_флэш-ролика</nobr><wbr><em>[/flash]</em>
+<bb-note>или</bb-note>
+<em>[flash=400,300,left]</em><wbr><nobr>https://адрес_флэш-ролика</nobr><wbr><em>[/flash]</em>
+</td><td>[ флэш-ролик ]</td></tr>
+
+<tr><td colspan=2>Youtube-ролик
+<bb-text>Вставляет в сообщение видео-ролик с видеохостинга YouTube. В коде можно указывать как полный адрес видео-ролика, так и только id видео-ролика.</bb-text>
+</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=youtube></mps-bb-btn></td></tr>
+<tr><td>
+<em>[youtube]</em><wbr><nobr>TCwDlmiudp0</nobr><wbr><em>[/youtube]</em>
+<bb-note>или</bb-note>
+<em>[youtube=400,300]</em><wbr><nobr>https://адрес_ролика</nobr><wbr><em>[/youtube]</em>
+<bb-note>или</bb-note>
+<em>[youtube=400,300,left]</em><wbr><nobr>https://адрес_ролика</nobr><wbr><em>[/youtube]</em>
+</td><td>[ youtube-ролик ]</td></tr>
+
+<tr><td colspan=2>Музыкальный плеер
+<bb-text>Вставляет в сообщение плеер с музыкой. Музыку можно брать со следующих сайтов:
+<ul>
+<li><strong>Яндекс</strong>
+</ul>
+</bb-text>
+</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=music></mps-bb-btn></td></tr>
+<tr><td>
+<bb-text><strong>Яндекс</strong><br>
+Сайт: <a href=https://music.yandex.ru/ target=_blank>music.yandex.ru</a><br>
+Внизу страницы на плеере нажать кнопку
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<path d="M11,4.9L8,7.5l-1-1l5-5l5,5l-1,1l-3-2.6V13h-2V4.9z M20,18v2H4V10h2v8h12v-8h2V18z"/>
+</svg>
+("поделиться треком"), далее, кнопку "Скопировать ссылку".
+</bb-text><br>
+<em>[music]</em><wbr><nobr>https://music.yandex.ru/album/5157474/track/656205</nobr><wbr><em>[/music]</em>
+<bb-note>Примечание: для прослушивания музыки через сервис Яндекс.Музыка необходимо иметь аккаунт в Яндексе.</bb-note>
+</td><td><iframe style="border:none;width:100%;height:100px;" src="https://music.yandex.ru/iframe/#track/656205/5157474/"></iframe></td></tr>
+
+<tr><td colspan=2>Карта
+<bb-text>Вставляет в сообщение географическую карту. Можно использовать следующие сервисы карт:
+<ul>
+<li><strong>Яндекс.Карты</strong>
+<li><strong>Google Карты</strong>
+</ul>
+</bb-text>
+</td></tr>
+<tr><td colspan=2></td></tr>
+<tr><td>
+<bb-text><strong>Яндекс.Карты</strong><br>
+Сайт: <a href=https://yandex.ru/map-constructor/ target=_blank>yandex.ru/map-constructor</a><br>
+<ol>
+<li>Для существующих карт: в списке карт для нужной карты вызвать меню через кнопку с тремя точками,
+в меню выбрать пункт "Поделиться" и скопировать ссылку.
+<li>Для новой карты: создать карту, на левой панели внизу нажать кнопку "Сохранить и продолжить",
+на следующей странице выбрать положение и размеры карты, и из текстового поля "Ссылка на карту:" рядом с кнопкой
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<path fill="#333" d="M11.8,1c3.2,0,5.8,2.6,5.8,5.8c0,0.4-0.1,1.2-0.1,1.2c-0.6,4-6.5,11-6.5,11s-0.2,0.3-0.4,0.2c-0.2,0-0.1-0.3-0.1-0.3l1.7-6.3c-0.1,0-0.2,0-0.4,0C8.6,12.5,6,9.9,6,6.7S8.6,1,11.8,1z"/>
+<circle fill="#FFF" cx="11.8" cy="6.7" r="2.3"/>
+</svg>
+скопировать ссылку.
+</ol>
+</bb-text><br>
+<em>[map]</em><wbr><nobr>https://yandex.ru/maps/?um=constructor%3A3ba8f60a4f2914f565fb7a43308a90b8c0ee7b28fe1823a26554bef3d2fbcb8a&source=constructorLink</nobr><wbr><em>[/map]</em>
+<br>
+<bb-text>
+Вариант 2. В конструкторе карт после сохранения нажать кнопку
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<path fill="#333" d="M11.8,1c3.2,0,5.8,2.6,5.8,5.8c0,0.4-0.1,1.2-0.1,1.2c-0.6,4-6.5,11-6.5,11s-0.2,0.3-0.4,0.2c-0.2,0-0.1-0.3-0.1-0.3l1.7-6.3c-0.1,0-0.2,0-0.4,0C8.6,12.5,6,9.9,6,6.7S8.6,1,11.8,1z"/>
+<circle fill="#FFF" cx="11.8" cy="6.7" r="2.3"/>
+</svg>,
+в новом окне откроется карта, вызвать меню
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>
+<path fill-rule='evenodd' d='M11 12h10a1 1 0 0 1 0 2H11a1 1 0 0 1 0-2zm0 6h10a1 1 0 0 1 0 2H11a1 1 0 0 1 0-2z'/>
+</svg>,
+выбрать пункт "Поделиться" и скопировать ссылку на карту.
+</bb-text><br>
+<em>[map]</em><wbr><nobr>https://yandex.ru/maps/-/CCh8fXNT</nobr><wbr><em>[/map]</em>
+<br>
+<bb-text><strong>Google Карты</strong><br>
+Сайт: <a href=https://www.google.com/maps/d/ target=_blank>www.google.com/maps/d</a><br>
+На созданной карте на панели слева нажать "Поделиться", в модальном окне дать название карте, нажать "OK",
+в следующем модальном окне параметр "Уровни доступа" изменить на "ВКЛ (для всех в Интернете)" и скопировать
+ссылку на карту из тектового поля "Совместный доступ".
+</bb-text><br>
+<em>[map]</em><wbr><nobr>https://drive.google.com/open?id=1umdREg3sNlcDwLcskz4p5x5UneKAV60u&usp=sharing</nobr><wbr><em>[/map]</em>
+</td><td>[ карта ]</td></tr>
+
+<tr><td colspan=2>Ссылки</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=url></mps-bb-btn> <mps-bb-btn data-bb=email></mps-bb-btn></td></tr>
+<tr><td>
+<em>[url]</em>https://www.august4u.ru/<em>[/url]</em><br><br>
+<em>[email]</em>myname@gmail.com<em>[/email]</em>
+<bb-note>Примечание: все url-адреса и e-mail-адреса автоматически преобразовываются в ссылки, только если эта функция не отключена администратором.</bb-note>
+</td><td>
+<a href=https://www.august4u.ru/ target=_blank>https://www.august4u.ru/</a><br><br>
+<a href=mailto:myname@gmail.com>myname@gmail.com</a>
+</td></tr>
+
+<tr><td colspan=2>Ссылки из текста
+<bb-text>Позволяет часть текста сделать гиперссылкой.</bb-text>
+</td></tr>
+<tr><td colspan=2><mps-bb-btn data-bb=url></mps-bb-btn> <mps-bb-btn data-bb=email></mps-bb-btn></td></tr>
+<tr><td>
+<em>[url=https://www.august4u.ru/]</em><wbr><nobr>Чат у Августа</nobr><wbr><em>[/url]</em><br><br>
+<em>[email=myname@gmail.com]</em><wbr><nobr>пишите мне</nobr><wbr><em>[/email]</em>
+</td><td>
+<a href=https://www.august4u.ru/ target=_blank>Чат у Августа</a><br><br>
+<a href=mailto:myname@gmail.com>пишите мне</a>
+</td></tr>
+
+<tr><td colspan=2>NOBB
+<bb-text>Отменяет действие BB-кодов и смайликов.</bb-text>
+</td></tr>
+<tr><td colspan=2></td></tr>
+<tr><td><em>[nobb]</em>действие [b]этого[/b] тега отменяет [u]любые[/u] [color=red]bb-коды[/color]<em>[/nobb]</em></td><td>действие [b]этого[/b] тега отменяет [u]любые[/u] [color=red]bb-коды[/color]</tr>
+
+</table> 
+
+<table class=auto cellspacing=0 cellpadding=4>
+<tr><th colspan=7>Автозамены</th></tr>
+<tr>
+<td>(c) <em>&rArr;</em> &copy;
+<td>(tm) <em>&rArr;</em> &#153;
+<td>(r) <em>&rArr;</em> &reg;
+<td>&lt;&lt; <em>&rArr;</em> &laquo;
+<td>&gt;&gt; <em>&rArr;</em> &raquo;
+<td>-- <em>&rArr;</em> &ndash;
+<td>--- <em>&rArr;</em> &mdash;
+</tr>
+</table>
+
+<table cellspacing=0 cellpadding=3>
+<tr><th>&copy; 2020 by August</th></tr>
+</table> 

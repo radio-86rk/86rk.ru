@@ -1,0 +1,68 @@
+chat-body>chat-win2 form.kill {
+	padding: 20px;
+	color: #f70;
+}
+chat-body>chat-win2 form.kill h3 {
+	margin: 0 0 20px;
+	text-align: center;
+}
+chat-body>chat-win2 form.kill h3>nick {
+	font-size: 120%;
+	color: #ff0;
+}
+chat-body>chat-win2 form.kill a {
+	color: #f70;
+	text-decoration: none;
+	cursor: pointer;
+}
+chat-body>chat-win2 form.kill a:hover {
+	text-decoration: underline;
+}
+chat-body>chat-win2 form.kill .inp {
+	font-size: 100%;
+}
+chat-body>chat-win2 form.kill .btn {
+	width: 100%;
+	font-size: 110%;
+}
+chat-body>chat-win2 form.kill fieldset {
+	margin: 10px;
+	padding: 5px;
+	border: 1px solid #f70;
+	border-radius: 5px;
+}
+chat-body>chat-win2 form.kill legend {
+	color: #fff;
+	padding: 0 10px;
+}
+chat-body>chat-win2 form.kill tbody.t td {
+	padding: 2px 7px;
+}
+chat-body>chat-win2 form.kill tbody.t>tr:not(:last-of-type)>td {
+	border-bottom-color: transparent;
+}
+chat-body>chat-win2 form.kill table tbody.t>tr:nth-of-type(odd) {
+	background: #091342;
+}
+chat-body>chat-win2 form.kill table tbody.t>tr:nth-of-type(even) {
+	background: #0b164e;
+}
+chat-body>chat-win2 form.kill table.list tbody.t td:not(:first-of-type) {
+	font-weight: 100;
+	font-size: 90%;
+	color: #ccf;
+}
+chat-body>chat-win2 form.kill img.flag {
+	vertical-align: middle;
+}
+chat-body>chat-win2 form.kill .blink {
+	animation: kill-blink 200ms linear 5;
+}
+@keyframes kill-blink {
+	0% {
+		background: #f00;
+	}
+	100% {
+		background: #800;
+	}
+}

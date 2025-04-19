@@ -1,0 +1,36 @@
+@import "watch.css";
+
+body>watch {
+	width: 89px;
+	height: 89px;
+	background: url(../../images/$watch/watch-red-dial.png) no-repeat;
+	box-shadow: 0 0 2px 2px #fff, 2px 2px 10px 3px #0129;
+}
+body>watch>div {
+	background: url(../../images/$watch/watch-red-arrows.png) no-repeat;
+	filter: drop-shadow(0 0 0 #0009);
+}
+body>watch.zoom110,
+body>watch.zoom120,
+body>watch.zoom130,
+body>watch.zoom140,
+body>watch.zoom150,
+body>watch.zoom160,
+body>watch.zoom170,
+body>watch.zoom180,
+body>watch.zoom190,
+body>watch.zoom200 {
+	background-image: url(../../images/$watch/watch-red-dial.png);
+}
+body>watch.zoom110>div,
+body>watch.zoom120>div,
+body>watch.zoom130>div,
+body>watch.zoom140>div,
+body>watch.zoom150>div,
+body>watch.zoom160>div,
+body>watch.zoom170>div,
+body>watch.zoom180>div,
+body>watch.zoom190>div,
+body>watch.zoom200>div {
+	background-image: url(../../images/$watch/watch-red-arrows.png);
+}

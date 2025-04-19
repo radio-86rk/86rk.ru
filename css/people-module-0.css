@@ -1,0 +1,71 @@
+section.resource.loading::before {
+	content: url(../images/wait32.gif);
+	display: block;
+	width: 32px;
+	height: 32px;
+	padding: 10px;
+	margin: auto;
+}
+section.resource>span {
+	display: block;
+	font-weight: 700;
+	padding: 20px;
+	text-align: center;
+}
+section.resource>span>a {
+	font-weight: 400;
+	color: #00f;
+}
+section.resource>span.error {
+	color: #f00;
+}
+modal#modal_cfg_mps>form {
+	width: 600px;
+	max-height: 80%;
+}
+modal#modal_cfg_mps div.panel {
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+modal#modal_cfg_mps div.panel>table {
+	table-layout: fixed;
+	width: 100%;
+}
+modal#modal_cfg_mps label {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+modal#modal_cfg_mps div.panel>table tr:nth-child(2n) {
+	background: #0001;
+}
+modal#modal_cfg_mps div.panel>table td:nth-child(1) {
+	padding: 3px 5px 3px 20px;
+	border-right: 1px solid #0001;
+	white-space: normal;
+}
+modal#modal_cfg_mps div.panel>table td:nth-child(2) {
+	padding: 3px 20px 3px 5px;
+	border-left: 1px solid #fff9;
+	white-space: normal;
+}
+modal#modal_cfg_mps div.panel>table th {
+	font: 500 110%/1.5em verdana;
+	color: #87816c;
+	letter-spacing: .2em;
+	border: groove #fff9e5;
+	border-width: 2px 0;
+	text-shadow: .3px 0;
+}
+modal#modal_cfg_mps div.panel h4.group {
+	font-weight: 300;
+	background: #0001;
+	margin: 2px -5px;
+	padding: 3px 29px;
+}
+@media (max-height: 400px) {
+	modal#modal_cfg_mps>form {
+		max-height: 100% !important;
+	}
+}

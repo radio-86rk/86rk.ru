@@ -1,0 +1,35 @@
+@import "watch.css";
+
+body>watch {
+	width: 88px;
+	height: 88px;
+	background: url(../../images/$watch/watch0-dial-88.png) no-repeat, url(../../images/$watch/watch0-glass-88.png) no-repeat;
+	background-blend-mode: multiply;
+}
+body>watch>div {
+	background: url(../../images/$watch/watch0-arrows-88.png) no-repeat;
+}
+body>watch.zoom110,
+body>watch.zoom120,
+body>watch.zoom130,
+body>watch.zoom140,
+body>watch.zoom150,
+body>watch.zoom160,
+body>watch.zoom170,
+body>watch.zoom180,
+body>watch.zoom190,
+body>watch.zoom200 {
+	background-image: url(../../images/$watch/watch0-dial-176.png), url(../../images/$watch/watch0-glass-176.png);
+}
+body>watch.zoom110>div,
+body>watch.zoom120>div,
+body>watch.zoom130>div,
+body>watch.zoom140>div,
+body>watch.zoom150>div,
+body>watch.zoom160>div,
+body>watch.zoom170>div,
+body>watch.zoom180>div,
+body>watch.zoom190>div,
+body>watch.zoom200>div {
+	background-image: url(../../images/$watch/watch0-arrows-176.png);
+}

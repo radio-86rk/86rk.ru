@@ -1,0 +1,275 @@
+/***
+ ***  Файл содержит основные стили окна чата
+ ***/
+
+/*
+ *  импортируются базовые стили
+ */
+@import "../main.css?3";
+
+/*
+ *  импортируются стили скроллбара, если необходимо кастомизировать скроллбар
+ */
+@import "../scrollbar.css";
+
+@font-face {
+	font-family: LCDNova;
+	font-style: normal;
+	font-weight: 400;
+	src: url('../../fonts/LCDNova.woff2') format('woff2');
+}
+
+.app-chat {
+	/*
+	 *  основные свойства
+	 */
+	color: #39f;
+	background: #fff;
+	--cursor: url(../images/0/cursor.cur);
+	/* параметры верхней части виджета */
+	--top-height: 68px;
+	--top-margin: 0 5px;
+	/* параметры основного контейнера чата */
+	--margin: 5px;
+	--shadow: inset 0 0 3px #33f4, 0 0 0 1px #bbf;
+	/* параметры информационной панели */
+	--body-right: 300px;
+	--panel-width: 300px;
+	--panel-border: solid #bbf;
+	--panel-bw: 0 0 0 1px;
+	/* параметры таблицы с элементами формы отправки сообщений */
+	--send-padding: 0 10px;
+	/* параметры ячейки таблицы, содержащей поле ввода */
+	--send-mess-padding: 0 0 0 10px;
+	/*
+	 *  параметры навигации чата
+	 */
+	--nav-margin: 5px;
+	/* параметры кнопок навигации */
+	--nav-item-margin: 2px;
+	--nav-item-shadow: 1px 1px 3px #0006;
+	/* параметры картинок под указателем мышки */
+	--nav-item-hover-shift: 0;
+	--nav-item-hover-filter: grayscale(0%) brightness(1.2);
+	/* параметры нажатых картинок */
+	--nav-item-active-shadow: 0 0 1px #0006;
+	/* tooltip */
+	--nav-tooltip-font: 600 12px/18px verdana;
+	--nav-tooltip-color: #00f;
+	--nav-tooltip-bg: #ffc;
+	--nav-tooltip-shadow: inset 0 0 2px 1px #9909, 0 0 2px 0px #0009;
+	/*
+	 *  параметры всплывающего сообщения об ошибках
+	 */
+	--error-color: #f00;
+	--error-bg: #fdd;
+	--error-shadow: inset 0 0 0 3px #f00;
+	--error-nick-fs: 120%;
+	--error-nick-color: #ff0;
+	/*
+	 *  параметры полей ввода
+	 */
+	--inp-font-family: sans-serif;
+	--inp-font2-family: sans-serif;
+	--inp-font: normal 600 20px var(--inp-font-family), var(--inp-font2-family);
+	--inp-color: #c80;
+	--inp-bg: #fff8;
+	--inp-border: 1px solid;
+	--inp-bc: #eef;
+	--inp-padding: 2px 5px;
+	/* параметры полей ввода в фокусе */
+	--inp-focus-color: #99f;
+	--inp-focus-bg: transparent;
+	--inp-focus-bc: #fb7;
+	--inp-focus-shadow: inset 1px 1px 5px #0003;
+	/*
+	 *  параметры кнопок
+	 */
+	--btn-font: normal 600 13px/1.5 sans-serif;
+	--btn-color: #99f;
+	--btn-bg: transparent;
+	--btn-border: 0;
+	--btn-padding: 0 5px;
+	--btn-svg-padding: 4px 3px;
+	--btn-svg-filter: none;
+	/* параметры кнопок под указателем мышки */
+	--btn-hover-color: #f80;
+	--btn-hover-bg: #fff;
+	--btn-hover-shadow: 0 0 6px #f808, inset 0 3px 10px #f804;
+	/* параметры нажатых кнопок */
+	--btn-active-opacity: .3;
+	/* параметры отключенной кнопки отправки сообщений */
+	--btn-send-dis-bg: #f003;
+	--btn-send-dis-opacity: .7;
+	/* цвета иконки микрофона */
+	--btn-mic-path1: #6e777e;
+	--btn-mic-path2: #d0d1d1;
+	/* abtn */
+	--send-abtn-color: #f00;
+	--send-abtn-decor-color: #00f3;
+	/* изображения флажков */
+	--checkbox-sprite: url(../images/sample/checkbox.png);
+	/* изображения переключателей */
+	--radio-sprite: url(../images/sample/radio.png);
+	/* иконка голосового ввода */
+	--imess-speech-pr: 30px;
+	--icon-speech-top: 0;
+	--icon-speech-right: 1px;
+	--icon-speech-padding: 5px;
+	/* значок подгрузки */
+	--loader-center: 16px;
+	--loader-padding: 2px;
+	--loader-size: 10px;
+	--loader-color: #fff0 #39f;
+	--loader-bg: radial-gradient(#ff7847, #ff3705) no-repeat content-box;
+	/* бегущий фон ожидания */
+	--busy-color: #f888;
+	/**/
+	--speech-ani-bg1: radial-gradient(#f90, #f906, #f900);
+	--speech-ani-bg2: radial-gradient(#f909, #f901, #f900);
+}
+.app-chat.mobile {
+	--send-padding: 0;
+}
+.app-chat.private {
+	--send-padding: 0;
+	--send-mess-padding: 0;
+	--form-mysmiles-margin: 0 5px;
+}
+scrollbar {
+	/* изображение кастомизированного скроллбара */
+	--width: 16px;
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAgBAMAAABQs2O3AAAALVBMVEUAAAD/wmf/nDL/wmf/nDL/wmfr7e/N19v/nDL/wmevvcOZpqvJ1NjEztOrt7y/cbaPAAAABnRSTlMA9+/qW1CM/1qvAAAASUlEQVQ4y2NYBQS7gSANCMqBgAEKZgJBBxAQVnANInEOpwKoRA1MQTBEQgVdQTmMloRK4FQwc1TBqIJhpwCW7AlmHKKzHuW5GwALm+q80uPR6wAAAABJRU5ErkJggg==);
+}
+/*
+ *  chat-top
+ */
+chat-top top-menu {
+	/* параметры основного меню чата, которое расположено в верхней части */
+	text-align: center;
+	box-shadow: inset 0 0 3px #3333ff4c, 0 0 0 1px #bbf;
+	/* параметры кнопок основного меню */
+	--btn-padding: 0 10px;
+	--btn-height: 28px;
+}
+chat-top img.logo {
+	/* параметры логотипа, расположенного в верхней части */
+	padding: 6px 50px 6px 200px;
+}
+/*
+ *  avatar
+ */
+chat-top>avatar {
+	top: -50px;
+	left: 0;
+	margin: 10px 50px;
+	background: #fff;
+	box-shadow: 0 0 10px 1px #006c;
+}
+chat-top>avatar:hover {
+	top: 0;
+}
+.app-chat.to-top>chat-top>avatar.hide {
+	top: -70px;
+}
+chat-top>avatar>img {
+	border: 1px solid #000;
+}
+/*
+ *  параметры формы
+ */
+chat-form {
+	/*
+	 *  параметры контейнера
+	 */
+	margin: 0 5px 5px;
+	box-shadow: inset 0 0 3px #33f4, 0 0 0 1px #bbf;
+	/* параметры полей ввода внутри формы */
+	--inp-height: 30px;
+	--inp-border: 0;
+	/* параметры кнопок внутри формы */
+	--btn-height: 30px;
+}
+chat-form>form.login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+chat-form>form.login .inp {
+	margin: 0 10px;
+}
+chat-form input.inp:not(:focus) {
+	background: #bbf3;
+}
+chat-form table.send a.speech::before {
+	filter: hue-rotate(194.9deg) saturate(3);
+}
+chat-form table.send input.speech+a.speech::before {
+	filter: grayscale(1);
+}
+chat-timer {
+	/* параметры таймера/часов в форме отправки сообщений */
+	font: 400 19px LCDNova;
+	color: #016bff;
+	margin: 0 0 -3px 10px;
+	opacity: .7;
+}
+/*
+ *  параметры навигации чата
+ */
+chat-nav>nav-menu {
+	/*
+	 *  параметры выезжающего меню навигации
+	 *  по умолчанию меню навигации спрятано
+	 */
+	position: absolute;
+	right: -75px;
+	width: 70px;
+	display: flex;
+	flex-wrap: wrap;
+	opacity: 0;
+}
+chat-nav:hover a {
+	filter: grayscale(0%);
+	opacity: 1;
+}
+.app-chat.show-nav-menu chat-nav>nav-menu {
+	/* параметры меню навигации когда она отображается */
+	right: 0;
+	opacity: 1;
+}
+.app-chat.to-top chat-nav>nav-menu {
+	/* параметры меню навигации, когда навигация расположена снизу */
+	bottom: 35px;
+}
+.app-chat.to-bottom chat-nav>nav-menu {
+	/* параметры меню навигации, когда навигация расположена сверху */
+	top: 35px;
+}
+.app-chat.disconnected>chat-form {
+	filter: blur(1px);
+}
+.app-chat .btn {
+	transition: .2s;
+	transition-property: background, box-shadow, opacity;
+}
+
+@media (max-width: 1100px) {
+	chat-top img.logo {
+		padding-left: 100px;
+	}
+}
+@media (max-width: 940px) {
+	chat-top img.logo {
+		padding-left: 60px;
+	}
+}
+@media (max-width: 750px) {
+	chat-form>form.login>input.inp {
+		width: 45%;
+		margin: 0;
+	}
+	chat-top img.logo {
+		padding-left: 30px;
+	}
+}

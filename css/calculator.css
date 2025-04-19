@@ -1,0 +1,467 @@
+@font-face {
+	font-family: HelveticaLight;
+	font-weight: normal;
+	font-style: normal;
+	src: url("../fonts/HelveticaLight.woff") format("woff");
+}
+@font-face {
+	font-family: HelveticaThin;
+	font-weight: normal;
+	font-style: normal;
+	src: url("../fonts/HelveticaThin.woff2") format("woff2");
+}
+
+calculator {
+	position: absolute;
+	z-index: 9999;
+	display: block;
+	width: 521px;
+	font: 400 24px/1 HelveticaLight;
+	background: #000;
+	border: 2px solid #f78911;
+	user-select: none;
+	box-shadow: 1px 1px 10px #623504;
+	outline: none;
+}
+calculator:not(.collapse) {
+	filter: grayscale(1) opacity(.5);
+}
+calculator:focus {
+	filter: none;
+}
+calculator>calc-title {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	bottom: 100%;
+	height: 0;
+	margin: 0 -2px 3px;
+	background: linear-gradient(#f8a054 0%, #e79750 10%, #d0823e 25%, #d9843a 37%, #e38635 50%, #c77023 51%, #ec9346 83%, #faa65c 100%);
+	transition: height .5s 1s;
+	overflow: hidden;
+}
+calculator>calc-title>div:first-child {
+	flex: 1 0 auto;
+	font: 400 .9rem/0 HelveticaLight;
+	letter-spacing: 0;
+	color: #fff;
+	text-shadow: -1px -1px 0 #0003;
+	padding: 0 8px;
+}
+calculator>calc-title>div:last-child {
+	display: flex;
+	width: 40%;
+	height: 100%;
+}
+calculator>calc-title>div:last-child>calc-mode {
+	position: relative;
+	z-index: -1;
+	display: block;
+	width: 75px;
+	margin-right: auto;
+	font: 400 .9rem HelveticaLight;
+	letter-spacing: .03em;
+	color: #000;
+	background: #fff9;
+	overflow: hidden;
+	white-space: nowrap;
+	pointer-events: auto;
+}
+calculator>calc-title>div:last-child>calc-mode::before,
+calculator>calc-title>div:last-child>calc-mode::after {
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 0 5px;
+	overflow: hidden;
+	box-sizing: border-box;
+	transition: transform .3s;
+	box-shadow: inset 1px 3px 4px #0005;
+}
+calculator>calc-title>div:last-child>calc-mode::before {
+	content: attr(mode-scientific);
+	border-right: 4px solid transparent;
+	background: linear-gradient(#c22, #f33 50%, #c22 50%) no-repeat right/4px;
+	background-origin: border-box;
+}
+calculator>calc-title>div:last-child>calc-mode::after {
+	content: attr(mode-basic);
+	border-left: 4px solid transparent;
+	background: linear-gradient(#0c0, #0f0 50%, #0c0 50%) no-repeat left/4px;
+	background-origin: border-box;
+}
+calculator>calc-title>div>span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	pointer-events: auto;
+}
+calculator>calc-title>div>span>svg {
+	fill: #fff;
+	width: 15px;
+	height: 16px;
+	pointer-events: none;
+}
+calculator>calc-title>div>span[a="history"] {
+	background: #fff4;
+}
+calculator>calc-title>div>span[a="collapse"] {
+	background: linear-gradient(#54b6f8 0%, #50a3e7 10%, #3e87d0 25%, #3a87d9 37%, #3589e3 50%, #2375c7 51%, #46b5ec 83%, #5ce2fa 100%);
+}
+calculator>calc-title>div>span[a="close"] {
+	background: linear-gradient(#f85454 0%, #e75050 10%, #d03e3e 25%, #d93a3a 37%, #e33535 50%, #c72323 51%, #ec4646 83%, #fa5c5c 100%);
+}
+calculator>calc-title>div>span:active {
+	transform: translate(1px, 1px);
+}
+calculator:focus:hover>calc-title,
+calculator.collapse>calc-title {
+	height: 20px;
+	transition-delay: 0s;
+}
+calculator.collapse>calc-history,
+calculator.collapse>calc-display,
+calculator.collapse>calc-buttons {
+	display: none;
+	height: 0;
+}
+calculator.collapse>calc-title>div:last-child>calc-mode,
+calculator.collapse>calc-title>div:last-child>span[a="history"] {
+	visibility: hidden;
+}
+calculator>calc-history {
+	display: flex;
+	height: 0;
+	overflow: hidden;
+	transition: height .5s;
+	background: linear-gradient(#222, #444);
+}
+calculator>calc-history>calc-ctrl {
+	flex: 0;
+	display: flex;
+	flex-direction: column;
+}
+calculator>calc-history>calc-ctrl>span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	color: #888;
+	border: 1px solid #888;
+	width: 15px;
+	height: 19px;
+	overflow: hidden;
+	box-sizing: border-box;
+}
+calculator>calc-history>calc-ctrl>span:hover {
+	color: #c9cacc;
+	border-color: #c9cacc;
+}
+calculator>calc-history>calc-ctrl>span:active {
+	transform: translate(1px, 1px);
+}
+calculator>calc-history>calc-ctrl>span[a="history-clear"] {
+	padding-bottom: 2px;
+	margin-bottom: auto;
+}
+calculator>calc-history>calc-list {
+	flex: 1;
+	display: block;
+	overflow: hidden;
+	counter-reset: num;
+}
+calculator>calc-history>calc-list>div {
+	display: flex;
+	justify-content: flex-end;
+	flex-wrap: wrap;
+	font-size: 14px;
+	line-height: 16px;
+	letter-spacing: .03em;
+	color: #fff;
+	padding: 0 8px;
+}
+calculator>calc-history>calc-list>div::before {
+	counter-increment: num;
+	content: counter(num) ".";
+	margin-right: auto;
+	color: #c9cacc;
+}
+calculator>calc-history>calc-list>div.sel {
+	background: #fff2;
+}
+calculator>calc-history>calc-list.sel>div.sel {
+	background: #ccf6;
+}
+calculator>calc-history>calc-list>div>* {
+	pointer-events: none;
+}
+calculator.history>calc-history {
+	height: 128px;
+}
+calculator>calc-display {
+	display: grid;
+	grid: repeat(4, auto)/repeat(10, 1fr);
+	background: #222;
+}
+calculator>calc-display>calc-expression {
+	grid-area: 1/1/2/11;
+	display: flex;
+	justify-content: flex-end;
+	font: 400 .6em/1.1 HelveticaLight;
+	letter-spacing: .03em;
+	color: #fff;
+	border: solid #222;
+	border-width: 4px 8px 0;
+	overflow: hidden;
+	white-space: nowrap;
+}
+calculator>calc-history>calc-list>div>span,
+calculator>calc-display>calc-expression>span {
+	color: #f93;
+	padding: 0 .1em;
+	text-shadow: 0 0;
+}
+calculator>calc-history>calc-list>div>em,
+calculator>calc-display>calc-expression>em {
+	font-weight: 500;
+	font-style: normal;
+	color: #9cf;
+	padding-right: .1em;
+	text-shadow: 0 0;
+}
+calculator>calc-history>calc-list>div>b,
+calculator>calc-display>calc-expression>b {
+	font-size: 115%;
+	font-weight: 400;
+	line-height: .9;
+	text-shadow: 0 0;
+}
+calculator>calc-display>calc-result {
+	grid-area: 2/2/5/11;
+	font: 400 25px/23px HelveticaThin;
+	color: #fff;
+	text-align: right;
+	border: solid transparent;
+	border-width: 5px 8px;
+	overflow: hidden;
+	white-space: nowrap;
+}
+calculator>calc-display>div {
+	display: flex;
+	align-items: center;
+	font-size: 46%;
+	letter-spacing: .2em;
+	color: #fff;
+	padding: 0 5px;
+	flex: 1;
+}
+calculator>calc-display>div[num]:nth-of-type(1)::before {
+	content: "(=" attr(num);
+}
+calculator.mem>calc-display>div:nth-of-type(2)::before {
+	content: attr(mode-mem);
+}
+calculator>calc-display>div:nth-of-type(3)::before {
+	content: attr(mode-deg);
+}
+calculator.rad>calc-display>div:nth-of-type(3)::before {
+	content: attr(mode-rad);
+}
+calculator>calc-display>calc-result.fs1 {
+	font-size: 22px;
+}
+calculator>calc-display>calc-result.fs2 {
+	font-size: 19px;
+	text-shadow: 0 0 #fff6;
+}
+calculator>calc-display>calc-result.fs3 {
+	font-size: 17px;
+	text-shadow: 0 0;
+}
+calculator>calc-display>calc-result.fs4 {
+	font-size: 16px;
+	text-shadow: 0 0;
+}
+calculator>calc-display>calc-result.fs5 {
+	font-size: 15px;
+	text-shadow: .3px 0;
+}
+calculator>calc-display>calc-result.fs6 {
+	font-size: 14px;
+	text-shadow: .3px 0;
+}
+calculator>calc-display>calc-result.fs7 {
+	font-size: 14px;
+	text-shadow: .3px 0;
+}
+calculator>calc-display>calc-expression::after,
+calculator>calc-display>calc-result::after,
+calculator>calc-display>div::after {
+	content: "\200b";
+}
+calculator>calc-buttons {
+	display: grid;
+	grid: repeat(5, 1fr)/repeat(10, 1fr);
+	grid-gap: 1px;
+	color: #000;
+	background: #000;
+	padding: 1px;
+	overflow: hidden;
+}
+calculator>calc-buttons>div.extented {
+	grid-area: 1/1/6/7;
+	display: grid;
+	grid: repeat(5, 1fr)/repeat(6, 1fr);
+	grid-gap: 1px;
+}
+calculator>calc-buttons>div.main {
+	grid-area: 1/7/6/10;
+	display: grid;
+	grid: repeat(5, 1fr)/repeat(3, 1fr);
+	grid-gap: 1px;
+}
+calculator>calc-buttons>div.basic {
+	grid-area: 1/10/6/11;
+	display: grid;
+	grid: repeat(5, 1fr)/repeat(1, 1fr);
+	grid-gap: 1px;
+}
+calculator div[key] {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 66%;
+	line-height: 0;
+	height: 34px;
+	background: #c9cacc;
+	box-sizing: border-box;
+}
+calculator.second div[key="2nd"],
+calculator.to-exp div[key="FE"],
+calculator div[key].pressed,
+calculator div[key]:active {
+	margin-top: 1px;
+	margin-bottom: -1px;
+}
+calculator.second div[key="2nd"]::after,
+calculator.to-exp div[key="FE"]::after,
+calculator div[key].pressed::after,
+calculator div[key]:active::after {
+	content: "";
+	position: absolute;
+	inset: 0;	
+	background: #0002;
+	border-bottom: 1px solid #000;
+}
+calculator div[key="0"],
+calculator div[key="1"],
+calculator div[key="2"],
+calculator div[key="3"],
+calculator div[key="4"],
+calculator div[key="5"],
+calculator div[key="6"],
+calculator div[key="7"],
+calculator div[key="8"],
+calculator div[key="9"],
+calculator div[key="."] {
+	font-size: 100%;
+	background: #d3d4d7;
+}
+calculator div[key="0"] {
+	display: grid;
+	grid: repeat(1, 1fr)/repeat(2, 1fr);
+	grid-column: 1/3;
+}
+calculator div[key="0"]>div:first-child {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+calculator div[key="."] {
+	font-weight: 700;
+}
+calculator div[key="+/-"] {
+	font-size: 88%;
+}
+calculator div[key="+/-"]>span {
+	font-size: 86%;
+}
+calculator div[key="+/-"]>span:first-child {
+	margin-top: -8px;
+}
+calculator div[key="+/-"]>span:last-child {
+	margin-top: 8px;
+}
+calculator div[key="pi"] {
+	font-size: 80%;
+}
+calculator>calc-buttons>div.basic div[key] {
+	background: #f78911;
+}
+calculator>calc-buttons>div.basic div[key]>svg {
+	fill: #fff;
+	height: 16px;
+}
+calculator>calc-buttons sup,
+calculator>calc-buttons sub {
+	font-size: 60%;
+	text-shadow: 0 0 #0008;
+}
+calculator>calc-buttons sup {
+	margin-top: -1.2em;
+	letter-spacing: .05em;
+}
+calculator>calc-buttons sub {
+	margin-bottom: -1.2em;
+}
+calculator>calc-buttons sup.m05 {
+	font-size: 50%;
+	margin-right: -.4em;
+}
+calculator.second>calc-buttons div.second>div:first-child,
+calculator:not(.second)>calc-buttons div.second>div:last-child,
+calculator.rad>calc-buttons div.rad-deg>div:first-child,
+calculator:not(.rad)>calc-buttons div.rad-deg>div:last-child,
+calculator.clr>calc-buttons div.ac-c>div:first-child,
+calculator:not(.clr)>calc-buttons div.ac-c>div:last-child {
+	display: none;
+}
+
+calculator>calc-title>*,
+calculator>calc-display>*,
+calculator div[key]>* {
+	pointer-events: none;
+}
+calculator.basic {
+	width: 209px;
+}
+calculator.basic>calc-title>div:last-child>calc-mode::before,
+calculator.basic>calc-title>div:last-child>calc-mode::after {
+	transform: translateX(-100%);
+}
+calculator.basic>calc-title>div:last-child {
+	width: 100%;
+}
+calculator.basic>calc-display>calc-result {
+	grid-column: 1/11;
+}
+calculator.basic>calc-display>div,
+calculator.basic calc-title>div:first-child,
+calculator.basic>calc-buttons>div.extented {
+	display: none;
+}
+calculator.basic>calc-buttons {
+	grid: repeat(5, 1fr)/repeat(4, 1fr);
+}
+calculator.basic>calc-buttons>div.main {
+	grid-column: 1/4;
+}
+calculator.basic>calc-buttons>div.basic {
+	grid-column: 4/5;
+}

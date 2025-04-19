@@ -1,0 +1,94 @@
+chat-win2 table.webcam td {
+	text-align: center;
+}
+chat-win2 div.video,
+chat-win2 div.photo {
+	position: relative;
+	height: 100%;
+	font-size: 0;
+}
+chat-win2 div.video>video,
+chat-win2 div.photo>canvas {
+	width: 100%;
+	box-sizing: border-box;
+}
+chat-win2 div.video>div.timer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	font: bold 1.2rem arial;
+	padding: 5px;
+	color: #ff9;
+	text-shadow: 0 0 2px #000, 0 0 3px #000, 0 0 4px #000;
+	pointer-events: none;
+}
+chat-win2 div.video>div.timer:empty {
+	display: none;
+}
+chat-win2 table.t.webcam-setup {
+	margin: 8px 20px;
+	width: calc(100% - 40px);
+}
+chat-win2 table.webcam-setup label {
+	display: block;
+	padding-left: 15px;
+	white-space: nowrap;
+}
+chat-win2 div[hint]::after {
+	content: attr(hint);
+	font: bold 1rem verdana;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	inset: 0;
+	padding: 50px;
+}
+chat-win2 div.webcam-view {
+	width: 50%;
+	display: inline-block;
+}
+div.webcam-view>div {
+	position: relative;
+	border: 1px solid #fff;
+	margin: 3px;
+	font-size: 0;
+}
+div.webcam-view>div::after {
+	content: attr(nick);
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	padding: 10px;
+	font: bold 1rem verdana;
+	color: #fff;
+	text-shadow: 0 0 1px #000, 0 0 3px #008, 0 0 4px #008;
+	opacity: .5;
+	transition: opacity .2s;
+}
+div.webcam-view>div:hover::after {
+	opacity: 1;
+}
+div.webcam-view>div>div.button {
+	display: none;
+	position: absolute;
+	top: 1px;
+	width: 18px;
+	height: 18px;
+	border: 3px solid #fff;
+	opacity: .5;
+	transition: opacity .2s;
+}
+div.webcam-view>div:hover>div.button {
+	display: block;
+}
+div.webcam-view>div>div.button:hover {
+	opacity: 1;
+}
+div.webcam-view>div>div.button:active {
+	border-width: 4px 2px 2px 4px;
+}
+div.webcam-view>div>div.button:nth-of-type(1) {
+	right: 1px;
+	background: #fff url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><path fill='%23f00' d='M23.1,0L14,9.1L4.9,0L0,4.9L9.1,14L0,23.1L4.9,28l9.1-9.1l9.1,9.1l4.9-4.9L18.9,14L28,4.9L23.1,0z'/></svg>") no-repeat;
+}

@@ -1,0 +1,180 @@
+popup-menu {
+	contain: paint;
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 13;
+	box-shadow: 0 0 10px #000b;
+}
+popup-menu>table {
+	position: relative;
+	z-index: 2;
+}
+popup-menu>table td {
+	white-space: nowrap;
+	color: #fff;
+	background: #778;
+	font: normal 100 12px arial;
+	border-right: 1px solid #667;
+	border-left: 1px solid #889;
+	padding: 1px 10px 3px;
+}
+popup-menu>table td.sel {
+	color: #333;
+	background: #99a linear-gradient(#9f9fb5 0%, #9b9aac 10%, #8f8d9f 25%, #928fa1 37%, #9390a4 50%, #868498 50%, #9799ad 83%, #a0a6b6 100%);
+}
+popup-menu td.timer {
+	font-weight: 700;
+	text-shadow: -1px -1px 0px #0004;
+	cursor: pointer;
+}
+popup-menu td.clock {
+	color: #fc0;
+}
+popup-menu td.clock span {
+	color: #4cff70;
+}
+popup-sub-menu {
+	contain: paint;
+	display: block;
+	position: absolute;
+	z-index: 12;
+	left: -1000px;
+	overflow: hidden;
+	white-space: nowrap;
+	background: #667;
+	font: normal 100 12px arial;
+	border: 1px solid #b28f00;
+	width: 176px;
+	box-shadow: 2px 2px 5px 1px #000b;
+}
+popup-sub-menu>item {
+	display: block;
+	color: #fc0;
+	border-left: 3px ridge #b28f00;
+	padding: 2px 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+popup-sub-menu>item[data-menu]:hover {
+	color: #fff;
+	background: #99a;
+	border-left: 3px ridge #f6d222;
+	text-shadow: 0px -1px 0px #0004;
+	box-shadow: 1px 1px 3px #0008;
+}
+popup-sub-menu>item[sub="1"]::before {
+	content: "\27a7";
+	font: 100 13px/1 cursive;
+	color: #fff;
+	float: right;
+}
+popup-sub-menu>item:not([data-menu]) {
+	color: #99a;
+	text-shadow: 0 -1px 0 #0003;
+}
+popup-sub-menu>item[sel="1"] {
+	font-weight: 700;
+	color: #ff0;
+}
+popup-sub-menu>div.hr {
+	border-left: 3px ridge #b28f00;
+	padding: 2px 4px;
+}
+popup-sub-menu>div.hr::after {
+	content: "";
+	display: block;
+	border-top: 1px solid #b28f00;
+	border-bottom: 1px solid #ffe855;
+	margin: 4px -3px 3px;
+}
+popup-sub-menu>div.copy {
+	color: #00f;
+	background: #f5f5f5;
+	padding: 5px;
+	line-height: 1.5
+}
+popup-sub-menu>div.copy>hr {
+	border-top: 1px solid #b28f00;
+	border-bottom: 1px solid #ffe855;
+	height: 0;
+	margin: 5px -5px;
+}
+popup-menu>menu-line {
+	display: block;
+	position: relative;
+	z-index: 1;
+	background: #900;
+	border-top: 2px solid #c00;
+	border-bottom: 2px solid #600;
+	height: 6px;
+	transition: all .3s;
+}
+popup-sub-menu>table.game-score td {
+	color: #fc0;
+	font: italic 10px arial;
+	border-right: 1px solid #556;
+	padding: 2px 7px;
+}
+popup-sub-menu>table.game-score td:last-child {
+	border: none;
+}
+popup-sub-menu>table.game-score tr.t td {
+	border-top: 2px groove #999;
+}
+popup-sub-menu>table.game-score th {
+	color: #ffa319;
+	font-weight: 700;
+}
+popup-sub-menu>table.game-score td.date {
+	color: #4cff4c;
+}
+popup-sub-menu>table.game-score td.nick {
+	color: #fff;
+	font: 700 12px arial;
+}
+chat-body.blink popup-menu>menu-line {
+	animation: blink-line 1s linear infinite;
+}
+chat-body.blink popup-menu>table td.blink {
+	animation: blink-td 1s linear infinite;
+}
+chat-body.blink popup-sub-menu>item.blink {
+	animation: blink-item 1s linear infinite;
+}
+chat-body.popup-menu>chat-win2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+@keyframes blink-line {
+	10%, 50% {
+		background: #cc0;
+		border-top-color: #ff0;
+		border-bottom-color: #990;
+	}
+	60%, 100%, 0% {
+		background: #c00;
+		border-top-color: #f00;
+		border-bottom-color: #900;
+	}
+}
+@keyframes blink-td {
+	10%, 50% {
+		color: #ff0;
+	}
+	60%, 100%, 0% {
+		color: #f00;
+	}
+}
+@keyframes blink-item {
+	10%, 50% {
+		color: #ff0;
+		background: #0f04;
+	}
+	60%, 100%, 0% {
+		color: #f00;
+		background: #f004;
+	}
+}

@@ -1,0 +1,82 @@
+html.smiles,
+body.smiles {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: #000;
+	overflow: hidden;
+}
+table.smiles {
+	font: 400 16px verdana;
+}
+table.smiles th {
+	color: #fdc;
+	padding: 2px 0;
+	background: #313;
+}
+table.smiles tr.menu td {
+	display: flex;
+	flex-wrap: wrap;
+	background: #313;
+	font-size: 150%;
+}
+table.smiles tr.menu div {
+	margin: auto;
+}
+table.smiles tr.menu div:first-child {
+	text-align: center;
+}
+table.smiles tr.menu a {
+	display: inline-block;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 3px;
+	border: none;
+	padding: 0 .5em;
+}
+table.smiles tr.menu a:hover:not(.c) {
+	color: #000;
+	background: #ccc;
+	border-radius: 3px;
+	border: none;
+}
+table.smiles tr.menu a.c {
+	color: #000;
+	background: #88a;
+	border-radius: 3px;
+	border: none;
+}
+table.smiles tr.menu select#sm_group {
+	font-size: 100%;
+	padding: 0 10px;
+	width: 100%;
+}
+table.smiles td.smiles {
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	border: solid #93c;
+	border-width: 1px 0;
+	font-size: 0;
+}
+table.smiles div#smiles {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: auto;
+}
+table.smiles div#smiles img {
+	display: inline-block;
+	border-radius: 5px;
+	border: 10px solid transparent;
+	cursor: pointer;
+	transition: .5s;
+/*
+	transform: scale(1.5);
+*/
+}
+table.smiles div#smiles img:hover {
+	background: #5c008a;
+}

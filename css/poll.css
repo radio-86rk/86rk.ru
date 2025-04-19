@@ -1,0 +1,263 @@
+form.poll {
+	position: relative;
+	display: flex;
+	height: auto;
+	overflow: hidden;
+	user-select: none;
+	font: var(--poll-font, 400 100% var(--ff));
+	--poll-slide: 1s;
+	--poll-bar-ani: .5s;
+}
+form.poll>poll-form {
+	transition: margin-left var(--poll-slide);
+}
+form.poll.result>poll-form {
+	margin-left: -100%;
+}
+form.poll>poll-form,
+form.poll>poll-form>*,
+form.poll>poll-result,
+form.poll>poll-result>* {
+	display: block;
+	box-sizing: border-box;
+}
+form.poll>poll-form,
+form.poll>poll-result {
+	flex: 1 0 100%;
+	display: flex;
+	flex-direction: column;
+	border: var(--poll-border, 1px solid #fff6);
+	padding: var(--poll-padding, 0 10px);
+}
+form.poll>poll-form>poll-question,
+form.poll>poll-result>poll-question {
+	text-align: center;
+	padding: var(--poll-question-padding, 3px);
+	margin: var(--poll-question-margin, 0 -10px);
+	color: var(--poll-question-color, #fff);
+	background: var(--poll-question-bg, linear-gradient(#fff6, #9996));
+	letter-spacing: var(--poll-question-ls, .1em);
+	font: var(--poll-question-font, 600 100%/1.4 var(--ff));
+}
+form.poll>poll-form>poll-notice,
+form.poll>poll-result>poll-notice {
+	padding: var(--poll-notice-padding, 3px 15px);
+	margin: var(--poll-notice-margin, 0 -10px);
+	background: var(--poll-notice-bg, linear-gradient(#500, #900));
+}
+form.poll>poll-result>poll-notice.voted {
+	background: var(--poll-voted-bg, linear-gradient(#040, #070));
+}
+form.poll>poll-form>poll-option {
+	padding: var(--poll-form-option-padding, 5px 0 0);
+}
+form.poll>poll-form>poll-option>img {	
+	padding: var(--poll-form-option-img-padding, 5px 0);
+	margin: var(--poll-form-option-img-margin, 0 0 0 20px);
+}
+form.poll>poll-form>poll-option>label {
+	display: block;
+}
+form.poll>poll-form>poll-button {
+	margin: var(--poll-button-margin, 1em -10px 0);
+	background: var(--poll-button-bg, #00f3);
+}
+form.poll>poll-form>poll-button>.btn {
+	--btn-width: 100%;
+	--btn-padding: var(--poll-button-padding, 3px);
+}
+form.poll>poll-result>poll-option {
+}
+form.poll>poll-result>poll-option {
+	padding: var(--poll-option-padding, 10px 0 0);
+}
+form.poll>poll-result poll-stat {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	grid-gap: 0 var(--poll-stat-gap, 1em);
+	font: var(--poll-stat-font, 400 85%/1.4 var(--ff));
+	color: var(--poll-stat-color, #ccc);
+	padding: var(--poll-stat-padding, 10px 0);
+}
+form.poll>poll-result poll-options {
+	counter-reset: option;
+}
+form.poll>poll-result poll-options>poll-option {
+	display: block;
+	padding: var(--poll-option2-padding, 5px 0 0);
+}
+form.poll>poll-result poll-options>poll-option::before {
+	counter-increment: option;
+	content: counter(option) ".";
+}
+form.poll>poll-result opt-count,
+form.poll>poll-result opt-percent {
+	font: var(--poll-count-font, 600 100% var(--ff));
+	color: var(--poll-count-color, #fff9);
+}
+form.poll>poll-result>poll-option>opt-bar {
+	position: relative;
+	display: block;
+	height: var(--poll-bar-height, 20px);
+	margin: var(--poll-bar-margin, 5px 0 0);
+	border-radius: var(--poll-bar-br, 2px);
+	background: var(--poll-bar-bg, #fff3);
+	box-shadow: var(--poll-bar-shadow, inset 1px 1px 1px #0003, inset -1px -1px 1px #fff2);
+}
+form.poll>poll-result>poll-option>opt-bar::before {
+	content: "";
+	display: block;
+	box-sizing: border-box;
+	width: var(--width, 0);
+	height: 100%;
+	transition: width var(--poll-bar-ani) var(--poll-slide);
+	border: var(--poll-bar-border);
+	border-radius: var(--poll-bar-br, 2px);
+	background: var(--poll-bar-bg2, linear-gradient(#fffe, #fff3) no-repeat, linear-gradient(#0245ad, #01dafb));
+	background-size: var(--poll-bar-bg2-size, 100% 50%, 100% 100%);
+	box-shadow: var(--poll-bar-shadow2, inset 0 -1px 2px #01fff9);
+}
+form.poll>poll-result>poll-option.max>opt-bar::before {
+	--poll-bar-border: var(--poll-bar-border2);
+	--poll-bar-bg2: var(--poll-bar-max-bg2, linear-gradient(#fffe, #fff3) no-repeat, linear-gradient(#6e00ff, #af24f9));
+	--poll-bar-shadow2: var(--poll-bar-max-shadow2, inset 0 -1px 2px #f0f);
+}
+form.poll>poll-result>poll-option>opt-bar::after {
+	content: attr(percent) "%";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	line-height: 0;
+	padding: var(--poll-percent-padding, 0 5px 0 0);
+	color: var(--poll-percent-color, #fff);
+	text-shadow: var(--poll-percent-text-shadow, -1px -1px #0003);
+}
+form.poll.result>poll-result:not(.normalize)>poll-option>opt-bar::before {
+	--width: calc(var(--percent) * 1%);
+}
+form.poll.result>poll-result.normalize>poll-option>opt-bar::before {
+	--width: calc(var(--percent) / var(--max) * 100%);
+}
+form.poll>poll-result>poll-chart {
+	display: grid;
+	grid: auto auto/min-content auto;
+	margin: var(--poll-chart-margin, 10px 0 auto);
+}
+form.poll>poll-result>poll-chart>poll-bars {
+	grid-area: 1/1/3/2;
+	display: flex;
+	align-items: flex-end;
+	counter-reset: bar;
+	height: var(--poll-chart-bars-height, 220px);
+	margin: var(--poll-chart-bars-margin, 20px 20px 30px 0);
+}
+form.poll>poll-result>poll-chart>poll-bars>opt-bar {
+	position: relative;
+	display: block;
+	transition: height var(--poll-bar-ani) var(--poll-slide);
+	height: var(--height, 0);
+	width: var(--poll-chart-bar-width, 25px);
+	margin: var(--poll-chart-bar-margin, 0 20px);
+	border-radius: var(--poll-chart-bar-br, 2px);
+	box-shadow: var(--poll-chart-bar-shadow, inset -1px -1px 1px #0003, inset 1px 1px 1px #fff2);
+	background: var(--poll-chart-bar-bg, linear-gradient(hsl(210, calc((134 - var(--bar-color) * 2 - var(--bar-color) * (120 - 4 * var(--bar-color)) / 35) * 1%), calc(var(--bar-color) * 1% + 20%)), #036));
+	--bar-color: calc(var(--percent) / var(--max) * 40);
+}
+form.poll>poll-result>poll-chart>poll-bars>opt-bar::before {
+	counter-increment: bar;
+	content: counter(bar) ".";
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	height: 100%;
+	font: var(--poll-chart-num-font, 400 85%/1.4 var(--ff));
+	color: var(--poll-chart-num-color, #fb2);
+	margin: var(--poll-chart-num-margin, 22px 0 0);
+}
+form.poll>poll-result>poll-chart>poll-bars>opt-bar::after {
+	content: attr(percent) "%";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	line-height: 0;
+	text-align: center;
+	color: var(--poll-chart-percent-color, #fff);
+	margin: var(--poll-chart-percent-margin, -10px -15px);
+}
+form.poll>poll-result>poll-chart>poll-stat {
+	align-self: self-end;
+	--poll-stat-padding: 10px 0 27px;
+}
+form.poll.result>poll-result:not(.normalize)>poll-chart>poll-bars>opt-bar {
+	--height: calc(var(--percent) * 1%);
+}
+form.poll.result>poll-result.normalize>poll-chart>poll-bars>opt-bar {
+	--height: calc(var(--percent) / var(--max) * 100%);
+}
+form.poll poll-option:last-of-type {
+	margin-bottom: auto;
+}
+form.poll poll-option>img {
+	width: auto;
+	vertical-align: var(--poll-img-va, middle);
+	max-height: var(--poll-img-size, 50px);
+	padding: var(--poll-img-padding, 0 5px 0 0);
+}
+form.poll>poll-result>poll-notice+div.ctrl {
+	margin-top: auto !important;
+}
+form.poll div.ctrl {
+	background: var(--poll-ctrl-bg, #0026);
+	padding: var(--poll-ctrl-padding, 0 10px);
+	margin: var(--poll-ctrl-margin, 0 -10px 2px);
+	text-align: var(--poll-ctrl-ta, right);
+}
+form.poll a.ctrl {
+	cursor: pointer;
+	color: var(--poll-ctrl-color, #fc0);
+	text-decoration: var(--poll-ctrl-td, none);
+}
+form.poll a.ctrl:hover {
+	text-decoration: var(--poll-ctrl-hover-td, underline);
+}
+form.poll.error>poll-form::after,
+form.poll.deny>poll-form::after {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	font-weight: var(--poll-error-font, 600 100% var(--ff));
+	background: var(--poll-error-bg, #c00);
+	color: var(--poll-error-color, #ff9);
+	border: var(--poll-error-border, solid #000);
+	border-width: var(--poll-error-bw, 5px 0);
+	padding: var(--poll-error-padding, 10px);
+	margin: var(--poll-error-margin, 1px);
+	text-align: var(--poll-error-ta, center);
+}
+form.poll.error>poll-form::after {
+	content: attr(error);
+}
+form.poll.deny>poll-form::after {
+	content: attr(deny);
+}
+form.poll::before {
+	content: "";
+	display: none;
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: var(--poll-wait-bg, #0006) repeating-linear-gradient(-45deg, #fff4, #fff4 15px, #fff0 0px, #fff0 30px) bottom repeat-x;
+	background-size: var(--poll-wait-bg-size, 85px 70px);
+}
+form.poll.wait::before {
+	display: block;
+	animation: busy 3s linear infinite;
+}
+form.poll.wait {
+	pointer-events: none;
+}

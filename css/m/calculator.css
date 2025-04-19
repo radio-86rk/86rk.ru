@@ -1,0 +1,30 @@
+@import "../calculator.css";
+
+.app-chat.mobile calculator {
+	width: calc(100vw - 4px);
+}
+.app-chat.mobile calculator.basic {
+	width: calc(40vw - 1px);
+}
+.app-chat.mobile calculator>calc-title {
+	height: 5vmin;
+}
+.app-chat.mobile calculator>calc-title>div:first-child {
+	font-size: 1.1rem;
+	font-weight: 600;
+	padding-top: 2px;
+}
+.app-chat.mobile calculator>calc-title>div>span {
+	width: 12vmin;
+}
+.app-chat.mobile calculator>calc-title>div>span>svg {
+	width: 4vmin;
+	height: 4vmin;	
+}
+.app-chat.mobile calculator div[key] {
+	font-weight: 500;
+	height: 9vmin;
+}
+.app-chat.mobile calculator>calc-buttons>div.extented>div[key] {
+	font-size: 75%;
+}

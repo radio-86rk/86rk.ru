@@ -1,0 +1,12 @@
+@import "../video-recorder.css";
+
+video-recorder {
+	--bg: #000;
+	--ctrl-bg-color: #b1bdc9;
+	--select-color: #fff;
+}
+video-recorder video-video,
+video-recorder>video-ctrl {
+	border: 1px solid;
+	border-color: #dae3ed #95a0ad #95a0ad #dae3ed;
+}

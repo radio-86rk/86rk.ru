@@ -1,0 +1,63 @@
+/***
+ ***  Файл содержит некоторые переопределенные стили для модуля "радио"
+ ***/
+
+@import "../radio.css";
+
+radio * {
+	color: #99f;
+	text-shadow: 0 0 1px #fff; 
+}
+radio radio-genre,
+radio radio-station {
+	box-shadow: inset 0 2px 3px 0px #33f2;
+	background: transparent;
+}
+radio radio-play,
+radio radio-next,
+radio radio-volume:not(.active) {
+	opacity: .5;
+	transition: opacity .2s;
+}
+radio radio-play:hover,
+radio radio-next:hover,
+radio radio-volume:hover {
+	opacity: 1;
+}
+radio radio-genre>div>span {
+	color: #888;
+	background: linear-gradient(#fc8 0%, #fc8 90%, #eb7 100%);
+}
+radio radio-genre>div>span:hover {
+	color: #999;
+	background: linear-gradient(#fea 0%, #fea 90%, #ed9 100%);
+}
+radio radio-genre>div>span.cur {
+	background: transparent !important;
+}
+radio radio-genre.expand>div>span {
+	color: #888;
+}
+radio radio-genre.expand>div>span.cur {
+	background: #f8f8ffb3 !important;
+	box-shadow: 0 2px 3px 0px #33f2 inset;
+}
+radio radio-genre.expand>div {
+	border-color: #99f;
+}
+radio.connect radio-station {
+	background-color: #66c3 !important;
+}
+radio.error radio-station {
+	color: #f33;
+	background: #f002;
+	text-shadow: 0 0 0 #000;
+}
+radio radio-time {
+	opacity: 1;
+	text-shadow: 0 0 2px #00f;
+	color: #fff;
+}
+radio radio-volume::before {
+	filter: brightness(.7) hue-rotate(215deg) drop-shadow(0 0 1px #0084);
+}

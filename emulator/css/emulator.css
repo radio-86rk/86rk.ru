@@ -1,0 +1,1239 @@
+@counter-style hex-cyclic {
+	system: cyclic;
+	symbols: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9' 'A' 'B' 'C' 'D' 'E' 'F';
+}
+#app {
+	--bg: #000;
+	--margin: 0;
+	--title-bg: linear-gradient(#6d6d6d 0%, #676767 10%, #5d5d5d 25%, #5f5f5f 37%, #606060 50%, #545454 51%, #666666 83%, #6f6f6f 100%);
+	--title-color: #fffc;
+	--title-text-shadow: none;
+	--ctrl-bg: #333;
+	--ctrl-color: #fff;
+	--ctrl-height: 28px;
+	--menu-bg: #ccc;
+	--menu-bt: 1px solid #fff;
+	--menu-color: #666;
+	--menu-sa-color: #333;
+	--conf-width: 320px;
+	--conf-h3-bg: #0009;
+	--conf-h3-color: #fff;
+	--conf-h3-padding: 0 25px 2px;
+	--conf-h3-sl-padding: 0 15px;
+	--conf-h3-val-color: #fc9;
+	--conf-padding: 30px 0 10px;
+	--conf-hr-margin: 0;
+	--conf-slider-padding: 0 25px;
+	--conf-slider-border: 0;
+	--conf-slider-bg: #585858;
+	--conf-border: 1px solid #000;
+	--conf-bg: #666;
+	--conf-color: #ccc;
+	--conf-shadow: -8px -13px 8px #0006;
+	--slider-div-padding: 0 0 8px;
+	--slider-div-margin: -12px 0 0;
+	--slider-div-before-margin: 20px 0 0;
+	--slider-div-after-border: 2px solid #e8e8e8;
+	--slider-hndl-top: 12px;
+	--slider-hndl-width: 20px;
+	--slider-hndl-bg: #f80;
+	--slider-hndl-filter: drop-shadow(0 0 2px #000c);
+	--debug-color1: #f80;
+	--debug-color2: #ffae52;
+	--debug-color3: #fff;
+	--debug-color4: #f009;
+	--debug-color-pc: #ffae5266;
+	--debug-color-bp: #f006;
+	--debug-color-bp-lbl: #fd0;
+	--debug-color-cursor: #0f07;
+	--debug-color-hover: #0f04;
+	--debug-border-color: var(--debug-color1);
+	--debug-active-border-color: #0f0;
+	--debug-highlight: #09f;
+	--dump-cursor-color: #0f0c;
+	--dump-cursor-blink: .8s dump-cursor linear infinite;
+	--dump-cursor-shf: var(--cursor-shf-ff, 4.9406564584124654e-324);
+	--dump-cursor-width: calc((1ch + 0.4px) * var(--dump-cursor-shf) / var(--dump-cursor-shf));
+	--help-width: 100%;
+	--help-height: 100%;
+	--help-h2-color: #ff5722;
+	--status-bg: linear-gradient(#8bb, #699) 0/100% 3px;
+	--status-color: #366;
+	--status-span-color: #eee;
+	--status-border: 0;
+	--catalog-svg-size: 18px;
+	--catalog-svg-up-color: #fff;
+	--catalog-svg-dl-bg: #fff;
+	--catalog-svg-dl-color: #000;
+}
+#app:not(.modal) {
+	--status-margin: 49px;
+	--status-shadow: 0 -3px 3px #333;
+}
+#app>app-emulator.app {
+	overflow: hidden;
+	--input-height: auto;
+}
+#app:not(.visible)>app-emulator.app {
+	opacity: 0;
+}
+#app>app-emulator>div.screen {
+	z-index: 2;
+}
+#app>app-emulator>div.screen.fullscreen {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#app>app-emulator>div.screen>canvas {
+	flex: 1;
+	z-index: 3;
+	border: var(--screen-border, 2px solid #fff);
+	filter: brightness(var(--brightness, 1.2)) contrast(var(--contrast, 2));
+	aspect-ratio: var(--aspect-ratio, 1.3542);
+	image-rendering: var(--image-rendering, "auto");
+	pointer-events: none;
+	contain: strict;
+}
+#app>app-emulator>div.screen>canvas.visible {
+	visibility: visible;
+}
+#app>app-emulator:not(.auto)>div.screen>canvas {
+	height: calc(var(--height) * var(--scale) * 1px);
+}
+#app>app-emulator.auto>div.screen {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: var(--ctrl-height);
+	aspect-ratio: var(--aspect-ratio, 1.3542);
+}
+#app>app-emulator div.ctrl {
+	display: flex;
+	font: var(--ctrl-font, 600 14px/14px var(--font-family));
+	width: 100%;
+	height: var(--ctrl-height);
+	background: var(--ctrl-bg);
+	color: var(--ctrl-color);
+	user-select: none;
+	--input-bg: var(--ctrl-bg);
+	--input-color: #999;
+	--input-width: auto;
+}
+#app>app-emulator>div.screen.fullscreen>div.ctrl>a[name="debuger"] {
+	display: none;
+}
+#app>app-emulator>div.screen:not(.fullscreen)>div.ctrl {
+	position: absolute;
+	z-index: 2;
+	bottom: 0;
+}
+#app>app-emulator div.ctrl>select#file_list {
+	flex: 1;
+}
+#app>app-emulator div.ctrl>select#computers {
+	flex: 0;
+}
+#app>app-emulator div.ctrl>select {
+	font: 600 14px var(--font-family);
+}
+#app>app-emulator.debuger div.ctrl>select {
+	pointer-events: none;
+	opacity: .5;
+}
+#app>app-emulator div.ctrl>select:hover {
+	--input-color: #bbb;
+}
+#app>app-emulator div.ctrl>select>optgroup {
+	background: #ccc;
+}
+#app>app-emulator div.ctrl>select>optgroup:empty {
+	display: none;
+}
+#app>app-emulator div.ctrl>select option {
+	font-weight: 600;
+	background: #666;
+	color: #ccc;
+}
+#app>app-emulator div.ctrl>select#computers option:is([value=restart], [value=new]) {
+	background: #333;
+	color: #ff9;
+}
+#app>app-emulator div.ctrl>app-indicator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 7ch;
+	background: var(--ind-bg, #333);
+	color: var(--ind-color, #ccc);
+	border: var(--ind-border, 1px solid #666);
+	pointer-events: none;
+}
+#app>app-emulator div.ctrl>app-indicator#ind_layout {
+	width: 8ch;
+}
+#app>app-emulator div.ctrl>app-indicator#ind_lang.lang-rus {
+	background: #090;
+	color: #0f0;
+	border-color: currentColor;
+}
+#app>app-emulator div.ctrl>app-indicator#ind_tape.tape {
+	background: #980;
+	color: #fd0;
+	border-color: currentColor;
+}
+#app>app-emulator div.ctrl>app-indicator#ind_cpu_clock {
+	width: auto;
+	padding: 0 1ch;
+}
+#app>app-emulator div.ctrl>app-indicator#ind_cpu_clock::after {
+	content: attr(unit);
+}
+#app>app-emulator div.ctrl>app-indicator#ind_status {
+	background: #600;
+	border-color: #f00;
+	--status: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><path fill='%23f33' d='M18,50H0V0h18V50z M50,0H32v50h18V0z'/></svg>");
+}
+#app>app-emulator div.ctrl>app-indicator#ind_status.status-run {
+	background: #030;
+	border-color: #090;
+	--status: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><path fill='%23090' d='M3.4,50V0l43.1,25L3.4,50z'/></svg>");
+}
+#app>app-emulator div.ctrl>app-indicator#ind_status.status-stopped {
+	--status: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><path fill='%23f33' d='M50,50H0V0h50V50z'/></svg>");
+}
+#app>app-emulator div.ctrl>app-indicator#ind_status::before {
+	content: var(--status);
+	aspect-ratio: 1;
+	padding: 5px 0;
+	align-self: stretch;
+}
+#app>app-emulator div.ctrl>a.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3ch;
+	padding: 0 2ch;
+	background: var(--btn-bg, #666);
+	color: var(--btn-color, #fff);
+	border: var(--btn-border, 1px solid currentColor);
+}
+#app>app-emulator div.ctrl>a.btn:active {
+	transform: translate(1px, 1px);
+}
+#app>app-emulator div.ctrl>a.btn[name="reset"] {
+	background: var(--btn-reset-bg, #600);
+	color: var(--btn-reset-color, #f00);
+	border: var(--btn-reset-border, 1px solid currentColor);
+}
+#app>app-emulator div.ctrl>a.btn[name="mute"] {
+	background: var(--btn-mute-bg, #030);
+	color: var(--btn-mute-color, #090);
+	border: var(--btn-mute-border, 1px solid currentColor);
+	padding: 0 2ch;
+	--status: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><path fill='%23060' stroke='%230c0' stroke-width='3' stroke-linejoin='round' d='M25.6,6.3L13.2,17.2H1.5v13.9h11.7L25.6,42V6.3z'/><path fill='none' stroke='%230c0' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M30.9,29.8c1.5-1,2.5-2.8,2.5-4.6c0-1.8-0.9-3.6-2.5-4.6 M34.9,36.8c3.7-2.8,6-7,6-11.6s-2.3-9.1-6-11.6 M38.8,43.7c6-4.2,9.7-11.1,9.7-18.6s-3.7-14.4-9.7-18.6'/></svg>");
+}
+#app>app-emulator div.ctrl>a.btn[name="mute"].on {
+	background: var(--btn-mute-on-bg, #600);
+	color: var(--btn-mute-on-color, #f00);
+	border: var(--btn-mute-on-border, 1px solid currentColor);
+	--status: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'><path fill='%23000' stroke='%23f00' stroke-width='3' stroke-linejoin='round' d='M25.6,6.3L13.2,17.2H1.5v13.9h11.7L25.6,42V6.3z'/><path stroke='%23f00' stroke-width='3' stroke-linecap='round' d='M31.6,17l14.3,14.3 M45.9,17L31.6,31.3'/></svg>");
+}
+#app>app-emulator div.ctrl>a.btn[name="mute"]::before {
+	content: var(--status);
+	aspect-ratio: 1;
+	align-self: stretch;
+}
+#app>app-emulator div.ctrl>a.btn[name="reset"]:hover {
+	--btn-reset-bg: #800;
+	--btn-reset-color: #f66;
+}
+#app>app-emulator div.ctrl>a.btn[name="debuger"] {
+	width: auto;
+	padding: 0 1ch;
+	background: var(--btn-debug-bg, #630);
+	color: var(--btn-debug-color, var(--debug-color1));
+	border: var(--btn-debug-border, 1px solid currentColor);
+}
+
+#app>app-emulator div#catalog {
+	position: relative;
+	z-index: 1;
+	background: #000;
+	border-left: 2px solid #333;
+	font: 600 14px/2.2em var(--font-family);
+	width: 100%;
+	max-width: 50%;
+	margin: 0 0 var(--ctrl-height) auto;
+	overflow: auto;
+}
+#app>app-emulator div#catalog.busy::after {
+	content: "";
+	contain: strict;
+	position: absolute;
+	z-index: 1;
+	inset: 0;
+	background: #0006 url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 128 128'><g fill='%23fff'><path id='a' d='M61.58,90.1c-13.95,1.35-28.35-3.7-38.48-14.93C13.23,63.75,9.7,48.9,12.5,35.18c-15.13,13.6-16.35,36.9-2.73,52.03C23.15,102.5,46.45,103.73,61.58,90.1z'/><use xlink:href='%23a' transform='rotate(72,64,64)'/><use xlink:href='%23a' transform='rotate(144,64,64)'/><use xlink:href='%23a' transform='rotate(216,64,64)'/><use xlink:href='%23a' transform='rotate(288,64,64)'/><animateTransform attributeName='transform' type='rotate' from='72 64 64' to='0 64 64' dur='360ms' repeatCount='indefinite'></animateTransform></g></svg>") no-repeat center center/20vmin 20vmin;
+}
+#app>app-emulator div#catalog table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+#app>app-emulator div#catalog table>thead {
+	position: sticky;
+	top: 0;
+}
+#app>app-emulator div#catalog table th {
+	background: var(--catalog-th-bg, #333);
+	color: var(--catalog-th-color, #f80);
+	border: solid var(--catalog-th-bc, #000);
+	border-width: var(--catalog-th-bw, 0 2px);
+	padding: 0 1ch;
+	text-align: left;
+}
+#app>app-emulator div#catalog table th:nth-child(1),
+#app>app-emulator div#catalog table th:nth-child(2),
+#app>app-emulator div#catalog table th:nth-child(4) {
+	width: 0;
+}
+#app>app-emulator div#catalog table td {
+	color: #ccc;
+	padding: 0 1ch;
+	border: solid #333;
+	border-width: 0 0 1px;
+	white-space: nowrap;
+}
+#app>app-emulator div#catalog table td.download {
+	padding: 0;
+	text-align: center;
+}
+#app>app-emulator div#catalog table td.descr {
+	color: var(--catalog-descr-color, #6cc);
+}
+#app>app-emulator div#catalog table td.size {
+	text-align: right;
+}
+#app>app-emulator div#catalog table>tbody>tr:hover {
+	background: var(--catalog-hover, #0ff6);
+}
+#app>app-emulator div#catalog table a {
+	display: block;
+	cursor: pointer;
+}
+#app>app-emulator div#catalog table td>a[name="download_file"] {
+	visibility: hidden;
+}
+#app>app-emulator div#catalog table>tbody>tr:hover>td>a[name="download_file"] {
+	visibility: visible;
+}
+#app>app-emulator div#catalog table a>svg {
+	width: var(--catalog-svg-size);
+	height: var(--catalog-svg-size);
+	vertical-align: middle;
+	pointer-events: none;
+}
+#app>app-emulator div#catalog:not(.up) table th>a {
+	pointer-events: none;
+}
+#app>app-emulator div#catalog:not(.up) table th>a>svg {
+	opacity: .3;
+}
+#app>app-emulator div#catalog table th>a[name="dir_up"]>svg {
+	fill: var(--catalog-svg-up-color);
+}
+#app>app-emulator div#catalog table td>a[name="download_file"]>svg {
+	background: var(--catalog-svg-dl-bg);
+	fill: var(--catalog-svg-dl-color);
+	margin: 0 0 1px;
+}
+#app>app-emulator.debuger div#catalog {
+	visibility: hidden;
+	pointer-events: none;
+}
+
+#app>app-conf div.slider>div:not(.active)::before {
+	transition: width .2s;
+}
+#app>app-conf div.slider>div::before {
+	position: absolute;
+	z-index: 1;
+	width: calc(var(--value) * 1%);
+	height: 0;
+	border: 2px solid var(--debug-border-color);
+}
+#app>app-conf div.slider>div>sl-handle {
+	border: 2px solid #fff;
+	border-radius: 50%;
+	height: var(--slider-hndl-width);
+}
+#app>app-conf>h3.h {
+	letter-spacing: .05em;
+	line-height: 1.5em;
+	text-align: right;
+}
+#app>app-conf>h3.slider_val {
+	--conf-h3-bg: var(--conf-slider-bg);
+	--conf-h3-color: currentColor;
+	--conf-h3-padding: var(--conf-h3-sl-padding);
+	font-weight: 500;
+}
+#app>app-conf>h3.slider_val::after {
+	content: " " attr(val) " " attr(unit);
+	color: var(--conf-h3-val-color);
+}
+#app>app-conf>div.padding {
+	padding: 0 15px;
+}
+#app>app-conf>div.sl-bg {
+	background: var(--conf-slider-bg);
+}
+#app>app-conf>div#screen_aspect_ratio_fix {
+	display: grid;
+	grid-template: repeat(1, auto) / repeat(3, auto);
+	background: #fff2;
+	white-space: nowrap;
+}
+#app>app-conf>div#screen_aspect_ratio_fix>label {
+	display: inline-flex;
+}
+#app>app-conf>div#rendering>input[value="1"]:checked~input#skip_frame+label {
+	opacity: .2;
+	pointer-events: none;
+}
+#app>app-conf>div#cpu>label>span {
+	font-size: 90%;
+	color: #ffae52;
+	margin-left: auto;
+	visibility: hidden;
+}
+#app>app-conf>div#cpu>label>span::before {
+	content: "\2039\a0";
+}
+#app>app-conf>div#cpu>label>span::after {
+	content: "\a0\203a";
+}
+#app>app-conf>div#cpu[cpu="8080"]>input[value="8085"]:checked+label>span,
+#app>app-conf>div#cpu[cpu="8080"]>input[value="Z80"]:checked+label>span,
+#app>app-conf>div#cpu[cpu="8085"]>input[value="8080"]:checked+label>span,
+#app>app-conf>div#cpu[cpu="8085"]>input[value="Z80"]:checked+label>span,
+#app>app-conf>div#cpu[cpu="Z80"]>input[value="8080"]:checked+label>span,
+#app>app-conf>div#cpu[cpu="Z80"]>input[value="8085"]:checked+label>span {
+	visibility: visible;
+}
+
+#app>app-emulator:not(.debuger)>app-debuger>div:is(#regs, #flags, #dump, #disassm, #status) {
+	visibility: hidden;
+	pointer-events: none;
+}
+#app>app-emulator>app-debuger {
+	position: absolute;
+	inset: 0 0 0 100%;
+	z-index: 5;
+	flex: 1;
+	display: grid;
+	grid: 0fr 1fr 0fr / 0fr auto 0fr;
+	color: var(--debug-color1);
+	font-size: 120%;
+	font-family: monospace;
+	line-height: 16px;
+	gap: 2px;
+	white-space: nowrap;
+	box-sizing: border-box;
+	text-shadow: 0 0 0;
+}
+#app>app-emulator.debuger>app-debuger {
+	inset: 0 0 0 auto;
+	background: var(--debug-border-color);
+	padding: 2px;
+}
+#app>app-emulator>app-debuger>div[id] a[name] {
+	color: #ccc;
+	cursor: pointer;
+}
+#app>app-emulator>app-debuger>div:is(#regs, #flags, #dump, #disassm, #status) {
+	contain: layout;
+	background: repeating-linear-gradient(#ff88002e, #ff880038 1px,  transparent 2px,  transparent 3px), #000;
+	white-space: pre;
+}
+#app>app-emulator>app-debuger>div.active:is(#regs, #flags, #dump, #disassm, #status) {
+	outline: 2px solid var(--debug-active-border-color);
+}
+
+#app>app-emulator>app-debuger>div#regs {
+	display: grid;
+	grid: auto / repeat(5, auto);
+	justify-content: start;
+	padding: 0 .5ch 2px;
+}
+#app>app-emulator>app-debuger>div#regs>tpl-row {
+	display: contents;
+}
+#app>app-emulator>app-debuger>div#regs>div {
+	background: #fff3;
+	color: #fff;
+}
+#app>app-emulator>app-debuger>div#regs div {
+	text-align: right;
+	padding: 0 1ch;
+}
+#app>app-emulator>app-debuger>div#regs div:is(:nth-child(5n+3),:nth-child(5n+4),:nth-child(5n+5)) {
+	border-left: 1px solid var(--debug-color4);
+}
+#app>app-emulator>app-debuger>div#regs>tpl-row>div:is(:nth-child(5n+2),:nth-child(5n+3),:nth-child(5n+4),:nth-child(5n+5)) {
+	color: var(--debug-color2);
+}
+#app>app-emulator>app-debuger>div#regs>tpl-row>div:is(:nth-child(5n+4),:nth-child(5n+5)) {
+	min-width: 7ch;
+}
+#app>app-emulator>app-debuger>div#regs>tpl-row>div:nth-child(5n+1)::after {
+	content: ":";
+	color: #fff;
+}
+#app>app-emulator>app-debuger>div#regs>tpl-row>div:nth-child(5n+1) {
+	padding: 0 0 0 1ch;
+}
+#app>app-emulator>app-debuger>div#regs>tpl-row.hl>div {
+	animation: highlight 3s forwards;
+}
+#app>app-emulator>app-debuger>div#regs>tpl-row:hover>div {
+	background: var(--debug-color-hover) !important;
+}
+#app>app-emulator>app-debuger>div#regs.active>tpl-row.current>div {
+	background: var(--debug-color-cursor) !important;
+}
+#app>app-emulator>app-debuger>div#regs>tpl-row>div>input {
+	font: inherit;
+	background: #fff;
+	color: #000;
+	width: 5ch;
+	height: 16px;
+	padding: 0 .5ch;
+	margin: 0 -.5ch;
+	border: 0;
+	text-align: right;
+	text-transform: uppercase;
+}
+
+#app>app-emulator>app-debuger>div#flags {
+	display: grid;
+	grid: auto / repeat(3, auto);
+}
+#app>app-emulator>app-debuger>div#flags:not(.z80) {
+	padding: 0 .5ch;
+}
+#app>app-emulator>app-debuger>div#flags>div:first-child {
+	grid-column: span 3;
+	height: fit-content;
+	background: #fff3;
+	color: #fff;
+	text-align: center;
+}
+#app>app-emulator>app-debuger>div#flags>tpl-row {
+	display: contents;
+}
+#app>app-emulator>app-debuger>div#flags>tpl-row:last-child>div:nth-child(1) {
+	grid-column: span 2;
+}
+#app>app-emulator>app-debuger>div#flags>tpl-row>div:nth-child(1) {
+	padding: 0 0 0 1ch;
+}
+#app>app-emulator>app-debuger>div#flags>tpl-row>div:nth-last-child(2) {
+	text-align: right;
+}
+#app>app-emulator>app-debuger>div#flags>tpl-row>div:nth-last-child(2)::after {
+	color: #fff;
+}
+#app>app-emulator>app-debuger>div#flags>tpl-row>div:last-child {
+	color: var(--debug-color2);
+	padding: 0 1ch;
+}
+#app>app-emulator>app-debuger>div#flags>tpl-row>div:is(:nth-child(1), :nth-last-child(2))::after {
+	content: ":";
+}
+#app>app-emulator>app-debuger>div#flags>tpl-row:hover>div {
+	background: var(--debug-color-hover);
+}
+#app>app-emulator>app-debuger>div#flags.active>tpl-row.current>div {
+	background: var(--debug-color-cursor);
+}
+
+#app>app-emulator>app-debuger>div#dump {
+	grid-column: span 2;
+	padding: 0 1ch;
+	counter-set: dump-header var(--start-header);
+	overflow: hidden;
+	--start: 0;
+	--start-header: 0;
+}
+#app>app-emulator>app-debuger>div#dump>header {
+	background: #fff3;
+}
+#app>app-emulator>app-debuger>div#dump>header>code::before {
+	content: ".";
+	color: var(--dump-head-dot-color, #fff);
+}
+#app>app-emulator>app-debuger>div#dump>header>:is(code,samp)::after {
+	content: counter(dump-header, hex-cyclic);
+	counter-increment: dump-header;
+	color: var(--debug-color1);
+}
+#app>app-emulator>app-debuger>div#dump>header>samp:first-of-type {
+	padding-left: 1px;
+}
+#app>app-emulator>app-debuger>div#dump>div {
+}
+#app>app-emulator>app-debuger>div#dump>div>div {
+	display: inline-block;
+}
+#app>app-emulator>app-debuger>div#dump :is(addr, code, samp) {
+	display: inline-block;
+}
+#app>app-emulator>app-debuger>div#dump>div>addr::after {
+	content: ":";
+	color: var(--debug-color3);
+}
+#app>app-emulator>app-debuger>div#dump>div>div:last-child {
+	border: solid var(--debug-color4);
+	border-width: 0 1px;
+}
+#app>app-emulator>app-debuger>div#dump code {
+	color: var(--debug-color2);
+	padding: var(--dump-code-padding, 0 2px);
+}
+#app>app-emulator>app-debuger>div#dump code:nth-of-type(8n) {
+	margin-right: var(--dump-code8-margin, 3px);
+}
+#app>app-emulator>app-debuger>div#dump>div>div>:is(code, samp).cursor::before {
+	position: relative;
+	contain: strict;
+	pointer-events: none;
+	left: calc(var(--dump-cursor-width) * var(--dump-cursor-pos, 1) - var(--dump-cursor-left-adj, 0px));
+	margin-left: calc(var(--dump-cursor-width) * -1);
+	border-left: var(--dump-cursor-width) solid var(--dump-cursor-color);
+	mix-blend-mode: screen;
+	animation: var(--dump-cursor-blink);
+}
+#app>app-emulator>app-debuger>div#dump.text.active>div>div>samp.cursor::before,
+#app>app-emulator>app-debuger>div#dump.code.active>div>div>code.cursor::before {
+	content: "";
+}
+#app>app-emulator>app-debuger>div#dump.code.nibl {
+	--dump-cursor-pos: 2;
+}
+#app>app-emulator>app-debuger>div#dump.code {
+	--dump-cursor-left-adj: .5px;
+}
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(1):hover)>header>code:nth-of-type(1)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(2):hover)>header>code:nth-of-type(2)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(3):hover)>header>code:nth-of-type(3)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(4):hover)>header>code:nth-of-type(4)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(5):hover)>header>code:nth-of-type(5)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(6):hover)>header>code:nth-of-type(6)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(7):hover)>header>code:nth-of-type(7)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(8):hover)>header>code:nth-of-type(8)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(9):hover)>header>code:nth-of-type(9)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(10):hover)>header>code:nth-of-type(10)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(11):hover)>header>code:nth-of-type(11)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(12):hover)>header>code:nth-of-type(12)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(13):hover)>header>code:nth-of-type(13)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(14):hover)>header>code:nth-of-type(14)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(15):hover)>header>code:nth-of-type(15)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>code:nth-of-type(16):hover)>header>code:nth-of-type(16)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(1):hover)>header>samp:nth-of-type(1)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(2):hover)>header>samp:nth-of-type(2)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(3):hover)>header>samp:nth-of-type(3)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(4):hover)>header>samp:nth-of-type(4)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(5):hover)>header>samp:nth-of-type(5)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(6):hover)>header>samp:nth-of-type(6)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(7):hover)>header>samp:nth-of-type(7)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(8):hover)>header>samp:nth-of-type(8)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(9):hover)>header>samp:nth-of-type(9)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(10):hover)>header>samp:nth-of-type(10)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(11):hover)>header>samp:nth-of-type(11)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(12):hover)>header>samp:nth-of-type(12)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(13):hover)>header>samp:nth-of-type(13)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(14):hover)>header>samp:nth-of-type(14)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(15):hover)>header>samp:nth-of-type(15)::after,
+#app>app-emulator>app-debuger>div#dump:has(>div>div>samp:nth-of-type(16):hover)>header>samp:nth-of-type(16)::after,
+#app>app-emulator>app-debuger>div#dump>div[id]:has(div:hover)>addr {
+	color: var(--debug-color3);
+}
+
+#app>app-emulator>app-debuger>div#disassm {
+	grid-row: span 2;
+	width: 35ch;
+	padding: 2px 0;
+	overflow: hidden;
+}
+#app>app-emulator>app-debuger>div#disassm.z80 {
+	width: 43ch;
+}
+#app>app-emulator>app-debuger>div#disassm>div.disassm.pc {
+	background: var(--debug-color-pc);
+}
+#app>app-emulator>app-debuger>div#disassm>div.disassm.bp:not(.pc) {
+	background: var(--debug-color-bp);
+}
+#app>app-emulator>app-debuger>div#disassm>div.disassm:hover {
+	background: var(--debug-color-hover);
+}
+#app>app-emulator>app-debuger>div#disassm.active>div.disassm.current {
+	background: var(--debug-color-cursor);
+}
+#app>app-emulator>app-debuger>div#disassm>div.disassm>* {
+	display: inline;
+	pointer-events: none;
+}
+#app>app-emulator>app-debuger>div#disassm>div.disassm>assm {
+	color: var(--debug-color2);
+}
+#app>app-emulator>app-debuger>div#disassm>div.disassm>addr::after {
+	content: ":";
+	color: var(--debug-color3);
+}
+#app>app-emulator>app-debuger>div#disassm>div.disassm::before {
+	content: " ";
+}
+#app>app-emulator>app-debuger>div#disassm>div.disassm.bp::before {
+	content: "#";
+	color: var(--debug-color-bp-lbl);
+}
+
+#app>app-emulator>app-debuger>div#status {
+	display: flex;
+	grid-column: span 3;
+}
+#app>app-emulator>app-debuger>div#status>div {
+	padding: 2px 1ch;
+}
+#app>app-emulator>app-debuger>div#status>span {
+	display: block;
+	width: 2px;
+	background: var(--debug-border-color);
+}
+#app>app-emulator>app-debuger>div#status>div>span {
+	color: var(--debug-color2);
+}
+#app>app-emulator>app-debuger>div#status>div>span.tics {
+	display: inline-block;
+	width: 13ch;
+}
+
+#app>app-emulator>app-debuger>div#dump_menu {
+	position: absolute;
+	z-index: -1;
+	background: var(--dump-menu-bg, #eee);
+	color: var(--dump-menu-color, #d70);
+	max-width: min-content;
+	padding: var(--dump-menu-padding, .5em 0);
+	border: var(--dump-menu-border);
+	border-left: var(--dump-menu-border-left, 10px solid #f00);
+	box-shadow: var(--dump-menu-shadow, 0 0 3px #0009);
+	visibility: hidden;
+}
+#app>app-emulator>app-debuger>div#dump_menu.show {
+	z-index: 1;
+	visibility: visible;
+}
+#app>app-emulator>app-debuger>div#dump_menu>ol {
+	margin: var(--dump-menu-list-margin, 0 0 0 -10px);
+	padding: 0;
+	text-transform: uppercase;
+	list-style: none;
+}
+#app>app-emulator>app-debuger>div#dump_menu>ol>li {
+	contain: content;
+	display: flex;
+	justify-content: space-between;
+	color: var(--dump-menu-list-color);
+	border-left: var(--dump-menu-list-border-left, 10px solid #f00);
+	padding: var(--dump-menu-list-padding, 2px 2ch 2px 5ch);
+}
+#app>app-emulator>app-debuger>div#dump_menu>ol>li[data-a]:hover {
+	background: var(--dump-menu-list-hover-bg, #fff);
+	border-color: var(--dump-menu-list-hover-border-color, #f99);
+	cursor: pointer;
+}
+#app>app-emulator>app-debuger>div#dump_menu>ol>li>input {
+	font: inherit;
+	background: inherit;
+	border: solid #000;
+	border-width: 0 0 1px;
+	text-transform: uppercase;
+}
+#app>app-emulator>app-debuger>div#dump_menu>ol>li>input.error {
+	background: linear-gradient(to bottom, #f666, #e556);
+}
+#app>app-emulator>app-debuger>div#dump_menu>ol>li>span {
+	font-size: var(--dump-menu-list-del-fs, 15px);
+	color: var(--dump-menu-list-del-color, #999);
+}
+#app>app-emulator>app-debuger>div#dump_menu>ol>li>span:hover {
+	color: var(--dump-menu-list-del-hover-color, #555);
+}
+#app>app-emulator>app-debuger>div#dump_menu>ol>li>span:hover {
+	--dump-menu-list-del-hover-color: #900;
+}
+
+#app.modal.custom-conf>app-emulator {
+	pointer-events: none;
+	visibility: hidden;
+}
+#app.modal>app-modal.dialog.bp_list {
+	--input-border: 0;
+	--input-height: 2em;
+	--input-padding: 1px 1ch;
+	--dialog-width: auto;
+	left: 50%;
+	right: auto;
+	transform: translateX(-50%);
+}
+#app.modal>app-modal.dialog.bp_list>div {
+	overflow-y: hidden;
+}
+#app.modal>app-modal.dialog.bp_list>div>form {
+	overflow-y: auto;
+	height: calc(100% - var(--input-height));
+}
+#app.modal>app-modal.dialog.bp_list table select {
+	width: 16ch;
+}
+#app.modal>app-modal.dialog.bp_list table input.w100 {
+	width: 12ch;
+}
+#app.modal>app-modal.dialog.bp_list table input.w50 {
+	width: 7ch;
+}
+#app.modal>app-modal.dialog.bp_list table input[type="checkbox"]+label::before {
+	margin: 2px;
+}
+#app.modal>app-modal.dialog.bp_list table input {
+	text-transform: uppercase;
+}
+#app.modal>app-modal.dialog.bp_list table input[name="bp_add"] {
+	--input-padding: 3px 0 0;
+}
+#app.modal>app-modal.dialog.bp_list table input[name="bp_hits"].disabled {
+	background: #eee;
+	pointer-events: none;
+}
+#app.modal>app-modal.dialog.bp_list table {
+	margin-bottom: 1em;
+}
+#app.modal>app-modal.dialog.bp_list table th {
+	text-align: center;
+}
+#app.modal>app-modal.dialog.bp_list table td {
+	height: var(--input-height);
+	padding: 0;
+	text-align: center;
+}
+#app.modal>app-modal.dialog.bp_list table td.counter::before {
+	content: counter(counter) ".";
+	display: block;
+	width: 3ch;
+	padding: 0 .5ch;
+	text-align: right;
+}
+#app.modal>app-modal.dialog.bp_list table td>span {
+	display: inline-block;
+	font-size: 110%;
+	padding: 0 1ch;
+}
+#app.modal>app-modal.dialog.bp_list input.error {
+	animation: input-blink 300ms linear 3;
+}
+
+#app>app-modal.help li>svg {
+	width: 1.5ch;
+	height: 1.5ch;
+}
+#app>app-modal.help div.kbd {
+	display: grid;
+	grid: auto / repeat(35, 1fr);
+	align-content: start;
+	gap: 1px;
+	width: max-content;
+	padding: 20px;
+	margin: 1em auto;
+	border: 2px solid #000;
+	background: #ccc;
+}
+#app>app-modal.help div.kbd>div {
+	grid-column: span 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 38px;
+	height: 38px;
+	background: #fff;
+	color: #000;
+	border: 1px solid #000;
+	font: 500 15px arial;
+	text-shadow: 0 0;
+	-webkit-font-smoothing: antialiased;
+}
+#app>app-modal.help div.kbd>div:empty::before {
+	content: attr(t);
+}
+#app>app-modal.help div.kbd>div:empty::after {
+	content: attr(b);
+}
+#app>app-modal.help div.kbd>[arr] {
+	font-size: 155%;
+}
+#app>app-modal.help div.kbd>[u] {
+	background: #999;
+}
+#app>app-modal.help div.kbd>[w] {
+	width: auto;
+}
+#app>app-modal.help div.kbd>[s2] {
+	grid-column: span 2;
+}
+#app>app-modal.help div.kbd>[s4] {
+	grid-column: span 4;
+}
+#app>app-modal.help div.kbd>[s5] {
+	grid-column: span 5;
+}
+#app>app-modal.help div.kbd>[s6] {
+	grid-column: span 6;
+}
+#app>app-modal.help div.kbd>[s7] {
+	grid-column: span 7;
+}
+#app>app-modal.help div.kbd>[s8] {
+	grid-column: span 8;
+}
+#app>app-modal.help div.kbd>[s9] {
+	grid-column: span 9;
+}
+#app>app-modal.help div.kbd>[s11] {
+	grid-column: span 11;
+}
+#app>app-modal.help div.kbd>[s14] {
+	grid-column: span 14;
+}
+#app>app-modal.help div.kbd>[s16] {
+	grid-column: span 16;
+}
+#app>app-modal.help div.kbd>[s18] {
+	grid-column: span 18;
+}
+#app>app-modal.help div.kbd>[s25] {
+	grid-column: span 25;
+}
+#app>app-modal.help div.kbd>div[r2] {
+	grid-row: span 2;
+	height: auto;
+}
+#app>app-modal.help div.kbd2 {
+	grid: auto / repeat(92, 1fr);
+}
+#app>app-modal.help div.kbd2>div {
+	grid-column: span 4;
+	width: 35px;
+	height: 35px;
+	font: 500 14px arial;
+}
+#app>app-modal.help div.kbd2>b {
+	grid-column: span 2;
+}
+#app>app-modal.help div.kbd2>b[sp] {
+	grid-column: span 92;
+	display: block;
+	height: 20px;
+}
+#app>app-modal.help div.kbd2>div:empty::before,
+#app>app-modal.help div.kbd2>div:empty::after {
+	display: inline-block;
+	width: 3ch;
+	white-space: pre;
+	word-spacing: .5ch;
+}
+#app>app-modal.help div.kbd2>div[r]:empty::after {
+	text-align: right;
+}
+#app>app-modal.help div.kbd2>div[n]:empty::after {
+	font-size: 70%;
+	width: auto;
+}
+#app>app-modal.help div.kbd2>[arr] {
+	font-size: 135%;
+}
+#app>app-modal.help div.kbd2>div[s] {
+	font-size: inherit;
+}
+#app>app-modal.help div.kbd2>div[enter2] {
+	position: relative;
+}
+#app>app-modal.help div.kbd2>div[enter2]::before {
+	content: "";
+	position: absolute;
+	top: -3px;
+	width: 100%;
+	height: 3px;
+	background: inherit;
+	border: solid #000;
+	border-width: 0 1px;
+}
+#app>app-modal.help div.kbd2>div[num0]:empty::before {
+	width: 8ch;
+}
+#app>app-modal.help div.kbd2>div[num0]:empty::after {
+	width: 11ch;
+}
+#app>app-modal.help h4 {
+	text-align: center;
+}
+#app.custom-conf>app-modal.custom-conf {
+	top: 0;
+	bottom: 0;
+}
+#app>app-modal.custom-conf>div {
+	background: #e0e1eb;
+}
+#app>app-modal.custom-conf>div {
+	display: flex;
+	flex-direction: column;
+	scroll-snap-type: y mandatory;
+	scroll-padding: 20px;
+	--input-color: #333;
+	--input-focus-color: #00f;
+	--input-btn-color: #09f;
+	--input-btn-bg: linear-gradient(to bottom, #e5fffa, #ffffdb);
+}
+#app>app-modal.custom-conf table {
+	width: 100%;
+	background: #fcfcff;
+	border-spacing: 0;
+}
+#app>app-modal.custom-conf table>caption {
+	font-weight: 600;
+	font-size: 110%;
+	line-height: 1.6em;
+	background: #0135;
+	color: #fff;
+}
+#app>app-modal.custom-conf table td {
+	white-space: nowrap;
+}
+#app>app-modal.custom-conf table a {
+	color: #f00;
+	cursor: pointer;
+}
+#app>app-modal.custom-conf table a:hover {
+	text-decoration: underline;
+}
+#app>app-modal.custom-conf div#conf_list {
+	flex: 0 0 auto;
+	counter-reset: num;
+	overflow: auto;
+	margin: 20px auto max(20px, calc(100vh - var(--table-height) * 1px - var(--title-height) * 1px));
+	height: calc(var(--table-height) * 1px);
+	scroll-snap-type: y mandatory;
+	scroll-snap-align: start;
+}
+#app>app-modal.custom-conf div#conf_list:empty {
+	display: none;
+}
+#app>app-modal.custom-conf form#new_conf {
+	margin: 0 auto 19px;
+	scroll-snap-align: start;
+}
+#app>app-modal.custom-conf div#conf_list>table {
+	scroll-snap-align: start;
+}
+#app>app-modal.custom-conf div#conf_list>table>caption {
+	position: relative;
+	z-index: 1;
+}
+#app>app-modal.custom-conf div#conf_list>table>tbody {
+	opacity: 1;
+	transition: opacity .5s .3s;
+}
+#app>app-modal.custom-conf div#conf_list>table>caption::before {
+	position: absolute;
+	left: 0;
+	counter-increment: num;
+	content: counter(num) ".";
+	padding: 0 10px;
+	color: #ff0;
+}
+#app>app-modal.custom-conf div#conf_list>table>caption>menu {
+	position: absolute;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	margin: -1.6em 0;
+	overflow: hidden;
+	visibility: hidden;
+	transition: margin .5s .3s, opacity .5s .3s, visibility 0s .4s;
+	font-size: 90%;
+	line-height: 1.8em;
+	text-align: right;
+	background: #fff;
+	box-shadow: 0 3px 5px #0003;
+}
+#app>app-modal.custom-conf div#conf_list>table>caption>menu>li {
+	display: inline-block;
+}
+#app>app-modal.custom-conf div#conf_list>table>caption>menu>li>a {
+	padding: 0 10px;
+}
+#app>app-modal.custom-conf div#conf_list>table>caption>menu>li+li::before {
+	content: "|";
+	padding: 0 1px 0 0;
+	color: #999;
+}
+#app>app-modal.custom-conf div#conf_list>table>caption:hover>menu {
+	opacity: 1;
+	margin: 0;
+	visibility: visible;
+}
+#app>app-modal.custom-conf div#conf_list>table>caption:hover~tbody {
+	opacity: .3;
+}
+#app>app-modal.custom-conf div#conf_list>table td.hr {
+	font-size: 0;
+	padding: 0;
+	border: 1px inset #fff;
+}
+#app>app-modal.custom-conf div#conf_list>table :is(td, th) {
+	padding: 3px 1ch;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.addr th {
+	min-width: 7ch;
+	white-space: nowrap;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.addr :is(td, th) {
+	text-align: center;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.addr :is(td, th):nth-child(2n) {
+	background: #0131;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.addr>tr.light {
+	background: #fffc;
+	color: #00f;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.addr {
+	background: #8893;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.params {
+	background: #eef3;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.params td {
+	padding: 3px 10px;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.params tr:nth-child(2n),
+#app>app-modal.custom-conf form#new_conf>table tr:nth-child(2n) {
+	background: #0131;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.params td:last-child {
+	color: #00f;
+}
+#app>app-modal.custom-conf form#new_conf>table.pad td {
+	padding: 0 10px;
+	line-height: 1.8em;
+}
+#app>app-modal.custom-conf div#conf_list>table tbody.params td:first-child,
+#app>app-modal.custom-conf form#new_conf>table td:first-child {
+	text-shadow: -.4px 0;
+}
+#app>app-modal.custom-conf form#new_conf>table td.va {
+	vertical-align: top;
+}
+#app>app-modal.custom-conf form#new_conf>table td#size {
+	text-transform: uppercase;
+}
+#app>app-modal.custom-conf form#new_conf>table td#fn {
+	font-weight: 600;
+	max-width: 0;
+	color: #66f;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#app>app-modal.custom-conf form#new_conf>table.inp16 input {
+	width: 16ch;
+	text-transform: uppercase;
+}
+#app>app-modal.custom-conf form#new_conf>table input::placeholder {
+	color: #ccc;
+	text-transform: none;
+}
+#app>app-modal.custom-conf form#new_conf>table label {
+	display: block;
+}
+#app>app-modal.custom-conf form#new_conf>table tr.error {
+	animation: conf-error 300ms linear 5;
+}
+#app>app-status.show {
+	transition-delay: 3s, 0s;
+}
+#app.modal>app-status {
+	z-index: 1001;
+}
+#app>app-menu {
+	z-index: 99;
+}
+#app>app-menu>span>a {
+	text-shadow: .5px 0 currentColor;
+}
+#app>app-emulator.debuger~app-menu>span.normal,
+#app>app-emulator:not(.debuger)~app-menu>span.debug {
+	display: none;
+}
+
+@keyframes dump-cursor {
+	0%,49% {
+		visibility: visible;
+	}
+	50%,100% {
+		visibility: hidden;
+	}
+} 
+@keyframes highlight {
+	0% {
+		background: var(--debug-highlight);
+	}
+	100% {
+		background: #0000;
+	}
+} 
+@keyframes input-blink {
+	0% {
+		background: #f00;
+	}
+	100% {
+		background: #fff;
+	}
+}
+@keyframes conf-error {
+	0% {
+		background: #f00;
+	}
+	100% {
+		background: #fff;
+	}
+}
+@media (max-width: 1000px) {
+	#app {
+		--menu-font: 11px/18px var(--font-family);
+	}
+}
+@media (max-width: 850px) {
+	#app {
+		--menu-font: 10px/16px var(--font-family);
+		--menu-div-padding: 0 .5ch;
+		--menu-conf-size: 14px;
+	}
+}
+@-moz-document url-prefix() {
+	#app {
+		--dump-cursor-shf: 1;
+	}
+}

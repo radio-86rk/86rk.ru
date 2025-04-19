@@ -1,0 +1,47 @@
+chat-mysmiles {
+	display: block;
+	position: relative;
+	font-size: 0;
+	touch-action: none;
+}
+chat-mysmiles div.buttons-control,
+chat-mysmiles div.scroll {
+	height: 40px;
+	overflow: hidden;
+}
+chat-mysmiles td>div.scroll {
+	padding: 0 10px;
+}
+chat-mysmiles td>div.scroll>div {
+	height: 100%;
+	overflow: hidden;
+}
+chat-mysmiles img[name="smile"] {
+	margin: 0 5px;
+	cursor: pointer;
+}
+chat-mysmiles button:active {
+	transform: translate(1px, 1px);
+}
+chat-mysmiles div.scroll>div.wait * {
+	visibility: hidden;
+}
+chat-mysmiles div.scroll>div.wait {
+	margin: 0 -50px;
+	box-shadow: var(--wait-shadow, inset 0 0 20px #fff));
+	background-color: var(--wait-color, #39f);
+	background-image: linear-gradient(45deg,
+		#fff3 25%, transparent 25%, transparent 50%,
+		#fff3 50%, #fff3 75%, transparent 75%, transparent
+	) !important;
+	background-size: 50px 50px;
+	animation: sm-anim-wait 3s linear infinite;
+}
+@keyframes sm-anim-wait {
+	0% {
+		background-position: 500px 100%;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}

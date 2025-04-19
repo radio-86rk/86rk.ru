@@ -1,0 +1,8 @@
+@import "../webcam.css";
+
+chat-win2 div.webcam-view {
+	width: 100%;
+}
+div.webcam-view>div {
+	margin: 0;
+}

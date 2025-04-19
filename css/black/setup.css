@@ -1,0 +1,19 @@
+@import "../setup.css?1";
+
+.app-chat chat-setup {
+	--th-color: #f80;
+	--td-border: 2px groove #f80;
+	--smile-border: 1px solid #433;
+	--slider-handle-filter: saturate(5);
+	--option-color: #c80;
+	--sb-thumb-bg: #c80;
+}
+chat-setup td.nick-align>img {
+	filter: hue-rotate(192deg) saturate(2);
+}
+chat-setup div.slider>div#slider::before {
+	filter: sepia(1) saturate(15);
+}
+chat-setup td.sounds>div>input.speaker {
+	filter: hue-rotate(180deg) saturate(1.2);
+}

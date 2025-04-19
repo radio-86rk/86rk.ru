@@ -1,0 +1,14 @@
+#app {
+	--title-text-shadow: none;
+	--menu-hr-bt: 1px solid #ccc;
+	--menu-hr-bb: 1px solid #fff;
+}
+#app input:is([type="checkbox"], [type="radio"])+label::before {
+	filter: saturate(0);
+}
+#app div.slider>div::before {
+	filter: contrast(0);
+}
+#app div.slider>div::after {
+	border-color: #ccc;
+}

@@ -1,0 +1,9 @@
+@import "../dictaphone.css";
+
+chat-dictaphone {
+	position: relative;
+	background-color: #ff7429;
+}
+chat-dictaphone au-time {
+	color: #fff;
+}

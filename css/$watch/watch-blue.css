@@ -1,0 +1,48 @@
+@import "watch.css";
+
+body>watch {
+	background: url(../../images/$watch/watch-blue-dial.png) no-repeat;
+}
+body>watch>div {
+	background: url(../../images/$watch/watch-blue-arrows.png) no-repeat;
+}
+body>watch.zoom60 {
+	background-image: url(../../images/$watch/watch-blue-dial-55.png);
+}
+body>watch.zoom60>div {
+	background-image: url(../../images/$watch/watch-blue-arrows-55.png);
+}
+body>watch.zoom80 {
+	background-image: url(../../images/$watch/watch-blue-dial-73.png);
+}
+body>watch.zoom80>div {
+	background-image: url(../../images/$watch/watch-blue-arrows-73.png);
+}
+body>watch.zoom110,
+body>watch.zoom120,
+body>watch.zoom130,
+body>watch.zoom140,
+body>watch.zoom150 {
+	background-image: url(../../images/$watch/watch-blue-dial-137.png);
+}
+body>watch.zoom110>div,
+body>watch.zoom120>div,
+body>watch.zoom130>div,
+body>watch.zoom140>div,
+body>watch.zoom150>div {
+	background-image: url(../../images/$watch/watch-blue-arrows-137.png);
+}
+body>watch.zoom160,
+body>watch.zoom170,
+body>watch.zoom180,
+body>watch.zoom190,
+body>watch.zoom200 {
+	background-image: url(../../images/$watch/watch-blue-dial-182.png);
+}
+body>watch.zoom160>div,
+body>watch.zoom170>div,
+body>watch.zoom180>div,
+body>watch.zoom190>div,
+body>watch.zoom200>div {
+	background-image: url(../../images/$watch/watch-blue-arrows-182.png);
+}

@@ -1,0 +1,95 @@
+/***
+ ***  Файл содержит стили окна киллера
+ ***/
+
+chat-body>chat-win2 form.kill {
+	/*
+	 *  параметры окна
+	 */
+	padding: 20px;
+	color: #99f;
+}
+chat-body>chat-win2 form.kill h3 {
+	/*
+	 *  параметры заголовка
+	 */
+	margin: 0 0 20px;
+	text-align: center;
+}
+chat-body>chat-win2 form.kill h3>nick {
+	/*
+	 *  параметры ника в заголовке
+	 */
+	font-size: 120%;
+	color: #f70;
+}
+chat-body>chat-win2 form.kill a {
+	/*
+	 *  параметры ссылок
+	 */
+	color: #f70;
+	text-decoration: none;
+	cursor: pointer;
+}
+chat-body>chat-win2 form.kill a:hover {
+	text-decoration: underline;
+}
+chat-body>chat-win2 form.kill .inp {
+	/*
+	 *  параметры полей ввода
+	 */
+	font-size: 100%;
+}
+chat-body>chat-win2 form.kill input[type="submit"].btn {
+	/*
+	 *  параметры кнопки
+	 */
+	width: 100%;
+	font-size: 110%;
+	background: #fc9;
+	color: #f00;
+	border-color: #f00;
+}
+chat-body>chat-win2 form.kill fieldset {
+	/*
+	 *  параметры контейнера группировки
+	 */
+	margin: 10px;
+	padding: 5px;
+	border: 1px solid #f70;
+}
+chat-body>chat-win2 form.kill legend {
+	/*
+	 *  параметры подписей к флажкам и переключателям
+	 */
+	color: #99c;
+	padding: 0 10px;
+}
+chat-body>chat-win2 form.kill tbody.t td {
+	padding: 2px 7px;
+}
+chat-body>chat-win2 form.kill tbody.t>tr:not(:last-of-type)>td {
+	border-bottom-color: transparent;
+}
+chat-body>chat-win2 form.kill table tbody.t>tr:nth-of-type(odd) {
+	background: #f3f3ff;
+}
+chat-body>chat-win2 form.kill table.list tbody.t td:not(:first-of-type) {
+	font-weight: 400;
+	font-size: 90%;
+	color: #00f;
+}
+chat-body>chat-win2 form.kill img.flag {
+	vertical-align: middle;
+}
+chat-body>chat-win2 form.kill .blink {
+	animation: kill-blink 200ms linear 5;
+}
+@keyframes kill-blink {
+	0% {
+		background: #f00;
+	}
+	100% {
+		background: #800;
+	}
+}

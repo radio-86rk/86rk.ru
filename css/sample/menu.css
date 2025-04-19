@@ -1,0 +1,282 @@
+/***
+ ***  Файл содержит стили расширенного меню чата
+ ***/
+
+popup-menu {
+	/*
+	 *  параметры основного контейнера меню
+	 */
+	contain: paint;
+	display: block;
+	position: absolute;
+	left: 1px;
+	right: 1px;
+	z-index: 13;
+	box-shadow: 0 0 5px #0008;
+	margin: 1px 0;
+	overflow: hidden;
+}
+
+/*
+ *  следующие стили определяют параметры горизонтального меню,
+ *  которое является меню верхнего уровня
+ */
+popup-menu>table {
+	/*
+	 *  параметры таблицы, в которой расположено горизонтальное меню
+	 */
+	position: relative;
+	z-index: 2;
+	border: 1px #fff solid;
+}
+popup-menu>table td {
+	/*
+	 *  параметры каждого пункта горизонтального меню
+	 */
+	white-space: nowrap;
+	color: #fff;
+	background: #99a;
+	font: normal 400 12px arial;
+	border-right: 1px solid #858599;
+	border-left: 1px solid #acacb9;
+	padding: 3px 10px 3px;
+	text-shadow: -1px -1px 0 #0002;
+}
+popup-menu.top>table td:first-child {
+	/*
+	 *  дополнительные параметры первой ячейки для меню сверху
+	 */
+}
+popup-menu.bottom>table td:first-child {
+	/*
+	 *  дополнительные параметры первой ячейки для меню снизу
+	 */
+}
+popup-menu.top>table td:last-child {
+	/*
+	 *  дополнительные параметры последней ячейки для меню сверху
+	 */
+}
+popup-menu.bottom>table td:last-child {
+	/*
+	 *  дополнительные параметры последней ячейки для меню снизу
+	 */
+}
+popup-menu>table td.sel {
+	/*
+	 *  параметры выбранного пункта горизонтального меню
+	 */
+	color: #333;
+	text-shadow: -1px 0 0 #333;
+	background: linear-gradient(#efefff 0%,#ebeafc 10%,#dfddef 25%,#e2dff1 37%,#e3e0f4 50%,#d6d4e8 50%,#e7e9fd 83%,#f0f6ff 100%);
+}
+popup-menu td.timer {
+	/*
+	 *  параметры циферблата таймера
+	 */
+	font-weight: 700;
+	text-shadow: -1px -1px 0px #0002;
+}
+popup-menu td.clock {
+	/*
+	 *  параметры циферблата часов
+	 */
+	color: #fda;
+}
+
+/*
+ *  следующие стили определяют параметры выпадающего подменю
+ */
+popup-sub-menu {
+	/*
+	 *  параметры контейнера выпадающего подменю
+	 */
+	contain: paint;
+	display: block;
+	position: absolute;
+	z-index: 12;
+	left: -1000px;
+	overflow: hidden;
+	white-space: nowrap;
+	background: #dde;
+	font: normal 400 12px arial;
+	border: 1px solid #e74;
+	width: 176px;
+	box-shadow: 2px 2px 6px #0009;
+}
+popup-sub-menu>item {
+	/*
+	 *  параметры каждого пункта выпадающего подменю
+	 */
+	display: block;
+	color: #666;
+	border-left: ridge 3px #d60;
+	padding: 2px 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+popup-sub-menu>item[data-menu]:hover {
+	/*
+	 *  параметры пункта подменю под указателем мышки
+	 */
+	background: #99a;
+	color: #fff;
+	border-left: ridge 3px #f80;
+	text-shadow: 0px -1px 0px #0004;
+	box-shadow: 1px 1px 3px 0px #0006;
+}
+popup-sub-menu>item[sub="1"]::before {
+	/*
+	 *  параметры символа "стрелка", отображаемого в пункте подменю,
+	 *  которая означает, что существует подменю следующего уровня
+	 */
+	content: "\27a7";
+	font: 100 13px/1 cursive;
+	color: #fff;
+	float: right;
+}
+popup-sub-menu>item:not([data-menu]) {
+	/*
+	 *  параметры неактивного пункта подменю
+	 */
+	color: #aab;
+	text-shadow: 1px 1px 0 #fff9;
+}
+popup-sub-menu>item>img {
+	/*
+	 *  параметры иконки в пункте меню
+	 */
+	vertical-align: middle;
+	padding: 0 5px;
+}
+popup-sub-menu>item[sel="1"] {
+	font-weight: 700;
+}
+popup-sub-menu>div.hr {
+	/*
+	 *  параметры контейнера разделительной линии
+	 */
+	border-left: ridge 3px #d60;
+	padding: 2px 4px;
+}
+popup-sub-menu>div.hr::after {
+	/*
+	 *  параметры разделительной линии между пунктами подменю
+	 */
+	content: "";
+	display: block;
+	border-top: 1px solid #930;
+	border-bottom: 1px solid #f93;
+	margin: 4px -3px 3px;
+}
+popup-sub-menu>div.copy {
+	color: #00f;
+	background: #f5f5f5;
+	padding: 5px;
+	line-height: 1.5
+}
+popup-sub-menu>div.copy>hr {
+	border-top: 1px solid #930;
+	border-bottom: 1px solid #f93;
+	height: 0;
+	margin: 5px -5px;
+}
+
+/*
+ *  следующие стили определяют параметры горизонтальной линии меню, которая
+ *  служит индикатором событий, а также с позволяет вызвать горизонтальное меню
+ */
+popup-menu>menu-line {
+	/*
+	 *  основные параметры
+	 */
+	display: block;
+	position: relative;
+	z-index: 1;
+	background: linear-gradient(#ffb565 0%,#ff9c3f 17%,#f06c00 50%,#cc5f00 51%,#e25a00 59%,#ff5601 71%,#cc5200 84%,#614d00 100%);
+	height: 10px;
+	font-size: 0;
+	transition: all 0.2s ease;
+}
+
+/*
+ *  следующие стили определяют параметры подменю для дополнительных функций,
+ *  которые подключаются к расширенному меню
+ */
+popup-sub-menu>table.game-score {
+	background: #f5f5f5;
+}
+popup-sub-menu>table.game-score td {
+	font: italic 8pt arial;
+	border-right: 1px solid #bbb;
+	padding: 2px 7px;
+	color: #66c;
+}
+popup-sub-menu>table.game-score td:last-child {
+	border: none;
+}
+popup-sub-menu>table.game-score tr.t td {
+	border-top: groove 2px #ddd;
+}
+popup-sub-menu>table.game-score th {
+	font-size: 12pt;
+	color: #660;
+	padding: 3px;
+}
+popup-sub-menu>table.game-score td.date {
+	color: #090;
+}
+popup-sub-menu>table.game-score td.nick {
+	color: #69f;
+	font: 700 11pt arial;
+	text-shadow: 1px 1px 1px #0004;
+}
+chat-body.blink popup-menu>menu-line {
+	animation: blink-line 1s linear infinite;
+}
+chat-body.blink popup-menu>table td.blink {
+	animation: blink-td 1s linear infinite;
+}
+chat-body.blink popup-sub-menu>item.blink {
+	animation: blink-item 1s linear infinite;
+}
+chat-body.popup-menu>chat-win2 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+@keyframes blink-line {
+	10%, 50% {
+		background: linear-gradient(#35ff42 0%,#13ff1b 17%,#00d000 50%,#00b003 51%,#0ac400 59%,#1ade00 71%,#09b000 84%,#007c0a 100%);
+	}
+	60%, 100%, 0% {
+		background: linear-gradient(#ff5d83 0%,#ff376c 17%,#ea0046 50%,#c80039 51%,#de004e 59%,#fa0068 71%,#c80046 84%,#8c001e 100%);
+	}
+}
+/*
+ *  Следующие два параметра задают цвета пункта меню при мигании
+ */
+@keyframes blink-td {
+	10%, 50% {
+		color: #f00;
+		text-shadow: -1px 0 0 #f00;
+	}
+	60%, 100%, 0% {
+		color: #090;
+		text-shadow: -1px 0 0 #0c0;
+	}
+}
+/*
+ *  следующие два параметра задают цвета пункта подменю при мигании
+ */
+@keyframes blink-item {
+	10%, 50% {
+		color: #090;
+		background: #f002;
+	}
+	60%, 100%, 0% {
+		color: #f00;
+		background: #0f02;
+	}
+}

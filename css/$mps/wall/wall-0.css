@@ -1,0 +1,26 @@
+@import "../widget-mps.css";
+
+.wall mps-text>div>div {
+	display: flex;
+}
+.wall mps-text div.num {
+	align-self: center;
+}
+.wall mps-text div.mess {
+	flex: 1 1 auto;
+	border-left: 1px solid #fff;
+}
+.wall mps-text div.user>div.views {
+	font-size: 110%;
+	line-height: 1.8;
+	color: #999;
+	margin-top: auto;
+	text-align: center;
+}
+.wall mps-nav>ul>li>a.prev,
+.wall mps-nav>ul>li>a.prevblock,
+.wall mps-nav>ul>li>a.next,
+.wall mps-nav>ul>li>a.nextblock {
+	font-size: 140%;
+	line-height: 28px;
+}

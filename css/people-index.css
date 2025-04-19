@@ -1,0 +1,336 @@
+div.content.people.menu {
+	display: flex;
+	flex-direction: column;
+}
+div.content.people>table {
+	width: 100%;
+}
+div.content.people>div.form {
+	display: flex;
+	box-shadow: var(--index-form-shadow, inset 0 0 48px #0003, inset 0 0 10px #88f6);
+}
+div.content.people>div.form fieldset {
+	flex: 1 1 auto;
+	margin: var(--index-form-margin, 15px 10px 10px);
+	padding: var(--index-form-padding, 1em .75em .6em);
+	border: var(--index-form-border, 1px solid var(--main-color));
+}
+div.content.people>div.form fieldset>legend {
+	font-weight: 600;
+	line-height: 0;
+	white-space: nowrap;
+}
+div.content.people>div.form fieldset>div {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+div.content.people>div.form fieldset>div>input[type="button"]:last-child {
+	margin-top: auto;
+}
+div.content.people table.stripy tr:nth-child(odd) {
+	background: var(--stripy-odd-bg, #c8c8c833);
+}
+div.content.people table.stripy tr:nth-child(even) {
+	background: var(--stripy-even-bg, #c8c8c80d);
+}
+div.content.people table.stripy td {
+	padding: var(--stripy-padding, 4px 10px) !important;
+}
+div.content.people>div.menu {
+	position: sticky;
+	z-index: 10;
+	bottom: 0;
+	margin-top: auto;
+	padding: var(--menu-padding, 10px 0 0);
+	background: var(--menu-bg, #fff);
+	background-clip: content-box;
+}
+div.content.people div.menu>table th {
+	background: var(--menu-th-bg, linear-gradient(#6868dc, #6464c3 50%, #3333aa 50%, #5151d2));
+}
+div.content.people div.menu input[type="button"] {
+	width: 100%;
+}
+div.content.people div.total {
+	font: 600 110% verdana;
+	border-bottom: var(--total-border, 2px solid var(--page-th-color, #66c));
+	color: var(--page-th-color, #66c);
+	margin: var(--total-margin, 10px 0 0);
+	padding: var(--total-padding, 0 20px);
+	text-align: right;
+}
+div.content.people notice {
+	display: block;
+	height: 0;
+	color: var(--notice-color, #66f);
+	line-height: var(--notice-line-height, 1.8em);
+	margin: var(--notice-margin, 0 0 10px);
+	box-shadow: var(--notice-shadow, inset 0 0 10px #0006);
+	transition: height .5s;
+	overflow: hidden;
+}
+div.content.people notice>div {
+	font-weight: var(--notice-font-weight, 600);
+	padding: var(--notice-padding, 5px 15px);
+}
+div.content.people notice>div>b {
+	font-size: 120%;
+	color: var(--notice-b-color, #fff);
+}
+div.content.people notice.error {
+	color: var(--notice-error-color, #ff0);
+	background: var(--notice-error-bg, #f33);
+}
+div.content.people table.fixed {
+	table-layout: fixed;
+	width: 100%;
+}
+div.content.people table.list .head {
+	position: relative;
+	color: var(--main-color);
+	padding: 5px 0;
+	text-align: center;
+	border-bottom: 2px solid var(--th-line, #66c);
+}
+div.content.people table.list .head>div.num {
+	margin: 5px;
+}
+div.content.people table.list div.nav {
+	display: inline-block;
+	font: var(--nav-font, 600 100% verdana);
+	color: var(--nav-color, #66c);
+	border-bottom: var(--nav-border, 1px solid var(--nav-line, #66c9));
+	padding: var(--nav-padding, 2px 7px);
+	cursor: default;
+}
+div.content.people table.list div.nav>div.nav1 {
+	position: absolute;
+	z-index: 1;
+	right: 0;
+	left: 0;
+	top: 25px;
+	height: 0;
+	overflow: hidden;
+	transition: height .3s;
+	pointer-events: none;
+}
+div.content.people table.list div.nav:hover>div.nav1 {
+	height: 220px;
+}
+div.content.people table.list div.nav1>div {
+	background: var(--nav1-bg, #6666d1);
+	padding: var(--nav1-padding, 10px);
+	margin: var(--nav1-margin, 5px 0 0);
+	box-shadow: var(--nav1-shadow, inset 0 0 3px 1px #0003, 0 2px 10px #0003);
+	pointer-events: auto;
+	font-size: 0;
+}
+div.content.people table.list div.nav1>div>a {
+	display: inline-block;
+	font-size: .8rem;
+	color: var(--nav1-color, #fff);
+	padding: 2px 5px;
+	margin: 0 1px;
+	text-decoration: none;
+}
+div.content.people table.list div.nav1>div>a:hover:not(.cur) {
+	color: var(--nav1-hover-color, #6565cc);
+	background: var(--nav1-hover-bg, #fff);
+	box-shadow: var(--nav1-hover-shadow, inset -1px -1px 1px #e7e4d8, inset 1px 1px 1px #fbfaf6);
+}
+div.content.people table.list div.nav1>div>a.cur {
+	color: var(--nav1-cur-color, #b7b5ab);
+	background: var(--nav1-cur-bg, #f5f2e5);
+	box-shadow: var(--nav1-cur-shadow, inset 1px 1px 1px #e7e4d8, inset -1px -1px 1px #fbfaf6);
+}
+div.content.people table.list:not(.page) tr.row td {
+	padding: 3px 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+div.content.people table.list a[nickid] {
+	position: relative;
+	font: 600 100%/1.5 verdana;
+	color: var(--nick-color, #00f);
+	text-decoration: none;
+	cursor: pointer;
+}
+div.content.people table.list a[nickid]:hover {
+	color: var(--nick-hover-color, #66f);
+	text-decoration: underline;
+}
+div.content.people table.list a[nickid][photo]::before {
+	content: attr(photo);
+	position: absolute;
+	left: calc(100% - 1em);
+	bottom: -.3em;
+	padding: var(--photo-cnt-padding, 0 .1em);
+	font: var(--photo-cnt-font, 500 85% arial);
+	color: var(--photo-cnt-color, #6565ce);
+	background: var(--photo-cnt-bg, #fffc);
+	border-radius: 5px;
+}
+div.content.people table.list a[nickid][photo="1"]::before {
+	content: none;
+}
+div.content.people table.list a[nickid][photo]::after {
+	content: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 17' fill='%23afb9d8'><path stroke='%23aaa' stroke-width='2px' fill='%236af' d='M10,5.3c-2.2,0-4,1.8-4,4s1.8,4,4,4s4-1.8,4-4S12.2,5.3,10,5.3z'/><path d='M1.6,3.7C0.7,3.7,0,4.4,0,5.3v9.8c0,0.9,0.7,1.6,1.6,1.6h16.8c0.9,0,1.6-0.7,1.6-1.6V5.3c0-0.9-0.7-1.6-1.6-1.6h-2.8l-1.3-3.3H5.8L4.4,3.7L1.6,3.7 M10,15.3c-3.3,0-6-2.7-6-6s2.7-6,6-6s6,2.7,6,6S13.3,15.3,10,15.3z M17.4,7.7c-0.7,0-1.3-0.6-1.3-1.3C16,5.6,16.6,5,17.4,5c0.7,0,1.3,0.6,1.3,1.3C18.7,7.1,18.1,7.7,17.4,7.7z'/></svg>");
+	display: inline-block;
+	width: 1.3em;
+	height: 1.1em;
+	padding: 0 .5em;
+	vertical-align: -.2em;
+}
+div.content.people table.list th.line {
+	height: 2px;
+	background: var(--th-line, #66c);
+}
+div.content.people table.list td.lock {
+	background: var(--td-lock, #f001);
+}
+div.content.people table.list td.wait {
+	background: var(--td-wait, #0701);
+}
+div.content.people table.list a.del {
+	color: var(--nick-del-color, #900);
+	text-decoration: line-through;
+}
+div.content.people table.page {
+	user-select: none;
+}
+div.content.people table.page th.h1 {
+	font-size: 120%;
+	color: var(--th-h1-color, #66c);
+	padding: 5px;
+}
+div.content.people table.page th.h2 {
+	color: var(--th-h2-color, #99d);
+	padding: var(--th-h2-padding, 5px);
+	border-top: var(--th-h2-border, 3px solid #fff);
+	text-align: right;
+	text-transform: uppercase;
+}
+div.content.people table.page tr.th th {
+	color: var(--page-th-color, #66c);
+	background: var(--page-th-bg, #66c3);
+	text-align: left;
+	padding: 2px 5px;
+}
+div.content.people table.page th.line {
+	background: var(--page-th-line, #99f);
+}
+div.content.people table.page th>a {
+	cursor: pointer;
+}
+div.content.people table.page tr.row:nth-child(odd) {
+}
+div.content.people table.page tr.row:nth-child(even) {
+	background: var(--page-row-even-bg, #ccc4);
+}
+div.content.people table.page td {
+	vertical-align: text-top;
+	padding: 3px 5px;
+}
+div.content.people table.page div.num {
+	padding: 5px;
+}
+div.content.people table.page div.nav>a {
+	display: inline-block;
+	font-weight: 600;
+	padding: 2px 5px;
+	color: var(--main-color);
+	text-decoration: none;
+}
+div.content.people table.page div.nav>a:hover {
+	color: var(--nav-hover-color, #fff);
+	background: var(--nav-hover-bg, #b3b3e1);
+}
+div.content.people table.page div.nav>a.cur {
+	color: var(--nav-cur-color, #cc9);
+	border: 2px solid;
+}
+div.content.people table.page td.empty {
+	text-align: center;
+	padding: var(--page-empty-padding, 10px);
+	background: var(--page-empty-bg, #c8c8dc33);
+}
+div.content.people table.lock tr.row td:nth-child(1) {
+	color: var(--lock-td1-color, #090);
+}
+div.content.people table.lock tr.row td:nth-child(2) {
+	color: var(--lock-td2-color, #099);
+	width: 1%;
+}
+div.content.people table.lock tr.row td:nth-child(3) {
+	color: var(--lock-td3-color, #009);
+	font-weight: 600;
+}
+div.content.people table.lock tr.row td:nth-child(4) {
+	color: var(--lock-td4-color, #900);
+}
+div.content.people table.search th {
+	font-size: 110%;
+	background: var(--search-bg, #64648266);
+	padding: 5px 10px;
+	text-align: left;
+	box-shadow: 1px 1px 2px #0003;
+}
+div.content.people table.search tr:last-child>td {
+	padding: 0;
+}
+div.content.people table.search tr.row td:first-of-type {
+	padding-left: 20px;
+}
+div.content.people table.search td.zodiac {
+	column-count: 2;
+}
+div.content.people div.search-list {
+	height: 0;
+	overflow: hidden;
+	transition: height .5s;
+}
+div.content.people table.birthday tr.row>td:first-of-type,
+div.content.people table.top tr.row>td:first-of-type,
+div.content.people table.lock tr.row>td:first-of-type {
+	width: 40px;
+	text-align: right;
+}
+
+@media (max-width: 400px) {
+	div.content.people>div.form {
+		flex-direction: column;
+	}
+}
+@media (max-width: 550px) {
+	div.content.people>div.form fieldset {
+		margin: 10px 5px 5px;
+		padding: 1em 5px 5px;
+	}
+}
+@media (max-width: 680px) {
+	form.people.search {
+		padding-bottom: 0;
+	}
+	div.content.people table.list a[nickid],
+	div.content.people table.list div.nav {
+		font-size: 110%;
+		font-weight: 500;
+	}
+	div.content.people table.list div.nav1>div>a {
+		font-size: 1rem;
+		font-weight: 700;
+		padding: 7px 12px;
+	}
+	:root {
+		--th-h2-padding: 5px 20px 5px 5px;
+	}
+	:root scrollbar {
+		top: 50px;
+		bottom: 47px;
+	}
+	:root .search scrollbar {
+		bottom: 0;
+	}
+}

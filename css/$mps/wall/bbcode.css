@@ -1,0 +1,6 @@
+@import "../bbcode.css";
+
+mps-help.bbcode mps-help-text {
+	border: 1px solid #999;
+	padding: 1px;
+}

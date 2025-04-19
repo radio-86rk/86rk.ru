@@ -1,0 +1,555 @@
+@font-face {
+	font-family: Classic Console Neue;
+	font-weight: normal;
+	font-style: normal;
+	src: url("../../fonts/clacon2.woff2") format("woff2");
+}
+
+#app {
+	--main-bg: #fff;
+	--main-color: #669;
+	--ctrl-width: 160px;
+	--demo-str-padding: 5px;
+	--demo-str-shadow: 0 0 0 5px #fff, 0 0 5px 5px #0006;
+}
+#app>app-editor {
+/*
+	max-width: 100%;
+	overflow: auto hidden;
+*/
+}
+#app>app-editor>* {
+	font-size: 0;
+	box-shadow: 0 0 2px #0006;
+	box-sizing: content-box;
+}
+#app div#matrix {
+	flex: 0 0 auto;
+	display: grid;
+	grid: repeat(var(--height), 1fr)/repeat(var(--width), 1fr);
+	background: var(--matrix-bg);
+	border: var(--matrix-border, var(--editor-border));
+	width: calc(var(--matrix-dot-size) * var(--width));
+	height: calc(var(--matrix-dot-size) * var(--height));
+	padding-left: calc(var(--matrix-dot-size) * calc(8 - var(--width)));
+}
+#app div#matrix>div {
+	background: var(--matrix-div-bg, var(--main-color));
+	border: dashed var(--matrix-div-bc, var(--main-color));
+	border-width: 0 1px 1px 0;
+	background-clip: padding-box;
+}
+#app div#matrix>div.br0 {
+	border-right-width: 0;
+}
+#app div#matrix>div.bb0 {
+	border-bottom-width: 0;
+}
+#app div#matrix>div.cur {
+	animation: .8s matrix-cur linear infinite;
+}
+#app div#matrix>div.dot {
+	background: var(--matrix-dot-bg, var(--main-bg));
+}
+#app div#table {
+	flex: 0 0 auto;
+	position: relative;
+	display: grid;
+	grid: repeat(16, 1fr)/repeat(16, 1fr);
+	grid-gap: 1px;
+	background: var(--table-bg, #e6e6e6);
+	border: var(--table-border, var(--editor-border));
+	margin: var(--table-margin, 0 5px);
+	width: calc(var(--table-cell-size) * 16 + 15px);
+	height: calc(var(--table-cell-size) * 16 + 15px);
+}
+#app div#table::after {
+	content: "";
+	outline: var(--table-border, var(--editor-border));
+}
+#app div#table::after,
+#app div#table>canvas {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+#app div#table>div {
+	position: relative;
+	width: var(--table-cell-size);
+	height: var(--table-cell-size);
+	outline: 1px dashed var(--table-cell-bc, var(--main-color));
+}
+#app div#table>div::before {
+	content: attr(code);
+	display: none;
+	position: absolute;
+	z-index: 1;
+	transform: translate(var(--table-code-x, -50%), var(--table-code-y, -50%));
+	font: var(--table-code-font, 600 12px arial);
+	background: var(--table-code-bg, var(--main-bg));
+	color: var(--table-code-color, #000);
+	padding: var(--table-code-padding, 2px 3px);
+	box-sizing: inherit;
+	pointer-events: none;
+}
+#app div#table>div:hover {
+	background: var(--table-hover-bg, var(--main-bg));
+}
+#app div#table>div:nth-child(16n) {
+	border-right-width: 0;
+}
+#app div#table>div:nth-child(n+241) {
+	border-bottom-width: 0;
+}
+#app div#table>div.cur::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: var(--table-cur-bg, #0f0);
+	outline: var(--table-cur-outline, 1px solid #0f0);
+	mix-blend-mode: var(--table-cur-mix, color);
+}
+#app div#table>div:hover::after {
+	background: var(--table-cur-hover-bg, #6f6);
+	mix-blend-mode: var(--table-cur-hover-mix, multiply);
+}
+#app div#table>div.sel {
+	background: var(--table-sel-bg, #f9f9ec);
+}
+#app.hex-code div#table>div:hover::before {
+	display: block;
+}
+#app.ts128 div#table>div:nth-of-type(n+129) {
+	background: #0001;
+	opacity: .1;
+	pointer-events: none;
+}
+#app div#ctrl {
+	flex: 0 0 var(--ctrl-width);
+	font: var(--ctrl-font, var(--ctrl-font-size, .9rem) var(--font-family));
+	background: var(--ctrl-bg, var(--main-bg));
+	border: var(--ctrl-border, var(--editor-border));
+	width: var(--ctrl-width);
+	height: calc(var(--table-cell-size) * 16 + 15px);
+	overflow: hidden auto;
+}
+#app div#ctrl>span {
+	display: block;
+	padding: var(--ctrl-span-padding, .6em .4em 0);
+}
+#app div#ctrl>select {
+        --input-bg: var(--select-bg, #f7f7f7 linear-gradient(to bottom, #eee, #fff));
+        --input-br: var(--select-br, 5px);
+	margin: 1px 0 0;
+}
+#app div#ctrl>select>optgroup#view {
+	color: var(--ctrl-view-color, #000);
+}
+#app div#ctrl>canvas#demo_char {
+	display: block;
+	width: 100%;
+}
+#app div#char {
+	font: var(--ctrl-char-font, 400 48px/60px "Classic Console Neue");
+	background: var(--main-color);
+	color: var(--main-bg);
+	border-bottom: 1px solid var(--main-bg);
+	min-height: 1em;
+	text-align: center;
+}
+#app div#code {
+	font: var(--ctrl-code-font, 400 16px/22px var(--font-family));
+	color: var(--ctrl-code-color, var(--main-color));
+	text-align: center;
+}
+#app div#demo_str {
+	font-size: 0;
+	border-top: 1px solid var(--main-color);
+	border-bottom: 1px solid var(--main-color);
+	height: fit-content;
+	overflow: hidden;
+}
+#app div#demo_str>canvas {
+	pointer-events: none;
+}
+#app div#demo_str:hover>canvas {
+	position: absolute;
+	right: calc(var(--demo-str-padding) * -1);
+	background: var(--main-color);
+	margin-top: calc(var(--demo-str-padding) * -1);
+	padding: var(--demo-str-padding);
+	box-shadow: var(--demo-str-shadow);
+}
+
+#app>app-modal.upload {
+	--dialog-height: auto;
+}
+#app>app-modal.project {
+	width: var(--project-width, 70%);
+	height: var(--project-height, 90%);
+}
+#app>app-modal.project h3 {
+	font: var(--project-h3-font, bold 109% var(--font-family));
+	color: var(--project-h3-color, #06a);
+	border-bottom: var(--project-h3-bb, 2px solid #06a);
+	margin: 1em 0 .5em;
+}
+#app>app-modal.project ol {
+	margin: 0;
+	padding-left: 2ch;
+}
+#app>app-modal.project ol span {
+	font-weight: 600;
+	color: var(--project-filename-color, #00f);
+}
+#app>app-modal.project input[type="text"],
+#app>app-modal.project select {
+	--input-fs: 101%;
+        --input-bg: var(--project-input-bg, linear-gradient(to bottom, #eee, #fff));
+	--input-color: var(--project-input-color, #00f);
+        --input-border: var(--project-input-border, 1px solid #e8e8e8);
+        --input-br: var(--project-input-br, 5px);
+	--input-width: auto;
+	--input-height: 2em;
+}
+#app>app-modal.project>div>form input[name="filename"] {
+	--input-width: 100%;
+}
+#app.project>app-modal.project {
+	top: 0;
+	bottom: 0;
+}
+
+#app>app-modal.project>div>form {
+	display: flex;
+	flex-wrap: wrap;
+	height: 100%;
+}
+#app>app-modal.project>div>form>input[type="submit"] {
+	--input-width: calc(100% + 40px);
+	--input-bg: #ff9752;
+	--input-color: #fff;
+	--input-border: 1px solid #f60;
+	margin: auto -19px 1px;
+	padding: 5px 0;
+}
+#app>app-modal.project>div>form>input[type="submit"]:active {
+	transform: translate(1px, 1px);
+}
+#app>app-modal.project>div>form.submit>input[type="submit"] {
+	opacity: .5;
+	background: #ccc;
+	pointer-events: none;
+}
+#app>app-modal.project>div>form>div:nth-child(1) {
+	flex: 1 1 auto;
+	margin: 0 0 15px;
+}
+#app>app-modal.project>div>form>div:nth-child(2) {
+	flex: 0 0 auto;
+	margin: 0 0 15px 15px;
+}
+#app>app-modal.project>div>form div.t2 {
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 1fr 1fr;
+}
+
+#app>app-modal.project div.file {
+	position: relative;
+	width: 100px;
+	padding: 0 150px 0 20px;
+	margin: 2em 0 20px;
+	counter-reset: font -1;
+	box-sizing: content-box;
+	--width: 250px;
+	--height: 30px;
+	--offs-height: calc(min(var(--offs), 1) * var(--height));
+	--align-height: calc(min(var(--align), 1) * var(--height));
+}
+#app>app-modal.project div.file::before {
+	content: "0x0000";
+	position: absolute;
+	top: -1em;
+	line-height: 0;
+}
+#app>app-modal.project div.file>div.offs {
+	position: relative;
+	height: var(--offs-height);
+	background: #cfc;
+	outline: 1px solid #999;
+}
+#app>app-modal.project div.file>div.offs::after {
+	content: "0x" var(--fill);
+	position: relative;
+	display: block;
+	line-height: var(--offs-height);
+	text-align: center;
+	overflow: hidden;
+}
+#app>app-modal.project div.file>div.offs::before {
+	content: attr(text) var(--offs-txt);
+	display: block;
+	position: absolute;
+	inset: auto 0 0;
+	width: var(--width);
+	border-bottom: 1px solid #f00;
+	text-align: right;
+}
+#app>app-modal.project div.file>div.f1 {
+	position: relative;
+	z-index: 1;
+	height: 120px;
+	background: #fff linear-gradient(#0002, #0000) top/100% 2px;
+	padding-bottom: var(--align-height);
+	margin-bottom: 1px;
+	outline: 1px solid #999;
+}
+#app>app-modal.project div.file>div.f1::after {
+	content: "0x" var(--fill);
+	display: block;
+	position: relative;
+	top: 100%;
+	height: var(--align-height);
+	line-height: var(--align-height);
+	background: #ff9;
+	text-align: center;
+	overflow: hidden;
+}
+#app>app-modal.project div.file>div.f1::before {
+	counter-increment: font;
+	content: attr(text) counter(font);
+	display: block;
+	position: absolute;
+	inset: calc(50% - var(--align-height)) 0 auto;
+	line-height: 0;
+	text-align: center;
+}
+#app>app-modal.project div.file>div.f2 {
+	position: relative;
+	height: 0;
+}
+#app>app-modal.project div.file>div.f2::before {
+	content: attr(text) var(--align-txt);
+	display: block;
+	position: relative;
+	width: var(--width);
+	border-bottom: 1px solid #f00;
+	text-align: right;
+	transform: translateY(-100%);
+}
+
+#app>app-conf>div#filename_format {
+	margin-top: .5em;
+}
+#app>app-conf>fieldset#custom_size {
+	padding: 0;
+	margin: 0;
+}
+#app>app-conf>fieldset#custom_size:empty {
+	display: none;
+}
+#app>app-conf>fieldset#custom_size>div {
+	display: flex;
+	align-items: center;
+	line-height: var(--conf-custom-size-lh, 1em);
+}
+#app>app-conf>fieldset#custom_size>div>size {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	font-size: var(--conf-custom-size-fs, 15px);
+	color: var(--conf-custom-size-color, var(--conf-a-color));
+	padding: var(--conf-custom-size-padding, 0 10px);
+}
+#app>app-conf>fieldset#custom_size>div>size::before {
+	content: attr(w);
+	width: 1ch;
+	padding: 0 1ch;
+}
+#app>app-conf>fieldset#custom_size>div>size::after {
+	content: attr(h);
+	width: 1ch;
+	padding: 0 1ch;
+}
+#app>app-conf>fieldset#custom_size+div.inp {
+	display: flex;
+}
+#app>app-conf>fieldset#custom_size+div.inp>label[for="custom_size_width"] {
+	width: 50%;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	background: var(--input-bg, linear-gradient(to bottom, #fff, #eee));
+	color: var(--input-color, initial);
+}
+#app>app-conf>fieldset#custom_size+div.inp>input[type="checkbox"]:not(checked)+label[for="custom_size_width"]::after {
+    content: attr(val-w6);
+}
+#app>app-conf>fieldset#custom_size+div.inp>input[type="checkbox"]:checked+label[for="custom_size_width"]::after {
+    content: attr(val-w8);
+}
+#app>app-conf>fieldset#custom_size+div.inp>input[type="checkbox"]+label[for="custom_size_width"]::after {
+	padding: var(--conf-custom-size-width-padding, 0 10px);
+}
+#app>app-conf>fieldset#custom_size+div.inp>input[type="checkbox"]:not(checked)+label[for="custom_size_width"]::before {
+	content: "\25B2";
+}
+#app>app-conf>fieldset#custom_size+div.inp>input[type="checkbox"]:checked+label[for="custom_size_width"]::before {
+	content: "\25BC";
+}
+#app>app-conf>fieldset#custom_size+div.inp>label[for="custom_size_width"]::before {
+	display: block;
+	margin: auto 0;
+	height: 100%;
+	font-size: var(--conf-custom-size-sw-fs, 125%);
+	background: var(--conf-custom-size-sw-bg, #0001);
+	padding: var(--conf-custom-size-sw-padding, 0 5px);
+	text-align: center;
+}
+#app>app-conf>fieldset#custom_size+div.inp>select {
+	width: 50%;
+	background: var(--input-bg, linear-gradient(to bottom, #fff, #eee));
+}
+#app.modal>app-modal.dialog.select {
+	--dialog-height: fit-content;
+}
+#app.modal>app-modal.dialog.select>div {
+	overflow-y: hidden;
+}
+
+@keyframes matrix-cur {
+	0%,40%,100% {
+		box-shadow: var(--matrix-cur-shadow1, inset 0 0 0 1px #000, inset 0 0 0 2px #ff0);
+	}
+	50%,90% {
+		box-shadow: var(--matrix-cur-shadow2, inset 0 0 0 1px #ff0, inset 0 0 0 2px #000);
+	}
+}
+
+@media only screen and (max-height: 460px) {
+	#app {
+		--ctrl-font-size: 10px;
+		--matrix-dot-size: 17px;
+		--table-cell-size: 21px;
+	}
+}
+@media only screen and (min-height: 461px) and (max-height: 474px) {
+	#app {
+		--ctrl-font-size: 10px;
+		--matrix-dot-size: 18px;
+		--table-cell-size: 22px;
+	}
+}
+@media only screen and (min-height: 475px) and (max-height: 490px) {
+	#app {
+		--ctrl-font-size: 11px;
+		--matrix-dot-size: 19px;
+		--table-cell-size: 23px;
+	}
+}
+@media only screen and (min-height: 491px) and (max-height: 507px) {
+	#app {
+		--ctrl-font-size: 12px;
+		--matrix-dot-size: 20px;
+		--table-cell-size: 24px;
+	}
+}
+@media only screen and (min-height: 508px) and (max-height: 525px) {
+	#app {
+		--ctrl-font-size: 12px;
+		--matrix-dot-size: 21px;
+		--table-cell-size: 25px;
+	}
+}
+@media only screen and (min-height: 526px) and (max-height: 540px) {
+	#app {
+		--ctrl-font-size: 13px;
+		--matrix-dot-size: 21px;
+		--table-cell-size: 26px;
+	}
+}
+@media only screen and (min-height: 541px) and (max-height: 560px) {
+	#app {
+		--ctrl-font-size: 13px;
+		--matrix-dot-size: 22px;
+		--table-cell-size: 27px;
+	}
+}
+@media only screen and (min-height: 561px) and (max-height: 587px) {
+	#app {
+		--ctrl-font-size: 13px;
+		--matrix-dot-size: 23px;
+		--table-cell-size: 28px;
+	}
+}
+@media only screen and (min-height: 588px) and (max-height: 605px) {
+	#app {
+		--matrix-dot-size: 24px;
+		--table-cell-size: 30px;
+	}
+}
+@media only screen and (min-height: 606px) and (max-height: 630px) {
+	#app {
+		--matrix-dot-size: 25px;
+		--table-cell-size: 31px;
+	}
+}
+@media only screen and (min-height: 631px) and (max-height: 660px) {
+	#app {
+		--matrix-dot-size: 26px;
+		--table-cell-size: 32px;
+	}
+}
+@media only screen and (min-height: 661px) and (max-height: 760px) {
+	#app {
+		--matrix-dot-size: 28px;
+		--table-cell-size: 34px;
+	}
+}
+@media only screen and (min-height: 761px) and (max-height: 820px) {
+	#app {
+		--matrix-dot-size: 32px;
+		--table-cell-size: 40px;
+	}
+}
+@media only screen and (min-height: 821px) and (max-height: 880px) {
+	#app {
+		--matrix-dot-size: 36px;
+		--table-cell-size: 44px;
+	}
+}
+@media only screen and (min-height: 881px) {
+	#app {
+		--matrix-dot-size: 39px;
+		--table-cell-size: 48px;
+	}
+}
+@media only screen and (max-width: 1200px) {
+	#app {
+		--help-width: 70%;
+		--dialog-width: 70%;
+		--project-width: 80%;
+	}
+}
+@media only screen and (max-width: 1100px) {
+	#app {
+		--help-width: 80%;
+		--dialog-width: 80%;
+		--project-width: 90%;
+	}
+}
+@media only screen and (max-width: 1000px) {
+	#app {
+		--help-width: 90%;
+		--dialog-width: 90%;
+		--project-width: 100%;
+		--project-height: 100%;
+	}
+}
+@media only screen and (max-width: 900px) {
+	#app {
+		--help-width: 100%;
+		--dialog-width: 100%;
+	}
+}
+

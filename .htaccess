@@ -1,0 +1,44 @@
+AddDefaultCharset utf-8
+AddEncoding gzip .svgz
+AddType video/ogg .ogv
+AddType video/mp4 .mp4
+AddType video/webm .webm
+AddType application/wasm .wasm
+
+Options All -Indexes
+Options +FollowSymLinks
+ErrorDocument 403 /403.php
+ErrorDocument 404 /404.php
+
+RewriteEngine on
+RewriteRule ^(gb|creation)/(\d+)$ mps.php?mps=$1&m=$2 [L,QSA]
+RewriteRule ^(wall|blog)/(\d+)(/(\d\d-\d\d-\d\d\d\d))?$ mps.php?mps=$1&sid=$2&day=$4 [L,QSA]
+RewriteRule ^(gb|creation|blog|wall)/(\d+)/(\d+)?$ mps.php?mps=$1&sid=$2&m=$3 [L,QSA]
+RewriteRule ^(gb|creation|blog|wall)(/(\?.*)?)?$ mps.php?mps=$1 [L,QSA]
+RewriteRule ^(who|whowas|online|offline)\b(?!/) userlist.php [L]
+RewriteRule ^(people|info|form|mps|help|rules)\b(?!/) $1.php [L]
+RewriteRule ^people/ people.php [L]
+RewriteRule ^mps/(\d+)/?$ mps.php?sid=$1&d=0 [L,QSA]
+RewriteRule ^mps/(\d+)/(\d+)/?$ mps.php?sid=$1&m=$2&d=0 [L,QSA]
+RewriteRule ^user/(\d+)$ info.php?profile=$1 [L,QSA]
+RewriteRule ^img/(\d+/\d+/.+)$ php/img.php [L]
+
+<ifModule mod_expires.c>
+	ExpiresActive On
+	ExpiresByType image/x-icon "access plus 1 years"
+	ExpiresByType image/jpeg "access plus 1 years"
+	ExpiresByType image/png "access plus 1 years"
+	ExpiresByType image/gif "access plus 1 years"
+	ExpiresByType image/webp "access plus 1 years"
+	ExpiresByType image/svg+xml "access plus 1 years"
+	ExpiresByType audio/ogg "access plus 1 years"
+	ExpiresByType audio/mpeg "access plus 1 years"
+	ExpiresByType video/ogg "access plus 1 years"
+	ExpiresByType video/mp4 "access plus 1 years"
+	ExpiresByType video/webm "access plus 1 years"
+	ExpiresByType application/wasm "access plus 1 years"
+	ExpiresByType text/css "access plus 1 months"
+	ExpiresByType text/javascript "access plus 1 months"
+	ExpiresByType application/javascript "access plus 1 months"
+	ExpiresByType application/x-javascript "access plus 1 months"
+</ifModule>

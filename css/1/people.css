@@ -1,0 +1,31 @@
+@import "../people.css";
+@import "../scrollbar.css";
+
+scrollbar {
+	--bg: url(../images/1/people-scrollbar.png);
+}
+@media (min-width: 680px) {
+	::-webkit-scrollbar {
+		width: 13px;
+		border: 1px solid;
+		border-color: #d2d2d2 #e2e2e2 #d2d2d2 #d2d2d2;
+		background: linear-gradient(to right, #fff 5px, #e2e2e2 6px, #f2f2f2 10px);
+	}
+	::-webkit-scrollbar-track {
+		box-shadow: inset 4px 0 6px #0004;
+		border-radius: 8px;
+		background: #fff;
+	}
+	::-webkit-scrollbar-thumb {
+		border-radius: 8px;
+		border: 1px solid;
+		border-color: #6281a0 #6281a0 #6281a0 #405469;
+		background: linear-gradient(to right,
+			#7f98b2, #90a6bc 1px, #90a6bc 2px, #869eb6 3px,
+			#6684a3 4px, #7993ae 5px, #a1b3c6 9px, #97abc0 10px
+		);
+	}
+	::-webkit-scrollbar-button {
+		height: 4px;
+	}
+}

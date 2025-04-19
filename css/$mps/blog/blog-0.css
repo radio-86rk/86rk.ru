@@ -1,0 +1,261 @@
+@import "../widget-mps.css";
+@import "calendar2.css";
+
+.blog {
+	--cal-margin: 7px;
+}
+body.blog mps-nav>input[type="checkbox"][name="calendar"]+label+mps-calendar {
+	max-width: 600px;
+	--cal-margin: 5vw;
+}
+
+.blog mps-text>div:nth-of-type(odd)>div:first-child {
+	background: linear-gradient(#bfc9da, #eff0fa);
+}
+.blog mps-text>div:nth-of-type(odd) div.mess {
+	background: #f5f7ff;
+}
+.blog mps-text>div>div:first-child>span.title {
+	flex: 1 0;
+	font-size: 166%;
+	line-height: 2;
+	padding: 0 15px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.blog mps-text div.num {
+	line-height: 1.5;
+	text-align: right;
+}
+.blog mps-text>div>div:first-child>span.title:empty::before {
+	content: "\a0";
+}
+.blog mps-text div.mess>div.bottom {
+	display: flex;
+	justify-content: space-between;
+	background: #0001;
+	padding: 2px 5px 2px 15px;
+	border-top: 1px solid #fff;
+	white-space: nowrap;
+}
+.blog mps-text div.mess>div.bottom>div.date {
+	padding: 0;
+}
+.blog mps-text div.mess>div.bottom>div.views {
+	font-size: 80%;
+	color: #35619e;
+	margin: auto 0;
+}
+.blog mps-text div.mess>div.bottom>div.views::after {
+	content: attr(views);
+	font-size: 125%;
+	font-weight: 400;
+	text-shadow: .6px 0;
+}
+.blog mps-text mps-comment>mps-mess {
+	border-left: 15px solid #cbd2da;
+}
+.blog mps-text mps-comment>mps-comment:nth-child(odd) {
+	background: #3331;
+}
+.blog mps-text mps-comment>mps-comment:nth-child(even) {
+	background: #8801;
+}
+.blog mps-spoiler>mps-spoiler,
+.blog mps-quote>mps-quote {
+	margin: 5px 0 5px 8px;
+}
+
+.blog mps-nav>ul>li.nav {
+	width: 36px;
+}
+.blog mps-nav>ul>li.nav>a {
+	padding: 7px;
+	fill: #fc0;
+	font-size: 0;
+}
+.blog mps-nav>ul>li.nav>a>svg {
+	display: block;
+	height: 100%;
+	margin: auto;
+	pointer-events: none;
+}
+.blog mps-nav>ul>li.nav>a.disabled {
+	fill: #8e8ede;
+}
+.blog mps-nav>ul>li.nav>a:not(.disabled):hover {
+	fill: #f52;
+}
+.blog mps-nav>input[type="checkbox"][name="calendar"]+label {
+	width: 45px;
+	padding: 0 10px;
+	font-size: 0;
+}
+.blog mps-nav>input[type="checkbox"][name="calendar"]+label::before {
+	content: url(../../../images/calendar2.svgz);
+	display: inline-block;
+	width: 25px;
+	padding: 3px 0;
+	cursor: pointer;
+	font-size: 0;
+}
+.blog mps-nav>input[type="checkbox"][name="calendar"]+label+mps-calendar {
+	position: absolute;
+	bottom: 100%;
+	left: -100%;
+	width: calc(100% - var(--cal-margin) * 2);
+	margin: 7px var(--cal-margin);
+	border: 3px solid #ffa800;
+	box-shadow: 0 0 4px #0009;
+	transition: left .5s;
+}
+.blog mps-nav>input[type="checkbox"][name="calendar"]:checked+label+mps-calendar {
+	left: 0;
+}
+
+.blog mps-vote {
+	display: block;
+	font-size: 0;
+}
+.blog mps-vote>a {
+	position: relative;
+	display: inline-block;
+	color: #35619e;
+	white-space: nowrap;
+	outline: none;
+}
+.blog mps-vote>a+a {
+	margin-left: 15px;
+}
+.blog mps-vote>a>svg {
+	fill: #999;
+	width: 18px;
+	pointer-events: none;
+}
+.blog mps-vote>a.like>svg {
+	margin-bottom: -4px;
+}
+.blog mps-vote>a.dislike>svg {
+	margin-top: -4px;
+}
+.blog mps-vote>a.like:hover>svg {
+	fill: #40bf40;
+}
+.blog mps-vote>a.dislike:hover>svg {
+	fill: #bf4040;
+}
+.blog mps-vote>a::after {
+	content: attr(count);
+	display: inline-block;
+	font: 600 13px arial;
+	padding: 0 10px 0;
+	vertical-align: 5px;
+}
+.blog mps-vote[vote="10"]>a[data-v="1"]>svg,
+.blog mps-vote[vote="-10"]>a[data-v="-1"]>svg {
+	fill: #66f;
+}
+.blog mps-vote[data-v="1"]>a {
+	cursor: pointer;
+}
+.blog mps-vote[data-v="0"]>a {
+	pointer-events: none;
+}
+.blog mps-vote[data-v="0"]>a>svg {
+	fill: #999;
+}
+.blog mps-vote>a[tooltip]:not(.click)::before {
+	content: attr(tooltip);
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	right: 50%;
+	background: #666;
+	color: #fff;
+	margin-top: -30px;
+	border-radius: 2px;
+
+	font: 100 13px arial;
+	white-space: nowrap;
+	padding: 3px 12px;
+	opacity: 0;
+	visibility: hidden;
+	box-shadow: 1px 1px 6px -2px #000, inset 0 0 3px -1px #000;
+	pointer-events: none;
+}
+.blog mps-vote>a[tooltip]:not(.click):hover::before {
+	opacity: 1;
+	visibility: visible;
+	transition: opacity .5s .5s;
+}
+
+.blog mps-vote>a.click::before {
+	content: "";
+	position: absolute;
+	background: #6f94b633;
+	border-radius: 50%;
+	left: -10px;
+	top: -7px;
+	height: 38px;
+	width: 38px;
+	opacity: 0;
+	pointer-events: none;
+/*
+	animation: anim-effect-radomir .3s ease-out forwards;
+*/
+	animation: anim-effect-boris .3s forwards;
+}
+ 
+@keyframes anim-effect-boris {
+	0% {
+		transform: scale(.3,.3);
+	}
+	25%, 50% {
+		opacity: 1;
+	}
+	100% {
+		transform: scale(1.2,1.2);
+		opacity: 0;
+	}
+}
+@keyframes anim-effect-radomir {
+	0% {
+		opacity: 1;
+		transform: scale(.4,.4);
+	}
+	80% {
+		box-shadow: inset 0 0 0 5px #6f94b6cc;
+		opacity: .1;
+	}
+	100% {
+		box-shadow: inset 0 0 0 5px #6f94b6cc;
+		opacity: 0;
+		transform: scale(1.2,1.2);
+	}
+}
+@media (max-width: 640px) {
+	body.blog mps-nav>input[type="checkbox"][name="calendar"]+label+mps-calendar {
+		max-width: unset;
+		--cal-margin: 7px;
+	}
+}
+@media (max-width: 550px) {
+	.blog.mobile mps-vote>a>svg {
+		width: 24px;
+	}
+	.blog.mobile mps-vote>a::after {
+		font: 400 1rem arial;
+		padding: 0 1rem 0;
+		vertical-align: .5rem;
+	}
+	.blog.mobile mps-nav>ul>li.nav {
+		width: 3rem;
+	}
+	.blog.mobile mps-nav>ul>li.nav>a {
+		padding: 10px;
+	}
+	.blog.mobile mps-nav>input[type="checkbox"][name="calendar"]+label::before {
+		width: 32px;
+	}
+}

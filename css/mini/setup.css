@@ -1,0 +1,35 @@
+@import "../setup.css?1";
+
+.app-chat chat-setup {
+	--base-size: 1.4rem;
+	--win2-bg: #114d97;
+	--tit-bg: #000;
+	--th-color: #fff;
+	--td-color: #cdf;
+	--td-border: 2px groove #1667ca;
+	--hr-bw: 1px 0 0;
+	--slider-bg: #203d6080;
+	--slider-height: 24px;
+	--slider-shadow: inset 0 0 3px #0009;
+	--slider-width: 160px;
+	--slider-scale-width: 163px;
+	--slider-scale-height: 18px;
+	--slider-scale-content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKMAAAASBAMAAADF1HNjAAAAGFBMVEUAAACQqspUfK4RSY7I1eW1x9yjuNM3ZqBG93BuAAAAAXRSTlMAQObYZgAAADlJREFUOMtjYGEAA2rSjGAGFelRI6lJs4IZVKWZjakLzBkYBKkNEmhhJJMSdYEiw2iGHHFGUj9DAgAoJydPcSDt3AAAAABJRU5ErkJggg==);
+	--slider-handle-width: 15px;
+	--slider-handle-height: 18px;
+	--slider-handle-margin: 2px -9px;
+	--slider-handle-bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAASCAMAAACzQHQ9AAAAP1BMVEXtXwD/sBf/igD/xzz/ngjlVwDzaQD6dQD/uyf/9uH/1Fz/01j/2nAAAAD/kgL8fgD/8cz/7Lf/+er/3n7/5JdI7iL5AAAAeklEQVQY033NSw7DIAxFURvzTWxqIPtfa00pVQdtnsTg6CIZxhiUmyZtaQ6OgzIWFVWAGB8v+96lF6N59SJlm6xrk9bW/5n9xcIXAGwzCfHbGdExCp7LM38MCQi9dyfijd1yCL+cjY5qrfTlOl+w/TETEW/bvTIXbekJPfAGiiiUN9EAAAAASUVORK5CYII=);
+	--slider-handle-border: 1px solid #f80;
+	--sounds-padding: 0 0 1px;
+	--sounds-inp-margin: 0 1px 0 0;
+	--optgroup-bg: #11498e;
+	--option-bg: var(--inp-focus-bg);
+	--inp-font: 400 .8rem/1rem var(--inp-font-family);
+	--btn-ok-lh: 1.2rem;
+	--btn-ok-margin: 5px 0;
+	--sb-thumb-bg: #f80;
+}
+chat-body>chat-win2>tab-view.setup>form>chat-setup>div:last-of-type {
+	background: #000;
+	width: 100%;
+}

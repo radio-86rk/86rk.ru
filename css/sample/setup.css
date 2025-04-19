@@ -1,0 +1,93 @@
+/***
+ ***  Файл содержит стили окна личных настроек
+ ***/
+
+/*
+ *  импортируются базовые стили
+ */
+@import "../setup.css?1";
+@import "../color-picker.css";
+
+.app-chat chat-setup {
+	/*
+	 *  параметры заголовка
+	 */
+	--tit-color: #f80;
+	--tit-text-shadow: 1px 1px 0 #f809;
+	--tit-ls: .1em;
+	--tit-ws: .5em;
+	/*
+	 *  параметры таблиц
+	 */
+	--table-margin: 2px;
+	/* заголовки таблиц */
+	--th-color: #39f;
+	--th-padding: 3px;
+	/* ячейки таблиц */
+	--td-color: #f80;
+	--td-border: 1px solid #99f;
+	--td-padding: 0;
+	--td-lh: 1.8;
+	--hr-bw: 1px 0 0;
+	/* контейнера разультата подбора цвета ника */
+	--view-bg: #fff;
+	/* выбора одиночного цвета */
+	--color-border: 1px solid #99f;
+	--color-height: 28px;
+	/* контенер изображений личной иконки и графника */
+	--bg-border: 1px solid #fff;
+	/*
+	 *  параметры слайдера регулятора громкости
+	 */
+	/* внешний контейнер */
+	--slider-shadow: inset 0 0 20px #66f6;
+	/* шкала */
+	--slider-scale-content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALcAAAAUBAMAAAA9yLHsAAAAGFBMVEUAAAClpeF1ddFAQL/S0vDDw+u0tOZfX8q7tMpnAAAAAXRSTlMAQObYZgAAADxJREFUOMtjYGGAAJowGCEsWjBGDR92hrNCWLRhMBvTCpgzMAjSDiTQ1nAmJVoBRYbRsmXU8MFiOC3LFgAbGiwLtpAFWQAAAABJRU5ErkJggg==);
+	/* изображение ручки слайдера */
+	--slider-handle-width: 24px;
+	--slider-handle-height: 24px;
+	--slider-handle-margin: 1px -12px;
+	--slider-handle-bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAABp1BMVEUAAADYdTLWdDDXfkHYfUDXeDfWeDfXdjPVhU/Wh1HYez3ZkF7XcCvYcy3Xci3XdTHYfD3fl2XbkmHMfUfRgkzk5OX9///ykUL6/P/2+v36+vnn6u7q7O3o6Oro6Onc3t3Z2tzT1NbQ0dPf3+HxizzwiTnwhDLobiX09/ny9Pfw8PLu7u7q4Nny8vHm5ufi4eLp4t3k3tnX19jhxLHevqi/jWrhlljylkm9Zjr4jzXKZDHueirrdCfdZyb39/n19fXs8PLp7PHg5enV2N3i2dXW09TSzs7h1s3OysnFxsjXysLMsJvcspDTpYe7jHLw9/zv8vT38e/17ujc4OXz6uPv5+Lc3uLQ1dvU1tnf29j65tXZ09LJzNDm2M7Dyc7Y0MzJycrf0cfazcbBwcK8vMC2ubznzLm0tLnOwLfBuLO/s6vVtaLhvJ3WqYrXnnLGlnHcmWHQhUe6ckfNgUT1lELlhj3egz3sjTvBaDnOczjSeDe7aTe4ZTTsgDLfeDLUcDLwiDC+aDDwfivj5uvu6efi397NxL7Xu6rMtaTGrJzBpZTAoY3NoIMcoQbuAAAAFXRSTlMADDvw0597BenZrO6Cb287re7u6dmWCkz2AAAB8klEQVQoz12SZ1PbYBCEJVmSJVcgkaxesePeSxwn7tgGG9MJvZfQCb239PKj89rAZIbny83c3uyH3YMegRG8AzUY0A4cgaH/GBGM6I/1VSpLazsEhhif97CNjH/ldUXTZN49HCdt8NPe0jnKBCRZ611QRK+b9XdZ2orR1jlEcwFpXJubGc97PIF8uMvWckPIMYbjuMGR2uZGj48N+MSCn0SAERZnc1mOidSbBwfNemRQkgQ2jsEQQoz5vDm2nLh6C7hKzBe8uewQgUD4Dh+UvJHE5dk7wNllIsIwWaaBQ6aYLuv6r/vz2w+A2/P7n27O41kzQeiSElUqexc3b9rcXOxRbp8wi0KGnqj68dPnk+vMe0Dm+uSwmhepbwYgqBoQjp2uh0zmweU8PlwUQqFJA4T2qZpa23V2O10AMHbLPKUvopDpx4SqlrbvHI5ugMNxt82LVChmgvC/pehE0Z9MpxyAVDrpHxCCX/pxyE5MK0poYDaZPkqljtLJKusTxTBhB5HUR2RZoP2N/dPT/UaYFqhgYQuDWyHOF3XKQ7tHp6aGWZqKylSZRFqxW82TRUr0cjRNM4Lau1CaNluNj0WZqyAviQJVrayuzH03W54rtJJbYZ5SZpbX11c3/ry2wi+eoba8+bv5CrO3fV68jwm3P53/AzqrYnhD/ETEAAAAAElFTkSuQmCC);
+	--slider-handle-opacity: .8;
+	--slider-handle-shadow: none;
+	--slider-handle-filter: drop-shadow(0 0 1px #0004) drop-shadow(1px 1px 1px #0004) contrast(1.1);
+	/*
+	 *  таблица личных смайлов
+	 */
+	--smile-size: 85px;
+	--smile-bg: #fff;
+	--smile-border: 1px solid #ccf;
+	/**/
+	--sounds-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 75 75'><path fill='%2399f' stroke='%2399f' stroke-width='5' stroke-linejoin='round' d='M39.389 13.769L22.235 28.606H6v19.093h15.989l17.4 15.051V13.769z'/><path  fill='none' stroke='%23ccf' stroke-width='5' stroke-linecap='round' d='M48 27.6A19.5 19.5 0 0148 49m7.1-28.5a30 30 0 010 35.6M61.6 14a38.8 38.8 0 010 48.6'/></svg>") no-repeat;
+	--sounds-filter: none;
+	--optgroup-color: #66f;
+	--btn-ok-margin: 5px 0 10px;
+	--btn-ok-lh: 1.4rem;
+	--btn-ok-border: 1px solid currentColor;
+	/*
+	 *  tooltip
+	 */
+	--tooltip-bg: #ffffeb;
+	--tooltip-t-border: 1px solid #e5e619;
+	--tooltip-shadow: inset 0 0 2px 1px #9903, 1px 1px 5px -2px #0003;
+}
+
+/*
+ *  кастомизированный скроллбар для многострочного селекта
+ */
+chat-setup ::-webkit-scrollbar {
+	width: 14px;
+}
+chat-setup ::-webkit-scrollbar-track {
+	border-left: 7px solid #ebedef;
+	border-right: 7px solid #cdd7db;
+}
+chat-setup ::-webkit-scrollbar-thumb {
+	border-left: 7px solid #ffc267;
+	border-right: 7px solid #ff9c32;
+}
+chat-setup ::-webkit-scrollbar-button {
+	height: 4px;
+	border-left: 7px solid #afbdc3;
+	border-right: 7px solid #99a6ab;
+}

@@ -1,0 +1,71 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+body {
+	display: flex;
+	font: 400 1.5rem verdana;
+	color: #009;
+	background: #eee;
+	padding: 0 .5rem;
+}
+body>div {
+	margin: auto;
+	padding-bottom: 2rem;
+}
+h1 {
+	margin: .6rem auto 2rem;
+	text-align: center;
+}
+h1>span {
+	color: #d0c;
+}
+h2 {
+	margin: 2rem auto;
+	text-align: center;
+}
+ol.features {
+	margin: 0 auto;
+	color: #00f;
+	background: #fff;
+}
+ol.features>li {
+	list-style-type: none;
+	line-height: 2.8rem;
+	margin: 4px 0;
+}
+ol.features>li:nth-of-type(odd) {
+	background: #ddd;
+}
+ol.features>li:nth-of-type(even) {
+	background: #eee;
+}
+ol.features>li>span {
+	display: inline-block;
+	margin: 0 1rem;
+}
+ol.features>li::before {
+	letter-spacing: -1px;
+	pointer-events: none;
+	display: inline-block;
+	text-align: center;
+	min-width: 2.5rem;
+	margin-left: -2.5rem;
+	vertical-align: top;
+	font-size: 1.8rem;
+	color: #fff;
+}
+ol.features>li.stat-0::before {
+	content: "?";
+	background: #ff0;
+	color: #000;
+}
+ol.features>li.stat-1::before {
+	content: "\2714";
+	background: #0c0;
+}
+ol.features>li.stat--1::before {
+	content: "\2718";
+	background: #f00;
+}

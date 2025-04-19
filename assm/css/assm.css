@@ -1,0 +1,15 @@
+@font-face {
+	font-family: Inconsolata;
+	src: url('../../fonts/Inconsolata.otf');
+	src: url('../../fonts/Inconsolata.woff') format('woff');
+}
+
+#app {
+}
+#app>app-assm {
+	font: var(--font, 400 16px/18px Consolas);
+	font-size: calc(var(--fs) * 1px);
+	line-height: calc((var(--fs) + var(--v) + 1.5) * 1px);
+	overflow: hidden;
+	-webkit-font-smoothing: antialiased;
+}

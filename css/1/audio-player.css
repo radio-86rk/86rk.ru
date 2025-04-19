@@ -1,0 +1,25 @@
+@import "../audio-player.css";
+
+audio-player.mini {
+	--width: 120px;
+	--hover-width: 200px;
+	--btn-color: #ffd400;
+	--btn-bg: #0049ff;
+	--btn-br: 50%;
+	--btn-padding: 3px;
+	--btn-shadow: none;
+	--btn-svg-filter: none;
+	--btn-active-shadow:  inset -1px -1px 1px #427cff, inset 1px 1px 1px #0004;
+	--volume-track-bg: #aeb9cc;
+	--volume-hndl-br: 50%;
+	--volume-hndl-width: 17px;
+	--volume-hndl-height: 17px;
+	--volume-hndl-margin: 0 -8px;
+	--volume-hndl-bg: #0049ff;
+	--volume-hndl-shadow: none;
+	--volume-hndl-filter: drop-shadow(0 0 1px #0009);
+	--volume-hndl2-br: 50%;
+	--volume-hndl2-shadow: inset 0 1px 0 #0003, inset 0 -1px 0 #fff6;
+	--volume-hndl2-active-bg: #ffd400;
+	--time-padding: 0 0 0 8px;
+}

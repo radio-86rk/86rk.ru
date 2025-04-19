@@ -1,0 +1,83 @@
+html.smiles,
+body.smiles {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	background: #000;
+	cursor: url(../../images/1/cursor.cur), auto;
+	overflow: hidden;
+}
+body.smiles scrollbar {
+	top: -5px;
+	bottom: -5px;
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAAeCAMAAABHRo19AAABLFBMVEUAAAD///////9IVIf///9WeLA+UIk+U49TerouO3wNPZJkf65ETHxBaKcqSI1ad6pifqz///9ehcFBb7RpjcMyTpRPeLczVJgSSqACPpsnWaUSSqBqgatPWIR2uO/5+fkoN4BtqepyoNp2odZskMVwru9hn+xLi9xjl9o4edFEcr95ptqGwe9omtl+p9aMxe+Bvu99ue+Cuu5+tu15selyq+lVk9xqndpNj9Y+gdE7fdFHd790sO5opOxpo+NQj9xUktksd8p0lsVQg8NNeb8la7yJvu95te98sORbmNp8pdZundJaktE/hdA5fs0yestDgshwlMUea8JvkL9AbK9Yd64tYKwOUawbTqAzUJR2qORinuFiltZzncxumclfiMM0csA2cLsfYrkRXLZoRoM8AAAAHnRSTlMAf19eIBIQ4dfXw5ycgX1oYUDp6Ofn4d/e28K/AwOPXAcOAAAA+ElEQVQ4y2PAChjlGbFLKKgoK2loqqupyskpajEMbc0sgizka2aSZyJfM0I1JpeNj0tCipeVHM2yzOIR4UkJ1mICMqRrZo4Mcw3yt/CMiRcgWTMbe4hzgKOvp6lxlAgrqZp5QuO8ffws7Izd3JS4SdXMGaynbW5pZmqkr+/BQapmBSe4ZmMXMjUrGuromJCuOdBLW9fK3tbdwMDEmjTNENUgzTaGhqbWFNlMJz8jokrXykHRWEeH9KjiCY319vG3iLYxMtLlJi95+jnY2dgJsZKXMRx9LRyc+cnIz8yiEeHJronC/OQWBpLSvKzULoYQBeBQLLcHQDMA8zRntafcOWUAAAAASUVORK5CYII=);
+}
+table.smiles {
+	font: 400 12pt verdana;
+}
+table.smiles th {
+	color: #fdc;
+	padding: 2px 0;
+	background: #313;
+}
+table.smiles tr.menu td {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 2px 0;
+	background: #313;
+}
+table.smiles tr.menu a {
+	color: #fff;
+	text-decoration: none;
+	border-radius: 3px;
+	border: none;
+	padding: 0px 5px;
+	cursor: inherit;
+}
+table.smiles tr.menu a:hover:not(.c) {
+	color: #000;
+	background: #ccc;
+	border-radius: 3px;
+	border: none;
+}
+table.smiles tr.menu a.c {
+	color: #000;
+	background: #88a;
+	border-radius: 3px;
+	border: none;
+}
+table.smiles tr.menu select#sm_group {
+	font-size: 100%;
+	padding: 0 10px;
+	width: initial;
+}
+table.smiles td.smiles {
+	position: relative;
+	height: 100%;
+	overflow: hidden;
+	border: solid #93c;
+	border-width: 1px 0;
+	font-size: 0;
+}
+table.smiles div#smiles {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: auto;
+}
+table.smiles div#smiles img {
+	display: inline-block;
+	border-radius: 10px;
+	border: 5px solid transparent;
+	cursor: pointer;
+	transition: .5s;
+}
+table.smiles div#smiles img:hover {
+	box-shadow: inset 0 0 50px #8089;
+}
+table.smiles td.smiles>scrollbar {
+	right: 0;
+}

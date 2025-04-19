@@ -1,0 +1,45 @@
+@import "../calendar.css";
+
+modal-module.calendar {
+	--modal-bg: #0008;
+	--month-bg: #09145388;
+	--month-margin: 3px;
+	--header-fs: 110%;
+	--header-transform: capitalize;
+	--header-color: #fff;
+	--header-bg: #09145399;
+	--dow-color: #fc0;
+	--dow67-color: #f00;
+	--day-color: #92b9ff;
+	--day67-color: #f62;
+	--cur-day-color: #091453;
+	--cur-day-decor-bg: #92b9ff;
+	--cur-day67-color: #091453;
+	--cur-day67-decor-bg: #ff6622;
+	--cur-day-decor-radius: 0;
+	--cur-day-decor-padding: 0 4px;
+	--cur-day-decor-red: 10px;
+	--cur-day-decor-left: 1px;
+	--cur-day-decor-top: 0px;
+	--h1-color: #fff;
+	--h1-sw-color: #000;
+	--h1-sw-shadow: 0 0 15px #fff, 0 0 10px #fff;
+	--single-title-color: #626c8c;
+	--single-header-color: #fff;
+	--single-ctrl-hover-color: #fff;
+	--single-cell-decor-color: #fc0;
+	--single-cur-cell-bg: #112c5d;
+	--single-cur-cell67-bg: #4b1c36;
+	--single-cell-decor-bg: #005aff1f;
+	--single-cell-decor2-color: #fff6;
+
+	--crtl-right: calc(6% - 30px);
+	--crtl-top: 0;
+	--ctrl-radius: 0;
+	--view-color: #f9d2b8;
+	--view-bg: linear-gradient(#fff3 50%, #fff0 50%) top/100% 3px,
+		linear-gradient(#8609, #0008), tomato;
+	--view-padding: 10px 20px 20px;
+	--view-sb-right: -15px;
+	--view2-padding: 0 1px;
+}

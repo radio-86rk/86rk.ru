@@ -1,0 +1,391 @@
+<app-title></app-title>
+<app-filename file-name="">
+<select id=files tabindex=2></select>
+<div class=tools>
+<input type=checkbox id=dump_color tabindex=1>
+<label class=dump-color for=dump_color tooltip="цветной дамп"></label>
+<input type=checkbox id=assm_addr_show tabindex=1>
+<label class=assm-addr for=assm_addr_show tooltip="адреса в листинге"></label>
+<input type=checkbox id=assm_code_show tabindex=1>
+<label class=assm-code for=assm_code_show tooltip="код в листинге"></label>
+<input type=checkbox id=assm_lower_case tabindex=1>
+<label class=assm-lower-case for=assm_lower_case tooltip="листинг в нижнем регистре"></label>
+</div>
+</app-filename>
+
+<app-disassm class=app empty="Перенесите файл в это окно">
+<div>
+<div id=dump tabindex=0></div>
+
+<input type=checkbox id=assm_sidebar_show>
+<form class=sidebar id=assm_sidebar>
+<label class=label for=assm_sidebar_show label="ASSM"></label>
+<div>
+<fieldset>
+<legend>стартовый адрес</legend>
+<input type=text name=org tabindex=1>
+<input class="btn go" type=submit value="DISASSM!" tabindex=1>
+</fieldset>
+<fieldset>
+<legend>целевая архитекрура</legend>
+<input type=radio name=arch id=arch_lbl0 value=0 tabindex=1 checked>
+<label for=arch_lbl0>i8080</label>
+<input type=radio name=arch id=arch_lbl1 value=1 tabindex=1>
+<label for=arch_lbl1>i8085</label>
+<input type=radio name=arch id=arch_lbl2 value=2 tabindex=1>
+<label for=arch_lbl2>Z80</label>
+</fieldset>
+<fieldset>
+<legend>параметры</legend>
+<input type=checkbox id=const_section>
+<label for=const_section>создать секцию констант</label>
+<input type=checkbox id=detach_lbl>
+<label for=detach_lbl> метки отдельной строкой</label>
+<input type=checkbox id=count_ref>
+<label for=count_ref> счётчик ссылок на метку</label>
+<input type=checkbox id=undoc_code>
+<label for=undoc_code>добавлять коды <wbr>недокументированных команд</label>
+</fieldset>
+<fieldset>
+<legend>данные</legend>
+<textarea name=data rows=3 tabindex=1></textarea>
+<div class=data-add>
+<input type=text name=data_addr1 readonly size=4>
+<input type=text name=data_addr2 readonly size=4>
+<input class=btn type=button id=data_add value="&#x226b;">
+</div>
+</fieldset>
+</div>
+</form>
+
+<input type=checkbox id=dump_sidebar_show>
+<form class=sidebar id=dump_sidebar>
+<label class=label for=dump_sidebar_show label="DUMP"></label>
+<div>
+<fieldset>
+<legend>текущий адрес</legend>
+<div class=line>
+<span id=cur_addr></span>
+<input class=btn type=button id=save_addr value="Запомнить" tabindex=1>
+</div>
+<div class=list id=addr_list></div>
+</fieldset>
+<fieldset>
+<legend>assm</legend>
+<div class=line>
+<span id=dump_code></span>
+<span id=dump_assm></span>
+</div>
+</fieldset>
+<fieldset>
+<legend>8-битное</legend>
+<div class=line>
+<input type=text name=dump_num data-size=1 data-role=hex tabindex=1>
+<input type=text name=dump_num data-size=1 data-role=udec tabindex=1>
+<input type=text name=dump_num data-size=1 data-role=sdec tabindex=1>
+</div>
+<div class="line label">
+<span>hex</span>
+<span>беззнаковое</span>
+<span>знаковое</span>
+</div>
+</fieldset>
+<fieldset>
+<legend>16-битное</legend>
+<div class=line>
+<input type=text name=dump_num data-size=2 data-role=hex tabindex=1>
+<input type=text name=dump_num data-size=2 data-role=udec tabindex=1>
+<input type=text name=dump_num data-size=2 data-role=sdec tabindex=1>
+</div>
+<div class="line label">
+<span>hex</span>
+<span>беззнаковое</span>
+<span>знаковое</span>
+</div>
+</fieldset>
+<fieldset>
+<legend>32-битное</legend>
+<div class=line>
+<input type=text name=dump_num data-size=4 data-role=hex tabindex=1>
+<input type=text name=dump_num data-size=4 data-role=udec tabindex=1>
+<input type=text name=dump_num data-size=4 data-role=sdec tabindex=1>
+</div>
+<div class="line label">
+<span>hex</span>
+<span>беззнаковое</span>
+<span>знаковое</span>
+</div>
+</fieldset>
+<fieldset class=search>
+<legend>поиск</legend>
+<div class=line>
+<div class=search tooltip="используйте префикс '0x'&#x0a;для ввода шестнадцатеричных чисел&#x0a;и '0b' для ввода двоичных">
+<input type=text name=search placeholder="&#x200b;" tabindex=1>
+<span data-a=reset_search>&#x2716;</span>
+</div>
+<input class=btn type=submit value="Искать" tabindex=1>
+</div>
+<div class=line>
+<div id=found>Найдено: </div>
+<div>
+<input type=checkbox id=search_type8 tabindex=1>
+<label for=search_type8> 8-битное</label>
+<input type=checkbox id=search_type16 tabindex=1>
+<label for=search_type16> 16-битное</label>
+<input type=checkbox id=search_type32 tabindex=1>
+<label for=search_type32> 32-битное</label>
+</div>
+</div>
+<div class=list id=found_list></div>
+</fieldset>
+</div>
+<popup-nav>
+<nav-title>DUMP</nav-title>
+<nav-body>
+<fieldset>
+<div class=line>
+<input type=checkbox id=resizable>
+<label for=resizable> изменяемый размер</label>
+</div>
+</fieldset>
+<fieldset>
+<div class=line>
+<input class=btn type=button id=download_bin value="Скачать как .bin">
+<input class=btn type=button id=download_rk value="Скачать как .rk">
+</div>
+</fieldset>
+</nav-body>
+</popup-nav>
+</form>
+
+</div>
+<div id=assm tabindex=2></div>
+<div id=ref>:
+<ol></ol>
+</div>
+</app-disassm>
+
+<app-menu>
+<span>&copy; Поединок Виталий, 2024</span>
+<span class=email><a href="mailto:vital72@86rk.ru?subject=disassm" target="_blank">написать мне</a></span>
+<span></span>
+<span><span>F1</span><a name=help>помощь</a></span>
+<span><span>F2</span><a name=save>сохранить</a></span>
+<span><span>F3</span><a name=open>открыть</a></span>
+<span><span>F4</span><a name=empty>пустой</a></span>
+<span><span>Alt</span>+<span>F2</span><a name=save_project>сохранить проект</a></span>
+<span class=conf>
+<a name=conf>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0,1h16v2H0V1z M0,7h16v2H0V7z M0,13h16v2H0V13z"/></rect></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.7,15.8L8,9.5l6.3,6.3l1.5-1.5L9.5,8l6.3-6.3l-1.5-1.5L8,6.5L1.7,0.2L0.2,1.7L6.5,8l-6.3,6.3L1.7,15.8z"/></svg>
+</a>
+</span>
+</app-menu>
+
+<app-conf>
+<h3>Стиль</h3>
+<ul>
+<li><a name=design design=blue>Синий</a>
+<li><a name=design design=dos>DOS</a>
+<li><a name=design design=amber>Amber</a>
+<li><a name=design design=violet>Фиолетовый</a>
+<li><a name=design design=green>Зелёный</a>
+<li><a name=design design=orange>Оранжевый</a>
+<li><a name=design design=gray>Серый</a>
+</ul>
+<hr>
+<h3>Цветовой фильтр</h3>
+<div class="slider0 toggle"><div id=mix_toggle on="ВКЛЮЧЕН" off="ВЫКЛЮЧЕН"></div></div>
+<div id=mix_color_filter>
+<input type=color id=mix_color>
+<span>непрозрачность:</span><b id=mix_opacity_val></b>
+<div class="slider0 slider"><div id=mix_opacity></div></div>
+<span>режим смешивания:</span><b id=mix_mode_val></b>
+<div class="slider0 slider"><div id=mix_mode></div></div>
+<input type=checkbox id=mix_css_filter_on>
+<label for=mix_css_filter_on> css filter:</label>
+<input type=text id=mix_css_filter>
+</div>
+<hr>
+<h3>Шрифт</h3>
+<div id=text_font>
+<input type=radio name=text_font id=__df_monospace value='monospace'>
+<label for=__df_monospace> monospace</label>
+<span class="font font-monospace">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_roboto_mono value='Roboto Mono'>
+<label for=__df_roboto_mono> Roboto Mono</label>
+<span class="font font-roboto-mono">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_noto_mono value='Noto Mono'>
+<label for=__df_noto_mono> Noto Mono</label>
+<span class="font font-noto-mono">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_pt_mono value='PT Mono'>
+<label for=__df_pt_mono> PT Mono</label>
+<span class="font font-pt-mono">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_jet_brains_mono value='Jet Brains Mono'>
+<label for=__df_jet_brains_mono> Jet Brains Mono</label>
+<span class="font font-jet-brains-mono">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_font_ibm_plex_mono value='IBM Plex Mono'>
+<label for=__df_font_ibm_plex_mono> IBM Plex Mono</label>
+<span class="font font-ibm-plex-mono">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_font_victor_mono value='Victor Mono'>
+<label for=__df_font_victor_mono> Victor Mono</label>
+<span class="font font-victor-mono">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_source_code_pro value='Source Code Pro'>
+<label for=__df_source_code_pro> Source Code Pro</label>
+<span class="font font-source-code-pro">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_pragmata_pro value='Pragmata Pro'>
+<label for=__df_pragmata_pro> Pragmata Pro</label>
+<span class="font font-pragmata-pro">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_iosevka value='Iosevka'>
+<label for=__df_iosevka> Iosevka</label>
+<span class="font font-iosevka">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_consolas value='Consolas'>
+<label for=__df_consolas> Consolas</label>
+<span class="font font-consolas">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_hack value='Hack'>
+<label for=__df_hack> Hack</label>
+<span class="font font-hack">0123456789ABCDEF</span>
+<input type=radio name=text_font id=__df_terminus value='Terminus'>
+<label for=__df_terminus> Terminus</label>
+<span class="font font-terminus">0123456789ABCDEF</span>
+</div>
+<hr>
+<h3>Размер шрифта грубо</h3>
+<div class="slider0 slider"><div id=text_font_size></div></div>
+<hr>
+<h3>Размер шрифта тонко</h3>
+<div class="slider0 slider"><div id=text_font_size_fine></div></div>
+<span>размер шрифта:</span><b id=text_font_size_val></b>
+<hr>
+<h3>Вид курсора</h3>
+<div id=cursor_shape>
+<input type=radio name=cursor_shape id=cursor_shape_lbl0 value=0>
+<label for=cursor_shape_lbl0>курсор в виде черты</label>
+<input type=radio name=cursor_shape id=cursor_shape_lbl1 value=1>
+<label for=cursor_shape_lbl1>курсор в виде блока</label>
+</div>
+<hr>
+<h3>Частота мерцания курсора</h3>
+<div id=cursor_blink>
+<input type=radio name=cursor_blink id=cursor_blink_lbl0 value=hi>
+<label for=cursor_blink_lbl0>высокая частота мерцания</label>
+<input type=radio name=cursor_blink id=cursor_blink_lbl1 value=mid>
+<label for=cursor_blink_lbl1>средняя частота мерцания</label>
+<input type=radio name=cursor_blink id=cursor_blink_lbl2 value=low>
+<label for=cursor_blink_lbl2>низкая частота мерцания</label>
+<input type=radio name=cursor_blink id=cursor_blink_lbl3 value=non>
+<label for=cursor_blink_lbl3>нет мерцания</label>
+</div>
+<hr>
+<h3>Директивы</h3>
+<span>Присваивание (EQU):</span>
+<input type=text id=dir_equ>
+<span>Адресный счётчик (ORG):</span>
+<input type=text id=dir_org>
+<span>Определение байта (DB):</span>
+<input type=text id=dir_db>
+<span>Определение слова (DW):</span>
+<input type=text id=dir_dw>
+<span>Резервирование памяти (DS):</span>
+<input type=text id=dir_ds>
+<hr>
+<h3>Шаблоны меток</h3>
+<span>метки переходов:</span>
+<input type=text id=lbl_jmp>
+<span>метки вызовов:</span>
+<input type=text id=lbl_sub>
+<span>метки внешних переходов:</span>
+<input type=text id=lbl_ext>
+<span>метки ссылок:</span>
+<input type=text id=lbl_ref>
+<span>метки внутренних переменных:</span>
+<input type=text id=lbl_var>
+<span>метки внешних переменных:</span>
+<input type=text id=lbl_vxt>
+<span>метки модификации кода:</span>
+<input type=text id=lbl_smc>
+<span>метки констант:</span>
+<input type=text id=lbl_cnst>
+<fieldset>
+<legend>Переменные шаблона</legend>
+<b>%NUM%</b><span> &mdash; порядковый номер метки</span>
+<br>
+<b>%ADDR%</b><span> &mdash; адрес метки / значение константы в hex</span>
+<br>
+<b>%OFFS%</b><span> &mdash; смещение от начала метки</span>
+</fieldset>
+<hr>
+<h3>Символические имена</h3>
+<fieldset id=symbol_list></fieldset>
+<div class=symbol_add>
+<input type=text id=symbol_addr placeholder="hex-адрес" maxlength=4>
+<input type=text id=symbol_name placeholder="имя символа">
+<span data-a=add_symbol>&#x2795;</span>
+</div>
+<hr>
+<h3>Кодировка текста</h3>
+<div id=text_encoding>
+<input type=radio name=text_encoding id=__te_86rk value=86RK>
+<label for=__te_86rk> Радио-86РК</label>
+<input type=radio name=text_encoding id=__te_koi8r value=KOI8R>
+<label for=__te_koi8r> КОИ-8</label>
+</div>
+<hr>
+<h3>Имя нового проекта</h3>
+<input type=text id=tpl_new_project_name>
+<hr>
+<h3>Хранилище</h3>
+<div class="slider0 toggle"><div id=storage_toggle on="ВКЛЮЧЕНО" off="ВЫКЛЮЧЕНО"></div></div>
+</fieldset>
+</app-conf>
+
+<app-status></app-status>
+
+<script id=tpl_addr_list type="text/template">
+<ul>
+{{{
+<li offs-%HEX(%OFFS%, 2)% data-mode=%MODE% data-offs=%OFFS% data-a=set_addr>
+<addr>%UPPER(%ADDR%)%</addr>
+<assm></assm>
+<span data-offs=%OFFS% data-a=del_addr>&#x2716;</span>
+}}}
+</ul>
+</script>
+
+<script id=tpl_found_list type="text/template">
+<ul>
+{{{
+<li offs-%HEX(%OFFS%, 2)% data-size=%SIZE% data-offs=%OFFS% data-a=set_addr>
+%UPPER(%ADDR%)%
+<div>[%?%EQ(%SIZE%, 1)%byte%:%%?%EQ(%SIZE%, 2)%word%:%%?%EQ(%SIZE%, 4)%dword?%?%?%]</div>
+}}}
+</ul>
+</script>
+
+<script id=tpl_symbol_list type="text/template">
+{{{
+<div><div>%ADDR%</div>:<div>%NAME%</div><span data-addr=%ADDR% data-a=del_symbol>&#x2716;</span></div>
+}}}
+</script>
+
+<script id=app_cfg type="text/template">
+%CFG({
+	APP_TITLE:		"Дизассемблер 580ВМ80 / i8080 / i8085 / Z80",
+	ERROR: {
+		NO_SUPPORT:	"Ваш браузер не поддерживает эту функцию",
+		FILE_SIZE:	"Недопустимый размер файла `**%NAME%**`",
+		UPLOAD_ERROR:	"Невозможно загрузить файл `**%NAME%**`%?: %MESS%?%",
+		LOAD_ERROR:	"Не удалось загрузить файл `**%NAME%**`%?: %STATUS%?%",
+		ORG:		"Неверно указан стартовый адрес: код выходит за границы области памяти",
+		WRONG_PROJECT:	"Неверный проект `**%SIGN%**`",
+		CORR_PROJECT:	"Файл проекта повреждён"
+	},
+	NOTICE: {
+		LOADED:		"Файл `**%NAME%**` загружен"
+	},
+	MODAL_TITLE: {
+		HELP:		"Помощь"
+	},
+	BIN_FILE_SIZE_LIMIT:	0x10000
+})%
+</script>

@@ -1,0 +1,22 @@
+h2 {
+	padding: 5px;
+	margin: 0;
+	text-align: center;
+	text-shadow: 0 -1px 0 #0004;
+}
+chat-main {
+	margin: 0;
+	line-height: 1.5;
+}
+tag {
+}
+body.click tag:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+ul {
+	padding-left: 30px;
+}
+li {
+	padding: 0.5em 0;
+}

@@ -1,0 +1,260 @@
+<app-title></app-title>
+<app-filename></app-filename>
+<app-editor class=app>
+<div id=matrix></div>
+<div id=table></div>
+<div id=ctrl>
+<div id=char></div>
+<canvas id=demo_char></canvas>
+<div id=code></div>
+<div id=demo_str></div>
+<span>Знакоместо:</span>
+<select id=font_size tabindex=-1>
+<optgroup id=view label="отображать"></optgroup>
+<optgroup id=conv label="переконвертировать"></optgroup>
+</select>
+<span>Таблица:</span>
+<select id=table_size tabindex=-1>
+<option value=128>128 символов
+<option value=256>256 символов
+</select>
+<span>Тип:</span>
+<select id=type tabindex=-1>
+<option value=0>прямой
+<option value=1>инверсный
+</select>
+<span>Файлы:</span>
+<select id=files tabindex=-1></select>
+<span>Выгрузка файла:</span>
+<select id=download tabindex=-1>
+<option value=0>.bin
+<option value=1>.png
+<option value=2>.asm
+</select>
+<select id=format tabindex=-1>
+<option value=0>посимвольно
+<option value=1>построчно
+</select>
+</div>
+</app-editor>
+
+<app-menu>
+<span>&copy; <a href="mailto:vital72@86rk.ru?subject=zeditor" target="_blank" tabindex=-1>Поединок Виталий</a>, 2024</span>
+<span></span>
+<span></span>
+<span><span>F1</span><a name=help>помощь</a></span>
+<span><span>F2</span><a name=save>сохранить</a></span>
+<span><span>F3</span><a name=open>открыть</a></span>
+<span><span>Alt+F3</span><a name=open_dialog>загрузить из базы</a></span>
+<span class=conf>
+<a name=conf>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0,1h16v2H0V1z M0,7h16v2H0V7z M0,13h16v2H0V13z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.7,15.8L8,9.5l6.3,6.3l1.5-1.5L9.5,8l6.3-6.3l-1.5-1.5L8,6.5L1.7,0.2L0.2,1.7L6.5,8l-6.3,6.3L1.7,15.8z"/></svg>
+</a>
+</span>
+</app-menu>
+
+<app-conf>
+<h3>Стиль</h3>
+<ul>
+<li><a name=design design=blue>Синий</a>
+<li><a name=design design=violet>Фиолетовый</a>
+<li><a name=design design=green>Зелёный</a>
+<li><a name=design design=orange>Оранжевый</a>
+</ul>
+<hr>
+<h3>Цветовой фильтр</h3>
+<div class="slider0 toggle"><div id=mix_toggle on="ВКЛЮЧЕН" off="ВЫКЛЮЧЕН"></div></div>
+<div id=mix_color_filter>
+<input type=color id=mix_color>
+<span>непрозрачность:</span><b id=mix_opacity_val></b>
+<div class="slider0 slider"><div id=mix_opacity></div></div>
+<span>режим смешивания:</span><b id=mix_mode_val></b>
+<div class="slider0 slider"><div id=mix_mode></div></div>
+<input type=checkbox id=mix_css_filter_on>
+<label for=mix_css_filter_on> css filter:</label>
+<input type=text id=mix_css_filter>
+</div>
+<hr>
+<h3>Выгрузка шрифтов в .png</h3>
+<div id=png_type>
+<input type=radio name=png_type id=__png_lbl0 value=0>
+<label for=__png_lbl0> в формате матрицы 16&times;16</label>
+<input type=radio name=png_type id=__png_lbl1 value=1>
+<label for=__png_lbl1> в формате строки</label>
+<input type=radio name=png_type id=__png_lbl2 value=2>
+<label for=__png_lbl2> в формате столбца</label>
+</div>
+<div id=png_size>
+<input type=radio name=png_size id=__png_size_lbl1 value=1>
+<label for=__png_size_lbl1> размер x1</label>
+<input type=radio name=png_size id=__png_size_lbl2 value=2>
+<label for=__png_size_lbl2> размер x2</label>
+<input type=radio name=png_size id=__png_size_lbl4 value=4>
+<label for=__png_size_lbl4> размер x4</label>
+</div>
+<hr>
+<h3>Шаблоны .asm-файлов</h3>
+<span>посимвольный формат данных:</span>
+<textarea id=tpl_char_by_char wrap=off spellcheck=false></textarea>
+<span>построчный формат данных:</span>
+<textarea id=tpl_line_by_line wrap=off spellcheck=false></textarea>
+<hr>
+<h3>Шаблоны имени файлов</h3>
+<span>для посимвольного формата:</span>
+<input type=text id=tpl_filename_format0>
+<span>для построчного формата:</span>
+<input type=text id=tpl_filename_format1>
+<div id=filename_format>
+<input type=radio name=filename_format id=__ff_lbl0 value=0>
+<label for=__ff_lbl0> применять ко всем шрифтам</label>
+<input type=radio name=filename_format id=__ff_lbl1 value=1>
+<label for=__ff_lbl1> только к новым шрифтам</label>
+</div>
+<fieldset>
+<legend>Переменные шаблона</legend>
+<b>%WIDTH%</b><span> &mdash; ширина шрифта в пикселах</span>
+<br>
+<b>%HEIGHT%</b><span> &mdash; высота шрифта в пикселах</span>
+<br>
+<b>%SIZE%</b><span> &mdash; размер таблицы символов (128/256)</span>
+<br>
+<b>%EXT%</b><span> &mdash; расширение файла (bin/png/asm)</span>
+<br>
+<b>%FILE_NUM%</b><span> &mdash; порядковый номер открытого файла</span>
+</fieldset>
+<hr>
+<h3>Имя нового шрифта</h3>
+<input type=text id=tpl_new_fontname>
+<hr>
+<h3>Демо-строка</h3>
+<input type=text id=inp_demo_str>
+<hr>
+<h3>Параметры</h3>
+<input type=checkbox id=hex_code><label for=hex_code>отображать hex-коды</label>
+<input type=checkbox id=double_size_demo><label for=double_size_demo>x2 размер демо-символа</label>
+<input type=checkbox id=inverted_demo_str><label for=inverted_demo_str>инверсия демо-строки</label>
+<hr>
+<h3>Пользовательские размеры</h3>
+<fieldset id=custom_size></fieldset>
+<div class=inp>
+<input type=checkbox id=custom_size_width><label for=custom_size_width val-w6=6 val-w8=8></label>
+<select id=custom_size_height></select>
+<span data-a=add_size>&#x2795;</span>
+</div>
+<hr>
+<h3>Кодовая таблица</h3>
+<div id=codepage>
+<input type=radio name=codepage id=__cp_lbl0 value=CP437>
+<label for=__cp_lbl0> CP437</label>
+<input type=radio name=codepage id=__cp_lbl1 value=CP866>
+<label for=__cp_lbl1> CP866</label>
+<input type=radio name=codepage id=__cp_lbl2 value=CP1251>
+<label for=__cp_lbl2> CP1251</label>
+<input type=radio name=codepage id=__cp_lbl3 value=KOI8R>
+<label for=__cp_lbl3> KOI8-R</label>
+<input type=radio name=codepage id=__cp_lbl4 value=KOI7_N0>
+<label for=__cp_lbl4> KOI-7 N0</label>
+<input type=radio name=codepage id=__cp_lbl5 value=KOI7_N1>
+<label for=__cp_lbl5> KOI-7 N1</label>
+<input type=radio name=codepage id=__cp_lbl6 value=KOI7_N2>
+<label for=__cp_lbl6> KOI-7 N2</label>
+</div>
+<hr>
+<h3>Язык</h3>
+<div id=lang>
+<input type=radio name=lang id=__lang_ru value=ru>
+<label for=__lang_ru> Русский</label>
+<input type=radio name=lang id=__lang_en value=en>
+<label for=__lang_en> English</label>
+</div>
+<hr>
+<h3>Хранилище шрифтов</h3>
+<div class="slider0 toggle"><div id=storage_toggle on="ВКЛЮЧЕНО" off="ВЫКЛЮЧЕНО"></div></div>
+</app-conf>
+
+<app-status></app-status>
+
+<script id=tpl_file_list type="text/template">
+<table class=menu>
+<thead>
+<tr>
+<th>#
+<th>Файл
+<th>Размер шрифта, WxH
+<th>Количество шрифтов в файле
+<th>Размер таблицы, символов
+<th>Размер файла, байт
+</tr>
+</thead>
+{{{
+<tr file=%FILE_ID%>
+<td name=modal class=counter>
+<td name=modal class=name>%FILE_NAME%
+<td name=modal>%FONT_SIZE%
+<td name=modal>%FONT_COUNT%
+<td name=modal>%TABLE_SIZE%
+<td name=modal>%FILE_SIZE%
+</tr>
+}}}
+</table>
+</script>
+
+<script id=tpl_char_by_char_def type="text/template">
+{{{:%CHAR_SIZE%
+%?%CC(1)%%("\t;  char 0x%HEX(%CHAR%)%")%?%
+%?%("\tDB\t")%%JOIN(
+	"0%UPPER(%HEX(%CODE%)%)%h",
+	", ",
+	%?%CC(%CHAR_SIZE%)%1%:%16?%
+)%?%
+}}}
+</script>
+
+<script id=tpl_line_by_line_def type="text/template">
+{{{
+LINE%LINE%:
+{{{
+%?%("\tDB\t")%%JOIN(
+	"0%UPPER(%HEX(%CODE%)%)%h",
+	", ",
+	16
+)%?%
+}}}
+}}}
+</script>
+
+<script id=tpl_custom_size type="text/template">
+{{{
+<div>
+<size w=%WIDTH% h=%HEIGHT%>&#x2A2F;</size>
+<span data-idx=%IDX% data-a=del_size>&#x2716;</span>
+</div>
+}}}
+</script>
+
+<script id=app_cfg type="text/template">
+%CFG({
+	APP_TITLE:		"Редактор растровых шрифтов",
+	ERROR: {
+		NO_SUPPORT:	"Ваш браузер не поддерживает эту функцию",
+		UPLOAD_ERROR:	"Невозможно загрузить файл `**%NAME%**`",
+		LOAD_ERROR:	"Не удалось загрузить файл `**%NAME%**`%?: %STATUS%?%",
+		FILE_SIZE:	"Недопустимый размер файла `**%NAME%**`. Неверный формат?",
+		FILE_IMG:	"Некорректный графический файл `**%NAME%**`."
+	},
+	NOTICE: {
+		LOADED:		"Файл `**%NAME%**` загружен",
+		COPIED_RANGE:	"Скопированы символы в диапазоне **0x%BEGIN%**&ndash;**0x%END%**",
+		COPIED_CHAR:	"Скопирован символ **0x%CODE%**",
+		CLEAR:		"Буфер символов очищен"
+	},
+	MODAL_TITLE: {
+		HELP:		"Помощь",
+		UPLOAD:		"Загрузить файл из базы",
+		PROJECT:	"Склейка шрифтов",
+		FONT_HEIGHT:	"Выберите высоту шрифта:",
+		TABLE_SIZE:	"Выберите размер таблицы символов:"
+	}
+})%
+</script>

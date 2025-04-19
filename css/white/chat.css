@@ -1,0 +1,197 @@
+@import "../chat.css";
+
+.app-chat {
+	--chat-me3: #e8f4ff;
+}
+chat-body>scrollbar+chat-view {
+	margin-left: 15px;
+}
+chat-chat {
+	padding: 5px;
+}
+chat-title {
+	color: #66f;
+}
+chat-main span.nick {
+	color: #39f;
+	text-shadow: 1px 1px 1px #0003;
+}
+chat-chat>div.ph span.time {
+	color: #6682b5;
+	padding-right: .5em;
+}
+chat-chat>div.ph span.time::before,
+chat-chat>div.ph span.time::after {
+	color: #f60;
+}
+chat-chat>div.ph>span.mess::before {
+	color: #f60;
+}
+chat-chat>div.ph.me2,
+chat-chat>div.ph.me3 {
+	margin: 0px -5px;
+	padding: 0px 5px;
+}
+chat-chat div.topic {
+	color: #f96;
+	background: #f901;
+	margin: 5px;
+	padding: 10px;
+}
+chat-chat .s1 {
+	color: #f60;
+}
+chat-chat div.me3 {
+	background: #e8f4ff;
+}
+chat-body>chat-win2 {
+	background: #fff;
+	border: groove 2px #f60;
+}
+chat-body>chat-win2>a.close-btn {
+	margin: -2px;
+	box-shadow: 1px 1px 3px #000d;
+}
+chat-body>chat-win2>a.close-btn:active {
+	box-shadow: none;
+}
+chat-body>chat-win2>span>span {
+	font: 700 11px arial;
+	color: #fc3;
+	background: linear-gradient(to right, #6e95ea, #415db1);
+	border-left: 3px solid #f60;
+	margin: 0 1px;
+	padding: 3px 12px;
+	text-shadow: -1px -1px #0004;
+	box-shadow: 1px 1px 3px #0008;
+}
+chat-body>chat-win2>span>span:hover:not(.cur) {
+	color: #000;
+	border-left: 3px solid #fca;
+	background: linear-gradient(to right, #9cb6f0, #788ece);
+	text-shadow: none;
+}
+chat-body>chat-win2>span>span:active:not(.cur) {
+	border-left: 3px solid #e5e5e5;
+	transform: translate(1px, 1px);
+}
+chat-body>chat-win2>span>span.cur {
+	color: #fff;
+	border-left: 3px solid #fff;
+	background: linear-gradient(to right, #6e95ea, #415db1);
+}
+chat-body>chat-win2 table.t th,
+chat-body>chat-win2 table.t td {
+	border: 1px solid #7c93ab;
+}
+chat-body>chat-win2 table.t th {
+	text-align: right;
+	padding: 1px 10px;
+}
+chat-body>chat-win2 .history a {
+	color: #5bd;
+}
+chat-body>chat-win2 td.hot-table .inp {
+	line-height: 19px;
+}
+chat-body>chat-win2 td.hot-table .inp:focus {
+	box-shadow: inset 1px 1px 6px -1px #0003;
+}
+chat-body>chat-win2 td.hot-table .btn.del {
+	font: 700 normal 30px/0 monospace;
+	padding: 0 6px 4px;
+	height: 23px;
+}
+chat-chat table.weather {
+	color: #90c;
+	background: #f5faff;
+}
+chat-chat table.weather th,
+chat-chat table.weather td {
+	border-color: #c16de2;
+}
+chat-chat table.weather td.tod {
+	color: #99c;
+}
+chat-chat div.anekdot {
+	background: #efefff;
+	border: 2px groove #bbbbff;
+}
+chat-chat div.bot-music>audio {
+	background: #f0f0f0;
+	border-color: #ccf;
+}
+chat-chat audio::-webkit-media-controls-panel {
+	filter: contrast(.2) sepia(1) hue-rotate(180deg) contrast(4);
+}
+chat-chat audio.attach {
+	background: aliceblue;
+}
+chat-chat table.info,
+chat-chat table.list {
+	color: #666;
+	background: #f5faff;
+	border-top: 1px solid #e0e7f3;
+	border-bottom: 1px solid #e0e7f3;
+}
+chat-chat table.list tr.capt {
+	font-weight: 700;
+	color: #7bd;
+	background: #355;
+	border-bottom: 1px solid #000;
+}
+chat-chat table.info tr:nth-child(even),
+chat-chat table.list tr:nth-child(even) {
+	background: #f5faff;
+}
+chat-chat table.list.online td>img {
+	vertical-align: middle;
+}
+chat-body>chat-win2>tab-view>table.games.list tr.ctrl {
+	background: #eff7ff;
+}
+chat-body>chat-win2>tab-view>table.games.list tr.capt {
+	background: #bdf;
+}
+chat-body>chat-win2>tab-view>table.games.list>tbody>tr:nth-child(2n+4) {
+	background: #fff7e9;
+}
+chat-body>chat-win2>tab-view>table.games.list>tbody>tr:nth-child(2n+5) {
+	background: #fffcf8;
+}
+chat-body>chat-win2 table.games.list th,
+chat-body>chat-win2 table.games.list td {
+	border-color: #fff;
+}
+chat-body>chat-win2>tab-view>table.games.game-list td.space {
+	filter: hue-rotate(180deg) saturate(5);
+}
+chat-body>chat-win2>tab-view>table.games.list tr.capt a.ctrl {
+	color: #666;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar td:not(:first-child) {
+	color: #caced7;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar a.ctrl[name="ctrl"] {
+	font-size: 100%;
+	color: #36f;
+	text-shadow: .6px 0 0;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar td:not(:first-child)::after {
+	color: #cca300;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar td:first-child {
+	color: #36f;
+}
+chat-body>chat-win2>tab-view>table.games table.calendar tr:nth-child(6) td:first-child,
+chat-body>chat-win2>tab-view>table.games table.calendar tr:nth-child(7) td:first-child {
+	color: #f00;
+}
+chat-body>chat-win2>tab-view>table.list a.ctrl[name="ctrl"] {
+	font-size: 90%;
+	color: #cca300;
+}
+view-img>img {
+	background: #fff;
+	border-color: #000;
+}

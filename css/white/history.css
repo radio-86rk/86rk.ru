@@ -1,0 +1,87 @@
+.history chat-chat>div.wait {
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 50%;
+	font: bold 20px verdana;
+	text-align: center;
+}
+.history chat-chat>div.sel {
+	background: linear-gradient(#ff00001a 90%, #ff00000d 90%);
+}
+.history chat-chat>div.hidden {
+	background: linear-gradient(#0000001a 90%, #0000000d 90%);
+	opacity: .5;
+}
+.history form.menu {
+	display: grid;
+	grid: 1fr 1fr/1fr 1fr;
+	height: auto;
+	font: normal 10pt verdana;
+	background: linear-gradient(#39f5, #fff);
+	box-shadow: inset 0 0 10px #33f4, 0 0 0 1px #bbf;
+	user-select: none;
+}
+.history form.menu>div {
+	line-height: 2;
+	padding: 0 10px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.history form.menu>div>div {
+	display: inline-block;
+}
+.history form.menu>div:nth-child(1) {
+	order: 1;
+	border-right: 1px solid #ddf;
+	border-bottom: 1px solid #ddf;
+}
+.history form.menu>div:nth-child(2) {
+	order: 3;
+	border-right: 1px solid #ddf;
+	border-top: 1px solid #fff;
+}
+.history form.menu>div:nth-child(3) {
+	order: 2;
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #ddf;
+	display: flex;
+	align-items: center;
+}
+.history form.menu>div:nth-child(4) {
+	order: 4;
+	border-left: 1px solid #fff;
+	border-top: 1px solid #fff;
+	display: flex;
+	justify-content: space-between;
+}
+.history form.menu div.day {
+	font-size: 0;
+}
+.history form.menu select.inp {
+	font: normal 400 14px sans-serif;
+	height: 25px;
+	width: initial;
+}
+.history form.menu .btn[name="show"] {
+	font-size: 140%;
+	line-height: 0;
+	height: 25px;
+	padding: 0 10px;
+}
+.history form.menu .btn[name="hide"] {
+	visibility: hidden;
+}
+.history form.menu.hide .btn[name="hide"] {
+	visibility: visible;
+}
+.history.moder chat-chat>div.ph {
+	margin-left: 24px;
+}
+.history.moder chat-chat>div.ph>div.check {
+	display: inline-block;
+	margin-left: -24px;
+}
+.history.moder chat-chat>div.ph>div.check+div[class^="s"] {
+	display: inline-block;
+}

@@ -1,0 +1,17 @@
+@import "../people.css";
+@import "../scrollbar.css";
+
+scrollbar {
+	--bg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAABBAMAAABwNtAyAAAAKlBMVEUAAAD////vpXT5+fnWo3bao3Lpo23FmmzanGPsomHckEu/h0TRgziAaiguFJeWAAAAAnRSTlMAf7YpoZUAAAAiSURBVAjXYwACYQEGEGA0BBK8JRGnJillM1x37VmppLYBADYgBmE+xXKXAAAAAElFTkSuQmCC);
+	--decor-repeat: repeat-y;
+}
+::-webkit-scrollbar {
+	width: 15px;
+}
+::-webkit-scrollbar-track {
+	box-shadow: inset 4px 0 6px #0004;
+	background: #fff;
+}
+::-webkit-scrollbar-thumb {
+	background: linear-gradient(to right, #806a28, #c59a6c, #d6a376, #daa372, #da9c63, #d18338, #dc904b, #eca261, #efa770, #efa476,#efa476, #e9a36d, #9c6e35) repeat-y;
+}

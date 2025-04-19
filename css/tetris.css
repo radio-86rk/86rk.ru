@@ -1,0 +1,416 @@
+modal-module.tetris {
+	font-family: tetris-font, verdana;
+	background: var(--window-bg, #3346);
+	padding: 0;
+	--crtl-right: 2px;
+	--crtl-top: 2px;
+	--ctrl-size: 27px;
+	--ctrl-border: 2px solid #f00;
+	--ctrl-radius: 0;
+	--ctrl-shadow: none;
+	--ctrl-bg: transparent;
+	--ctrl-decor-hover-bg: #400;
+	--ctrl-filter: brightness(4);
+}
+modal-module.tetris>modal-view {
+	overflow: hidden;
+	pointer-events: none;
+}
+modal-module.tetris>modal-view>tetris-title,
+modal-module.tetris>modal-view>tetris-game-over {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	z-index: 1;
+	inset: 0;
+	background: var(--window-shadow-bg, #0086);
+	visibility: hidden;
+}
+modal-module.tetris>modal-view.title>tetris-title,
+modal-module.tetris>modal-view.game-over>tetris-game-over {
+	visibility: visible;
+}
+modal-module.tetris>modal-view>tetris-game-over {
+	opacity: 0;
+	transition: opacity .5s;
+}
+modal-module.tetris>modal-view.game-over>tetris-game-over {
+	opacity: 1;
+}
+modal-module.tetris tetris-title>div.title {
+	font-size: 0;
+	margin: auto;
+	white-space: nowrap;
+}
+modal-module.tetris tetris-title>div.title>span {
+	font-size: var(--title-fs, 25vmin);
+	font-weight: 400;
+	letter-spacing: .1em;
+	text-shadow: var(--title-shadow, .3vmin .3vmin 0 #fffc, -.3vmin -.3vmin 0 #fffc, .3vmin -.3vmin 0 #fffc, -.3vmin .3vmin 0 #fffc, 0 .4vmin 0 #fffc, 0 -.4vmin 0 #fffc, 0 0 4vmin #000);
+}
+modal-module.tetris tetris-title span::after {
+	-webkit-text-stroke-width: .7vmin;
+}
+modal-module.tetris tetris-title span.t::after {
+	content: "T";
+	color: var(--title-color1, #f00a2e);
+	-webkit-text-stroke-color: var(--title-stroke-color1, #a7061c);
+}
+modal-module.tetris tetris-title span.e::after {
+	content: "E";
+	color: var(--title-color2, #fe7c0e);
+	-webkit-text-stroke-color: var(--title-stroke-color2, #fc1601);
+}
+modal-module.tetris tetris-title span.e+span.t::after {
+	content: "T";
+	color: var(--title-color3, #ffc31b);
+	-webkit-text-stroke-color: var(--title-stroke-color3, #ff7000);
+}
+modal-module.tetris tetris-title span.r::after {
+	content: "R";
+	color: var(--title-color4, #44bc2f);
+	-webkit-text-stroke-color: var(--title-stroke-color4, #118306);
+}
+modal-module.tetris tetris-title span.i::after {
+	content: "I";
+	color: var(--title-color5, #00b1e6);
+	-webkit-text-stroke-color: var(--title-stroke-color5, #004dc6);
+}
+modal-module.tetris tetris-title span.s::after {
+	content: "S";
+	color: var(--title-color6, #af1ca7);
+	-webkit-text-stroke-color: var(--title-stroke-color6, #5c074c);
+}
+
+modal-module.tetris tetris-game-over>div.title {
+	font-size: var(--game-over-fs, 10vmin);
+	line-height: var(--game-over-line-height, 20vmin);
+	letter-spacing: var(--game-over-letter-spacing, .1em);
+	color: var(--game-over-color, #600);
+	text-shadow: var(--game-over-shadow, 0 0 2vmin #ffffbe, 0 0 3vmin #ffffbe, 0 0 3vmin #ffffbe);
+	text-align: center;
+	margin: auto;
+}
+modal-module.tetris tetris-game-over>tetris-high-score {
+	display: table;
+	font-size: var(--high-score-fs, 3vmin);
+	font-weight: 400;
+	color: var(--high-score-color, #fff);
+	background: var(--high-score-bg, #0008);
+	padding: var(--high-score-padding, 3vmin 0);
+	box-shadow: var(--high-score-shadow, 0 0 2vmin #000);
+	height: 0;
+	margin: 0 auto;
+	white-space: nowrap;
+	overflow: hidden;
+	transition: height .5s;
+	counter-reset: high-score;
+}
+modal-module.tetris tetris-game-over>tetris-high-score>div::before {
+	counter-increment: high-score;
+	content: counter(high-score) ". ";
+	padding-left: var(--high-score-inline-padding, 10vmin);
+}
+modal-module.tetris tetris-game-over>tetris-high-score>div {
+	display: table-row;
+}
+modal-module.tetris tetris-game-over>tetris-high-score>div>div {
+	display: table-cell;
+	padding: 1vmin 3vmin .5vmin;
+}
+modal-module.tetris tetris-game-over>tetris-high-score>div>div:nth-child(1) {
+	color: var(--high-score-color1, #0f0);
+	max-width: 35vmin;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+modal-module.tetris tetris-game-over>tetris-high-score>div>div:nth-child(2) {
+	color: var(--high-score-color2, #fc0);
+}
+modal-module.tetris tetris-game-over>tetris-high-score>div>div:nth-child(3) {
+	color: var(--high-score-color3, #0ff);
+	text-align: right;
+	padding-right: var(--high-score-inline-padding, 10vmin);
+}
+modal-module.tetris tetris-game-over>tetris-high-score>div.hl {
+	background: var(--high-score-hl-color, #f006);
+	box-shadow: inset 0 0 3px 2px #f00;
+}
+modal-module.tetris tetris-game-over>tetris-high-score.loading::after {
+	content: "";
+	display: block;
+	width: 80vmin;
+	height: 6vmin;
+	margin: -3vmin;
+	box-shadow: 0 0 20px 1px #000 inset;
+	background: #9c9 repeating-linear-gradient(-45deg, #fff4, #fff4 3vmin, #fff0 0, #fff0 6vmin);
+	background-size: 600vmin 6vmin;
+	animation: tetris-loading 20s linear infinite;
+}
+@keyframes tetris-loading {
+	0% {
+		background-position-x: 0;
+	}
+	100% {
+		background-position-x: 100%;
+	}
+}
+
+modal-module.tetris div.bottom {
+	display: flex;
+	flex-direction: column;
+	padding: var(--bottom-padding, 4vmin);
+	margin: 0 auto;
+	white-space: nowrap;
+	visibility: hidden;
+	transition: visibility 0s 0s;
+}
+modal-module.tetris div.bottom>a {
+	display: inline-block;
+	font-size: var(--button-fs, 5vmin);
+	font-weight: 400;
+	text-align: center;
+	line-height: var(--button-line-height, 6vmin);
+	color: var(--button-color, #fff);
+	background: var(--button-bg, linear-gradient(to left, #a90329 0%, #8f0222 44%, #6d0019 100%));
+	box-shadow: var(--button-shadow, 0 0 2vmin #000c);
+	padding: var(--button-padding, 2vmin 12vmin 0);
+	margin: var(--button-margin, .5vmin 0 .5vmin 0);
+	border: var(--button-border-width, 1px) solid var(--button-border-color, #aaa);
+	border-radius: 4px;
+	cursor: pointer;
+	pointer-events: auto;
+}
+modal-module.tetris div.bottom>a::after {
+	content: "";
+	display: block;
+	position: relative;
+	top: calc(var(--button-decor-top, -8vmin) - var(--button-border-width, 1px));
+	left: var(--button-decor-left, -10vmin);
+	background: var(--button-decor-bg, linear-gradient(to left, #fff0 0%, #ffffffe6 50%, #fff0 100%));
+	margin: 0 var(--button-decor-margin, 0);
+	height: var(--button-decor-height, 2px);
+}
+modal-module.tetris div.bottom>a:hover {
+	color: var(--button-hover-color, #ff0);
+}
+modal-module.tetris div.bottom>a:active {
+	transform: translate(1px, 1px);
+}
+modal-module.tetris>modal-view.title>tetris-title>div.bottom,
+modal-module.tetris>modal-view.game-over>tetris-game-over>div.bottom {
+	visibility: visible;
+	transition: visibility 0s 1s;
+}
+modal-module.tetris:not(.continue)>modal-view>tetris-title>div.bottom>a.continue,
+modal-module.tetris.continue>modal-view>tetris-title>div.bottom>a:not(.continue) {
+	display: none;
+}
+
+modal-module.tetris>modal-view.wait a {
+	filter: grayscale(1) contrast(.5);
+	pointer-events: none;
+}
+
+modal-module.tetris tetris-game {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+modal-module.tetris tetris-game>* {
+	pointer-events: none;
+}
+modal-module.tetris tetris-game>tetris-info {
+	flex: 0 0 auto;
+	display: block;
+	margin: var(--info-margin, 0 0 0 4vmin);
+	font-weight: 400;
+	font-size: var(--info-fs, 5vmin);
+	line-height: var(--info-line-height, 6vmin);
+	color: var(--info-color, #eee);
+	background: var(--info-bg, #0004);
+	text-shadow: var(--info-shadow, 0 0 .4vmin #000, 0 0 .4vmin #000, 0 0 .4vmin #000);
+	white-space: nowrap;
+}
+modal-module.tetris tetris-game>tetris-info>* {
+	display: block;
+	padding: var(--info-padding, 4vmin 4vmin 0);
+	min-width: 7ch;
+}
+modal-module.tetris tetris-game>tetris-info>*[value]::after {
+	display: block;
+	content: attr(value);
+	color: var(--info-data-color, #fc0);
+	pointer-events: none;
+}
+modal-module.tetris tetris-game>tetris-info>tetris-next-piece {
+	font-size: 0;
+	padding-top: 0;
+	margin-bottom: var(--tetris-next-margin, 2vmin);
+}
+modal-module.tetris tetris-game>tetris-info>tetris-next-piece>tetris {
+	width: var(--tetris-next-width, 22vmin);
+	height: var(--tetris-next-height, 12vmin);
+	border: var(--tetris-next-border, 1vmin solid #000);
+	padding: var(--tetris-next-padding, 0);
+	background: var(--tetris-next-bg, none);
+}
+
+modal-module.tetris tetris-game>tetris {
+	padding: var(--tetris-padding, 1px);
+	border: var(--tetris-border, 3px solid #fff);
+	background: var(--tetris-bg, none);
+	box-shadow: var(--tetris-shadow, 0 0 15px #fff8);
+}
+modal-module.tetris tetris-game>tetris>div:last-child {
+	position: relative;
+	z-index: 3;
+	flex: 0 0 0;
+}
+modal-module.tetris tetris-game>tetris>div:last-child>div {
+	position: absolute;
+	font: var(--fly-font, 600 2.5vh arial);
+	padding: var(--fly-padding, .3vmin 1vmin 0);
+	top: calc(var(--height) + var(--top));
+	transition-property: all;
+	transition-timing-function: ease-in;
+	box-shadow: var(--fly-shadow, inset 0 0 .5vmin #000);
+	opacity: var(--fly-opacity, .5);
+}
+modal-module.tetris tetris-game>tetris>div:last-child>div.fly {
+	--top: 0px !important;
+}
+modal-module.tetris tetris-game>tetris>div:last-child>div.l1 {
+	background: var(--fly-l1-bg, #ff0);
+	color: var(--fly-l1-color, #090);
+	transition-duration: 1.5s;
+}
+modal-module.tetris tetris-game>tetris>div:last-child>div.l2 {
+	background: var(--fly-l2-bg, #0f0);
+	color: var(--fly-l2-color, #c00);
+	transition-duration: 2s;
+}
+modal-module.tetris tetris-game>tetris>div:last-child>div.l3 {
+	background: var(--fly-l3-bg, #00f);
+	color: var(--fly-l3-color, #fc0);
+	transition-duration: 3s;
+}
+modal-module.tetris tetris-game>tetris>div:last-child>div.l4 {
+	background: var(--fly-l4-bg, #0cf);
+	color: var(--fly-l4-color, #90c);
+	transition-duration: 4s;
+}
+
+modal-module.tetris tetris.pause {
+	background: var(--tetris-pause-bg, transparent);
+}
+modal-module.tetris tetris.pause>div {
+	visibility: hidden;
+}
+modal-module.tetris tetris.pause::after {
+	content: "PAUSE";
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	bottom: 0;
+	height: 0;
+	line-height: 0;
+	margin: auto;
+	align-self: center;
+	font-size: var(--pause-fs, 10vmin);
+	color: var(--pause-color, #000);
+	text-shadow: var(--pause-text-shadow, 0 0 7px #ffffbe, 0 0 8px #ffffbe, 0 0 10px #ffffbe);
+	pointer-events: none;
+}
+modal-module.tetris tetris.game-over {
+	filter: brightness(.7);
+}
+
+modal-module.tetris tetris-game>tetris.level::after {
+	content: attr(level);
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: 0;
+	right: 0;
+	font-size: 6vmin;
+	font-weight: 400;
+	color: var(--level-color, #fff);
+	text-shadow: var(--level-shadow, 0 0 1.5vmin #000);
+	line-height: 0;
+	text-align: center;
+	white-space: nowrap;
+	opacity: 0;
+	animation: tetris-level 1.5s linear;
+	pointer-events: none;
+}
+@keyframes tetris-level {
+	0% {
+		opacity: 1;
+		font-size: 1vmin;
+	}
+	10% {
+		font-size: 6vmin;
+	}
+	70% {
+		opacity: 1;
+		top: 55%;
+	}
+	100% {
+		opacity: 0;
+		top: 0;
+	}
+}
+
+modal-module.tetris tetris {
+	position: relative;
+	flex: 0 0 auto;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	font-size: 0;
+}
+modal-module.tetris tetris>div {
+	contain: layout;
+	display: flex;
+	flex: 1 0 auto;
+	pointer-events: none;
+}
+modal-module.tetris tetris>div>div {
+	contain: layout;
+	position: relative;
+	flex: 1 0 auto;
+	background: var(--tetris-cell-bg, #000);
+	border: var(--tetris-cell-border, none);
+	outline: var(--tetris-cell-outline, 1px solid #9909);
+	pointer-events: none;
+	will-change: background, border, outline, box-shadow;
+}
+modal-module.tetris tetris>div>div[class^="mino"] {
+	border: var(--tetris-mino-border, none);
+	outline: var(--tetris-mino-outline, none);
+	box-shadow: var(--tetris-mino-shadow, inset 0 0 0 1px #000, 0 0 0 1px #000);
+}
+modal-module.tetris tetris>div>div.mino1 {
+	background: var(--tetris-mino1, linear-gradient(#67fbc4, #48b3ff));
+}
+modal-module.tetris tetris>div>div.mino2 {
+	background: var(--tetris-mino2, linear-gradient(#ffee8c, #fda178));
+}
+modal-module.tetris tetris>div>div.mino3 {
+	background: var(--tetris-mino3, linear-gradient(#b101d6, #681ba3));
+}
+modal-module.tetris tetris>div>div.mino4 {
+	background: var(--tetris-mino4, linear-gradient(#00ff41, #418239));
+}
+modal-module.tetris tetris>div>div.mino5 {
+	background: var(--tetris-mino5, linear-gradient(#ff5481, #933d64));
+}
+modal-module.tetris tetris>div>div.mino6 {
+	background: var(--tetris-mino6, linear-gradient(#3a8bea, #712bd4));
+}
+modal-module.tetris tetris>div>div.mino7 {
+	background: var(--tetris-mino7, linear-gradient(#fb9651, #d24d1f));
+}

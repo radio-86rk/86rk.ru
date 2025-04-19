@@ -1,0 +1,8 @@
+@import "../people-index.css?1";
+
+div.content.people table.search th {
+	font-weight: 500;
+}
+div.content.people table.search tr.row td:first-of-type {
+	padding-left: 10px;
+}

@@ -1,0 +1,12 @@
+%ACTION% %CMD%:
+выводит список пользователей с заданным IP-адресом<br>вызов:
+<blockquote class=help>
+<ul>
+<li><b>/ip a.b.c.d</b> &mdash; находит пользователей с заданным IP <span>a.b.c.d</span>
+<li><b>/ip a.b.c</b> &mdash; находит пользователей в диапазоне адресов <span>a.b.c.0 &mdash; a.b.c.255</span>
+<li><b>/ip a.b</b> &mdash; находит пользователей в диапазоне адресов <span>a.b.0.0 &mdash; a.b.255.255</span>
+<li><b>/ip a</b> &mdash; находит пользователей в диапазоне адресов <span>a.0.0.0 &mdash; a.255.255.255</span>
+<li><b>/ip a.b.c.d/mask</b> &mdash; находит пользователей в подсети <span>a.b.c.d/mask</span>
+<li><b>/ip 0</b> &mdash; выводит всех пользователей с IP-адресами
+</ul>
+</blockquote>

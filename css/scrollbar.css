@@ -1,0 +1,10 @@
+scrollbar { --width: 15px; --m-width: calc(var(--width) * -1); position: absolute; z-index: 9; top: 0; bottom: 0; width: var(--width); display: block }
+scrollbar>slider { position: absolute; z-index: 1; right: 0; min-height: calc(var(--width) * 2); display: block }
+scrollbar div { position: absolute; top: 0; bottom: 0; right: 0; width: var(--width); margin: var(--width) 0; background-image: var(--bg); background-repeat: repeat-y }
+scrollbar div::before, scrollbar div::after { position: absolute; left: 0; height: var(--width); background-image: inherit; background-repeat: var(--decor-repeat, no-repeat); width: inherit; content: "" }
+scrollbar>slider>div { background-position: calc(var(--width) * -3) 0px }
+scrollbar>slider>div::before { background-position: calc(var(--width) * -2) 0; top: var(--m-width) }
+scrollbar>slider>div::after { background-position: calc(var(--width) * -2) var(--m-width); bottom: var(--m-width) }
+scrollbar>div { background-position: var(--m-width) 0; pointer-events: none }
+scrollbar>div::before { background-position: 0 0; top: var(--m-width) }
+scrollbar>div::after { background-position: 0 var(--m-width); bottom: var(--m-width) }

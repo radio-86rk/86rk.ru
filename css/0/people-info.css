@@ -1,0 +1,6 @@
+@import "../people-info.css";
+
+modal div.panel::-webkit-scrollbar,
+modal textarea::-webkit-scrollbar {
+	width: 13px;
+}
