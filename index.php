@@ -1,17 +1,13 @@
 <?php
-	if ($_SERVER ['HTTPS'] !== "on") {
-//		header ("Location: https://{$_SERVER ['HTTP_HOST']}/");
-//		exit;
-	}
-
-	require "include/crawlers.inc.php";
-	if (!crawlers::get ()::is_crawler ("../logs/86rk-crawler.log"))
-		crawlers::put_into_logfile ("../logs/86rk-access.log");
-
 	require "include/august.inc.php";
-
-	if ($_SERVER ['HTTP_HOST'] != "86rk.ru")
+	if (ACCESS_LOG) {
+		require "include/crawlers.inc.php";
+		if (!crawlers::get ()::is_crawler ("../logs/86rk-crawlers.log"))
+			crawlers::put_into_logfile ("../logs/86rk-access.log");
+	}
+	if ($_SERVER ['HTTP_HOST'] != "86rk.ru") {
 		header ("Link: <https://86rk.ru/>; rel=\"canonical\"");
+	}
 ?>
 <!doctype html>
 <html class=app-mps-html>

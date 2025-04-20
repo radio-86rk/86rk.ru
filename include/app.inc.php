@@ -1,11 +1,5 @@
 <?php
 	require "august.inc.php";
-	require "crawlers.inc.php";
-
-	function app_log ( $a ) {
-		if (!crawlers::get ()::is_crawler ("../../logs/{$a ['crawler-log']}.log"))
-			crawlers::put_into_logfile ("../../logs/{$a ['access-log']}.log");
-	}
 
 	function get_app () {
 		return substr (dirname ($_SERVER['SCRIPT_NAME']), 1);
@@ -40,31 +34,29 @@
 		return $cfg;
 	}
 
-	$APP         = defined ('APP_NAME') ? APP_NAME : get_app ();
-	$APP_VERSION = load_version ();
-	$CFG         = load_cfg ();
-	if ($CFG === null) {
-		die ("cfg error");
-	}
-	if ($_SERVER ['HTTPS'] !== "on") {
-//		header ("Location: https://{$_SERVER ['HTTP_HOST']}/$APP/");
-//		exit;
-	}
-	if ($_SERVER ['HTTP_HOST'] != "86rk.ru") {
-		header ("Link: <https://86rk.ru{$_SERVER ['REQUEST_URI']}>; rel=\"canonical\"");
-	}
-
 	header ("Cache-Control: no-cache");
 	header ("Pragma: no-cache");
 	header ("Expires: 0");
 
-	app_log ([
-		"crawler-log"	=> "86rk-$APP-crawler",
-		"access-log"	=> "86rk-$APP-access"
-	]);
+	$APP         = defined ('APP_NAME') ? APP_NAME : get_app ();
+	$APP_VERSION = load_version ();
+	$CFG         = load_cfg ();
+
+	if ($CFG === null)
+		die ("cfg error");
+
+	if ($_SERVER ['HTTP_HOST'] != "86rk.ru")
+		header ("Link: <https://86rk.ru{$_SERVER ['REQUEST_URI']}>; rel=\"canonical\"");
+
+	if (ACCESS_LOG) {
+		require "crawlers.inc.php";
+		if (!crawlers::get ()::is_crawler ("../../logs/86rk-$APP-crawlers.log"))
+			crawlers::put_into_logfile ("../../logs/86rk-$APP-access.log");
+	}
 
 	$LANG = august_get_lang ("en", [
 		"ru" => ["ru", "be", "uk", "ky", "ab", "mo", "et", "lv"]
 	]);
+
 	include "../layout/app.index.html";
 ?>
