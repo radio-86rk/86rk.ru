@@ -14,6 +14,12 @@
 
 Для работы сайта база данных не требуется.
 
+![Screenshot of disassm](https://86rk.ru/disassm/images/disassm.png)
+
+![Screenshot of raster font editor](https://86rk.ru/zeditor/images/zeditor.png)
+
+![Screenshot of emulator](https://86rk.ru/emulator/images/emulator.png)
+
 ## Лицензия
 
 [**MIT**](https://github.com/radio-86rk/86rk.ru/blob/main/LICENSE) © [**Vital72**](https://86rk.ru/)
