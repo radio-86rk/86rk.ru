@@ -1,5 +1,5 @@
 %ERROR_CFG({
-	dictaphone:	"Не удалось запустить диктофон: %ERROR%"
+	"dictaphone":	"Не удалось запустить диктофон: `%ERROR%`"
 })%
 <au-dictaphone>
 <au-bttn id=play></au-bttn>

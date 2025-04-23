@@ -1,5 +1,5 @@
 %ERROR_CFG({
-	videorecorder:	"Не удалось запустить видеомагнитофон. %ERROR%"
+	"video-recorder":	"Не удалось запустить видеомагнитофон: `%ERROR%`"
 })%
 <video-recorder>
 <video-video>
