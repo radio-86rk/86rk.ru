@@ -1422,21 +1422,21 @@ class zeditor extends app {
 			case "del_size": {
 				let idx = +e.$.dataset.idx
 				let s = this.CUSTOM_SIZE [idx]
-				if (s) {
-					let ss = `${s.w}x${s.h}`
-					this.FONT.delete (ss)
-					this.CUSTOM_SIZE.delete (idx)
-					this.init_custom_size ()
-					let view = this.$("font_size").$("optgroup#view")
-					let conv = this.$("font_size").$("optgroup#conv")
-					for (let o of view.children) {
-						if (o.value == ss)
-							view.remove (o)
-					}
-					for (let o of conv.children) {
-						if (o.value == ss)
-							conv.remove (o)
-					}
+				if (!s)
+					break
+				let ss = `${s.w}x${s.h}`
+				this.FONT.delete (ss)
+				this.CUSTOM_SIZE.delete (idx)
+				this.init_custom_size ()
+				let view = this.$("font_size").$("optgroup#view")
+				let conv = this.$("font_size").$("optgroup#conv")
+				for (let o of view.children) {
+					if (o.value == ss)
+						view.remove (o)
+				}
+				for (let o of conv.children) {
+					if (o.value == ss)
+						conv.remove (o)
 				}
 				break
 			}
