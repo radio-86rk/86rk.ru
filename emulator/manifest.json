@@ -9,7 +9,7 @@
 		"window-controls-overlay"
 	],
 	"orientation":"landscape",
-	"background_color": "#FFDCB5",
+	"background_color": "#000000",
 	"theme_color": "#1E003D",
 	"icons": [
 		{
