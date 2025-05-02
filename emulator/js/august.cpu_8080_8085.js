@@ -272,19 +272,19 @@ class august_cpu_8080 {
 		this.Regs.HL = this.Memory16.get (this.get_word ())
 	}
 	$inx ( c ) {
-		return this.store_reg16 (c >> 4, (this.load_reg16 (c >> 4) + 1).w0)
+		return this.store_reg16 (c >> 4, this.load_reg16 (c >> 4) + 1).w0
 	}
 	$dcx ( c ) {
-		return this.store_reg16 (c >> 4, (this.load_reg16 (c >> 4) - 1).w0)
+		return this.store_reg16 (c >> 4, this.load_reg16 (c >> 4) - 1).w0
 	}
 	$inr ( c ) {
-		let r = this.store_reg (c >> 3, (this.load_reg (c >> 3) + 1).b0)
+		let r = this.store_reg (c >> 3, this.load_reg (c >> 3) + 1).b0
 		this.Regs.F.SZP0 = r
 		this.Regs.F.AC = (r & 0x0F) == 0
 		return r
 	}
 	$dcr ( c ) {
-		let r = this.store_reg (c >> 3, (this.load_reg (c >> 3) - 1).b0)
+		let r = this.store_reg (c >> 3, this.load_reg (c >> 3) - 1).b0
 		this.Regs.F.SZP1 = r
 		this.Regs.F.AC = (r & 0x0F) != 0x0F
 		return r

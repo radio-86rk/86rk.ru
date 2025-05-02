@@ -27,23 +27,22 @@ august_run (() => {
 				return false
 			if (!n.history)
 				ROOT.put_history ({ app: n }, { app: "" }, null, `/${n}/`)
-			August.loadJS ("/js/august.app.js").then (() => {
-				fetch ("app.version").then (async r => {
-					this.$name = n
-					August.init ({ Version: r.ok ? await r.text () : "0" })
-					August.loadJS ("app.js").then (js => {
-						this.$manifest = document.head.append ("link", {
-							rel:	"manifest",
-							href:	"manifest.json"
-						})
-						if ("serviceWorker" in navigator)
-							navigator.serviceWorker.register ("sw.js")
-						ROOT.suspend_on ()
-						August.sync (window, _ => {
-							INIT.root.setClass ("app", 1)
-							this.$app [n] = app.run (n)
-						})
-					})
+			August.loadJS ("/js/august.app.js").then (async () => {
+				this.$name = n
+				let r = await fetch ("app.version")
+				let v = r.ok ? await r.text () : "0"
+				August.init ({ Version: v })
+				await August.loadJS ("app.js")
+				this.$manifest = document.head.append ("link", {
+					rel:	"manifest",
+					href:	"manifest.json"
+				})
+				if ("serviceWorker" in navigator)
+					navigator.serviceWorker.register (`sw.js?${v}`)
+				ROOT.suspend_on ()
+				August.sync (window, _ => {
+					INIT.root.setClass ("app", 1)
+					this.$app [n] = app.run (n)
 				})
 			})
 			return true

@@ -12,7 +12,7 @@ august_run (() => {
 		August.init ({ Version: Arg [3] })
 		August.loadJS ("app.js").then (_ => {
 			if ("serviceWorker" in navigator)
-				navigator.serviceWorker.register ("sw.js")
+				navigator.serviceWorker.register (`sw.js?${Arg [3]}`)
 			app.run (Arg [2], Arg [4]).august_version = Arg [1]
 		}).catch (e => {
 			console.log (e)

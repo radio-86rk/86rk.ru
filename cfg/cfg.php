@@ -1,6 +1,6 @@
 <?php
 	//
-	define ('VERSION',			'10.3.1a');
+	define ('VERSION',			'10.3.4b');
 
 	//  хост чата, важно! без http:// и завершающего слэша
 	define ('CHAT_HOST',			'86rk.august4u.ru');

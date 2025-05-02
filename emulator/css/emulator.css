@@ -96,6 +96,10 @@
 	pointer-events: none;
 	contain: strict;
 }
+#app>app-emulator>div.screen.fullscreen>canvas {
+	border: 0;
+	margin-bottom: var(--screen-margin-fs, 1px);
+}
 #app>app-emulator>div.screen>canvas.visible {
 	visibility: visible;
 }

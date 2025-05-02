@@ -4,7 +4,7 @@
 //  file: sw.js
 
 
-const VERSION = "2.7.17"
+const VERSION = location.search.substring (1)
 const APP_NAME  = "ZEdit-86RK"
 const CACHE_NAME  = `${APP_NAME}-${VERSION}`
 

@@ -4,7 +4,7 @@
 //  file: sw.js
 
 
-const VERSION = "1.2.4"
+const VERSION = location.search.substring (1)
 const APP_NAME  = "Emul-86RK"
 const CACHE_NAME  = `${APP_NAME}-${VERSION}`
 

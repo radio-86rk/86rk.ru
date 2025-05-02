@@ -1052,6 +1052,9 @@ class emulator extends app {
 		if (e.$.isParent (this.$("catalog"))) {
 			let c = e.$.parent ().dataset
 			if (c.file) {
+				if (August.now () - ~~this.CurCatalog.access < 500)
+					return
+				this.CurCatalog.access = August.now ()
 				let file = [... this.FilePath, c.file].join ("/")
 				await this.run_file (file, c.auto)
 				this.set_hash (btoa (JSON.stringify ({ comp: this.Current, file: file, auto: c.auto })))
@@ -1373,6 +1376,8 @@ class emulator extends app {
 				this.resume ()
 				KEYBOARD.on ()
 			}).on ("upload", async ( code, addr, go ) => {
+				if (this.#Uploading)
+					return
 				this.reset ()
 				for (let b of code)
 					MEMORY.set (addr++, b)
@@ -1380,6 +1385,7 @@ class emulator extends app {
 					return
 				addr -= code.length
 				this.suspend ()
+				this.#Uploading = true
 				const TICS = TICKS_PER_1MS
 				TICKS_PER_1MS = 10_000
 				new this.class_tapper (`G${addr.HEX16}\n`, 300).hook ()()
@@ -1387,6 +1393,7 @@ class emulator extends app {
 				PPI_KBD.hook = KEYBOARD.hook
 				TICKS_PER_1MS = TICS
 //				this.keyboard (1)
+				this.#Uploading = false
 				this.resume ()
 			}).on ("start", _ => {
 				if (!Stopped || ExecID === -1 || !this.app.active ())
@@ -1622,6 +1629,7 @@ class emulator extends app {
 		DMATics = 0
 		#InsertText = []
 		#Inserting = false
+		#Uploading = false
 	}
 
 	static radio_86rk = class radio_86rk extends emulator.platform {
