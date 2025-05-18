@@ -6,6 +6,7 @@
 			require "crawler.html";
 			exit;
 		}
+		crawlers::put_into_logfile ("../logs/86rk-chat-access.log");
 	}
 	$LANG = LANG;
 ?>

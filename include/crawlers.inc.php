@@ -134,7 +134,7 @@
 					$_SERVER ['REMOTE_ADDR'],
 					$_SERVER ['HTTP_USER_AGENT'],
 					$_SERVER ['HTTP_HOST'],
-					$_SERVER ['HTTP_REFERER']
+					$_SERVER ['HTTP_REFERER'] ?? ""
 				)
 				: sprintf (
 					"[%s] % 15s | %s | %s | %s\n",
@@ -142,7 +142,7 @@
 					$_SERVER ['REMOTE_ADDR'],
 					$_SERVER ['HTTP_USER_AGENT'],
 					$_SERVER ['HTTP_HOST'],
-					$_SERVER ['HTTP_REFERER']
+					$_SERVER ['HTTP_REFERER'] ?? ""
 				);
 
 			@file_put_contents ($file, $log, FILE_APPEND);
@@ -155,7 +155,7 @@
 				? self::LIST [$r [1]]
 				: preg_match ("`(bot|bots|crawler|spider)\b`i", $ua);
 			if ($crawler and $file)
-				put_into_logfile ($file, $crawler === 1 ? "" : $crawler);
+				self::put_into_logfile ($file, $crawler === 1 ? "" : $crawler);
 			return $crawler;
 		}
 

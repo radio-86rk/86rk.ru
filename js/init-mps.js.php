@@ -8,7 +8,7 @@
 	$MPS = get_test ('mps');
 	$CFG = @$MPS_CFG [$MPS];
 	$APL = get_test ('apl', $CFG ['APL'] ?: $MPS);
-	$TPL = get_test ('tpl', $CFG ['TPL']);
+	$TPL = get_test ('tpl', $CFG ['TPL'] ?? null);
 	$SID = get_test ('sid', isset ($CFG ['SID']) ? $CFG ['SID'] : -1);
 
 	header ("Content-Type: application/javascript");
