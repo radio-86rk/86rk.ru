@@ -54,6 +54,8 @@ class emulator extends app {
 			if (this.CompSelect.value == "new") {
 				this.CompSelect.value = this.Current
 				return this.custom_conf ()
+			} else if (this.CompSelect.value == "restart") {
+				this.Path = ""
 			}
 			this.set_hash ("")
 			await this.select (this.CompSelect.value == "restart" ? this.Current : void 0)
@@ -157,14 +159,15 @@ class emulator extends app {
 				let a = JSON.parse (atob (location.hash.substring (1)))
 				await this.select (a.comp)
 				await this.run_file (a.file, a.auto)
+				return true
 			} catch ( e ) {
 				console.log (e)
 			}
 		}
 
 		let FirstRun = this.STORAGE ("computer") === ""
-		await window.onhashchange ()
-		if (FirstRun)
+		let r = await window.onhashchange ()
+		if (FirstRun && !r)
 			this.run_file ("radio-86.rk")
 	}
 	done () {
@@ -359,6 +362,9 @@ class emulator extends app {
 		})
 	}
 	async load_catalog () {
+		if (this.Path == this.Comp.cfg.PATH)
+			return
+		this.Path = this.Comp.cfg.PATH
 		this.$("catalog").setClass ("busy", 1)
 		this.Catalog = await this.load (`soft/catalog.json.php?id=${this.Comp.cfg.PATH}`, "json")
 		this.$("catalog").setClass ("busy", 0)
@@ -1527,7 +1533,7 @@ class emulator extends app {
 		get class_io () {
 			return class extends august_io {
 				constructor ( comp, mem ) {
-					super ({
+					super (0x100, {
 						rw: [{
 							addr: 0x00,
 							size: 0x100,

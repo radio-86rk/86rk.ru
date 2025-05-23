@@ -512,7 +512,7 @@ class august_debuger_86rk {
 					this.view.appendHTML (this.line (addr))
 			}
 			if (isSet (addr) || this.outside (this.cursor.addr)) {
-				this.set_cursor (isSet (addr) ? addr : this.addr)
+				this.set_cursor (addr ?? this.addr)
 				this.set_mode ("code")
 			} else {
 				this.set_cursor (this.cursor.addr)

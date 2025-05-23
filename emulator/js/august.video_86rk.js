@@ -125,14 +125,6 @@ class august_video_86rk {
 		return this.Font [this.#FontPtr + idx]
 	}
 	rgb ( ch ) {
-/*
-		let blank = ch.blank && !ch.rvv
-		return {
-			r: ch.hglt || blank ? 0x00 : 0xFF,
-			g: ch.gpa1 || blank ? 0x00 : 0xFF,
-			b: ch.gpa0 || blank ? 0x00 : 0xFF
-		}
-*/
 		return {
 			r: ch.hglt ? 0x00 : 0xFF,
 			g: ch.gpa1 ? 0x00 : 0xFF,

@@ -118,12 +118,6 @@
 			'DuckDuckGo-Favicons-Bot/'	=> 'DuckDuckGo',
 			'paloaltonetworks.com'		=> 'Palo Alto'
 		];
-		private static $RE = "";
-
-		function __construct () {
-			$RE = implode ("|", array_keys (self::LIST));
-			self::$RE = "`\b($RE)\b`";
-		}
 
 		static function put_into_logfile ( $file, $extra = null ) {
 			$log = $extra !== null
@@ -132,7 +126,7 @@
 					date ("d.m.y H:i:s"),
 					$extra,
 					$_SERVER ['REMOTE_ADDR'],
-					$_SERVER ['HTTP_USER_AGENT'],
+					$_SERVER ['HTTP_USER_AGENT'] ?? "",
 					$_SERVER ['HTTP_HOST'],
 					$_SERVER ['HTTP_REFERER'] ?? ""
 				)
@@ -140,7 +134,7 @@
 					"[%s] % 15s | %s | %s | %s\n",
 					date ("d.m.y H:i:s"),
 					$_SERVER ['REMOTE_ADDR'],
-					$_SERVER ['HTTP_USER_AGENT'],
+					$_SERVER ['HTTP_USER_AGENT'] ?? "",
 					$_SERVER ['HTTP_HOST'],
 					$_SERVER ['HTTP_REFERER'] ?? ""
 				);
@@ -150,8 +144,9 @@
 
 		static function is_crawler ( $file = false, $ua = NULL ) {
 			if (!$ua)
-				$ua = $_SERVER ['HTTP_USER_AGENT'];
-			$crawler = preg_match (self::$RE, $ua, $r)
+				$ua = $_SERVER ['HTTP_USER_AGENT'] ?? "";
+			$RE = implode ("|", array_keys (self::LIST));
+			$crawler = preg_match ("`\b($RE)\b`", $ua, $r)
 				? self::LIST [$r [1]]
 				: preg_match ("`(bot|bots|crawler|spider)\b`i", $ua);
 			if ($crawler and $file)

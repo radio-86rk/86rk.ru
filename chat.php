@@ -2,7 +2,7 @@
 	require "include/august.inc.php";
 	if (ACCESS_LOG) {
 		require "include/crawlers.inc.php";
-		if (crawlers::get ()::is_crawler ()) {
+		if (crawlers::get ()::is_crawler ("../logs/86rk-chat-crawler.log")) {
 			require "crawler.html";
 			exit;
 		}

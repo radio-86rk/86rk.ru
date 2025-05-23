@@ -29,7 +29,7 @@ august_run (() => {
 				ROOT.put_history ({ app: n }, { app: "" }, null, `/${n}/`)
 			August.loadJS ("/js/august.app.js").then (async () => {
 				this.$name = n
-				let r = await fetch ("app.version")
+				let r = await fetch (`app.version?${Date.now ()}`)
 				let v = r.ok ? await r.text () : "0"
 				August.init ({ Version: v })
 				await August.loadJS ("app.js")

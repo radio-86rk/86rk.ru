@@ -5,10 +5,6 @@
 		return substr (dirname ($_SERVER['SCRIPT_NAME']), 1);
 	}
 
-	function load_version () {
-		return @file_get_contents ("app.version") ?: "0";
-	}
-
 	function load_cfg () {
 		$cfg_file = @file ("app.cfg", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 		$cfg      = [];
@@ -38,9 +34,8 @@
 	header ("Pragma: no-cache");
 	header ("Expires: 0");
 
-	$APP         = defined ('APP_NAME') ? APP_NAME : get_app ();
-	$APP_VERSION = load_version ();
-	$CFG         = load_cfg ();
+	$APP = defined ('APP_NAME') ? APP_NAME : get_app ();
+	$CFG = load_cfg ();
 
 	if ($CFG === null)
 		die ("cfg error");

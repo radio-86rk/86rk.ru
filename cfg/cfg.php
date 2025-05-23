@@ -1,6 +1,6 @@
 <?php
 	//
-	define ('VERSION',			'10.3.4b');
+	define ('VERSION',			'10.3.5');
 
 	//  хост чата, важно! без http:// и завершающего слэша
 	define ('CHAT_HOST',			'86rk.august4u.ru');
@@ -42,7 +42,7 @@
 	define ('MOBILE_MODULES',		'init:audio-player');
 
 	//  
-	define ('MOBILE',			preg_match ("`\bmobile|tablet|opera (?:mini|mobi)\b`i", $_SERVER ['HTTP_USER_AGENT']));
+	define ('MOBILE',			preg_match ("`\bmobile|tablet|opera (?:mini|mobi)\b`i", $_SERVER ['HTTP_USER_AGENT'] ?? ""));
 
 	//  код языка для загрузки файлов конфигурации
 	define ('LANG',				'ru');

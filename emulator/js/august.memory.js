@@ -91,9 +91,6 @@ class august_memory {
 }
 
 class august_io extends august_memory {
-	constructor ( mem ) {
-		super (0x100, mem)
-	}
 	interrupt ( iff ) {
 	}
 	halted () {
